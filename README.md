@@ -65,9 +65,77 @@ tables, headers, footers, fonts, or drawing objects.
 - `rawText`: all text from the Word binary piece table, including subdocuments
 - `bodyText`: raw main-document text
 - `paragraphs`: normalized non-empty body paragraphs
+- `paragraphProperties`: per-paragraph properties from PAPX pages, including `lineSpacing` and `styleId`
+- `characterRuns` / `characterProperties`: run formatting from CHPX pages, including font size, width, and character spacing
+- `fontTable`: FFN font records parsed from the table stream
+- `styles`: style sheet entries parsed from STSH, each with `name`, `type`, `styleId`, `basedOn`, `lineSpacing`, and run properties
 - `subdocuments`: Word subdocument ranges for body, headers, footnotes, etc.
 - `streams`: OLE2 stream names and sizes
 - `fib`: parsed Word binary FIB details used for extraction
+
+## WPS binary format specifics
+
+This section documents WPS-specific extensions to the standard Word 97 binary format
+that were discovered during development. Standard OLE2/CFB and Word binary structures
+(FIB, CLX, piece table, text encoding) are not repeated here.
+
+### STSH (Style Sheet) location
+
+The STSH is stored in the table stream (`0Table` or `1Table`) at the offset given by
+FIB FcLcb index 1 (`fcStshf` / `lcbStshf`). The header is:
+
+| Offset | Size | Field |
+|--------|------|-------|
+| 0 | 2 | `cbStshi` — size of Stshi header |
+| 2 | 2 | `cstd` — style count |
+| 4 | `cbStshi - 4` | remaining Stshi header (unused by this parser) |
+
+Each style descriptor (`Std`) follows at offset `2 + cbStshi`:
+
+| Offset | Size | Field |
+|--------|------|-------|
+| 0 | 2 | `cbStd` — size of this Std |
+| 2 | `cbStd` | Std data |
+
+The Std data layout (WPS-specific, 18-byte header before the name):
+
+| Offset | Size | Field |
+|--------|------|-------|
+| 0 | 1 | `styLo` — low nibble of byte 0 (style type, WPS encoding) |
+| 2 | 2 | `istdBase` — based-on style index (`>= 0xFFF0` = nil / no base) |
+| 18 | 2 | `cbName` — style name length in UTF-16 chars (not including null) |
+| 20 | `cbName * 2` | UTF-16LE style name |
+| 20 + `cbName * 2` | 2 | null terminator (UTF-16LE `0x0000`) |
+| 22 + `cbName * 2` | remaining | grpprl (SPRMs for this style) |
+
+Style type is inferred from the name since WPS's `styLo` field does not follow the
+standard Word 97 mapping (`1=paragraph, 2=character, 3=table, 4=list`).
+
+### PAPX (Paragraph Property) pages
+
+Paragraph properties are stored in `PlcfBtePapx` (FIB FcLcb index 13) which points
+to 512-byte pages in the `WordDocument` stream (at `PN * 512`). Each page contains:
+
+1. `aFC[]` — uint32 file-character positions (bin boundaries)
+2. `aPHE[]` — 12-byte paragraph height entries (one per paragraph in the bin)
+3. PAPX entries — one per paragraph, each: `cb` (1 byte) + `cb` bytes of data
+
+The PAPX data starts with a 2-byte `istd` (style index), followed by grpprl SPRMs.
+
+### SPRM 0x6412 — WPS line spacing
+
+WPS uses a non-standard SPRM `0x6412` for paragraph line spacing instead of the
+standard `sprmPDyaLine` (`0x2409`). Its operand is a 2-byte **signed** integer in twips:
+
+| Value | Meaning |
+|-------|---------|
+| negative | `exact` (固定值) — line height is exactly `|value|` twips |
+| positive | `atLeast` (最小值) — line height is at least `value` twips |
+
+Example: `-594` = 594 twips = 29.7 pt exact (固定值 29.7 磅).
+
+This SPRM can appear both in direct paragraph PAPX and in style grpprl within the STSH.
+The converter merges direct PAPX properties with the referenced style's properties.
 
 ## Supported path
 
@@ -77,6 +145,11 @@ The current parser supports the WPS fixtures in this repository by reading:
 2. Word binary FIB table-stream selection.
 3. The CLX/Pcdt piece table.
 4. UTF-16LE and compressed single-byte text pieces.
+5. STSH style sheet: style names, types, based-on relationships, and line spacing.
+6. PAPX paragraph properties: per-paragraph style references and direct line spacing.
+7. CHPX character properties: run-level font size, character width, and character spacing.
+8. FFN font records from the table stream.
+9. DOCX conversion emits `word/styles.xml`, `<w:pPr>` paragraph properties, paragraph-mark `<w:rPr>`, and split `<w:r>` runs.
 
 ## Use cases
 

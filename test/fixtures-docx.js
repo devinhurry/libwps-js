@@ -5,7 +5,11 @@ export function readDocxMainText(buffer) {
   return extractWordXmlText(documentXml);
 }
 
-function readZipEntry(buffer, entryName) {
+export function readDocxDocumentXml(buffer) {
+  return readZipEntry(buffer, "word/document.xml").toString("utf8");
+}
+
+export function readZipEntry(buffer, entryName) {
   const eocdOffset = findEndOfCentralDirectory(buffer);
   const centralDirectorySize = buffer.readUInt32LE(eocdOffset + 12);
   const centralDirectoryOffset = buffer.readUInt32LE(eocdOffset + 16);
