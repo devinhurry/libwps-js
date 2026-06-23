@@ -8,3 +8,4 @@ coverage/
 .nyc_output/
 converted*.docx
 test.json
+*-converted.docx

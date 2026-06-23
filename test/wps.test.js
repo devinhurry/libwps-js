@@ -9,6 +9,7 @@ const BASIC_WPS = "sample/basic/original.wps";
 const BASIC_DOCX = "sample/basic/expected.docx";
 const FULL_WPS = "sample/full/original.wps";
 const FULL_DOCX = "sample/full/expected.docx";
+const TABLE2_WPS = "sample/table2/original.wps";
 
 test("lists and reads OLE2 streams from a WPS file", async () => {
   const document = readWps(await readFile(FULL_WPS));
@@ -62,6 +63,36 @@ test("converts WPS text into a readable DOCX package", async () => {
 
   const convertedText = readDocxMainText(docx);
   assert.equal(normalizeComparableText(convertedText), normalizeComparableText(wps.bodyText));
+});
+
+test("extracts and emits table2 WPS table structure", async () => {
+  const wps = readWps(await readFile(TABLE2_WPS));
+
+  assert.deepEqual(wps.tableRows.map((table) => table.definitionIndex), [1, 2, 3]);
+  assert.deepEqual(wps.tableRows.map((table) => table.rows.map((row) => row.cells.length)), [
+    [4, 6, 4, 1, 4, 1, 5],
+    [5, 5, 5, 5, 5, 5, 5, 5],
+    [5, 3, 2],
+  ]);
+
+  const secondTableFirstCell = wps.bodyText.slice(
+    wps.tableRows[1].rows[0].cells[0].cpStart,
+    wps.tableRows[1].rows[0].cells[0].cpEnd,
+  );
+  assert.equal(secondTableFirstCell, "政策落实\r（30 分）\x07");
+
+  const docx = wpsToDocxBuffer(wps, { title: "table2" });
+  const xml = readDocxDocumentXml(docx);
+  const tableXmls = [...xml.matchAll(/<w:tbl>[\s\S]*?<\/w:tbl>/g)].map((match) => match[0]);
+  assert.equal(tableXmls.length, 3);
+  assert.deepEqual(tableXmls.map((tableXml) => [...tableXml.matchAll(/<w:tr>/g)].length), [7, 8, 3]);
+  assert.deepEqual(tableXmls.map((tableXml) => [...tableXml.matchAll(/<w:tc>/g)].length), [25, 40, 10]);
+  assert.match(tableXmls[0], /<w:tblW w:w="13118" w:type="dxa"\/>/);
+  assert.match(tableXmls[1], /政策落实[\s\S]*30[\s\S]*分/);
+
+  const sectionTypes = [...xml.matchAll(/<w:sectPr>([\s\S]*?)<\/w:sectPr>/g)]
+    .map((match) => /<w:type w:val="continuous"\/>/.test(match[1]) ? "continuous" : null);
+  assert.deepEqual(sectionTypes, ["continuous", "continuous", null, null]);
 });
 
 test("extracts paragraph line spacing from PAPX pages", async () => {

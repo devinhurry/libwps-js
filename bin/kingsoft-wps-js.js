@@ -4,7 +4,7 @@ import { readWpsFile } from "../src/index.js";
 const [, , filePath, mode = "text"] = process.argv;
 
 if (!filePath || mode === "--help" || mode === "-h") {
-  process.stderr.write("Usage: libwps-js <file.wps> [text|json|raw]\n");
+  process.stderr.write("Usage: kingsoft-wps-js <file.wps> [text|json|raw]\n");
   process.exit(filePath ? 0 : 1);
 }
 

@@ -1,7 +1,7 @@
 {
-  "name": "libwps-js",
+  "name": "kingsoft-wps-js",
   "version": "0.1.0",
-  "description": "Pure JavaScript reader for WPS Office OLE2 .wps files backed by Word binary streams.",
+  "description": "Pure JavaScript reader for Kingsoft/WPS Office OLE2 .wps files backed by Word binary streams.",
   "type": "module",
   "main": "./src/index.js",
   "exports": {
@@ -14,7 +14,7 @@
     "LICENSE"
   ],
   "bin": {
-    "libwps-js": "./bin/libwps-js.js",
+    "kingsoft-wps-js": "./bin/kingsoft-wps-js.js",
     "wps-to-docx": "./bin/wps-to-docx.js"
   },
   "scripts": {
@@ -46,12 +46,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/devinhurry/libwps-js.git"
+    "url": "git+https://github.com/devinhurry/kingsoft-wps-js.git"
   },
   "bugs": {
-    "url": "https://github.com/devinhurry/libwps-js/issues"
+    "url": "https://github.com/devinhurry/kingsoft-wps-js/issues"
   },
-  "homepage": "https://github.com/devinhurry/libwps-js#readme",
+  "homepage": "https://github.com/devinhurry/kingsoft-wps-js#readme",
   "engines": {
     "node": ">=18"
   }

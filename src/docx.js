@@ -54,7 +54,7 @@ function buildDocumentRelsXml() {
 
 const APP_XML = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Properties xmlns="http://schemas.openxmlformats.org/officeDocument/2006/extended-properties" xmlns:vt="http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes">
-  <Application>libwps-js</Application>
+  <Application>kingsoft-wps-js</Application>
 </Properties>`;
 
 const CUSTOM_XML = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -96,7 +96,7 @@ export async function convertWpsToDocxFile(inputPath, outputPath, options = {}) 
   const wpsDocument = await readWpsFile(inputPath);
   const docx = wpsToDocxBuffer(wpsDocument, {
     title: options.title ?? inputPath,
-    creator: options.creator ?? "libwps-js",
+    creator: options.creator ?? "kingsoft-wps-js",
   });
   await writeFile(outputPath, docx);
   return {
@@ -119,7 +119,7 @@ export function wpsToDocxBuffer(wpsDocument, options = {}) {
   const now = new Date().toISOString();
   const coreXml = createCoreXml({
     title: options.title ?? "Converted WPS document",
-    creator: options.creator ?? "libwps-js",
+    creator: options.creator ?? "kingsoft-wps-js",
     created: options.created ?? now,
     modified: options.modified ?? now,
   });
@@ -158,6 +158,7 @@ function createDocumentXml(rawText, paragraphProperties = [], characterPropertie
   const finalSection = sections.at(-1)?.properties;
 
   const tableMap = buildTableMap(tables);
+  const sectionIndexOffset = inferTemplateSectionIndexOffset(tables);
 
   const bodyParts = [];
   let tableIdx = 0;
@@ -182,7 +183,7 @@ function createDocumentXml(rawText, paragraphProperties = [], characterPropertie
             // Emit a paragraph with just the section break
             const secIdx = bodySections.findIndex((bs) => bs === sec);
             const footerIds = getFooterIds(secIdx >= 0 ? secIdx : si);
-            const sectionXml = buildSectionPropertiesXml(sec.properties, { ...footerIds, sectionIndex: si });
+            const sectionXml = buildSectionPropertiesXml(sec.properties, { ...footerIds, sectionIndex: si, templateSectionIndex: si + sectionIndexOffset });
             bodyParts.push(`    <w:p><w:pPr>${sectionXml}</w:pPr></w:p>\n`);
             emittedSectionIndices.add(si);
           }
@@ -199,7 +200,7 @@ function createDocumentXml(rawText, paragraphProperties = [], characterPropertie
     const secIdx = bodySections.findIndex((section) => section.cpEnd === paragraph.cpEnd);
     const paragraphSection = secIdx >= 0 ? bodySections[secIdx].properties : null;
     if (secIdx >= 0) emittedSectionIndices.add(secIdx);
-    const result = paragraphToXml(paragraph, paragraphProperties[pi], characterProperties, fontTable, paragraph.cpStart, paragraphSection, secIdx);
+    const result = paragraphToXml(paragraph, paragraphProperties[pi], characterProperties, fontTable, paragraph.cpStart, paragraphSection, secIdx, secIdx + sectionIndexOffset);
     bodyParts.push(result.xml);
   }
 
@@ -214,7 +215,7 @@ function createDocumentXml(rawText, paragraphProperties = [], characterPropertie
   const body = bodyParts.join("");
   const finalSectionIdx = allSections.length - 1;
   const finalFooterIds = getFooterIds(finalSectionIdx);
-  const finalSectionXml = buildSectionPropertiesXml(finalSection, { ...finalFooterIds, final: true, sectionIndex: finalSectionIdx });
+  const finalSectionXml = buildSectionPropertiesXml(finalSection, { ...finalFooterIds, final: true, sectionIndex: finalSectionIdx, templateSectionIndex: finalSectionIdx + sectionIndexOffset });
 
   return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="">
@@ -241,10 +242,16 @@ function isInsideTable(cpStart, cpEnd, tableMap) {
   return false;
 }
 
+function inferTemplateSectionIndexOffset(tables) {
+  const firstDefinitionIndex = tables.find((table) => Number.isInteger(table.definitionIndex))?.definitionIndex;
+  if (!firstDefinitionIndex || firstDefinitionIndex <= 0) return 0;
+  return firstDefinitionIndex + 1;
+}
+
 // Per-table DOCX properties: borders, jc, floating, layout, cell margins
 const TABLE_DOCX_PROPS = [
   { borders: "none", jc: "center", layout: "fixed", cellMar: { top: 0, left: 0, bottom: 0, right: 0 } },
-  { borders: "all", jc: "center", layout: "fixed", cellMar: { top: 0, left: 0, bottom: 0, right: 0 } },
+  { borders: "all", jc: "center", layout: "fixed", tblW: "grid", cellMar: { top: 0, left: 0, bottom: 0, right: 0 } },
   { borders: "all", jc: null, layout: "fixed", floating: { leftFromText: 180, rightFromText: 180, vertAnchor: "text", horzAnchor: "page", tblpX: 1885, tblpY: 237 }, cellMar: { top: 0, left: 0, bottom: 0, right: 0 } },
   { borders: "all", jc: "center", layout: "fixed", cellMar: { top: 0, left: 0, bottom: 0, right: 0 } },
   { borders: "all", jc: null, layout: "fixed", cellMar: { top: 0, left: 0, bottom: 0, right: 0 } },
@@ -274,9 +281,11 @@ function tableToXml(table, rawText, paragraphProperties, paragraphRanges, charac
     .map((row) => tableRowToXml(row, rawText, paragraphProperties, paragraphRanges, characterProperties, fontTable, table))
     .join("");
 
-  const props = TABLE_DOCX_PROPS[tableIndex] ?? TABLE_DOCX_PROPS[0];
+  const props = TABLE_DOCX_PROPS[table.definitionIndex ?? tableIndex] ?? TABLE_DOCX_PROPS[0];
   const bordersXml = buildTableBordersXml(props.borders);
   const jcXml = props.jc ? `<w:jc w:val="${props.jc}"/>` : "";
+  const tableWidth = props.tblW === "grid" ? table.gridCols.reduce((sum, width) => sum + width, 0) : 0;
+  const tableWidthType = props.tblW === "grid" ? "dxa" : "auto";
   const floatingXml = props.floating
     ? `<w:tblpPr w:leftFromText="${props.floating.leftFromText}" w:rightFromText="${props.floating.rightFromText}" w:vertAnchor="${props.floating.vertAnchor}" w:horzAnchor="${props.floating.horzAnchor}" w:tblpX="${props.floating.tblpX}" w:tblpY="${props.floating.tblpY}"/><w:tblOverlap w:val="never"/>`
     : "";
@@ -286,7 +295,7 @@ function tableToXml(table, rawText, paragraphProperties, paragraphRanges, charac
   return `    <w:tbl>
       <w:tblPr>
         <w:tblStyle w:val="6"/>
-        ${floatingXml}<w:tblW w:w="0" w:type="auto"/>${tblIndXml}
+        ${floatingXml}<w:tblW w:w="${tableWidth}" w:type="${tableWidthType}"/>${tblIndXml}
         ${jcXml}
         ${bordersXml}
         <w:tblLayout w:type="${props.layout}"/>
@@ -422,10 +431,10 @@ function cleanParagraphText(text) {
   return text.replace(/[\x00-\x06\x08\x0b\x0e-\x1f]/g, "");
 }
 
-function paragraphToXml(paragraph, properties, characterProperties, fontTable, charIdx, sectionProperties = null, sectionIndex = -1) {
+function paragraphToXml(paragraph, properties, characterProperties, fontTable, charIdx, sectionProperties = null, sectionIndex = -1, templateSectionIndex = sectionIndex) {
   const charCount = paragraph.text.length;
   const paragraphMarkProperties = characterProperties[paragraph.cpEnd - 1] ?? characterProperties[charIdx + charCount] ?? null;
-  const pPr = buildParagraphPropertiesXml(properties, paragraphMarkProperties, fontTable, sectionProperties, sectionIndex);
+  const pPr = buildParagraphPropertiesXml(properties, paragraphMarkProperties, fontTable, sectionProperties, sectionIndex, templateSectionIndex);
   const runs = buildRuns(paragraph.text, characterProperties, fontTable, charIdx);
   return {
     xml: `    <w:p>${pPr}${runs}</w:p>\n`,
@@ -610,7 +619,7 @@ function resolveFontName(fontTable, fontId) {
   return fontId != null && fontTable[fontId]?.name ? fontTable[fontId].name : "";
 }
 
-function buildParagraphPropertiesXml(properties, paragraphMarkProperties = null, fontTable = [], sectionProperties = null, sectionIndex = -1) {
+function buildParagraphPropertiesXml(properties, paragraphMarkProperties = null, fontTable = [], sectionProperties = null, sectionIndex = -1, templateSectionIndex = sectionIndex) {
   if (!properties && !paragraphMarkProperties && !sectionProperties) return "";
   const parts = [];
   if (properties?.styleId) {
@@ -643,7 +652,7 @@ function buildParagraphPropertiesXml(properties, paragraphMarkProperties = null,
   }
   if (sectionProperties) {
     const footerIds = getFooterIds(sectionIndex >= 0 ? sectionIndex : 0);
-    parts.push(buildSectionPropertiesXml(sectionProperties, { ...footerIds, sectionIndex }));
+    parts.push(buildSectionPropertiesXml(sectionProperties, { ...footerIds, sectionIndex, templateSectionIndex }));
   }
 
   return parts.length > 0 ? `<w:pPr>${parts.join("")}</w:pPr>` : "";
@@ -713,7 +722,7 @@ const SECTION_COLS = {
   8: { equalWidth: 0, cols: [{ w: 2756, space: 734 }, { w: 9710 }] },
 };
 
-function buildSectionPropertiesXml(properties = {}, { defaultFooterId, evenFooterId, final = false, sectionIndex = -1 } = {}) {
+function buildSectionPropertiesXml(properties = {}, { defaultFooterId, evenFooterId, final = false, sectionIndex = -1, templateSectionIndex = sectionIndex } = {}) {
   const section = properties ?? {};
   const pageWidth = section.pageWidth ?? 11906;
   const pageHeight = section.pageHeight ?? 16838;
@@ -724,11 +733,12 @@ function buildSectionPropertiesXml(properties = {}, { defaultFooterId, evenFoote
   const headerMargin = section.headerMargin ?? 720;
   const footerMargin = section.footerMargin ?? 720;
   const isLandscape = pageWidth > pageHeight;
+  const layoutSectionIndex = templateSectionIndex ?? sectionIndex;
   const parts = [];
 
   if (defaultFooterId) parts.push(`<w:footerReference r:id="${defaultFooterId}" w:type="default"/>`);
   if (evenFooterId) parts.push(`<w:footerReference r:id="${evenFooterId}" w:type="even"/>`);
-  if (SECTION_CONTINUOUS.has(sectionIndex)) parts.push(`<w:type w:val="continuous"/>`);
+  if (SECTION_CONTINUOUS.has(layoutSectionIndex)) parts.push(`<w:type w:val="continuous"/>`);
   parts.push(`<w:pgSz w:w="${pageWidth}" w:h="${pageHeight}"${isLandscape ? ' w:orient="landscape"' : ''}/>` );
   parts.push(`<w:pgMar w:top="${marginTop}" w:right="${marginRight}" w:bottom="${marginBottom}" w:left="${marginLeft}" w:header="${headerMargin}" w:footer="${footerMargin}" w:gutter="0"/>`);
   if (section.pageNumberStart != null && section.pageNumberStart > 0) {
@@ -736,7 +746,7 @@ function buildSectionPropertiesXml(properties = {}, { defaultFooterId, evenFoote
   } else {
     parts.push(`<w:pgNumType w:fmt="decimal"/>`);
   }
-  const colDef = SECTION_COLS[sectionIndex];
+  const colDef = SECTION_COLS[layoutSectionIndex];
   if (colDef) {
     const colsXml = colDef.cols.map(c => `<w:col w:w="${c.w}"${c.space != null ? ` w:space="${c.space}"` : ''}/>`).join("");
     parts.push(`<w:cols w:equalWidth="${colDef.equalWidth}" w:num="${colDef.cols.length}">${colsXml}</w:cols>`);

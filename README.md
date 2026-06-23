@@ -1,4 +1,4 @@
-# libwps-js — Pure JavaScript WPS Office `.wps` File Parser & DOCX Converter
+# kingsoft-wps-js — Pure JavaScript Kingsoft/WPS Office `.wps` File Parser & DOCX Converter
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
@@ -8,8 +8,8 @@
 [![Format](https://img.shields.io/badge/format-.wps-orange.svg)](#supported-path)
 [![Tests](https://img.shields.io/badge/tests-node--test-brightgreen.svg)](#tests)
 
-A pure JavaScript (no native dependencies) reader and text extractor for **WPS
-Office `.wps` files** that are stored as **OLE2 / CFB (Compound File Binary)**
+A pure JavaScript (no native dependencies) reader and text extractor for **Kingsoft/WPS
+Office Writer `.wps` files** that are stored as **OLE2 / CFB (Compound File Binary)**
 containers holding **Word binary streams** (`WordDocument`, `0Table` / `1Table`,
 `Data`). It parses the **Word FIB**, the **CLX / Pcdt piece table**, and both
 **UTF-16LE** and **compressed single-byte** text pieces to recover body text,
@@ -25,18 +25,18 @@ Includes a CLI plus a minimal **`.wps` → `.docx` (WordprocessingML) converter*
 - Walks the **CLX / Pcdt piece table** to extract text in the right order
 - Decodes **UTF-16LE** and **compressed (single-byte)** text pieces
 - Exposes body text, raw text, paragraphs, and **Word subdocument ranges**
-- Ships a CLI (`libwps-js`) and a **`.wps` to `.docx`** converter
+- Ships a CLI (`kingsoft-wps-js`) and a **`.wps` to `.docx`** converter
 
 ## Installation
 
 ```sh
-npm install libwps-js
+npm install kingsoft-wps-js
 ```
 
 ## Usage
 
 ```js
-import { readWpsFile } from "libwps-js";
+import { readWpsFile } from "kingsoft-wps-js";
 
 const document = await readWpsFile("ole2-full.wps");
 
@@ -47,15 +47,16 @@ console.log(document.paragraphs);
 ## CLI
 
 ```sh
-./bin/libwps-js.js ole2-full.wps text      # normalized body text
-./bin/libwps-js.js ole2-full.wps json      # parsed document as JSON
-./bin/libwps-js.js ole2-full.wps raw       # raw piece-table text
+./bin/kingsoft-wps-js.js ole2-full.wps text      # normalized body text
+./bin/kingsoft-wps-js.js ole2-full.wps json      # parsed document as JSON
+./bin/kingsoft-wps-js.js ole2-full.wps raw       # raw piece-table text
 ./bin/wps-to-docx.js ole2-full.wps out.docx  # convert .wps to .docx
 ```
 
-The DOCX converter emits a minimal **WordprocessingML** document from extracted
-body text and paragraph breaks. It does not yet recreate original page layout,
-tables, headers, footers, fonts, or drawing objects.
+The DOCX converter emits a **WordprocessingML** document from extracted text,
+paragraph properties, run formatting, sections, and supported table structures.
+Headers, footers, drawing objects, and unsupported legacy/native WPS formats are
+still out of scope.
 
 ## Returned document
 

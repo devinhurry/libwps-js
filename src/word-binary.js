@@ -899,8 +899,10 @@ function extractTableRows(wordDocument, tableStream, fib, pieces, bodyText, para
 
   const inTableMap = buildInTableMap(paragraphProperties, bodyText);
 
-  const tables = [];
+  const matchedTables = buildTablesFromMatchedDefinitions(TABLE_DEFS, allMarks, bodyText, inTableMap);
+  if (matchedTables.length > 0) return matchedTables;
 
+  const tables = [];
   for (let ti = 0; ti < TABLE_DEFS.length; ti++) {
     const tdef = TABLE_DEFS[ti];
     const [boundStart, boundEnd] = TABLE_BOUNDARIES[ti] ?? [0, bodyText.length];
@@ -908,10 +910,60 @@ function extractTableRows(wordDocument, tableStream, fib, pieces, bodyText, para
     if (tableMarks.length < 2) continue;
 
     const table = buildTableFromDef(tdef, tableMarks, bodyText, inTableMap, boundStart);
-    if (table) tables.push(table);
+    if (table) {
+      table.definitionIndex = ti;
+      tables.push(table);
+    }
   }
 
   return tables;
+}
+
+function buildTablesFromMatchedDefinitions(tableDefs, allMarks, bodyText, inTableMap) {
+  const match = findTableDefinitionRun(tableDefs, allMarks.length);
+  if (!match) return [];
+
+  const tables = [];
+  let markOffset = 0;
+  for (const { def, index } of match) {
+    const tableMarks = allMarks.slice(markOffset, markOffset + def.mc);
+    markOffset += def.mc;
+    if (tableMarks.length < 2) continue;
+
+    const tableStart = inferTableStart(bodyText, tableMarks[0], inTableMap);
+    const table = buildTableFromDef(def, tableMarks, bodyText, inTableMap, tableStart);
+    if (table) {
+      table.definitionIndex = index;
+      tables.push(table);
+    }
+  }
+  return tables;
+}
+
+function findTableDefinitionRun(tableDefs, markCount) {
+  for (let start = 0; start < tableDefs.length; start += 1) {
+    let sum = 0;
+    const run = [];
+    for (let i = start; i < tableDefs.length; i += 1) {
+      const def = tableDefs[i];
+      sum += def.mc;
+      run.push({ def, index: i });
+      if (sum === markCount) return run;
+      if (sum > markCount) break;
+    }
+  }
+  return null;
+}
+
+function inferTableStart(bodyText, firstMark, inTableMap) {
+  if (firstMark <= 0) return 0;
+  if (bodyText[firstMark - 1] === "\x07") return firstMark;
+
+  let scan = firstMark - 1;
+  while (scan >= 0 && inTableMap[scan] && bodyText[scan] !== "\x07" && bodyText[scan] !== "\x0c") {
+    scan -= 1;
+  }
+  return scan >= 0 ? scan + 1 : 0;
 }
 
 function buildInTableMap(paragraphProperties, bodyText) {
