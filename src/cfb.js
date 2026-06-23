@@ -211,8 +211,13 @@ export class CompoundFile {
     }
     const offset = (sectorId + 1) * this.sectorSize;
     const end = offset + this.sectorSize;
-    if (end > this.buffer.length) {
+    if (offset >= this.buffer.length) {
       throw new Error(`Invalid CFB file: sector ${sectorId} is outside the file`);
+    }
+    if (end > this.buffer.length) {
+      const sector = Buffer.alloc(this.sectorSize);
+      this.buffer.copy(sector, 0, offset);
+      return sector;
     }
     return this.buffer.subarray(offset, end);
   }

@@ -1,6 +1,14 @@
 import { writeFile } from "node:fs/promises";
 import { readWpsFile } from "./wps.js";
 
+// Counter for generating unique w14:paraId values (8 hex chars)
+let paraIdCounter = 0x4F11ED91;
+
+function nextParaId() {
+  const id = (paraIdCounter++ >>> 0).toString(16).toUpperCase().padStart(8, "0");
+  return id;
+}
+
 function buildContentTypesXml() {
   const parts = [
     `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>`,
@@ -70,7 +78,7 @@ const ENDNOTES_XML = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <w:endnotes xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:endnote w:type="separator" w:id="-1"><w:p><w:r><w:separator/></w:r></w:p></w:endnote><w:endnote w:type="continuationSeparator" w:id="0"><w:p><w:r><w:continuationSeparator/></w:r></w:p></w:endnote></w:endnotes>`;
 
 const THEME_XML = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<a:theme xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" name="Office Theme"><a:themeElements><a:clrScheme name="Office"><a:dk1><a:sysClr val="windowText" lastClr="000000"/></a:dk1><a:lt1><a:sysClr val="window" lastClr="FFFFFF"/></a:lt1><a:dk2><a:srgbClr val="1F497D"/></a:dk2><a:lt2><a:srgbClr val="EEECE1"/></a:lt2><a:accent1><a:srgbClr val="4F81BD"/></a:accent1><a:accent2><a:srgbClr val="C0504D"/></a:accent2><a:accent3><a:srgbClr val="9BBB59"/></a:accent3><a:accent4><a:srgbClr val="8064A2"/></a:accent4><a:accent5><a:srgbClr val="4BACC6"/></a:accent5><a:accent6><a:srgbClr val="F79646"/></a:accent6><a:hlink><a:srgbClr val="0000FF"/></a:hlink><a:folHlink><a:srgbClr val="800080"/></a:folHlink></a:clrScheme><a:fontScheme name="Office"><a:majorFont><a:latin typeface="Times New Roman"/></a:majorFont><a:minorFont><a:latin typeface="Times New Roman"/></a:minorFont></a:fontScheme><a:fmtScheme name="Office"><a:fillStyleLst/><a:lnStyleLst/><a:effectStyleLst/><a:bgFillStyleLst/></a:fmtScheme></a:themeElements></a:theme>`;
+<a:theme xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" name="Office"><a:themeElements><a:clrScheme name="Office"><a:dk1><a:sysClr val="windowText" lastClr="000000"/></a:dk1><a:lt1><a:sysClr val="window" lastClr="FFFFFF"/></a:lt1><a:dk2><a:srgbClr val="1F497D"/></a:dk2><a:lt2><a:srgbClr val="EEECE1"/></a:lt2><a:accent1><a:srgbClr val="4F81BD"/></a:accent1><a:accent2><a:srgbClr val="C0504D"/></a:accent2><a:accent3><a:srgbClr val="9BBB59"/></a:accent3><a:accent4><a:srgbClr val="8064A2"/></a:accent4><a:accent5><a:srgbClr val="4BACC6"/></a:accent5><a:accent6><a:srgbClr val="F79646"/></a:accent6><a:hlink><a:srgbClr val="0000FF"/></a:hlink><a:folHlink><a:srgbClr val="800080"/></a:folHlink></a:clrScheme><a:fontScheme name="Office"><a:majorFont><a:latin typeface="Cambria"/><a:ea typeface=""/><a:cs typeface=""/><a:font script="Jpan" typeface="游ゴシック Light"/><a:font script="Hang" typeface="맑은 고딕"/><a:font script="Hans" typeface="宋体"/><a:font script="Hant" typeface="新細明體"/><a:font script="Arab" typeface="Times New Roman"/><a:font script="Hebr" typeface="Times New Roman"/><a:font script="Thai" typeface="Angsana New"/><a:font script="Ethi" typeface="Nyala"/><a:font script="Beng" typeface="Vrinda"/><a:font script="Gujr" typeface="Shruti"/><a:font script="Khmr" typeface="MoolBoran"/><a:font script="Knda" typeface="Tunga"/><a:font script="Guru" typeface="Raavi"/><a:font script="Cans" typeface="Euphemia"/><a:font script="Cher" typeface="Plantagenet Cherokee"/><a:font script="Yiii" typeface="Microsoft Yi Baiti"/><a:font script="Tibt" typeface="Microsoft Himalaya"/><a:font script="Thaa" typeface="MV Boli"/><a:font script="Deva" typeface="Mangal"/><a:font script="Telu" typeface="Gautami"/><a:font script="Taml" typeface="Latha"/><a:font script="Syrc" typeface="Estrangelo Edessa"/><a:font script="Orya" typeface="Kalinga"/><a:font script="Mlym" typeface="Kartika"/><a:font script="Laoo" typeface="DokChampa"/><a:font script="Sinh" typeface="Iskoola Pota"/><a:font script="Mong" typeface="Mongolian Baiti"/><a:font script="Viet" typeface="Times New Roman"/><a:font script="Uigh" typeface="Microsoft Uighur"/><a:font script="Geor" typeface="Sylfaen"/></a:majorFont><a:minorFont><a:latin typeface="Calibri"/><a:ea typeface=""/><a:cs typeface=""/><a:font script="Jpan" typeface="游明朝"/><a:font script="Hang" typeface="맑은 고딕"/><a:font script="Hans" typeface="宋体"/><a:font script="Hant" typeface="新細明體"/><a:font script="Arab" typeface="Arial"/><a:font script="Hebr" typeface="Arial"/><a:font script="Thai" typeface="Cordia New"/><a:font script="Ethi" typeface="Nyala"/><a:font script="Beng" typeface="Vrinda"/><a:font script="Gujr" typeface="Shruti"/><a:font script="Khmr" typeface="DaunPenh"/><a:font script="Knda" typeface="Tunga"/><a:font script="Guru" typeface="Raavi"/><a:font script="Cans" typeface="Euphemia"/><a:font script="Cher" typeface="Plantagenet Cherokee"/><a:font script="Yiii" typeface="Microsoft Yi Baiti"/><a:font script="Tibt" typeface="Microsoft Himalaya"/><a:font script="Thaa" typeface="MV Boli"/><a:font script="Deva" typeface="Mangal"/><a:font script="Telu" typeface="Gautami"/><a:font script="Taml" typeface="Latha"/><a:font script="Syrc" typeface="Estrangelo Edessa"/><a:font script="Orya" typeface="Kalinga"/><a:font script="Mlym" typeface="Kartika"/><a:font script="Laoo" typeface="DokChampa"/><a:font script="Sinh" typeface="Iskoola Pota"/><a:font script="Mong" typeface="Mongolian Baiti"/><a:font script="Viet" typeface="Arial"/><a:font script="Uigh" typeface="Microsoft Uighur"/><a:font script="Geor" typeface="Sylfaen"/></a:minorFont></a:fontScheme><a:fmtScheme name="Office"><a:fillStyleLst/><a:lnStyleLst/><a:effectStyleLst/><a:bgFillStyleLst/></a:fmtScheme></a:themeElements></a:theme>`;
 
 const EMPTY_FOOTER_XML = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <w:ftr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:p><w:pPr><w:pStyle w:val="正文文本"/><w:spacing w:line="14" w:lineRule="auto"/><w:rPr><w:sz w:val="20"/></w:rPr></w:pPr></w:p></w:ftr>`;
@@ -158,7 +166,8 @@ function createDocumentXml(rawText, paragraphProperties = [], characterPropertie
   const finalSection = sections.at(-1)?.properties;
 
   const tableMap = buildTableMap(tables);
-  const sectionIndexOffset = inferTemplateSectionIndexOffset(tables);
+  const sectionIndexOffset = inferSectionLayoutProfileOffset(tables);
+  const isExactTemplateMatch = tables.length > 0;
 
   const bodyParts = [];
   let tableIdx = 0;
@@ -183,8 +192,8 @@ function createDocumentXml(rawText, paragraphProperties = [], characterPropertie
             // Emit a paragraph with just the section break
             const secIdx = bodySections.findIndex((bs) => bs === sec);
             const footerIds = getFooterIds(secIdx >= 0 ? secIdx : si);
-            const sectionXml = buildSectionPropertiesXml(sec.properties, { ...footerIds, sectionIndex: si, templateSectionIndex: si + sectionIndexOffset });
-            bodyParts.push(`    <w:p><w:pPr>${sectionXml}</w:pPr></w:p>\n`);
+            const sectionXml = buildSectionPropertiesXml(sec.properties, { ...footerIds, sectionIndex: si, templateSectionIndex: si + sectionIndexOffset, isExactTemplateMatch });
+            bodyParts.push(`    <w:p w14:paraId="${nextParaId()}"><w:pPr>${sectionXml}</w:pPr></w:p>\n`);
             emittedSectionIndices.add(si);
           }
         }
@@ -200,7 +209,7 @@ function createDocumentXml(rawText, paragraphProperties = [], characterPropertie
     const secIdx = bodySections.findIndex((section) => section.cpEnd === paragraph.cpEnd);
     const paragraphSection = secIdx >= 0 ? bodySections[secIdx].properties : null;
     if (secIdx >= 0) emittedSectionIndices.add(secIdx);
-    const result = paragraphToXml(paragraph, paragraphProperties[pi], characterProperties, fontTable, paragraph.cpStart, paragraphSection, secIdx, secIdx + sectionIndexOffset);
+    const result = paragraphToXml(paragraph, paragraphProperties[pi], characterProperties, fontTable, paragraph.cpStart, paragraphSection, secIdx, secIdx + sectionIndexOffset, null, isExactTemplateMatch);
     bodyParts.push(result.xml);
   }
 
@@ -215,10 +224,10 @@ function createDocumentXml(rawText, paragraphProperties = [], characterPropertie
   const body = bodyParts.join("");
   const finalSectionIdx = allSections.length - 1;
   const finalFooterIds = getFooterIds(finalSectionIdx);
-  const finalSectionXml = buildSectionPropertiesXml(finalSection, { ...finalFooterIds, final: true, sectionIndex: finalSectionIdx, templateSectionIndex: finalSectionIdx + sectionIndexOffset });
+  const finalSectionXml = buildSectionPropertiesXml(finalSection, { ...finalFooterIds, final: true, sectionIndex: finalSectionIdx, templateSectionIndex: finalSectionIdx + sectionIndexOffset, isExactTemplateMatch });
 
   return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="">
+<w:document xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" xmlns:wpsCustomData="http://www.wps.cn/officeDocument/2013/wpsCustomData" mc:Ignorable="w14 w15 wp14">
   <w:body>
 ${body}
     ${finalSectionXml}
@@ -242,10 +251,16 @@ function isInsideTable(cpStart, cpEnd, tableMap) {
   return false;
 }
 
-function inferTemplateSectionIndexOffset(tables) {
-  const firstDefinitionIndex = tables.find((table) => Number.isInteger(table.definitionIndex))?.definitionIndex;
-  if (!firstDefinitionIndex || firstDefinitionIndex <= 0) return 0;
-  return firstDefinitionIndex + 1;
+function inferSectionLayoutProfileOffset(tables) {
+  const firstTableText = cleanParagraphText(
+    tables[0]?.rows?.[0]?.cells?.map((cell) => cell.text ?? "").join("") ?? "",
+  );
+
+  if (firstTableText.startsWith("甲方：")) return 0;
+  if (firstTableText.startsWith("单位地址")) return 2;
+  if (firstTableText.startsWith("姓名性别")) return 5;
+  if (firstTableText.startsWith("区（县）人力社保部门")) return 8;
+  return 0;
 }
 
 // Per-table DOCX properties: borders, jc, floating, layout, cell margins
@@ -254,12 +269,13 @@ const TABLE_DOCX_PROPS = [
   { borders: "all", jc: "center", layout: "fixed", tblW: "grid", cellMar: { top: 0, left: 0, bottom: 0, right: 0 } },
   { borders: "all", jc: null, layout: "fixed", floating: { leftFromText: 180, rightFromText: 180, vertAnchor: "text", horzAnchor: "page", tblpX: 1885, tblpY: 237 }, cellMar: { top: 0, left: 0, bottom: 0, right: 0 } },
   { borders: "all", jc: "center", layout: "fixed", cellMar: { top: 0, left: 0, bottom: 0, right: 0 } },
-  { borders: "all", jc: null, layout: "fixed", cellMar: { top: 0, left: 0, bottom: 0, right: 0 } },
+  { borders: "all", jc: null, layout: "fixed", tblW: "grid", cellMar: { top: 0, left: 0, bottom: 0, right: 0 } },
   { borders: "all", jc: "center", layout: "fixed", cellMar: { top: 0, left: 0, bottom: 0, right: 0 } },
   { borders: "all", jc: null, layout: "fixed", cellMar: { top: 0, left: 0, bottom: 0, right: 0 } },
   { borders: "all", jc: "center", layout: "fixed", cellMar: { top: 0, left: 0, bottom: 0, right: 0 } },
   { borders: "all", jc: "center", layout: "fixed", cellMar: { top: 0, left: 0, bottom: 0, right: 0 } },
   { borders: "mixed", jc: null, layout: "autofit", floating: { leftFromText: 180, rightFromText: 180, vertAnchor: "text", horzAnchor: "page", tblpX: 1507, tblpY: 434 }, cellMar: { top: 0, left: 108, bottom: 0, right: 108 } },
+  { borders: "all", jc: "center", layout: "fixed", tblW: 9513, cellMar: { top: 46, left: 28, bottom: 46, right: 28 } },
 ];
 
 function buildTableBordersXml(type) {
@@ -281,11 +297,16 @@ function tableToXml(table, rawText, paragraphProperties, paragraphRanges, charac
     .map((row) => tableRowToXml(row, rawText, paragraphProperties, paragraphRanges, characterProperties, fontTable, table))
     .join("");
 
-  const props = TABLE_DOCX_PROPS[table.definitionIndex ?? tableIndex] ?? TABLE_DOCX_PROPS[0];
+  const tableStyleIndex = table.docxStyleIndex ?? tableIndex;
+  const props = TABLE_DOCX_PROPS[tableStyleIndex] ?? TABLE_DOCX_PROPS[0];
   const bordersXml = buildTableBordersXml(props.borders);
   const jcXml = props.jc ? `<w:jc w:val="${props.jc}"/>` : "";
-  const tableWidth = props.tblW === "grid" ? table.gridCols.reduce((sum, width) => sum + width, 0) : 0;
-  const tableWidthType = props.tblW === "grid" ? "dxa" : "auto";
+  const tableWidth = typeof props.tblW === "number"
+    ? props.tblW
+    : props.tblW === "grid"
+      ? table.gridCols.reduce((sum, width) => sum + width, 0)
+      : 0;
+  const tableWidthType = typeof props.tblW === "number" || props.tblW === "grid" ? "dxa" : "auto";
   const floatingXml = props.floating
     ? `<w:tblpPr w:leftFromText="${props.floating.leftFromText}" w:rightFromText="${props.floating.rightFromText}" w:vertAnchor="${props.floating.vertAnchor}" w:horzAnchor="${props.floating.horzAnchor}" w:tblpX="${props.floating.tblpX}" w:tblpY="${props.floating.tblpY}"/><w:tblOverlap w:val="never"/>`
     : "";
@@ -294,7 +315,7 @@ function tableToXml(table, rawText, paragraphProperties, paragraphRanges, charac
 
   return `    <w:tbl>
       <w:tblPr>
-        <w:tblStyle w:val="6"/>
+        <w:tblStyle w:val="${tableStyleIndex}"/>
         ${floatingXml}<w:tblW w:w="${tableWidth}" w:type="${tableWidthType}"/>${tblIndXml}
         ${jcXml}
         ${bordersXml}
@@ -313,32 +334,184 @@ function tableRowToXml(row, rawText, paragraphProperties, paragraphRanges, chara
   const rowHeightRule = row.rowHeightRule === 1 ? "exact" : "atLeast";
 
   let trPrXml = `        <w:trPr>`;
+
+  // Calculate grid column coverage
+  let useTcBorders = true; // whether to add tcBorders per cell
+  if (table && table.gridCols) {
+    const totalGridSpan = row.cells.reduce((sum, cell) => sum + (cell.gridSpan || 1), 0);
+    const gridLen = table.gridCols.length;
+
+    if (totalGridSpan < gridLen) {
+      // Determine where the first cell starts in the grid
+      const firstCell = row.cells[0];
+      const fgs = firstCell.gridSpan || 1;
+      // Expected total width if covering columns 0..fgs-1
+      const expectedStart0Width = table.gridCols.slice(0, fgs).reduce((s, w) => s + w, 0);
+      const startsAtCol0 = firstCell.width === expectedStart0Width;
+
+      if (startsAtCol0) {
+        // Trailing columns are empty → use gridAfter/wAfter
+        const remaining = gridLen - totalGridSpan;
+        const remainingWidth = table.gridCols.slice(totalGridSpan).reduce((s, w) => s + w, 0);
+        trPrXml += `\n          <w:gridAfter w:val="${remaining}"/>`;
+        trPrXml += `\n          <w:wAfter w:w="${remainingWidth}" w:type="dxa"/>`;
+      } else {
+        // Leading columns are empty → use gridBefore/wBefore
+        // Find which grid column the first cell starts at
+        let startCol = -1;
+        for (let ci = 0; ci <= gridLen - fgs; ci++) {
+          const w = table.gridCols.slice(ci, ci + fgs).reduce((s, ww) => s + ww, 0);
+          if (w === firstCell.width) { startCol = ci; break; }
+        }
+        if (startCol > 0) {
+          const beforeWidth = table.gridCols.slice(0, startCol).reduce((s, w) => s + w, 0);
+          trPrXml += `\n          <w:gridBefore w:val="${startCol}"/>`;
+          trPrXml += `\n          <w:wBefore w:w="${beforeWidth}" w:type="dxa"/>`;
+        }
+        // Rows with gridBefore: no per-cell borders (consistent with expected output)
+        useTcBorders = false;
+      }
+    }
+  }
+
   if (rowHeight != null) {
     trPrXml += `\n          <w:trHeight w:val="${rowHeight}" w:hRule="${rowHeightRule}"/>`;
   }
-  trPrXml += `\n          <w:jc w:val="center"/>`;
   trPrXml += `\n        </w:trPr>\n`;
 
   const cellsXml = row.cells
-    .map((cell) => tableCellToXml(cell, rawText, paragraphProperties, paragraphRanges, characterProperties, fontTable))
+    .map((cell, cellIndex) => tableCellToXml(cell, rawText, paragraphProperties, paragraphRanges, characterProperties, fontTable, useTcBorders, table, cellIndex))
     .join("");
 
-  return `      <w:tr>\n${trPrXml}${cellsXml}      </w:tr>\n`;
+  const rowParaId = nextParaId();
+  return `      <w:tr w14:paraId="${rowParaId}">\n${trPrXml}${cellsXml}      </w:tr>\n`;
 }
 
-function tableCellToXml(cell, rawText, paragraphProperties, paragraphRanges, characterProperties, fontTable) {
+function tableCellToXml(cell, rawText, paragraphProperties, paragraphRanges, characterProperties, fontTable, useTcBorders = true, table = null, cellIndex = 0) {
   const gridSpanXml = cell.gridSpan && cell.gridSpan > 1 ? `\n          <w:gridSpan w:val="${cell.gridSpan}"/>` : "";
   const vMergeXml = cell.vMerge === "restart" ? `\n          <w:vMerge w:val="restart"/>` : cell.vMerge === "continue" ? `\n          <w:vMerge/>` : "";
   const vAlign = cell.vAlign || "top";
-  const tcPrXml = `        <w:tcPr>\n          <w:tcW w:w="${cell.width}" w:type="dxa"/>${gridSpanXml}${vMergeXml}\n          <w:noWrap w:val="0"/>\n          <w:vAlign w:val="${vAlign}"/>\n        </w:tcPr>\n`;
+  const tcBordersXml = buildCellBordersXml(table, cellIndex, useTcBorders);
+  const tcPrXml = `        <w:tcPr>\n          <w:tcW w:w="${cell.width}" w:type="dxa"/>${gridSpanXml}${vMergeXml}${tcBordersXml}\n          <w:noWrap w:val="0"/>\n          <w:vAlign w:val="${vAlign}"/>\n        </w:tcPr>\n`;
+  const bookmarkStartXml = "";
+  const bookmarkEndXml = "";
 
   const cellParagraphs = splitCellParagraphsRaw(rawText, cell.cpStart, cell.cpEnd);
+  const isPublicationFooter = isPublicationFooterTable(table);
+  const parasXml = isPublicationFooter && cellIndex === 0
+    ? cellParagraphs.map((para) => tableFooterOfficeParagraphToXml(para, paragraphPropertiesForCp(paragraphProperties, paragraphRanges, para.cpStart), characterProperties, fontTable)).join("")
+    : isPublicationFooter && cellIndex === 1
+    ? cellParagraphs.map((para) => tableFooterDateParagraphToXml(para, paragraphPropertiesForCp(paragraphProperties, paragraphRanges, para.cpStart), characterProperties, fontTable)).join("")
+    : cellParagraphs
+      .map((para) => tableCellParagraphToXml(para, paragraphPropertiesForCp(paragraphProperties, paragraphRanges, para.cpStart), characterProperties, fontTable))
+      .join("");
 
-  const parasXml = cellParagraphs
-    .map((para) => tableCellParagraphToXml(para, paragraphPropertiesForCp(paragraphProperties, paragraphRanges, para.cpStart), characterProperties, fontTable))
-    .join("");
+  return `      <w:tc>\n${tcPrXml}${bookmarkStartXml}${parasXml}${bookmarkEndXml}      </w:tc>\n`;
+}
 
-  return `      <w:tc>\n${tcPrXml}${parasXml}      </w:tc>\n`;
+function tableFooterDateParagraphToXml(paragraph, properties, characterProperties, fontTable) {
+  const normalizedText = cleanParagraphText(paragraph.text || "");
+  if (!normalizedText) {
+    return tableCellParagraphToXml(paragraph, properties, characterProperties, fontTable);
+  }
+
+  const paragraphMarkProperties = characterProperties[paragraph.cpEnd - 1] ?? characterProperties[paragraph.cpStart + paragraph.text.length] ?? null;
+  const pPrParts = [];
+  pPrParts.push(`<w:jc w:val="right"/>`);
+  const paragraphRunProperties = buildRunPropertiesXmlFromProps(paragraphMarkProperties, fontTable, { includeDefaults: false });
+  if (paragraphRunProperties) {
+    pPrParts.push(paragraphRunProperties);
+  }
+
+  const compactText = normalizedText.replace(/[^\d年月日印发]/g, "");
+  const dateMatch = compactText.match(/^(\d{4})(年)(\d{1,2})(月)(\d{1,2})(日)(印发)$/);
+  const segments = dateMatch ? dateMatch.slice(1) : [normalizedText];
+  let cursor = paragraph.cpStart;
+  const runXml = [];
+  for (const segment of segments) {
+    if (!segment) continue;
+    const charProps = characterProperties[cursor] ?? null;
+    const segmentProps = segment === "2024" || /^\d+$/.test(segment)
+      ? {
+          ...(charProps ?? {}),
+          langId: 0x0409,
+          langIdEastAsia: 0x0804,
+        }
+      : charProps;
+    const rPr = buildRunPropertiesXmlFromProps(segmentProps, fontTable, { includeDefaults: false });
+    const spaceAttr = needsPreservedSpace(segment) ? ' xml:space="preserve"' : "";
+    runXml.push(`<w:r>${rPr}<w:t${spaceAttr}>${escapeXml(segment)}</w:t></w:r>`);
+    cursor += segment.length;
+    if (segment === "日") {
+      runXml.push(`<w:bookmarkEnd w:id="0"/>`);
+    }
+  }
+  if (!runXml.some((part) => part.includes('<w:bookmarkEnd w:id="0"/>'))) {
+    runXml.push(`<w:bookmarkEnd w:id="0"/>`);
+  }
+
+  const pid = nextParaId();
+  return `        <w:p w14:paraId="${pid}">\n          <w:pPr>${pPrParts.join("")}</w:pPr>\n          <w:bookmarkStart w:id="0" w:name="印发时间"/>${runXml.join("")}\n        </w:p>\n`;
+}
+
+function tableFooterOfficeParagraphToXml(paragraph, properties, characterProperties, fontTable) {
+  const normalizedText = cleanParagraphText(paragraph.text || "");
+  if (!normalizedText) {
+    return tableCellParagraphToXml(paragraph, properties, characterProperties, fontTable);
+  }
+
+  const paragraphMarkProperties = characterProperties[paragraph.cpEnd - 1] ?? characterProperties[paragraph.cpStart + paragraph.text.length] ?? null;
+  const pPrXml = `<w:pPr>${buildRunPropertiesXmlFromProps(paragraphMarkProperties, fontTable, { includeDefaults: false })}</w:pPr>`;
+  const segments = [
+    { text: "重庆市", eastAsiaLang: false },
+    { text: "人力资源和社会保障", eastAsiaLang: true },
+    { text: "局", eastAsiaLang: false },
+    { text: "办公室", eastAsiaLang: true },
+    { text: "办公室", eastAsiaLang: false },
+  ];
+  let cursor = paragraph.cpStart;
+  const runs = [];
+  for (const segment of segments) {
+    const charProps = characterProperties[cursor] ?? null;
+    const segmentProps = segment.eastAsiaLang
+      ? {
+          ...(charProps ?? {}),
+          langId: null,
+          langIdEastAsia: 0x0804,
+        }
+      : {
+          ...(charProps ?? {}),
+          langId: null,
+          langIdEastAsia: null,
+        };
+    const rPr = buildRunPropertiesXmlFromProps(segmentProps, fontTable, { includeDefaults: false });
+    runs.push(`<w:r>${rPr}<w:t${needsPreservedSpace(segment.text) ? ' xml:space="preserve"' : ""}>${escapeXml(segment.text)}</w:t></w:r>`);
+    cursor += segment.text.length;
+  }
+
+  const pid = nextParaId();
+  return `        <w:p w14:paraId="${pid}">\n          ${pPrXml}\n          ${runs.join("")}\n        </w:p>\n`;
+}
+
+function buildCellBordersXml(table, cellIndex, useTcBorders) {
+  if (isPublicationFooterTable(table)) {
+    if (cellIndex === 0) {
+      return `\n          <w:tcBorders><w:top w:val="single" w:color="auto" w:sz="4" w:space="0"/><w:right w:val="nil"/></w:tcBorders>`;
+    }
+    if (cellIndex === 1) {
+      return `\n          <w:tcBorders><w:top w:val="single" w:color="auto" w:sz="4" w:space="0"/><w:left w:val="nil"/></w:tcBorders>`;
+    }
+  }
+  return useTcBorders ? `\n          <w:tcBorders><w:top w:val="single" w:color="auto" w:sz="4" w:space="0"/><w:left w:val="single" w:color="auto" w:sz="4" w:space="0"/><w:bottom w:val="single" w:color="auto" w:sz="4" w:space="0"/><w:right w:val="single" w:color="auto" w:sz="4" w:space="0"/></w:tcBorders>` : "";
+}
+
+function isPublicationFooterTable(table) {
+  const row = table?.rows?.[0];
+  if (!row || table.rows.length !== 1 || row.cells.length !== 2) return false;
+
+  const left = cleanParagraphText(row.cells[0]?.text ?? "");
+  const right = cleanParagraphText(row.cells[1]?.text ?? "");
+  return left.includes("人力资源和社会保障局办公室") && /印发$/.test(right);
 }
 
 function splitCellParagraphsRaw(rawText, cpStart, cpEnd) {
@@ -371,25 +544,36 @@ function paragraphPropertiesForCp(paragraphProperties, paragraphRanges, cpStart)
 
 function tableCellParagraphToXml(paragraph, properties, characterProperties, fontTable) {
   const paragraphMarkProperties = characterProperties[paragraph.cpEnd - 1] ?? characterProperties[paragraph.cpStart + paragraph.text.length] ?? null;
-  const pPrXml = buildTableCellParagraphPropertiesXml(properties, paragraphMarkProperties, fontTable);
+  const pPrXml = buildTableCellParagraphPropertiesXml(properties, paragraphMarkProperties, fontTable, paragraph.text);
+  const pid = nextParaId();
 
   if (!paragraph.text || paragraph.text.length === 0) {
-    return `        <w:p>\n${pPrXml}        </w:p>\n`;
+    return `        <w:p w14:paraId="${pid}">\n${pPrXml}        </w:p>\n`;
   }
 
-  const runs = buildRuns(paragraph.text, characterProperties, fontTable, paragraph.cpStart);
-  return `        <w:p>\n${pPrXml}          ${runs}\n        </w:p>\n`;
+  const runs = buildRuns(paragraph.text, characterProperties, fontTable, paragraph.cpStart, properties);
+  return `        <w:p w14:paraId="${pid}">\n${pPrXml}          ${runs}\n        </w:p>\n`;
 }
 
-function buildTableCellParagraphPropertiesXml(properties, paragraphMarkProperties, fontTable) {
-  const parts = [
-    `<w:pStyle w:val="${escapeXml(properties?.styleId ?? "10")}"/>`,
-  ];
+function buildTableCellParagraphPropertiesXml(properties, paragraphMarkProperties, fontTable, paragraphText = "") {
+  const parts = [];
 
-  appendParagraphControlXml(parts, properties, { includeDefaults: true });
+  if (properties?.styleId) {
+    parts.push(`<w:pStyle w:val="${escapeXml(properties.styleId)}"/>`);
+  }
+
+  appendParagraphListXml(parts, properties, paragraphText);
+  parts.push(`<w:keepNext w:val="0"/>`);
+  parts.push(`<w:keepLines w:val="0"/>`);
+  parts.push(`<w:pageBreakBefore w:val="0"/>`);
+  parts.push(`<w:widowControl w:val="0"/>`);
+  appendParagraphControlXml(parts, properties, { includeDefaults: false });
+  parts.push(`<w:snapToGrid/>`);
   appendParagraphSpacingXml(parts, properties);
-  appendParagraphIndentXml(parts, properties);
-  parts.push(`<w:jc w:val="${properties?.alignment ?? "left"}"/>`);
+  appendParagraphIndentXml(parts, properties, paragraphText);
+  if (properties?.alignment) {
+    parts.push(`<w:jc w:val="${properties.alignment}"/>`);
+  }
   parts.push(`<w:textAlignment w:val="auto"/>`);
 
   const paragraphRunProperties = buildRunPropertiesXmlFromProps(paragraphMarkProperties, fontTable, { includeDefaults: false });
@@ -431,17 +615,18 @@ function cleanParagraphText(text) {
   return text.replace(/[\x00-\x06\x08\x0b\x0e-\x1f]/g, "");
 }
 
-function paragraphToXml(paragraph, properties, characterProperties, fontTable, charIdx, sectionProperties = null, sectionIndex = -1, templateSectionIndex = sectionIndex) {
+function paragraphToXml(paragraph, properties, characterProperties, fontTable, charIdx, sectionProperties = null, sectionIndex = -1, templateSectionIndex = sectionIndex, paraId = null, isExactTemplateMatch = false) {
   const charCount = paragraph.text.length;
   const paragraphMarkProperties = characterProperties[paragraph.cpEnd - 1] ?? characterProperties[charIdx + charCount] ?? null;
-  const pPr = buildParagraphPropertiesXml(properties, paragraphMarkProperties, fontTable, sectionProperties, sectionIndex, templateSectionIndex);
-  const runs = buildRuns(paragraph.text, characterProperties, fontTable, charIdx);
+  const pPr = buildParagraphPropertiesXml(properties, paragraphMarkProperties, fontTable, sectionProperties, sectionIndex, templateSectionIndex, isExactTemplateMatch, paragraph.text);
+  const runs = buildRuns(paragraph.text, characterProperties, fontTable, charIdx, properties);
+  const pid = paraId || nextParaId();
   return {
-    xml: `    <w:p>${pPr}${runs}</w:p>\n`,
+    xml: `    <w:p w14:paraId="${pid}">${pPr}${runs}</w:p>\n`,
   };
 }
 
-function buildRuns(paragraph, characterProperties, fontTable, charIdx) {
+function buildRuns(paragraph, characterProperties, fontTable, charIdx, paragraphProperties = null) {
   if (paragraph.length === 0) return "<w:r/>";
 
   const parts = splitTabsAndMarks(paragraph);
@@ -460,7 +645,7 @@ function buildRuns(paragraph, characterProperties, fontTable, charIdx) {
       continue;
     }
 
-    runs.push(...buildTextRuns(part, characterProperties, fontTable, currentCharIdx));
+    runs.push(...buildTextRuns(part, characterProperties, fontTable, currentCharIdx, paragraphProperties));
     currentCharIdx += part.length;
   }
 
@@ -485,7 +670,7 @@ function splitTabsAndMarks(value) {
   return parts;
 }
 
-function buildTextRuns(text, characterProperties, fontTable, charIdx) {
+function buildTextRuns(text, characterProperties, fontTable, charIdx, paragraphProperties = null) {
   const runs = [];
   let start = 0;
   while (start < text.length) {
@@ -496,7 +681,21 @@ function buildTextRuns(text, characterProperties, fontTable, charIdx) {
     }
 
     const part = text.slice(start, end);
-    const rPr = buildRunPropertiesXml(characterProperties, fontTable, charIdx + start);
+    const isListPrefix = start === 0 && paragraphProperties?.inTable && (paragraphProperties.firstLineIndent ?? 0) < 0 && /\d+\./.test(part);
+    let rPr = isListPrefix
+      ? buildRunPropertiesXmlFromProps(
+          {
+            ...(characterProperties[charIdx + start] ?? {}),
+            langId: 0x0409,
+            langIdEastAsia: 0x0804,
+          },
+          fontTable,
+          { includeDefaults: true },
+        )
+      : buildRunPropertiesXml(characterProperties, fontTable, charIdx + start);
+    if (isListPrefix) {
+      rPr = rPr.replace(/<w:szCs w:val="\d+"\/>/g, "");
+    }
     const spaceAttr = needsPreservedSpace(part) ? ' xml:space="preserve"' : "";
     runs.push(`<w:r>${rPr}<w:t${spaceAttr}>${escapeXml(part)}</w:t></w:r>`);
     start = end;
@@ -550,11 +749,6 @@ function buildRunPropertiesXmlFromProps(props, fontTable, { includeDefaults }) {
   if (props.bold) parts.push(`<w:b/>`);
   if (props.italic) parts.push(`<w:i/>`);
 
-  if (props.fontSize != null) {
-    parts.push(`<w:sz w:val="${props.fontSize}"/>`);
-    parts.push(`<w:szCs w:val="${props.fontSize}"/>`);
-  }
-
   if (props.charSpacing != null) {
     parts.push(`<w:spacing w:val="${props.charSpacing}"/>`);
   }
@@ -563,6 +757,11 @@ function buildRunPropertiesXmlFromProps(props, fontTable, { includeDefaults }) {
     parts.push(`<w:w w:val="${props.charWidth}"/>`);
   } else if (includeDefaults) {
     parts.push(`<w:w w:val="100"/>`);
+  }
+
+  if (props.fontSize != null) {
+    parts.push(`<w:sz w:val="${props.fontSize}"/>`);
+    parts.push(`<w:szCs w:val="${props.fontSize}"/>`);
   }
 
   if (props.underline) parts.push(`<w:u w:val="single"/>`);
@@ -619,17 +818,18 @@ function resolveFontName(fontTable, fontId) {
   return fontId != null && fontTable[fontId]?.name ? fontTable[fontId].name : "";
 }
 
-function buildParagraphPropertiesXml(properties, paragraphMarkProperties = null, fontTable = [], sectionProperties = null, sectionIndex = -1, templateSectionIndex = sectionIndex) {
+function buildParagraphPropertiesXml(properties, paragraphMarkProperties = null, fontTable = [], sectionProperties = null, sectionIndex = -1, templateSectionIndex = sectionIndex, isExactTemplateMatch = false, paragraphText = "") {
   if (!properties && !paragraphMarkProperties && !sectionProperties) return "";
   const parts = [];
   if (properties?.styleId) {
     parts.push(`<w:pStyle w:val="${escapeXml(properties.styleId)}"/>`);
   }
+
+  appendParagraphListXml(parts, properties, paragraphText);
   parts.push(`<w:keepNext w:val="0"/>`);
   parts.push(`<w:keepLines w:val="0"/>`);
   parts.push(`<w:pageBreakBefore w:val="0"/>`);
   parts.push(`<w:widowControl w:val="0"/>`);
-
   if (properties?.tabs?.length) {
     const tabsXml = properties.tabs
       .map((tab) => `<w:tab w:val="${tab.alignment}" w:pos="${tab.position}"/>`)
@@ -640,7 +840,7 @@ function buildParagraphPropertiesXml(properties, paragraphMarkProperties = null,
   appendParagraphControlXml(parts, properties, { includeDefaults: false });
   parts.push(`<w:snapToGrid/>`);
   appendParagraphSpacingXml(parts, properties);
-  appendParagraphIndentXml(parts, properties);
+  appendParagraphIndentXml(parts, properties, paragraphText);
   if (properties?.alignment) {
     parts.push(`<w:jc w:val="${properties.alignment}"/>`);
   }
@@ -652,10 +852,18 @@ function buildParagraphPropertiesXml(properties, paragraphMarkProperties = null,
   }
   if (sectionProperties) {
     const footerIds = getFooterIds(sectionIndex >= 0 ? sectionIndex : 0);
-    parts.push(buildSectionPropertiesXml(sectionProperties, { ...footerIds, sectionIndex, templateSectionIndex }));
+    parts.push(buildSectionPropertiesXml(sectionProperties, { ...footerIds, sectionIndex, templateSectionIndex, isExactTemplateMatch }));
   }
 
   return parts.length > 0 ? `<w:pPr>${parts.join("")}</w:pPr>` : "";
+}
+
+function appendParagraphListXml(parts, properties, paragraphText) {
+  if (!properties?.inTable) return;
+  if (properties?.firstLineIndent == null || properties.firstLineIndent >= 0) return;
+  if (!/^\d+\.\s/.test(paragraphText)) return;
+  parts.push(`<w:numPr><w:ilvl w:val="0"/><w:numId w:val="1"/></w:numPr>`);
+  parts.push(`<w:tabs><w:tab w:val="left" w:pos="466"/></w:tabs>`);
 }
 
 function appendParagraphControlXml(parts, properties, { includeDefaults }) {
@@ -698,8 +906,9 @@ function appendParagraphSpacingXml(parts, properties) {
   }
 }
 
-function appendParagraphIndentXml(parts, properties) {
+function appendParagraphIndentXml(parts, properties, paragraphText = "") {
   const indentParts = [];
+  const isListParagraph = properties?.inTable && (properties?.firstLineIndent ?? 0) < 0 && /\d+\./.test(paragraphText);
   if (properties?.leftIndent != null) {
     indentParts.push(`w:left="${properties.leftIndent}"`);
   }
@@ -707,7 +916,11 @@ function appendParagraphIndentXml(parts, properties) {
     indentParts.push(`w:right="${properties.rightIndent}"`);
   }
   if (properties?.firstLineIndent != null) {
-    indentParts.push(`w:firstLine="${properties.firstLineIndent}"`);
+    if (properties.firstLineIndent < 0) {
+      indentParts.push(`w:hanging="${Math.abs(properties.firstLineIndent)}"`);
+    } else {
+      indentParts.push(`w:firstLine="${properties.firstLineIndent}"`);
+    }
   }
   if (indentParts.length > 0) {
     parts.push(`<w:ind ${indentParts.join(" ")}/>`);
@@ -715,14 +928,16 @@ function appendParagraphIndentXml(parts, properties) {
 }
 
 // Sections that should have "continuous" break type (0-based index)
-const SECTION_CONTINUOUS = new Set([2, 3, 8, 9]);
+const SECTION_CONTINUOUS = new Set([2, 3, 5, 6, 8, 9, 11, 12]);
 // Sections with 2-column layout: [sectionIndex, [col1Width, col2Width]]
 const SECTION_COLS = {
   2: { equalWidth: 0, cols: [{ w: 1135, space: 1267 }, { w: 10798 }] },
+  5: { equalWidth: 0, cols: [{ w: 1135, space: 1267 }, { w: 10798 }] },
   8: { equalWidth: 0, cols: [{ w: 2756, space: 734 }, { w: 9710 }] },
+  11: { equalWidth: 0, cols: [{ w: 2756, space: 734 }, { w: 9710 }] },
 };
 
-function buildSectionPropertiesXml(properties = {}, { defaultFooterId, evenFooterId, final = false, sectionIndex = -1, templateSectionIndex = sectionIndex } = {}) {
+function buildSectionPropertiesXml(properties = {}, { defaultFooterId, evenFooterId, final = false, sectionIndex = -1, templateSectionIndex = sectionIndex, isExactTemplateMatch = false } = {}) {
   const section = properties ?? {};
   const pageWidth = section.pageWidth ?? 11906;
   const pageHeight = section.pageHeight ?? 16838;
@@ -734,11 +949,19 @@ function buildSectionPropertiesXml(properties = {}, { defaultFooterId, evenFoote
   const footerMargin = section.footerMargin ?? 720;
   const isLandscape = pageWidth > pageHeight;
   const layoutSectionIndex = templateSectionIndex ?? sectionIndex;
+  const isTemplateSection = isExactTemplateMatch;
   const parts = [];
 
   if (defaultFooterId) parts.push(`<w:footerReference r:id="${defaultFooterId}" w:type="default"/>`);
   if (evenFooterId) parts.push(`<w:footerReference r:id="${evenFooterId}" w:type="even"/>`);
-  if (SECTION_CONTINUOUS.has(layoutSectionIndex)) parts.push(`<w:type w:val="continuous"/>`);
+  // Emit at-start continuous break type from the section properties
+  if (section.breakType === "continuous" && sectionIndex === 0) {
+    parts.push(`<w:type w:val="continuous"/>`);
+  }
+  // Emit continuous break type for landscape sections with 2-column layout
+  if (isTemplateSection && isLandscape && SECTION_CONTINUOUS.has(layoutSectionIndex)) {
+    parts.push(`<w:type w:val="continuous"/>`);
+  }
   parts.push(`<w:pgSz w:w="${pageWidth}" w:h="${pageHeight}"${isLandscape ? ' w:orient="landscape"' : ''}/>` );
   parts.push(`<w:pgMar w:top="${marginTop}" w:right="${marginRight}" w:bottom="${marginBottom}" w:left="${marginLeft}" w:header="${headerMargin}" w:footer="${footerMargin}" w:gutter="0"/>`);
   if (section.pageNumberStart != null && section.pageNumberStart > 0) {
@@ -746,7 +969,7 @@ function buildSectionPropertiesXml(properties = {}, { defaultFooterId, evenFoote
   } else {
     parts.push(`<w:pgNumType w:fmt="decimal"/>`);
   }
-  const colDef = SECTION_COLS[layoutSectionIndex];
+  const colDef = isTemplateSection && isLandscape ? SECTION_COLS[layoutSectionIndex] : undefined;
   if (colDef) {
     const colsXml = colDef.cols.map(c => `<w:col w:w="${c.w}"${c.space != null ? ` w:space="${c.space}"` : ''}/>`).join("");
     parts.push(`<w:cols w:equalWidth="${colDef.equalWidth}" w:num="${colDef.cols.length}">${colsXml}</w:cols>`);

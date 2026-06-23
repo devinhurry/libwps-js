@@ -9,3 +9,4 @@ coverage/
 converted*.docx
 test.json
 *-converted.docx
+.reasonix
