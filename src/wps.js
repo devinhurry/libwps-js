@@ -16,7 +16,8 @@ export function readWps(input) {
   const wordDocument = cfb.readStream("WordDocument");
   const table0 = cfb.hasStream("0Table") ? cfb.readStream("0Table") : null;
   const table1 = cfb.hasStream("1Table") ? cfb.readStream("1Table") : null;
-  const document = extractWordBinaryDocument({ wordDocument, table0, table1 });
+  const data = cfb.hasStream("Data") ? cfb.readStream("Data") : null;
+  const document = extractWordBinaryDocument({ wordDocument, table0, table1, data });
 
   return {
     type: "wps-ole2-word-binary",

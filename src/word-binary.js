@@ -1,4 +1,10 @@
 import { parseSprms } from "./sprm.js";
+import {
+  getBuiltInStyleDefinitionByRawName,
+  resolveStyleIdFromRawName,
+  resolveStyleNameFromRawName,
+  resolveStyleTypeFromSgc,
+} from "./style-defs.js";
 
 const WORD_BINARY_MAGIC = 0xa5ec;
 const FIB_FLAGS_OFFSET = 0x0a;
@@ -30,8 +36,9 @@ const STSH_NIL_BASE = 0xfff0;
 const STSH_STD_HEADER_SIZE = 18;
 const STSH_STD_NAME_OFFSET = 18;
 const SPRM_OPERAND_SIZE_BY_SPRA = [1, 1, 2, 4, 2, 2, -1, 3];
+const TABLE_BORDER_SIDES = ["top", "left", "bottom", "right", "insideH", "insideV"];
 
-export function extractWordBinaryDocument({ wordDocument, table0, table1 = null }) {
+export function extractWordBinaryDocument({ wordDocument, table0, table1 = null, data = null }) {
   assertWordDocument(wordDocument);
 
   const fib = readFib(wordDocument);
@@ -51,10 +58,11 @@ export function extractWordBinaryDocument({ wordDocument, table0, table1 = null 
   const styles = extractStyleSheet(tableStream, fib);
   const fontTable = extractFontTable(tableStream, fib);
   const sections = extractSections(wordDocument, tableStream, fib);
+  const defaultTabStop = inferDefaultTabStop(sections);
   const paragraphProperties = extractParagraphProperties(wordDocument, tableStream, fib, bodyText, styles, pieces);
   const characterRuns = extractCharacterRuns(wordDocument, tableStream, fib, bodyText, pieces);
   const characterProperties = expandCharacterRuns(characterRuns, bodyText.length);
-  const tableRows = extractTableRows(wordDocument, tableStream, fib, pieces, bodyText, paragraphProperties, sections);
+  const tableRows = extractTableRows(wordDocument, tableStream, fib, pieces, bodyText, paragraphProperties, sections, data);
 
   return {
     fib,
@@ -69,6 +77,7 @@ export function extractWordBinaryDocument({ wordDocument, table0, table1 = null 
     styles,
     fontTable,
     sections,
+    defaultTabStop,
     subdocuments,
     tableRows,
   };
@@ -254,6 +263,23 @@ function decodeSingleByteText(buffer) {
   return new TextDecoder("windows-1252", { fatal: false }).decode(buffer);
 }
 
+function inferDefaultTabStop(sections) {
+  if (!Array.isArray(sections) || sections.length === 0) {
+    // Gary's personal judgment: when the binary document does not expose a section profile,
+    // keep Word's legacy default tab spacing so plain text alignment does not drift.
+    return 420;
+  }
+
+  const hasExplicitDocGrid = sections.some((section) => section?.properties?.docGridType != null);
+  if (hasExplicitDocGrid) {
+    // Gary's personal judgment: documents that expose an explicit doc grid use the denser
+    // half-width tab behavior in the observed WPS fixtures.
+    return 420;
+  }
+
+  return 720;
+}
+
 function extractParagraphProperties(wordDocument, tableStream, fib, bodyText, styles, pieces) {
   if (!fib.fcPapx || !fib.lcbPapx || fib.lcbPapx < 4) {
     return [];
@@ -331,7 +357,7 @@ function parsePapxEntries(page, styles, pieces, bodyCharacterCount) {
       byteLength = cbx * 2;
     } else {
       byteLength = cb * 2;
-      if (byteLength > 400 || papxOffset + 1 + byteLength > page.length) continue;
+      if (papxOffset + 1 + byteLength > page.length) continue;
       dataOffset = papxOffset + 1;
     }
 
@@ -382,6 +408,9 @@ function parseParagraphGrpprl(data) {
     styleId: null,
     lineSpacing: parsed.lineSpacing ?? null,
     alignment: parsed.alignment ?? null,
+    leftIndentChars: parsed.leftIndentChars ?? null,
+    rightIndentChars: parsed.rightIndentChars ?? null,
+    firstLineIndentChars: parsed.firstLineIndentChars ?? null,
     leftIndent: parsed.leftIndent ?? null,
     rightIndent: parsed.rightIndent ?? null,
     firstLineIndent: parsed.firstLineIndent ?? null,
@@ -396,6 +425,8 @@ function parseParagraphGrpprl(data) {
     autoSpaceDE: parsed.autoSpaceDE ?? null,
     autoSpaceDN: parsed.autoSpaceDN ?? null,
     adjustRightInd: parsed.adjustRightInd ?? null,
+    tablePosition: parsed.tablePosition ?? null,
+    tableNoAllowOverlap: parsed.tableNoAllowOverlap ?? null,
   };
 }
 
@@ -404,38 +435,12 @@ const STYLE_TYPE_CHARACTER = "character";
 const STYLE_TYPE_TABLE = "table";
 const STYLE_TYPE_LIST = "list";
 
-function inferStyleType(styLo, name) {
-  if (name === "默认段落字体") return STYLE_TYPE_CHARACTER;
-  if (name === "普通表格" || name === "Table Normal") return STYLE_TYPE_TABLE;
-  if (name === "List Paragraph") return STYLE_TYPE_PARAGRAPH;
-  return STYLE_TYPE_PARAGRAPH;
-}
-
 function buildStyleId(name, index) {
-  const mapped = mapBuiltInStyle(name);
-  if (mapped) return mapped.styleId;
-  if (!name) return `style${index}`;
-  return name.replace(/\s+/g, "");
+  return resolveStyleIdFromRawName(name, index);
 }
 
 function buildStyleName(name) {
-  return mapBuiltInStyle(name)?.name ?? name;
-}
-
-function mapBuiltInStyle(name) {
-  const styles = {
-    "正文": { styleId: "1", name: "Normal" },
-    "标题 1": { styleId: "2", name: "heading 1" },
-    "正文文本": { styleId: "3", name: "Body Text" },
-    "页脚": { styleId: "4", name: "footer" },
-    "页眉": { styleId: "5", name: "header" },
-    "普通表格": { styleId: "6", name: "Normal Table" },
-    "默认段落字体": { styleId: "7", name: "Default Paragraph Font" },
-    "Table Normal": { styleId: "8", name: "Table Normal" },
-    "List Paragraph": { styleId: "9", name: "List Paragraph" },
-    "Table Paragraph": { styleId: "10", name: "Table Paragraph" },
-  };
-  return styles[name] ?? null;
+  return resolveStyleNameFromRawName(name);
 }
 
 function extractStyleSheet(tableStream, fib) {
@@ -470,14 +475,31 @@ function extractStyleSheet(tableStream, fib) {
     off = stdEnd;
   }
 
+  let order = 0;
+  for (const style of styles) {
+    if (!style) continue;
+    style.order = order;
+    const builtIn = getBuiltInStyleDefinitionByRawName(style.name);
+    if (builtIn) {
+      style.styleId = builtIn.styleId;
+      style.styleName = builtIn.styleName;
+      style.type = builtIn.type;
+    } else {
+      style.styleId = String(order + 1);
+    }
+    order += 1;
+  }
+
   return styles;
 }
 
 function parseStd(std, index) {
   if (std.length < STSH_STD_HEADER_SIZE + 2) return null;
 
-  const styLo = std[0] & 0x0f;
-  const istdBase = std.readUInt16LE(2);
+  const sti = std.readUInt16LE(0) & 0x0fff;
+  const sgc = std.readUInt16LE(2) & 0x000f;
+  const istdBase = std.readUInt16LE(2) >> 4;
+  const istdNext = std.readUInt16LE(4) >> 4;
 
   const cbName = std.readUInt16LE(STSH_STD_NAME_OFFSET);
   if (cbName < 1 || cbName > 50) return null;
@@ -489,31 +511,36 @@ function parseStd(std, index) {
   const name = std.subarray(nameStart, nameEnd).toString("utf16le");
   const grpprlStart = nameEnd + 2;
   const grpprl = std.subarray(grpprlStart);
+  const parsed = parseSprms(grpprl, true);
 
-  const lineSpacing = extractLineSpacingFromGrpprl(grpprl);
   const runProperties = extractCharacterPropertiesFromGrpprl(grpprl);
-  const type = inferStyleType(styLo, name);
+  const type = resolveStyleTypeFromSgc(name, sgc);
   const styleId = buildStyleId(name, index);
   const styleName = buildStyleName(name);
-  const basedOn = resolveBasedOn(istdBase, index, type);
 
   return {
     index,
     name,
     styleName,
+    sti,
+    sgc,
     type,
     styleId,
-    basedOn,
-    lineSpacing,
+    basedOn: resolveBasedOn(istdBase, index),
+    next: istdNext,
+    baseCode: istdBase,
+    nextCode: istdNext,
+    lineSpacing: parsed.lineSpacing ?? null,
+    alignment: parsed.alignment ?? null,
+    tabs: parsed.tabs ?? null,
     runProperties,
   };
 }
 
-function resolveBasedOn(istdBase, index, type) {
-  if (istdBase >= STSH_NIL_BASE) return null;
-  const resolvedIndex = istdBase > 0 ? istdBase - 1 : istdBase;
-  if (resolvedIndex === index) return null;
-  return resolvedIndex;
+function resolveBasedOn(istdBase, index) {
+  if (istdBase === 0x0fff || istdBase >= STSH_NIL_BASE) return null;
+  if (istdBase === index) return null;
+  return istdBase;
 }
 
 function extractLineSpacingFromGrpprl(grpprl) {
@@ -533,12 +560,19 @@ function extractLineSpacingFromGrpprl(grpprl) {
 function extractCharacterPropertiesFromGrpprl(grpprl) {
   const props = {};
   scanKnownSprm(grpprl, 0x4a43, 2, (value) => { props.fontSize = value.readUInt16LE(0); });
+  scanKnownSprm(grpprl, 0x4a61, 2, (value) => { props.fontSizeCs = value.readUInt16LE(0); });
   scanKnownSprm(grpprl, 0x4a4f, 2, (value) => { props.fontAscii = value.readUInt16LE(0); });
   scanKnownSprm(grpprl, 0x4a50, 2, (value) => { props.fontEastAsia = value.readUInt16LE(0); });
   scanKnownSprm(grpprl, 0x4a51, 2, (value) => { props.fontHAnsi = value.readUInt16LE(0); });
   scanKnownSprm(grpprl, 0x4a5e, 2, (value) => { props.fontCs = value.readUInt16LE(0); });
   scanKnownSprm(grpprl, 0x4852, 2, (value) => { props.charWidth = value.readUInt16LE(0); });
   scanKnownSprm(grpprl, 0x8840, 2, (value) => { props.charSpacing = value.readInt16LE(0); });
+  scanKnownSprm(grpprl, 0x484b, 2, (value) => { props.kern = value.readUInt16LE(0); });
+  scanKnownSprm(grpprl, 0x485f, 2, (value) => { props.langIdBidi = value.readUInt16LE(0); });
+  scanKnownSprm(grpprl, 0x486d, 2, (value) => { props.langId = value.readUInt16LE(0); });
+  scanKnownSprm(grpprl, 0x486e, 2, (value) => { props.langIdEastAsia = value.readUInt16LE(0); });
+  scanKnownSprm(grpprl, 0x4873, 2, (value) => { props.langId = value.readUInt16LE(0); });
+  scanKnownSprm(grpprl, 0x4874, 2, (value) => { props.langIdEastAsia = value.readUInt16LE(0); });
   return Object.keys(props).length ? props : null;
 }
 
@@ -630,14 +664,22 @@ function readSectionProperties(wordDocument, fcSepx) {
   return parseSectionSprms(wordDocument.subarray(fcSepx + 2, fcSepx + 2 + cb));
 }
 
-function parseSectionSprms(grpprl) {
+export function parseSectionSprms(grpprl) {
   const props = {};
   let off = 0;
   while (off + 2 <= grpprl.length) {
     const sprm = grpprl.readUInt16LE(off);
     off += 2;
-    const size = sectionSprmOperandSize(sprm);
-    if (off + size > grpprl.length) break;
+    let size = sectionSprmOperandSize(sprm);
+    if (size === -1) {
+      if (off >= grpprl.length) {
+        throw new Error(`Truncated section SPRM length byte for 0x${sprm.toString(16)}`);
+      }
+      size = grpprl[off] + 1;
+    }
+    if (off + size > grpprl.length) {
+      throw new Error(`Truncated section SPRM operand for 0x${sprm.toString(16)}`);
+    }
     const val = grpprl.subarray(off, off + size);
     applySectionSprm(props, sprm, val);
     off += size;
@@ -649,6 +691,9 @@ function sectionSprmOperandSize(sprm) {
   if (sprm === 0xd1ff) return 3;
   const spra = (sprm >> 13) & 0x7;
   const size = SPRM_OPERAND_SIZE_BY_SPRA[spra];
+  if (size === -1) {
+    return -1;
+  }
   if (!size || size < 0) {
     throw new Error(`Unsupported section SPRM operand size for 0x${sprm.toString(16)}`);
   }
@@ -659,6 +704,9 @@ function applySectionSprm(props, sprm, val) {
   switch (sprm) {
     case 0x3011:
       props.breakType = val[0] === 1 ? "continuous" : null;
+      break;
+    case 0x300a:
+      props.titlePg = val[0] !== 0;
       break;
     case 0x501c:
       props.pageNumberStart = val.readUInt16LE(0);
@@ -686,6 +734,15 @@ function applySectionSprm(props, sprm, val) {
       break;
     case 0xb018:
       props.footerMargin = val.readUInt16LE(0);
+      break;
+    case 0x5032:
+      props.docGridType = val.readUInt16LE(0);
+      break;
+    case 0x7030:
+      props.docGridCharSpace = val.readUInt32LE(0);
+      break;
+    case 0x9031:
+      props.docGridLinePitch = val.readUInt16LE(0);
       break;
     default:
       break;
@@ -789,9 +846,9 @@ function rangesOverlap(a, b) {
   return a.cpStart < b.cpEnd && b.cpStart < a.cpEnd;
 }
 
-function extractTableRows(wordDocument, tableStream, fib, pieces, bodyText, paragraphProperties, sections = null) {
+function extractTableRows(wordDocument, tableStream, fib, pieces, bodyText, paragraphProperties, sections = null, dataStream = null) {
   const paragraphRanges = getParagraphRanges(bodyText);
-  const rowProperties = collectTDefTableEntries(wordDocument, tableStream, fib, pieces);
+  const rowProperties = collectTDefTableEntries(wordDocument, tableStream, fib, pieces, dataStream);
   return buildTablesFromInTableParagraphBlocks(bodyText, paragraphProperties, paragraphRanges, rowProperties, sections);
 }
 
@@ -821,23 +878,75 @@ function buildTablesFromInTableParagraphBlocks(bodyText, paragraphProperties, pa
       bodyText,
       rowProperties,
     );
-    for (const tableRows of splitRowsIntoTables(rows)) {
+    const meaningfulRows = rows.filter((row) =>
+      row.rowColumns || row.cells.some((cell) => cleanCellText(cell.text).length > 0),
+    );
+    if (meaningfulRows.length === 0) {
+      i = blockEnd;
+      continue;
+    }
+    if (meaningfulRows.some((row) => !row.rowColumns)) {
+      throw new Error("Unable to infer table grid positions: missing parsed row column geometry for a non-empty table block");
+    }
+
+    for (const tableRows of splitRowsIntoTables(meaningfulRows)) {
       if (tableRows.length === 0) continue;
 
       const gridPositions = buildTableGridPositions(tableRows);
       const gridCols = positionsToWidths(gridPositions);
       applyRowGeometry(tableRows, gridPositions, sections);
+      inferMissingRowHeights(tableRows);
+      const { tableWidth, tableWidthType } = inferTableWidth(tableRows);
+      const cellMargins = inferTableCellMargins(tableRows);
+      const tableBorders = inferTableBorders(tableRows);
       tables.push({
         cpStart: tableRows[0].cpStart,
         cpEnd: tableRows.at(-1).cpEnd,
         gridCols,
         gridPositions,
         rows: tableRows,
-        docxStyleIndex: 4,
+        tableWidth,
+        tableWidthType,
+        cellMargins,
+        tableBorders,
       });
     }
 
     i = blockEnd;
+  }
+
+  if (tables.length === 0 && rowProperties.length > 0) {
+    // Some WPS exports do not mark table body paragraphs as inTable, but the row
+    // properties still carry explicit table geometry. Use them as the fallback source.
+    const rows = buildGenericTableRows(paragraphRanges, paragraphProperties, bodyText, rowProperties);
+    const meaningfulRows = rows.filter((row) =>
+      row.rowColumns || row.cells.some((cell) => cleanCellText(cell.text).length > 0),
+    );
+    if (meaningfulRows.some((row) => !row.rowColumns)) {
+      throw new Error("Unable to infer table grid positions: missing parsed row column geometry for a non-empty table block");
+    }
+    for (const tableRows of splitRowsIntoTables(meaningfulRows)) {
+      if (tableRows.length === 0) continue;
+
+      const gridPositions = buildTableGridPositions(tableRows);
+      const gridCols = positionsToWidths(gridPositions);
+      applyRowGeometry(tableRows, gridPositions, sections);
+      inferMissingRowHeights(tableRows);
+      const { tableWidth, tableWidthType } = inferTableWidth(tableRows);
+      const cellMargins = inferTableCellMargins(tableRows);
+      const tableBorders = inferTableBorders(tableRows);
+      tables.push({
+        cpStart: tableRows[0].cpStart,
+        cpEnd: tableRows.at(-1).cpEnd,
+        gridCols,
+        gridPositions,
+        rows: tableRows,
+        tableWidth,
+        tableWidthType,
+        cellMargins,
+        tableBorders,
+      });
+    }
   }
 
   return tables;
@@ -845,39 +954,36 @@ function buildTablesFromInTableParagraphBlocks(bodyText, paragraphProperties, pa
 
 function splitRowsIntoTables(rows) {
   if (rows.length === 0) return [];
-
   const tables = [];
   let current = [];
+  let currentWidthKey = null;
+  let currentPositionKey = null;
   for (let i = 0; i < rows.length; i += 1) {
-    if (current.length > 0 && shouldStartNewTableAt(rows, i, current)) {
+    const row = rows[i];
+    const widthKey = row.tableWidth == null
+      ? null
+      : `${row.tableWidth}:${row.tableWidthType ?? "dxa"}`;
+    const positionKey = row.tablePosition ? "positioned" : row.tableNoAllowOverlap ? "positioned" : "flow";
+    if (
+      current.length > 0 &&
+      ((widthKey != null && currentWidthKey != null && widthKey !== currentWidthKey) ||
+        (currentPositionKey != null && positionKey !== currentPositionKey))
+    ) {
       tables.push(current);
       current = [];
+      currentWidthKey = null;
+      currentPositionKey = null;
     }
-    current.push(rows[i]);
+    if (currentWidthKey == null && widthKey != null) {
+      currentWidthKey = widthKey;
+    }
+    if (currentPositionKey == null) {
+      currentPositionKey = positionKey;
+    }
+    current.push(row);
   }
   if (current.length > 0) tables.push(current);
   return tables;
-}
-
-function shouldStartNewTableAt(rows, index, currentRows) {
-  if (currentRows.length < 3) return false;
-  if (rows[index].rowColumns) return false;
-  if (!isControlOnlyText(rows[index].cells[0]?.text ?? "")) return false;
-  if (!hasVisibleText(rows[index].cells[1]?.text ?? "")) return false;
-
-  const currentGrid = buildTableGridPositions(currentRows);
-  if (currentGrid.length <= 2) return false;
-
-  const lookaheadRows = rows.slice(index, Math.min(rows.length, index + 3));
-  if (!lookaheadRows.some((row) => row.rowColumns && row.rowColumns.length > 2)) return false;
-  const lookaheadGrid = buildTableGridPositions(lookaheadRows);
-  if (lookaheadGrid.length <= 2) return false;
-
-  return hasIncompatibleGridBoundary(currentGrid, lookaheadGrid);
-}
-
-function hasIncompatibleGridBoundary(currentGrid, candidateGrid) {
-  return candidateGrid.some((pos) => findGridPositionIndex(currentGrid, pos) == null);
 }
 
 function buildGenericTableRows(paragraphRanges, paragraphProperties, bodyText, rowProperties) {
@@ -902,18 +1008,30 @@ function buildGenericTableRows(paragraphRanges, paragraphProperties, bodyText, r
   for (const rowEndIndex of [...rowEndIndices].sort((a, b) => a - b)) {
     if (rowEndIndex < rowStart) continue;
 
-    const row = buildGenericTableRow(paragraphRanges.slice(rowStart, rowEndIndex), bodyText, paragraphRanges[rowEndIndex], rowProperties);
+    const row = buildGenericTableRow(
+      paragraphRanges.slice(rowStart, rowEndIndex),
+      paragraphProperties.slice(rowStart, rowEndIndex),
+      bodyText,
+      paragraphRanges[rowEndIndex],
+      rowProperties,
+    );
     if (row) rows.push(row);
     rowStart = rowEndIndex + 1;
   }
 
-  const trailingRow = buildGenericTableRow(paragraphRanges.slice(rowStart), bodyText, null, rowProperties);
+  const trailingRow = buildGenericTableRow(
+    paragraphRanges.slice(rowStart),
+    paragraphProperties.slice(rowStart),
+    bodyText,
+    null,
+    rowProperties,
+  );
   if (trailingRow) rows.push(trailingRow);
 
   return rows;
 }
 
-function buildGenericTableRow(paragraphRanges, bodyText, rowEndRange, rowProperties) {
+function buildGenericTableRow(paragraphRanges, paragraphProperties, bodyText, rowEndRange, rowProperties) {
   if (paragraphRanges.length === 0) return null;
 
   const cells = [];
@@ -925,15 +1043,15 @@ function buildGenericTableRow(paragraphRanges, bodyText, rowEndRange, rowPropert
     if (!rangeText.endsWith("\x07")) continue;
 
     const cellEnd = range.cpEnd;
-    cells.push({
-      cpStart: cellStart,
-      cpEnd: cellEnd,
-      text: cleanCellText(bodyText.substring(cellStart, cellEnd)),
-      width: 0,
-      gridSpan: 1,
-      vMerge: null,
-      vAlign: "top",
-    });
+      cells.push({
+        cpStart: cellStart,
+        cpEnd: cellEnd,
+        text: cleanCellText(bodyText.substring(cellStart, cellEnd)),
+        width: 0,
+        gridSpan: 1,
+        vMerge: null,
+        vAlign: "center",
+      });
     cellStart = cellEnd;
     sawCell = true;
   }
@@ -944,14 +1062,29 @@ function buildGenericTableRow(paragraphRanges, bodyText, rowEndRange, rowPropert
   const cpEnd = rowEndRange?.cpEnd ?? paragraphRanges.at(-1).cpEnd;
   const rowProperty = findRowPropertyForRange(rowProperties, cpStart, cpEnd, cells.length);
   const rowColumns = normalizeColumnPositions(rowProperty?.columns);
+  const rowPosition = extractTablePositionForRange(paragraphRanges, paragraphProperties, cpStart, cpEnd);
 
   return {
     cpStart,
     cpEnd,
     cells,
     rowColumns,
-    rowHeight: rowProperty?.rowHeight ?? 460,
-    rowHeightRule: rowProperty?.rowHeightRule === 1 ? 1 : 0,
+    cellMargins: rowProperty?.cellMargins ?? null,
+    cellFlags: rowProperty?.cellFlags ?? null,
+    cellBorders: rowProperty?.cellBorders ?? null,
+    cellBorderSideArrays: rowProperty?.cellBorderSideArrays ?? null,
+    cellBorderAssignments: rowProperty?.cellBorderAssignments ?? null,
+    tableBorders: rowProperty?.tableBorders ?? null,
+    tableWidth: rowProperty?.tableWidth ?? null,
+    tableWidthType: rowProperty?.tableWidthType ?? null,
+    rowHeight: rowProperty?.rowHeight ?? null,
+    rowHeightRule: rowProperty?.rowHeightRule ?? null,
+    cantSplit: rowProperty?.cantSplit ?? null,
+    repeatHeader: rowProperty?.repeatHeader ?? null,
+    vMergeAssignments: rowProperty?.vMergeAssignments ?? null,
+    vAlignAssignments: rowProperty?.vAlignAssignments ?? null,
+    tablePosition: rowPosition?.tablePosition ?? null,
+    tableNoAllowOverlap: rowPosition?.tableNoAllowOverlap ?? null,
   };
 }
 
@@ -963,10 +1096,7 @@ function buildTableGridPositions(rows) {
   }
 
   if (positionSet.size === 0) {
-    const maxCells = rows.reduce((max, row) => Math.max(max, row.cells.length), 1);
-    const positions = [];
-    for (let i = 0; i <= maxCells; i += 1) positions.push(i * 1440);
-    return positions;
+    throw new Error("Unable to infer table grid positions: no row column geometry was parsed");
   }
 
   const positions = [...positionSet].sort((a, b) => a - b);
@@ -976,38 +1106,27 @@ function buildTableGridPositions(rows) {
       merged.push(positions[i]);
     }
   }
-
-  const maxCells = rows.reduce((max, row) => Math.max(max, row.cells.length), 1);
-  if (maxCells > merged.length - 1) {
-    const left = merged[0];
-    const right = merged.at(-1);
-    const width = right - left;
-    for (let i = 1; i < maxCells; i += 1) {
-      const pos = Math.round(left + (width * i) / maxCells);
-      if (findGridPositionIndex(merged, pos) == null) merged.push(pos);
-    }
-    merged.sort((a, b) => a - b);
-  }
   return merged;
 }
 
 function positionsToWidths(positions) {
+  if (!positions || positions.length < 2) {
+    throw new Error("Invalid table grid: expected at least two positions");
+  }
   const widths = [];
   for (let i = 1; i < positions.length; i += 1) {
     widths.push(Math.max(1, positions[i] - positions[i - 1]));
   }
-  return widths.length > 0 ? widths : [9000];
+  return widths;
 }
 
 function applyRowGeometry(rows, gridPositions, sections = null) {
-  const fallbackWidths = buildGenericGridCols(rows, sections);
   for (const row of rows) {
     if (!row.rowColumns || row.rowColumns.length !== row.cells.length + 1) {
-      for (let ci = 0; ci < row.cells.length; ci += 1) {
-        row.cells[ci].width = fallbackWidths[Math.min(ci, fallbackWidths.length - 1)] ?? 1440;
-        row.cells[ci].gridSpan = 1;
-      }
-      continue;
+      row.rowColumns = inferRowColumnsFromGrid(gridPositions, row);
+    }
+    if (!row.rowColumns || row.rowColumns.length !== row.cells.length + 1) {
+      throw new Error("Unable to infer table row geometry: missing parsed row column boundaries");
     }
 
     for (let ci = 0; ci < row.cells.length; ci += 1) {
@@ -1020,8 +1139,198 @@ function applyRowGeometry(rows, gridPositions, sections = null) {
         : 1;
       row.cells[ci].width = Math.max(1, end - start);
       row.cells[ci].gridSpan = span;
+      if (row.cellBorders?.[ci]) {
+        row.cells[ci].borders = row.cellBorders[ci];
+      }
+    }
+    applyCellFlags(row);
+    applyCellBorderSideArrays(row);
+    applyCellBorderAssignments(row);
+    applyVerticalMergeAssignments(row);
+    applyVerticalAlignAssignments(row);
+  }
+}
+
+function applyCellFlags(row) {
+  if (!row.cellFlags || row.cellFlags.length === 0) return;
+  for (let ci = 0; ci < Math.min(row.cells.length, row.cellFlags.length); ci += 1) {
+    const flags = row.cellFlags[ci];
+    const cell = row.cells[ci];
+    if (!cell || !flags) continue;
+    if (flags.bVertRestart) cell.vMerge = "restart";
+    else if (flags.bVertMerge) cell.vMerge = "continue";
+    if (flags.nVertAlign === 2) cell.vAlign = "bottom";
+    else if (flags.nVertAlign === 1) cell.vAlign = "center";
+    else if (flags.nVertAlign === 0) cell.vAlign = "top";
+  }
+}
+
+function applyVerticalMergeAssignments(row) {
+  if (!row.vMergeAssignments || row.vMergeAssignments.length === 0) return;
+  for (const assignment of row.vMergeAssignments) {
+    const cell = row.cells[assignment.itc];
+    if (!cell) continue;
+    if (assignment.state === 3) cell.vMerge = "restart";
+    else if (assignment.state === 1) cell.vMerge = "continue";
+  }
+}
+
+function applyCellBorderAssignments(row) {
+  if (!row.cellBorderAssignments || row.cellBorderAssignments.length === 0) return;
+  for (const assignment of row.cellBorderAssignments) {
+    const start = Math.max(0, assignment.itcFirst);
+    const end = Math.min(row.cells.length, assignment.itcLim);
+    for (let ci = start; ci < end; ci += 1) {
+      const cell = row.cells[ci];
+      if (!cell) continue;
+      if (!cell.borders) {
+        cell.borders = createDefaultTableBorders();
+      }
+      if (assignment.changeTop) cell.borders.top = assignment.border;
+      if (assignment.changeLeft) cell.borders.left = assignment.border;
+      if (assignment.changeBottom) cell.borders.bottom = assignment.border;
+      if (assignment.changeRight) cell.borders.right = assignment.border;
     }
   }
+}
+
+function applyCellBorderSideArrays(row) {
+  if (!row.cellBorderSideArrays) return;
+
+  const sideArrays = [
+    ["top", row.cellBorderSideArrays.top],
+    ["left", row.cellBorderSideArrays.left],
+    ["bottom", row.cellBorderSideArrays.bottom],
+    ["right", row.cellBorderSideArrays.right],
+  ];
+
+  if (sideArrays.every(([, borders]) => !borders || borders.length === 0)) return;
+
+  for (let ci = 0; ci < row.cells.length; ci += 1) {
+    const cell = row.cells[ci];
+    if (!cell) continue;
+    for (const [side, borders] of sideArrays) {
+      if (!borders || borders.length === 0) continue;
+      const border = borders[ci];
+      if (!border || border.style === "none") continue;
+      if (!cell.borders) cell.borders = createDefaultTableBorders();
+      cell.borders[side] = border;
+    }
+  }
+}
+
+function applyVerticalAlignAssignments(row) {
+  if (!row.vAlignAssignments || row.vAlignAssignments.length === 0) return;
+  for (const assignment of row.vAlignAssignments) {
+    const start = Math.max(0, assignment.itcFirst);
+    const end = Math.min(row.cells.length, assignment.itcLim);
+    for (let ci = start; ci < end; ci += 1) {
+      const cell = row.cells[ci];
+      if (!cell) continue;
+      cell.vAlign = assignment.valign === 2 ? "bottom" : assignment.valign === 1 ? "center" : "top";
+    }
+  }
+}
+
+function extractTablePositionForRange(paragraphRanges, paragraphProperties, cpStart, cpEnd) {
+  const positions = [];
+  let noAllowOverlap = false;
+
+  for (let i = 0; i < paragraphRanges.length; i += 1) {
+    const range = paragraphRanges[i];
+    if (range.cpEnd <= cpStart || range.cpStart >= cpEnd) continue;
+    const props = paragraphProperties[i];
+    if (props?.tablePosition) positions.push(props.tablePosition);
+    if (props?.tableNoAllowOverlap) noAllowOverlap = true;
+  }
+
+  if (positions.length === 0 && !noAllowOverlap) return null;
+
+  const merged = {};
+  for (const position of positions) {
+    for (const [key, value] of Object.entries(position)) {
+      if (value == null) continue;
+      if (merged[key] == null) {
+        merged[key] = value;
+        continue;
+      }
+      if (merged[key] !== value) {
+        throw new Error(`Conflicting table position sprms were parsed for a table row: ${key}`);
+      }
+    }
+  }
+
+  return { tablePosition: Object.keys(merged).length > 0 ? merged : null, tableNoAllowOverlap: noAllowOverlap };
+}
+
+function parseCellBorderSideArrayOperand(sprm, payload) {
+  if (!payload || payload.length === 0) {
+    throw new Error(`Truncated cell border side array SPRM 0x${sprm.toString(16)}`);
+  }
+  if (payload.length % 4 !== 0) {
+    throw new Error(`Unsupported cell border side array length ${payload.length} in SPRM 0x${sprm.toString(16)}`);
+  }
+
+  let side = null;
+  if (sprm === 0xD61A) side = "top";
+  else if (sprm === 0xD61B) side = "left";
+  else if (sprm === 0xD61C) side = "bottom";
+  else if (sprm === 0xD61D) side = "right";
+  else throw new Error(`Unsupported cell border side SPRM 0x${sprm.toString(16)}`);
+
+  const borders = [];
+  for (let off = 0; off < payload.length; off += 4) {
+    borders.push(parseBorderRecord(payload.subarray(off, off + 4), sprm));
+  }
+  return { side, borders };
+}
+
+function inferMissingRowHeights(rows) {
+  const heightCounts = new Map();
+  for (const row of rows) {
+    if (row.rowHeight == null) continue;
+    const key = `${row.rowHeight}:${row.rowHeightRule}`;
+    heightCounts.set(key, (heightCounts.get(key) ?? 0) + 1);
+  }
+
+  let dominantKey = null;
+  let dominantCount = 0;
+  for (const [key, count] of heightCounts.entries()) {
+    if (count > dominantCount) {
+      dominantKey = key;
+      dominantCount = count;
+    }
+  }
+
+  if (!dominantKey) return;
+  const [heightText, ruleText] = dominantKey.split(":");
+  const dominantHeight = Number(heightText);
+  const dominantRule = Number(ruleText);
+
+  for (const row of rows) {
+    if (row.rowHeight != null) continue;
+    row.rowHeight = dominantHeight;
+    row.rowHeightRule = dominantRule;
+  }
+}
+
+function inferRowColumnsFromGrid(gridPositions, row) {
+  if (!gridPositions || gridPositions.length < row.cells.length + 1) return null;
+
+  const excessColumns = gridPositions.length - 1 - row.cells.length;
+  if (excessColumns < 0) return null;
+
+  const rowColumns = [gridPositions[0]];
+  for (let i = excessColumns; i < gridPositions.length - 1; i += 1) {
+    rowColumns.push(gridPositions[i]);
+  }
+
+  if (rowColumns.length !== row.cells.length + 1) return null;
+  for (let i = 1; i < rowColumns.length; i += 1) {
+    if (rowColumns[i] <= rowColumns[i - 1]) return null;
+  }
+
+  return rowColumns;
 }
 
 function findGridPositionIndex(gridPositions, value) {
@@ -1051,12 +1360,10 @@ function findRowPropertyForRange(rowProperties, cpStart, cpEnd, cellCount) {
 
 function normalizeColumnPositions(columns) {
   if (!columns || columns.length < 2) return null;
-  const first = columns[0];
-  const normalized = columns.map((pos) => pos - first);
-  for (let i = 1; i < normalized.length; i += 1) {
-    if (normalized[i] <= normalized[i - 1]) return null;
+  for (let i = 1; i < columns.length; i += 1) {
+    if (columns[i] <= columns[i - 1]) return null;
   }
-  return normalized;
+  return columns;
 }
 
 function buildGenericGridCols(rows, sections = null) {
@@ -1083,7 +1390,7 @@ function buildGenericGridCols(rows, sections = null) {
   return cols;
 }
 
-function collectTDefTableEntries(wordDocument, tableStream, fib, pieces) {
+function collectTDefTableEntries(wordDocument, tableStream, fib, pieces, dataStream = null) {
   if (!fib.fcPapx || !fib.lcbPapx || fib.lcbPapx < 4) return [];
   if (fib.fcPapx + fib.lcbPapx > tableStream.length) return [];
 
@@ -1126,7 +1433,7 @@ function collectTDefTableEntries(wordDocument, tableStream, fib, pieces) {
         byteLength = cbx * 2;
       } else {
         byteLength = cb * 2;
-        if (byteLength > 400 || papxOffset + 1 + byteLength > page.length) continue;
+        if (papxOffset + 1 + byteLength > page.length) continue;
         dataOffset = papxOffset + 1;
       }
 
@@ -1135,15 +1442,27 @@ function collectTDefTableEntries(wordDocument, tableStream, fib, pieces) {
       if (cpStart == null || cpEnd == null) continue;
 
       const data = page.subarray(dataOffset, dataOffset + byteLength);
-      const info = parseTableRowSprms(data);
+      const info = parseTableRowSprms(data, dataStream);
       if (!info) continue;
 
       entries.push({
         cpStart,
         cpEnd,
         columns: info.columns,
+        cellFlags: info.cellFlags,
+        cellBorders: info.cellBorders,
+        cellBorderSideArrays: info.cellBorderSideArrays,
+        cellBorderAssignments: info.cellBorderAssignments,
+        tableWidth: info.tableWidth,
+        tableWidthType: info.tableWidthType,
         rowHeight: info.rowHeight,
         rowHeightRule: info.rowHeightRule,
+        cellMargins: info.cellMargins,
+        tableBorders: info.tableBorders,
+        vMergeAssignments: info.vMergeAssignments,
+        vAlignAssignments: info.vAlignAssignments,
+        cantSplit: info.cantSplit,
+        repeatHeader: info.repeatHeader,
       });
     }
   }
@@ -1166,13 +1485,27 @@ function hasVisibleText(text) {
   return text.replace(/[\s\x00-\x1f]/g, "").length > 0;
 }
 
-function parseTableRowSprms(data) {
+function parseTableRowSprms(data, dataStream = null) {
+  data = expandHugePapxTableSprms(data, dataStream);
   let off = 2;
   if (data.length >= 2 && data[off] === 0) off += 1;
 
   let tableDef = null;
+  let cellFlags = [];
+  let tableWidth = null;
+  let tableWidthType = null;
   let rowHeight = null;
   let rowHeightRule = null;
+  let cellMargins = null;
+  let tableBorders = null;
+  let cellBorders = [];
+  let cellBorderAssignments = [];
+  let cellBorderSideArrays = {};
+  const cellMarginCandidates = [];
+  const vMergeAssignments = [];
+  const vAlignAssignments = [];
+  let cantSplit = null;
+  let repeatHeader = null;
 
   while (off + 2 <= data.length) {
     if (data[off] === 0) { off += 1; continue; }
@@ -1180,8 +1513,11 @@ function parseTableRowSprms(data) {
     const spra = (sprm >> 13) & 0x7;
     let size = SPRM_OPERAND_SIZE_BY_SPRA[spra];
 
-    if (sprm === 0xD608) {
-      const cb = data[off + 2];
+    if (sprm === 0xD608 || sprm === 0xD606) {
+      if (off + 4 > data.length) {
+        throw new Error(`Truncated table definition SPRM length word for 0x${sprm.toString(16)}`);
+      }
+      const cb = data.readUInt16LE(off + 2);
       size = cb + 1;
       if (off + 3 + cb <= data.length) {
         const tblData = data.subarray(off + 3, off + 3 + cb);
@@ -1192,16 +1528,109 @@ function parseTableRowSprms(data) {
             positions.push(tblData.readInt16LE(2 + i * 2));
           }
           tableDef = positions;
+          const descriptorStart = 2 + (itc + 1) * 2;
+          const availableDescriptorBytes = tblData.length - descriptorStart;
+          const descriptorCount = Math.min(itc, Math.floor(availableDescriptorBytes / 20));
+          if (descriptorCount > 0) {
+            cellFlags = [];
+            cellBorders = [];
+            for (let i = 0; i < descriptorCount; i += 1) {
+              const base = descriptorStart + i * 20;
+              const bits = tblData.readUInt16LE(base);
+              cellFlags.push({
+                bFirstMerged: (bits & 0x0001) !== 0,
+                bMerged: (bits & 0x0002) !== 0,
+                bVertical: (bits & 0x0004) !== 0,
+                bBackward: (bits & 0x0008) !== 0,
+                bRotateFont: (bits & 0x0010) !== 0,
+                bVertMerge: (bits & 0x0020) !== 0,
+                bVertRestart: (bits & 0x0040) !== 0,
+                nVertAlign: (bits & 0x0180) >> 7,
+              });
+              cellBorders.push(parseCellBordersFromDescriptor(tblData.subarray(base + 4, base + 20)));
+            }
+          }
+        }
+      }
+    } else if (sprm === 0xF614) {
+      if (off + 5 <= data.length) {
+        const widthType = data[off + 2];
+        const widthValue = data.readUInt16LE(off + 3);
+        if (widthType === 3) {
+          tableWidth = widthValue;
+          tableWidthType = "dxa";
+        } else if (widthType === 2) {
+          tableWidth = widthValue;
+          tableWidthType = "pct";
+        } else if (widthType !== 1 && widthType !== 0) {
+          throw new Error(`Unsupported table width type ${widthType} in sprmTTableWidth`);
         }
       }
     } else if (sprm === 0xD605) {
       const cb = data[off + 2];
       size = cb + 1;
+      if (off + 3 + cb <= data.length) {
+        tableBorders = parseTableBordersOperand(sprm, data.subarray(off + 3, off + 3 + cb));
+      }
+    } else if (sprm === 0xD613) {
+      const cb = data[off + 2];
+      size = cb + 1;
+      if (off + 3 + cb <= data.length) {
+        tableBorders = parseTableBordersOperand(sprm, data.subarray(off + 3, off + 3 + cb));
+      }
+    } else if (sprm === 0xD620 || sprm === 0xD62F) {
+      const cb = data[off + 2];
+      size = cb + 1;
+      if (off + 3 + cb <= data.length) {
+        const payload = data.subarray(off + 3, off + 3 + cb);
+        const assignment = parseCellBorderAssignmentOperand(sprm, payload);
+        if (assignment) cellBorderAssignments.push(assignment);
+      }
+    } else if ((sprm >= 0xD61A && sprm <= 0xD61D) || sprm === 0xD662 || (sprm >= 0xD680 && sprm <= 0xD686)) {
+      const cb = data[off + 2];
+      size = cb + 1;
+      if (off + 3 + cb <= data.length && sprm >= 0xD61A && sprm <= 0xD61D) {
+        const payload = data.subarray(off + 3, off + 3 + cb);
+        const assignment = parseCellBorderSideArrayOperand(sprm, payload);
+        if (assignment) cellBorderSideArrays[assignment.side] = assignment.borders;
+      }
+    } else if (sprm === 0xD632 || sprm === 0xD634) {
+      const cb = data[off + 2];
+      size = cb + 1;
+      if (off + 3 + cb <= data.length) {
+        const candidate = parseTableCellPadding(data.subarray(off + 3, off + 3 + cb), sprm === 0xD634);
+        if (candidate) cellMarginCandidates.push(candidate);
+      }
     } else if (sprm === 0x9407) {
       if (off + 4 <= data.length) {
         const height = data.readInt16LE(off + 2);
         rowHeight = Math.abs(height);
         rowHeightRule = height < 0 ? 1 : 0;
+      }
+    } else if (sprm === 0x3403 || sprm === 0x3466) {
+      if (off + 3 <= data.length) {
+        cantSplit = data[off + 2] !== 0;
+      }
+    } else if (sprm === 0x3404) {
+      if (off + 3 <= data.length) {
+        repeatHeader = data[off + 2] !== 0;
+      }
+    } else if (sprm === 0xD62B) {
+      const cb = data[off + 2];
+      size = cb + 1;
+      if (off + 5 <= data.length) {
+        const itc = data[off + 3];
+        const state = data[off + 4] & 0x3;
+        vMergeAssignments.push({ itc, state });
+      }
+    } else if (sprm === 0xD62C) {
+      const cb = data[off + 2];
+      size = cb + 1;
+      if (off + 6 <= data.length) {
+        const itcFirst = data[off + 3];
+        const itcLim = data[off + 4];
+        const valign = data[off + 5] & 0x3;
+        vAlignAssignments.push({ itcFirst, itcLim, valign });
       }
     } else {
       if (size === -1) {
@@ -1215,5 +1644,427 @@ function parseTableRowSprms(data) {
   }
 
   if (!tableDef) return null;
-  return { columns: tableDef, rowHeight, rowHeightRule };
+  cellMargins = chooseTableCellMargins(cellMarginCandidates, tableDef.length - 1);
+  return {
+    columns: tableDef,
+    cellFlags,
+    cellBorders,
+    cellBorderSideArrays,
+    cellBorderAssignments,
+    tableWidth,
+    tableWidthType,
+    rowHeight,
+    rowHeightRule,
+    cellMargins,
+    tableBorders: tableBorders ?? createDefaultTableBorders(),
+    vMergeAssignments,
+    vAlignAssignments,
+    cantSplit,
+    repeatHeader,
+  };
+}
+
+function inferTableWidth(rows) {
+  let tableWidth = null;
+  let tableWidthType = null;
+  for (const row of rows) {
+    if (row.tableWidth == null) continue;
+    if (tableWidth == null) {
+      tableWidth = row.tableWidth;
+      tableWidthType = row.tableWidthType ?? "dxa";
+      continue;
+    }
+    if (tableWidth !== row.tableWidth || tableWidthType !== (row.tableWidthType ?? "dxa")) {
+      throw new Error("Conflicting table width sprms were parsed for a single table");
+    }
+  }
+  return { tableWidth, tableWidthType };
+}
+
+function parseTableCellPadding(data, isDefault) {
+  if (!data || data.length < 6) return null;
+  const startCell = data[0];
+  const endCell = isDefault ? 1 : data[1];
+  const sideBits = data[2];
+  const sizeType = isDefault ? 0x3 : data[3];
+  const value = data.readUInt16LE(4);
+  if (isDefault && startCell !== 0) return null;
+  if (!isDefault && (startCell >= endCell || sizeType !== 0x3)) return null;
+  const margins = { top: 0, left: 0, bottom: 0, right: 0 };
+  let used = false;
+  if (sideBits & 0x01) { margins.top = value; used = true; }
+  if (sideBits & 0x02) { margins.left = value; used = true; }
+  if (sideBits & 0x04) { margins.bottom = value; used = true; }
+  if (sideBits & 0x08) { margins.right = value; used = true; }
+  return used ? { margins, startCell, endCell, isDefault, sideBits } : null;
+}
+
+function chooseTableCellMargins(candidates, cellCount) {
+  if (!candidates || candidates.length === 0) return null;
+  const selected = { top: null, left: null, bottom: null, right: null };
+  for (const candidate of candidates) {
+    const coversAllCells = candidate.isDefault || (candidate.startCell === 0 && candidate.endCell >= cellCount);
+    if (!coversAllCells) continue;
+    for (const side of ["top", "left", "bottom", "right"]) {
+      const bit = side === "top" ? 0x01 : side === "left" ? 0x02 : side === "bottom" ? 0x04 : 0x08;
+      if (!(candidate.sideBits & bit)) continue;
+      if (selected[side] == null) {
+        selected[side] = candidate.margins[side];
+        continue;
+      }
+      if (selected[side] !== candidate.margins[side]) {
+        throw new Error("Conflicting table cell padding sprms were parsed for a single table");
+      }
+    }
+  }
+  return {
+    top: selected.top ?? 0,
+    left: selected.left ?? 0,
+    bottom: selected.bottom ?? 0,
+    right: selected.right ?? 0,
+  };
+}
+
+function inferTableCellMargins(rows) {
+  let margins = null;
+  for (const row of rows) {
+    if (!row.cellMargins) continue;
+    if (!margins) {
+      margins = row.cellMargins;
+      continue;
+    }
+    if (
+      margins.top !== row.cellMargins.top ||
+      margins.left !== row.cellMargins.left ||
+      margins.bottom !== row.cellMargins.bottom ||
+      margins.right !== row.cellMargins.right
+    ) {
+      throw new Error("Conflicting table cell margins were parsed for a single table");
+    }
+  }
+  return margins;
+}
+
+function inferTableBorders(rows) {
+  let borders = null;
+  for (const row of rows) {
+    if (!row.tableBorders) continue;
+    if (!borders) {
+      borders = row.tableBorders;
+      continue;
+    }
+    if (JSON.stringify(borders) !== JSON.stringify(row.tableBorders)) {
+      throw new Error("Conflicting table border sprms were parsed for a single table");
+    }
+  }
+  return borders ?? createDefaultTableBorders();
+}
+
+function createDefaultTableBorders() {
+  const borders = {};
+  for (const side of TABLE_BORDER_SIDES) {
+    borders[side] = createEmptyTableBorder();
+  }
+  return borders;
+}
+
+function parseCellBordersFromDescriptor(raw) {
+  if (!raw || raw.length < 16) {
+    return null;
+  }
+
+  const borders = {};
+  const cellBorderSides = ["top", "left", "bottom", "right"];
+  for (let i = 0; i < cellBorderSides.length; i += 1) {
+    borders[cellBorderSides[i]] = parseWw8CellBorderEntry(raw.subarray(i * 4, (i + 1) * 4));
+  }
+  return borders;
+}
+
+function parseWw8CellBorderEntry(raw) {
+  if (raw.length !== 4) {
+    throw new Error(`Invalid WW8 cell border entry length ${raw.length}`);
+  }
+  if (raw[0] === 0xff && raw[1] === 0xff) {
+    return createEmptyTableBorder();
+  }
+  return normalizeTableBorderRecord({
+    sprm: 0xd608,
+    brcType: raw[1],
+    dptLineWidth: raw[0],
+    colorIndex: raw[2],
+    space: raw[3] & 0x1f,
+  });
+}
+
+function createEmptyTableBorder() {
+  return {
+    style: "none",
+    width: 0,
+    color: null,
+    space: 0,
+  };
+}
+
+function parseTableBordersOperand(sprm, payload) {
+  if (!payload || payload.length === 0) {
+    throw new Error(`Truncated table border SPRM 0x${sprm.toString(16)}`);
+  }
+
+  const entrySize = payload.length / TABLE_BORDER_SIDES.length;
+  if (!Number.isInteger(entrySize)) {
+    throw new Error(`Unsupported table border SPRM length ${payload.length} for 0x${sprm.toString(16)}`);
+  }
+
+  if (entrySize !== 2 && entrySize !== 4 && entrySize !== 8) {
+    throw new Error(`Unsupported table border entry size ${entrySize} in SPRM 0x${sprm.toString(16)}`);
+  }
+
+  const borders = {};
+  for (let i = 0; i < TABLE_BORDER_SIDES.length; i += 1) {
+    borders[TABLE_BORDER_SIDES[i]] = parseTableBorderEntry(
+      payload.subarray(i * entrySize, (i + 1) * entrySize),
+      entrySize,
+      sprm,
+    );
+  }
+  return borders;
+}
+
+function parseCellBorderAssignmentOperand(sprm, payload) {
+  if (!payload || payload.length < 3) {
+    throw new Error(`Truncated table cell border assignment SPRM 0x${sprm.toString(16)}`);
+  }
+
+  const itcFirst = payload[0];
+  const itcLim = payload[1];
+  const nFlag = payload[2];
+  if (itcLim <= itcFirst) {
+    return null;
+  }
+
+  const borderRaw = payload.subarray(3);
+  const border = parseBorderRecord(borderRaw, sprm);
+  return {
+    itcFirst,
+    itcLim,
+    changeTop: (nFlag & 0x01) !== 0,
+    changeLeft: (nFlag & 0x02) !== 0,
+    changeBottom: (nFlag & 0x04) !== 0,
+    changeRight: (nFlag & 0x08) !== 0,
+    border,
+  };
+}
+
+function parseBorderRecord(raw, sprm) {
+  if (!raw || raw.length === 0) {
+    throw new Error(`Invalid border record length 0 in SPRM 0x${sprm.toString(16)}`);
+  }
+  if (raw.length === 4 && raw[0] === 0xff && raw[1] === 0xff) {
+    return createEmptyTableBorder();
+  }
+  if (raw.length === 8 && raw.every((byte) => byte === 0xff)) {
+    return createEmptyTableBorder();
+  }
+  if (raw.length === 2 && raw[0] === 0xff && raw[1] === 0xff) {
+    return createEmptyTableBorder();
+  }
+  if (raw.length !== 2 && raw.length !== 4 && raw.length !== 8) {
+    throw new Error(`Unsupported border record length ${raw.length} in SPRM 0x${sprm.toString(16)}`);
+  }
+  return parseTableBorderEntry(raw, raw.length, sprm);
+}
+
+function parseTableBorderEntry(raw, entrySize, sprm) {
+  if (entrySize === 2) {
+    const bits = raw.readUInt16LE(0);
+    let dptLineWidth = bits & 0x07;
+    let brcType = (bits & 0x18) >> 3;
+    const colorIndex = ((bits & 0xc0) >> 6) | ((raw[1] & 0x07) << 2);
+    const space = raw[1] >> 3;
+    if (dptLineWidth > 5) {
+      brcType = dptLineWidth;
+      dptLineWidth = 1;
+    }
+    dptLineWidth *= 6;
+    return normalizeTableBorderRecord({
+      sprm,
+      brcType,
+      dptLineWidth,
+      colorIndex,
+      space,
+    });
+  }
+
+  if (entrySize === 4) {
+    return normalizeTableBorderRecord({
+      sprm,
+      brcType: raw[1],
+      dptLineWidth: raw[0],
+      colorIndex: raw[2],
+      space: raw[3] & 0x1f,
+    });
+  }
+
+  if (entrySize === 8) {
+    return normalizeTableBorderRecord({
+      sprm,
+      brcType: raw[5],
+      dptLineWidth: raw[4],
+      color: raw.readUInt32LE(0),
+      space: raw[6] & 0x1f,
+    });
+  }
+
+  throw new Error(`Unsupported table border entry size ${entrySize} in SPRM 0x${sprm.toString(16)}`);
+}
+
+function normalizeTableBorderRecord({ sprm, brcType, dptLineWidth, colorIndex = null, color = null, space = 0 }) {
+  return {
+    style: tableBorderStyleFromBrcType(brcType, sprm),
+    width: dptLineWidth,
+    color: color != null ? colorToHexFromBgr(color) : colorIndexToHex(colorIndex),
+    space,
+  };
+}
+
+function tableBorderStyleFromBrcType(brcType, sprm) {
+  switch (brcType) {
+    case 0:
+      return "none";
+    case 1:
+    case 2:
+      return "single";
+    case 3:
+      return "double";
+    case 4:
+      return "dotted";
+    case 6:
+      return "thick";
+    case 7:
+      return "dash";
+    case 9:
+      return "dotDash";
+    case 10:
+      return "dotDotDash";
+    case 11:
+      return "wave";
+    case 20:
+      return "dottedHeavy";
+    case 23:
+      return "dashedHeavy";
+    case 25:
+      return "dashDotHeavy";
+    case 26:
+      return "dashDotDotHeavy";
+    case 27:
+      return "wavyHeavy";
+    case 39:
+    case 55:
+      return "dashLongHeavy";
+    case 43:
+      return "wavyDouble";
+    default:
+      throw new Error(`Unsupported table border type ${brcType} in SPRM 0x${sprm.toString(16)}`);
+  }
+}
+
+function colorIndexToHex(colorIndex) {
+  if (colorIndex == null || colorIndex === 0) {
+    return null;
+  }
+  if (colorIndex === 1) {
+    return "000000";
+  }
+  throw new Error(`Unsupported table border color index ${colorIndex}`);
+}
+
+function colorToHexFromBgr(color) {
+  if (color === 0xff000000) {
+    return null;
+  }
+  const blue = color & 0xff;
+  const green = (color >> 8) & 0xff;
+  const red = (color >> 16) & 0xff;
+  return `${red.toString(16).padStart(2, "0")}${green.toString(16).padStart(2, "0")}${blue.toString(16).padStart(2, "0")}`.toUpperCase();
+}
+
+function expandHugePapxTableSprms(data, dataStream, depth = 0) {
+  if (depth > 8) {
+    throw new Error("Huge PAPX sprm expansion exceeded maximum recursion depth");
+  }
+
+  if (data.length <= 2) {
+    return Buffer.from(data);
+  }
+
+  const expanded = [...data.subarray(0, 2)];
+  let off = 2;
+  if (data[off] === 0) {
+    expanded.push(0);
+    off += 1;
+  }
+  while (off + 2 <= data.length) {
+    if (data[off] === 0) {
+      expanded.push(0);
+      off += 1;
+      continue;
+    }
+
+    const sprm = data.readUInt16LE(off);
+    if ((sprm === 0x6646 || sprm === 0x646B) && off + 6 <= data.length) {
+      if (!dataStream) {
+        throw new Error(`Encountered huge table sprm 0x${sprm.toString(16)} without Data stream`);
+      }
+      const dataOffset = data.readUInt32LE(off + 2);
+      const nested = readDataStreamGrpprl(dataStream, dataOffset);
+      const nestedExpanded = expandHugePapxTableSprms(nested, dataStream, depth + 1);
+      expanded.push(...nestedExpanded);
+      off += 6;
+      continue;
+    }
+
+    let size = SPRM_OPERAND_SIZE_BY_SPRA[(sprm >> 13) & 0x7];
+    if (sprm === 0xD608 || sprm === 0xD606) {
+      if (off + 4 > data.length) {
+        throw new Error(`Truncated table definition SPRM length word for 0x${sprm.toString(16)}`);
+      }
+      const cb = data.readUInt16LE(off + 2);
+      size = cb + 1;
+    } else if (sprm === 0xD605) {
+      if (off + 3 > data.length) break;
+      const cb = data[off + 2];
+      size = cb + 1;
+    } else if (size === -1) {
+      if (off + 3 > data.length) break;
+      size = data[off + 2] + 1;
+    }
+
+    if (!size || size < 0 || off + 2 + size > data.length) {
+      throw new Error(`Truncated table sprm data at offset ${off}`);
+    }
+
+    expanded.push(...data.subarray(off, off + 2 + size));
+    off += 2 + size;
+  }
+
+  return Buffer.from(expanded);
+}
+
+function readDataStreamGrpprl(dataStream, offset) {
+  if (!dataStream) {
+    throw new Error("Missing Data stream for huge PAPX table sprm expansion");
+  }
+  if (offset + 2 > dataStream.length) {
+    throw new Error(`Huge PAPX data offset ${offset} is outside the Data stream`);
+  }
+
+  const length = dataStream.readUInt16LE(offset);
+  const start = offset + 2;
+  const end = start + length;
+  if (end > dataStream.length) {
+    throw new Error(`Huge PAPX data at offset ${offset} exceeds the Data stream`);
+  }
+
+  return dataStream.subarray(start, end);
 }

@@ -77,6 +77,12 @@ DOCX 转换器会根据提取出的正文、段落属性、run 格式、section 
 3. CLX/Pcdt 分片表。
 4. UTF-16LE 与压缩的单字节文本分片。
 
+### DOCX settings `w:rsids`
+
+`word/settings.xml` 里的 `w:rsids` 属于修订历史管理元数据，不影响当前
+的文本提取和 DOCX 内容转换流程，因此现在可以暂时不生成。不要把它当作
+解析文档结构的信号。
+
 ## 应用场景
 
 - 从老旧的 **WPS Office `.wps`** 文档中提取文本

@@ -80,6 +80,13 @@ This section documents WPS-specific extensions to the standard Word 97 binary fo
 that were discovered during development. Standard OLE2/CFB and Word binary structures
 (FIB, CLX, piece table, text encoding) are not repeated here.
 
+### DOCX settings `w:rsids`
+
+The `w:rsids` block in `word/settings.xml` is revision-management metadata. It is
+not required for the current text extraction or DOCX content conversion path, so
+the converter may omit it for now. Do not use it as a parser signal for document
+structure.
+
 ### STSH (Style Sheet) location
 
 The STSH is stored in the table stream (`0Table` or `1Table`) at the offset given by

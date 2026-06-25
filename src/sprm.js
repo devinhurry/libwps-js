@@ -19,9 +19,12 @@ const SPRM_SIZES = {
   0x2461: 1, 0x2462: 1, 0x2463: 1, 0x2464: 1, 0x2465: 4,
   0x6412: 4,
   0x6A0C: 4, 0x6A0D: 4, 0x6A0E: 4, 0x6A0F: 4,
+  0x4455: 2, 0x4456: 2, 0x4457: 2,
   0x840E: 2, 0x840F: 2, 0x8411: 2, 0x8458: 2, 0x845D: 2,
   0x845E: 2, 0x8460: 2,
   0xA413: 2, 0xA414: 2,
+  0x3465: 1, 0x360D: 1, 0x940E: 2, 0x940F: 2, 0x9410: 2,
+  0x9411: 2, 0x941E: 2, 0x941F: 2,
   0x2A02: 1, 0x2A03: 1, 0x2A04: 1, 0x2A05: 1, 0x2A06: 1,
   0x2A07: 1, 0x2A08: 1, 0x2A09: 1, 0x2A0A: 1, 0x2A0B: 1,
   0x2A0C: 1, 0x2A0D: 1, 0x2A0E: 1, 0x2A0F: 1, 0x2A10: 1,
@@ -50,10 +53,11 @@ const SPRM_SIZES = {
   0x4A53: 2, 0x4A54: 2, 0x4A55: 2, 0x4A56: 2, 0x4A57: 2,
   0x4A58: 2, 0x4A59: 2, 0x4A5A: 2, 0x4A5B: 2, 0x4A5C: 2,
   0x4A5D: 2, 0x4A5E: 2, 0x4A5F: 2,
+  0x6A09: 4,
   0x6A40: 4, 0x6A41: 4, 0x6A42: 4, 0x6A43: 4, 0x6A44: 4,
   0x6A45: 4, 0x6A46: 4, 0x6A47: 4, 0x6A48: 4, 0x6A49: 4,
   0x4852: 2, 0x4853: 2, 0x4854: 2, 0x4855: 2, 0x4856: 2,
-  0x4857: 2, 0x4858: 2, 0x4859: 2, 0x485A: 2, 0x485B: 2,
+  0x484B: 2, 0x4857: 2, 0x4858: 2, 0x4859: 2, 0x485A: 2, 0x485B: 2,
   0x8840: 2, 0x8841: 2, 0x8842: 2, 0x8843: 2, 0x8844: 2,
   0x8845: 2, 0x8846: 2, 0x8847: 2, 0x8848: 2, 0x8849: 2,
   0xC60D: -1,
@@ -65,6 +69,9 @@ const SPRM_CATEGORIES = {
   0x840E: "rightIndent",
   0x840F: "leftIndent",
   0x8411: "firstLineIndent",
+  0x4455: "rightIndentChars",
+  0x4456: "leftIndentChars",
+  0x4457: "firstLineIndentChars",
   0x8458: "firstLineIndent",
   0x845D: "rightIndent",
   0x845E: "leftIndent",
@@ -76,7 +83,11 @@ const SPRM_CATEGORIES = {
   0x4A4F: "fontAscii",
   0x4A50: "fontEastAsia",
   0x4A51: "fontHAnsi",
+  0x4A61: "fontSizeCs",
   0x4A5E: "fontCs",
+  0x6A09: "symbol",
+  0x484B: "kern",
+  0x485F: "langIdBidi",
   0x8840: "charSpacing",
   0x4852: "charWidth",
   0x2A02: "bold",
@@ -84,9 +95,19 @@ const SPRM_CATEGORIES = {
   0x2A0E: "underline",
   0x2A3E: "underline",
   0x286F: "fontHint",
-  0x486E: "langId",
+  0x486D: "langId",
+  0x486E: "langIdEastAsia",
+  0x4873: "langId",
   0x4874: "langIdEastAsia",
   0xC60D: "tabs",
+  0x3465: "tableNoAllowOverlap",
+  0x360D: "tablePositionCode",
+  0x940E: "tablePositionX",
+  0x940F: "tablePositionY",
+  0x9410: "tablePositionLeftMargin",
+  0x9411: "tablePositionTopMargin",
+  0x941E: "tablePositionRightMargin",
+  0x941F: "tablePositionBottomMargin",
   0x6A0C: "fontIdWps",
   0x2433: "kinsoku",
   0x2434: "wordWrap",
@@ -171,6 +192,15 @@ function applySprm(props, sprm, val, size) {
     case 0x845E:
       props.leftIndent = val.readInt16LE(0);
       break;
+    case 0x4455:
+      props.rightIndentChars = val.readInt16LE(0);
+      break;
+    case 0x4456:
+      props.leftIndentChars = val.readInt16LE(0);
+      break;
+    case 0x4457:
+      props.firstLineIndentChars = val.readInt16LE(0);
+      break;
     case 0x8411:
     case 0x8458:
     case 0x8460:
@@ -184,6 +214,9 @@ function applySprm(props, sprm, val, size) {
       break;
     case 0x4A43:
       props.fontSize = val.readUInt16LE(0);
+      break;
+    case 0x4A61:
+      props.fontSizeCs = val.readUInt16LE(0);
       break;
     case 0x4A30:
     case 0x6A0C:
@@ -201,33 +234,81 @@ function applySprm(props, sprm, val, size) {
     case 0x4A5E:
       props.fontCs = val.readUInt16LE(0);
       break;
+    case 0x6A09:
+      props.symbolFontId = val.readUInt16LE(0);
+      props.symbolChar = val.readUInt16LE(2);
+      break;
     case 0x8840:
       props.charSpacing = val.readInt16LE(0);
       break;
     case 0x4852:
       props.charWidth = val.readUInt16LE(0);
       break;
+    case 0x484B:
+      props.kern = val.readUInt16LE(0);
+      break;
+    case 0x485F:
+      props.langIdBidi = val.readUInt16LE(0);
+      break;
+    case 0x0835:
+    case 0x085C:
     case 0x2A02:
       props.bold = val[0] !== 0;
       break;
+    case 0x0836:
+    case 0x085D:
     case 0x2A03:
       props.italic = val[0] !== 0;
       break;
     case 0x2A0E:
     case 0x2A3E:
-      props.underline = val[0] !== 0;
+      props.underlineStyle = underlineStyleFromCode(val[0]);
+      props.underline = props.underlineStyle != null;
       break;
     case 0x286F:
       props.fontHint = val[0] === 1 ? "eastAsia" : "default";
       break;
-    case 0x486E:
+    case 0x486D:
+    case 0x4873:
       props.langId = val.readUInt16LE(0);
       break;
+    case 0x486E:
     case 0x4874:
       props.langIdEastAsia = val.readUInt16LE(0);
       break;
     case 0xC60D:
       props.tabs = parseTabsOperand(val);
+      break;
+    case 0x3465:
+      props.tableNoAllowOverlap = val[0] !== 0;
+      break;
+    case 0x360D:
+      props.tablePosition ??= {};
+      props.tablePosition.nTPc = val[0];
+      break;
+    case 0x940E:
+      props.tablePosition ??= {};
+      props.tablePosition.nTDxaAbs = val.readInt16LE(0);
+      break;
+    case 0x940F:
+      props.tablePosition ??= {};
+      props.tablePosition.nTDyaAbs = val.readInt16LE(0);
+      break;
+    case 0x9410:
+      props.tablePosition ??= {};
+      props.tablePosition.nLeftMargin = val.readUInt16LE(0);
+      break;
+    case 0x9411:
+      props.tablePosition ??= {};
+      props.tablePosition.nUpperMargin = val.readUInt16LE(0);
+      break;
+    case 0x941E:
+      props.tablePosition ??= {};
+      props.tablePosition.nRightMargin = val.readUInt16LE(0);
+      break;
+    case 0x941F:
+      props.tablePosition ??= {};
+      props.tablePosition.nLowerMargin = val.readUInt16LE(0);
       break;
     case 0x2416:
       props.inTable = val[0] !== 0;
@@ -255,6 +336,49 @@ function applySprm(props, sprm, val, size) {
       break;
     default:
       break;
+  }
+}
+
+function underlineStyleFromCode(code) {
+  switch (code) {
+    case 0:
+      return null;
+    case 1:
+    case 2:
+      return "single";
+    case 3:
+      return "double";
+    case 4:
+      return "dotted";
+    case 5:
+      return null;
+    case 6:
+      return "thick";
+    case 7:
+      return "dash";
+    case 9:
+      return "dotDash";
+    case 10:
+      return "dotDotDash";
+    case 11:
+      return "wave";
+    case 20:
+      return "dottedHeavy";
+    case 23:
+      return "dashedHeavy";
+    case 25:
+      return "dashDotHeavy";
+    case 26:
+      return "dashDotDotHeavy";
+    case 27:
+      return "wavyHeavy";
+    case 39:
+    case 55:
+      return "dashLongHeavy";
+    case 43:
+      return "wavyDouble";
+    default:
+      throw new Error(`Unsupported underline style code ${code}`);
   }
 }
 

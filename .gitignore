@@ -10,3 +10,6 @@ converted*.docx
 test.json
 *-converted.docx
 .reasonix
+sample/*/converted.docx
+sample/*/converted/
+sample/*/expected/

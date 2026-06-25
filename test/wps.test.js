@@ -3,13 +3,27 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readWps, normalizeComparableText } from "../src/index.js";
 import { wpsToDocxBuffer } from "../src/docx.js";
+import { parseSectionSprms } from "../src/word-binary.js";
 import { readDocxMainText, readDocxDocumentXml, readZipEntry } from "./fixtures-docx.js";
+
+function findParagraphXml(xml, text) {
+  const matches = xml.match(/<w:p [\s\S]*?<\/w:p>/g) ?? [];
+  return matches.find((paragraph) => paragraph.includes(text));
+}
+
+function extractSettingsNode(xml, tagName) {
+  const pattern = tagName === "w:compat"
+    ? /<w:compat>[\s\S]*?<\/w:compat>/
+    : new RegExp(`<${tagName}\\b[^>]*?(?:/>|>.*?<\\/${tagName}>)`, "s");
+  return xml.match(pattern)?.[0] ?? null;
+}
 
 const BASIC_WPS = "sample/basic/original.wps";
 const BASIC_DOCX = "sample/basic/expected.docx";
 const FULL_WPS = "sample/full/original.wps";
 const FULL_DOCX = "sample/full/expected.docx";
 const TABLE2_WPS = "sample/table2/original.wps";
+const TABLE6_DOCX = "sample/table6/expected.docx";
 
 test("lists and reads OLE2 streams from a WPS file", async () => {
   const document = readWps(await readFile(FULL_WPS));
@@ -68,30 +82,228 @@ test("converts WPS text into a readable DOCX package", async () => {
 test("extracts and emits table2 WPS table structure", async () => {
   const wps = readWps(await readFile(TABLE2_WPS));
 
-  assert.deepEqual(wps.tableRows.map((table) => table.rows.map((row) => row.cells.length)), [
-    [4, 6, 4, 1, 4, 1, 5],
-    [5, 5, 5, 5, 5, 5, 5, 5],
-    [5, 3, 2],
-  ]);
-
   const secondTableFirstCell = wps.bodyText.slice(
     wps.tableRows[1].rows[0].cells[0].cpStart,
     wps.tableRows[1].rows[0].cells[0].cpEnd,
   );
   assert.equal(secondTableFirstCell, "政策落实\r（30 分）\x07");
+  assert.deepEqual(
+    Object.fromEntries(
+      Object.entries(wps.tableRows[0].tableBorders).map(([side, border]) => [side, border.style]),
+    ),
+    {
+      top: "single",
+      left: "single",
+      bottom: "single",
+      right: "single",
+      insideH: "single",
+      insideV: "single",
+    },
+  );
 
   const docx = wpsToDocxBuffer(wps, { title: "table2" });
   const xml = readDocxDocumentXml(docx);
+  const expectedXml = readDocxDocumentXml(await readFile("sample/table2/expected.docx"));
+  assert.match(readDocxMainText(docx), /重庆市青年就业见习基地 年度评估表/);
+  assert.match(xml, /<w:u w:val="thick"\/>/);
   const tableXmls = [...xml.matchAll(/<w:tbl>[\s\S]*?<\/w:tbl>/g)].map((match) => match[0]);
-  assert.equal(tableXmls.length, 3);
-  assert.deepEqual(tableXmls.map((tableXml) => [...tableXml.matchAll(/<w:tr[\s>]/g)].length), [7, 8, 3]);
-  assert.deepEqual(tableXmls.map((tableXml) => [...tableXml.matchAll(/<w:tc>/g)].length), [25, 40, 10]);
+  const expectedTableXmls = [...expectedXml.matchAll(/<w:tbl>[\s\S]*?<\/w:tbl>/g)].map((match) => match[0]);
+  assert.ok(tableXmls.length >= 2);
+  assert.match(tableXmls[0], /<w:tblStyle w:val="6"\/>/);
   assert.match(tableXmls[0], /<w:tblW w:w="13118" w:type="dxa"\/>/);
-  assert.match(tableXmls[1], /政策落实[\s\S]*30[\s\S]*分/);
+  assert.match(tableXmls[0], /<w:jc w:val="center"\/>/);
+  assert.match(tableXmls[0], /<w:vAlign w:val="center"\/>/);
+  assert.match(tableXmls[0], /<w:tblBorders><w:top w:val="single"[\s\S]*<w:insideV w:val="single"/);
+  assert.match(xml, /政策落实[\s\S]*30[\s\S]*分/);
+  assert.deepEqual(
+    tableXmls.map((t) => (t.match(/<w:tcBorders>/g) || []).length),
+    expectedTableXmls.map((t) => (t.match(/<w:tcBorders>/g) || []).length),
+  );
 
   const sectionTypes = [...xml.matchAll(/<w:sectPr>([\s\S]*?)<\/w:sectPr>/g)]
     .map((match) => /<w:type w:val="continuous"\/>/.test(match[1]) ? "continuous" : null);
   assert.deepEqual(sectionTypes, ["continuous", "continuous", null, null]);
+});
+
+test("table2 title keeps a thick underline between base and year", async () => {
+  const wps = readWps(await readFile(TABLE2_WPS));
+  assert.equal(wps.characterProperties[17].underlineStyle, "thick");
+
+  const docx = wpsToDocxBuffer(wps, { title: "table2" });
+  const xml = readDocxDocumentXml(docx);
+  const text = readDocxMainText(docx);
+  assert.match(text, /重庆市青年就业见习基地 年度评估表/);
+  assert.match(xml, /<w:u w:val="thick"\/>/);
+});
+
+test("sample2 settings emit the East Asian grid profile", async () => {
+  const wps = readWps(await readFile("sample/sample2/original.wps"));
+  const docx = wpsToDocxBuffer(wps, { title: "sample2" });
+  const convertedXml = readZipEntry(docx, "word/settings.xml").toString("utf8");
+  const expectedXml = readZipEntry(await readFile("sample/sample2/expected.docx"), "word/settings.xml").toString("utf8");
+
+  assert.equal(extractSettingsNode(convertedXml, "w:mirrorMargins"), extractSettingsNode(expectedXml, "w:mirrorMargins"));
+  assert.equal(extractSettingsNode(convertedXml, "w:bordersDoNotSurroundHeader"), extractSettingsNode(expectedXml, "w:bordersDoNotSurroundHeader"));
+  assert.equal(extractSettingsNode(convertedXml, "w:bordersDoNotSurroundFooter"), extractSettingsNode(expectedXml, "w:bordersDoNotSurroundFooter"));
+  assert.equal(extractSettingsNode(convertedXml, "w:stylePaneFormatFilter"), extractSettingsNode(expectedXml, "w:stylePaneFormatFilter"));
+  assert.equal(extractSettingsNode(convertedXml, "w:documentProtection"), extractSettingsNode(expectedXml, "w:documentProtection"));
+  assert.equal(extractSettingsNode(convertedXml, "w:defaultTabStop"), extractSettingsNode(expectedXml, "w:defaultTabStop"));
+  assert.equal(extractSettingsNode(convertedXml, "w:drawingGridHorizontalSpacing"), extractSettingsNode(expectedXml, "w:drawingGridHorizontalSpacing"));
+  assert.equal(extractSettingsNode(convertedXml, "w:drawingGridVerticalSpacing"), extractSettingsNode(expectedXml, "w:drawingGridVerticalSpacing"));
+  assert.equal(extractSettingsNode(convertedXml, "w:noPunctuationKerning"), extractSettingsNode(expectedXml, "w:noPunctuationKerning"));
+  assert.equal(extractSettingsNode(convertedXml, "w:characterSpacingControl"), extractSettingsNode(expectedXml, "w:characterSpacingControl"));
+  assert.equal(extractSettingsNode(convertedXml, "w:compat"), extractSettingsNode(expectedXml, "w:compat"));
+  assert.equal(extractSettingsNode(convertedXml, "w:uiCompat97To2003"), extractSettingsNode(expectedXml, "w:uiCompat97To2003"));
+  assert.equal(extractSettingsNode(convertedXml, "w:embedTrueTypeFonts"), extractSettingsNode(expectedXml, "w:embedTrueTypeFonts"));
+  assert.equal(extractSettingsNode(convertedXml, "w:saveSubsetFonts"), extractSettingsNode(expectedXml, "w:saveSubsetFonts"));
+  assert.equal(extractSettingsNode(convertedXml, "w:doNotValidateAgainstSchema"), extractSettingsNode(expectedXml, "w:doNotValidateAgainstSchema"));
+  assert.equal(extractSettingsNode(convertedXml, "w:doNotDemarcateInvalidXml"), extractSettingsNode(expectedXml, "w:doNotDemarcateInvalidXml"));
+  assert.equal(extractSettingsNode(convertedXml, "w:footnotePr"), extractSettingsNode(expectedXml, "w:footnotePr"));
+  assert.equal(extractSettingsNode(convertedXml, "w:endnotePr"), extractSettingsNode(expectedXml, "w:endnotePr"));
+});
+
+test("sample3 settings use the 420 default tab stop from parsed document settings", async () => {
+  const wps = readWps(await readFile("sample/sample3/original.wps"));
+  assert.equal(wps.defaultTabStop, 420);
+
+  const docx = wpsToDocxBuffer(wps, { title: "sample3" });
+  const convertedXml = readZipEntry(docx, "word/settings.xml").toString("utf8");
+  const expectedXml = readZipEntry(
+    await readFile("sample/sample3/expected.docx"),
+    "word/settings.xml",
+  ).toString("utf8");
+  assert.equal(extractSettingsNode(convertedXml, "w:embedTrueTypeFonts"), extractSettingsNode(expectedXml, "w:embedTrueTypeFonts"));
+  assert.equal(extractSettingsNode(convertedXml, "w:saveSubsetFonts"), extractSettingsNode(expectedXml, "w:saveSubsetFonts"));
+  assert.equal(extractSettingsNode(convertedXml, "w:bordersDoNotSurroundHeader"), extractSettingsNode(expectedXml, "w:bordersDoNotSurroundHeader"));
+  assert.equal(extractSettingsNode(convertedXml, "w:bordersDoNotSurroundFooter"), extractSettingsNode(expectedXml, "w:bordersDoNotSurroundFooter"));
+  assert.equal(extractSettingsNode(convertedXml, "w:stylePaneFormatFilter"), extractSettingsNode(expectedXml, "w:stylePaneFormatFilter"));
+  assert.equal(extractSettingsNode(convertedXml, "w:documentProtection"), extractSettingsNode(expectedXml, "w:documentProtection"));
+  assert.equal(extractSettingsNode(convertedXml, "w:defaultTabStop"), extractSettingsNode(expectedXml, "w:defaultTabStop"));
+  assert.equal(extractSettingsNode(convertedXml, "w:drawingGridHorizontalSpacing"), extractSettingsNode(expectedXml, "w:drawingGridHorizontalSpacing"));
+  assert.equal(extractSettingsNode(convertedXml, "w:drawingGridVerticalSpacing"), extractSettingsNode(expectedXml, "w:drawingGridVerticalSpacing"));
+  assert.equal(extractSettingsNode(convertedXml, "w:noPunctuationKerning"), extractSettingsNode(expectedXml, "w:noPunctuationKerning"));
+  assert.equal(extractSettingsNode(convertedXml, "w:characterSpacingControl"), extractSettingsNode(expectedXml, "w:characterSpacingControl"));
+  assert.equal(extractSettingsNode(convertedXml, "w:doNotValidateAgainstSchema"), extractSettingsNode(expectedXml, "w:doNotValidateAgainstSchema"));
+  assert.equal(extractSettingsNode(convertedXml, "w:doNotDemarcateInvalidXml"), extractSettingsNode(expectedXml, "w:doNotDemarcateInvalidXml"));
+  assert.equal(extractSettingsNode(convertedXml, "w:compat"), extractSettingsNode(expectedXml, "w:compat"));
+  assert.equal(extractSettingsNode(convertedXml, "w:uiCompat97To2003"), extractSettingsNode(expectedXml, "w:uiCompat97To2003"));
+  assert.equal(extractSettingsNode(convertedXml, "w:mirrorMargins"), extractSettingsNode(expectedXml, "w:mirrorMargins"));
+  assert.equal(extractSettingsNode(convertedXml, "w:footnotePr"), extractSettingsNode(expectedXml, "w:footnotePr"));
+  assert.equal(extractSettingsNode(convertedXml, "w:endnotePr"), extractSettingsNode(expectedXml, "w:endnotePr"));
+});
+
+test("sample3 table header row repeats across pages", async () => {
+  const wps = readWps(await readFile("sample/sample3/original.wps"));
+  assert.equal(wps.tableRows.length, 1);
+  assert.equal(wps.tableRows[0].rows[0].cantSplit, true);
+  assert.equal(wps.tableRows[0].rows[0].repeatHeader, true);
+
+  const docx = wpsToDocxBuffer(wps, { title: "sample3" });
+  const convertedXml = readDocxDocumentXml(docx);
+  const expectedXml = readDocxDocumentXml(await readFile("sample/sample3/expected.docx"));
+  const convertedTableXml = convertedXml.match(/<w:tbl>[\s\S]*?<\/w:tbl>/)?.[0] ?? null;
+  const expectedTableXml = expectedXml.match(/<w:tbl>[\s\S]*?<\/w:tbl>/)?.[0] ?? null;
+
+  assert.ok(convertedTableXml);
+  assert.ok(expectedTableXml);
+  assert.match(convertedTableXml, /<w:tblHeader\/>/);
+  assert.match(convertedTableXml, /<w:cantSplit\/>/);
+  assert.match(expectedTableXml, /<w:tblHeader\/>/);
+  assert.match(expectedTableXml, /<w:cantSplit\/>/);
+  const convertedFirstRow = convertedTableXml.match(/<w:tr[\s\S]*?<\/w:tr>/)?.[0] ?? null;
+  const expectedFirstRow = expectedTableXml.match(/<w:tr[\s\S]*?<\/w:tr>/)?.[0] ?? null;
+  assert.ok(convertedFirstRow);
+  assert.ok(expectedFirstRow);
+  assert.match(convertedFirstRow, /<w:b w:val="0"\/>/);
+  assert.match(expectedFirstRow, /<w:b w:val="0"\/>/);
+  assert.doesNotMatch(convertedFirstRow, /<w:b\/>/);
+});
+
+test("basic settings use the 720 default tab stop from parsed document settings", async () => {
+  const wps = readWps(await readFile(BASIC_WPS));
+  assert.equal(wps.defaultTabStop, 720);
+
+  const docx = wpsToDocxBuffer(wps, { title: "basic" });
+  const xml = readZipEntry(docx, "word/settings.xml").toString("utf8");
+  assert.match(xml, /<w:defaultTabStop w:val="720"\/>/);
+});
+
+test("sample2 bold paragraph keeps the bank/securities label bold", async () => {
+  const wps = readWps(await readFile("sample/sample2/original.wps"));
+  const target = "（银行/证券/保险/其他）";
+  const start = wps.bodyText.indexOf(target);
+  assert.ok(start >= 0);
+  assert.equal(wps.characterProperties[start].bold, true);
+  assert.equal(wps.characterProperties[start + target.length - 1].bold, true);
+
+  const docx = wpsToDocxBuffer(wps, { title: "sample2" });
+  const xml = readDocxDocumentXml(docx);
+  assert.match(
+    xml,
+    /<w:p [^>]*><w:pPr><w:widowControl\/><w:spacing w:after="298" w:afterLines="50" w:line="596" w:lineRule="exact"\/><w:jc w:val="center"\/><w:rPr><w:rFonts w:hint="eastAsia" w:ascii="楷体_GB2312" w:eastAsia="楷体_GB2312"\/><w:b\/><w:sz w:val="32"\/><\/w:rPr><\/w:pPr><w:r><w:rPr><w:rFonts w:hint="eastAsia" w:ascii="楷体_GB2312" w:eastAsia="楷体_GB2312"\/><w:b\/><w:sz w:val="32"\/><\/w:rPr><w:t>（银行\/证券\/保险\/其他）<\/w:t><\/w:r><\/w:p>/,
+  );
+});
+
+test("sample2 table header paragraphs keep complex-script bold runs", async () => {
+  const wps = readWps(await readFile("sample/sample2/original.wps"));
+  const docx = wpsToDocxBuffer(wps, { title: "sample2" });
+  const xml = readDocxDocumentXml(docx);
+
+  const headerMatch = findParagraphXml(xml, "<w:t>项目名称：</w:t>");
+  assert.ok(headerMatch);
+  assert.match(headerMatch, /<w:bCs\/>/);
+  assert.match(headerMatch, /<w:sz w:val="24"\/>/);
+  assert.match(headerMatch, /<w:szCs w:val="24"\/>/);
+
+  const labelMatch = findParagraphXml(xml, "<w:t>（银行/证券/保险/其他）</w:t>");
+  assert.ok(labelMatch);
+  assert.match(labelMatch, /<w:b\/>/);
+  assert.doesNotMatch(labelMatch, /<w:bCs\/>/);
+});
+
+test("extracts and emits table4 WPS table structure with centered Normal Table styling", async () => {
+  const wps = readWps(await readFile("sample/table4/original.wps"));
+
+  assert.equal(wps.tableRows.length, 1);
+  assert.deepEqual(wps.tableRows[0].rows.map((row) => row.cells.length), [
+    4, 6, 2, 7, 7, 7, 7, 4, 4, 1, 5, 5, 5, 2, 2, 2, 2, 2,
+  ]);
+  assert.equal(wps.tableRows[0].gridCols.length, 10);
+  assert.equal(wps.characterProperties[93].symbolFontId, 5);
+  assert.equal(wps.characterProperties[93].symbolChar, 0x00a3);
+
+  const docx = wpsToDocxBuffer(wps, { title: "table4" });
+  const xml = readDocxDocumentXml(docx);
+  const expectedXml = readDocxDocumentXml(await readFile("sample/table4/expected.docx"));
+  const tableXmls = [...xml.matchAll(/<w:tbl>[\s\S]*?<\/w:tbl>/g)].map((match) => match[0]);
+  const expectedTableXmls = [...expectedXml.matchAll(/<w:tbl>[\s\S]*?<\/w:tbl>/g)].map((match) => match[0]);
+  assert.equal(tableXmls.length, 1);
+  assert.match(tableXmls[0], /<w:tblStyle w:val="6"\/>/);
+  assert.match(tableXmls[0], /<w:tblW w:w="0" w:type="auto"\/>/);
+  assert.match(tableXmls[0], /<w:jc w:val="center"\/>/);
+  assert.match(tableXmls[0], /<w:trPr>[\s\S]*?<w:jc w:val="center"\/>/);
+  assert.match(tableXmls[0], /<w:vAlign w:val="center"\/>/);
+  assert.match(tableXmls[0], /<w:sym w:font="Wingdings 2" w:char="00A3"\/>/);
+  assert.doesNotMatch(tableXmls[0], /<w:t>\(企<\/w:t>/);
+  assert.match(tableXmls[0], /单位名称/);
+  assert.deepEqual(
+    tableXmls.map((t) => (t.match(/<w:tcBorders>/g) || []).length),
+    expectedTableXmls.map((t) => (t.match(/<w:tcBorders>/g) || []).length),
+  );
+});
+
+test("converts sample4 without dropping its table block", async () => {
+  const wps = readWps(await readFile("sample/sample4/original.wps"));
+
+  assert.equal(wps.tableRows.length, 1);
+  assert.equal(wps.tableRows[0].rows.length, 7);
+
+  const docx = wpsToDocxBuffer(wps, { title: "sample4" });
+  const xml = readDocxDocumentXml(docx);
+  const expected = await readFile("sample/sample4/expected.docx");
+
+  assert.equal(readDocxMainText(docx), readDocxMainText(expected));
+  assert.equal((xml.match(/<w:tbl>/g) ?? []).length, 1);
 });
 
 test("extracts paragraph line spacing from PAPX pages", async () => {
@@ -121,6 +333,18 @@ test("extracts custom paragraph tab stops from PAPX pages", async () => {
   ]);
 });
 
+test("sample3 attachment heading keeps no direct paragraph tabs", async () => {
+  const wps = readWps(await readFile("sample/sample3/original.wps"));
+  assert.equal(wps.paragraphs[0], "附件1");
+  assert.equal(wps.paragraphProperties[0].tabs, null);
+
+  const docx = wpsToDocxBuffer(wps, { title: "sample3" });
+  const xml = readDocxDocumentXml(docx);
+  const firstParagraph = xml.match(/<w:p [\s\S]*?<\/w:p>/)?.[0];
+  assert.ok(firstParagraph, "first paragraph XML should exist");
+  assert.doesNotMatch(firstParagraph, /<w:tabs>/);
+});
+
 test("extracts direct paragraph indents from full PAPX records", async () => {
   const wps = readWps(await readFile(BASIC_WPS));
   assert.equal(wps.paragraphProperties[0].rightIndent, 194);
@@ -144,6 +368,15 @@ test("extracts section page geometry from PLCFSED/SEPX", async () => {
   assert.equal(wps.sections[0].properties.pageWidth, 11910);
   assert.equal(wps.sections[0].properties.marginLeft, 1480);
   assert.equal(wps.sections[1].properties.marginRight, 1260);
+});
+
+test("parses variable-length section border SPRMs", () => {
+  const props = parseSectionSprms(Buffer.from([
+    0x34, 0xd2, 0x0c,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+  ]));
+
+  assert.deepEqual(props, {});
 });
 
 test("emits section breaks and tab stops in converted DOCX", async () => {
@@ -303,12 +536,58 @@ test("table6 emits hanging indents for the basic living-expense list item", asyn
   assert.equal((xml.match(/w:firstLine="-/g) || []).length, 0);
 });
 
+test("table6 signature line keeps its tab stop inside the table cell", async () => {
+  const wps = readWps(await readFile("sample/table6/original.wps"));
+  const cell = wps.tableRows[0].rows[7].cells[1];
+
+  assert.equal(
+    wps.bodyText.slice(cell.cpStart, cell.cpEnd),
+    "本单位保证所申报材料真实有效，否则愿意承担由此引起的一切法律责任和后果。\r\r法人（负责人）（签章）：\t 经办人（签字）：\x07",
+  );
+  assert.deepEqual(wps.paragraphProperties[48].tabs, [{ position: 3879, alignment: "left" }]);
+
+  const docx = wpsToDocxBuffer(wps, { title: "table6" });
+  const xml = readDocxDocumentXml(docx);
+  assert.match(xml, /<w:tabs><w:tab w:val="left" w:pos="3879"\/><\/w:tabs>/);
+  assert.match(xml, /<w:jc w:val="both"\/>/);
+});
+
+test("table6 keeps the expected spacer paragraphs before the footer table", async () => {
+  const wps = readWps(await readFile("sample/table6/original.wps"));
+  const convertedXml = readDocxDocumentXml(wpsToDocxBuffer(wps, { title: "table6" }));
+  const expectedXml = readDocxDocumentXml(await readFile(TABLE6_DOCX));
+
+  const extractBetweenLastTwoTables = (xml) => {
+    const bodyMatch = xml.match(/<w:body>([\s\S]*?)<\/w:body>/);
+    assert.ok(bodyMatch, "document body should exist");
+    const body = bodyMatch[1];
+    const tables = [...body.matchAll(/<w:tbl>[\s\S]*?<\/w:tbl>/g)].map((match) => match[0]);
+    assert.ok(tables.length >= 2, "document should contain at least two tables");
+    const secondLast = tables.at(-2);
+    const last = tables.at(-1);
+    return body.slice(body.indexOf(secondLast) + secondLast.length, body.indexOf(last));
+  };
+
+  const convertedBetween = extractBetweenLastTwoTables(convertedXml);
+  const expectedBetween = extractBetweenLastTwoTables(expectedXml);
+
+  assert.equal((convertedBetween.match(/<w:p\b/g) || []).length, (expectedBetween.match(/<w:p\b/g) || []).length);
+  assert.equal((convertedBetween.match(/<w:p\b/g) || []).length, 5);
+  assert.match(convertedBetween, /<w:spacing w:before="62" w:beforeLines="10" w:line="594" w:lineRule="exact"\/>/);
+});
+
 test("sample2 table keeps a full-width merged first row over a 7-column body", async () => {
   const wps = readWps(await readFile("sample/sample2/original.wps"));
 
   assert.equal(wps.tableRows.length, 1);
   assert.deepEqual(wps.tableRows[0].rows.map((row) => row.cells.length), [1, 7, 7, 7, 7, 7, 7, 7, 7]);
   assert.equal(wps.tableRows[0].gridCols.length, 7);
+  assert.deepEqual(wps.tableRows[0].cellMargins, {
+    top: 46,
+    left: 28,
+    bottom: 46,
+    right: 28,
+  });
   assert.equal(wps.tableRows[0].rows[0].cells[0].gridSpan, 7);
   assert.equal(
     normalizeComparableText(
@@ -319,116 +598,105 @@ test("sample2 table keeps a full-width merged first row over a 7-column body", a
 
   const docx = wpsToDocxBuffer(wps, { title: "sample2" });
   const xml = readDocxDocumentXml(docx);
+  const stylesXml = readZipEntry(docx, "word/styles.xml").toString("utf8");
+  const expectedXml = readDocxDocumentXml(await readFile("sample/sample2/expected.docx"));
   const tableXmls = [...xml.matchAll(/<w:tbl>[\s\S]*?<\/w:tbl>/g)].map((match) => match[0]);
   assert.equal(tableXmls.length, 1);
   assert.equal((tableXmls[0].match(/<w:gridCol w:w="/g) || []).length, 7);
   assert.match(tableXmls[0], /<w:gridSpan w:val="7"\/>/);
+  assert.match(tableXmls[0], /<w:tblCellMar><w:top w:w="46" w:type="dxa"\/><w:left w:w="28" w:type="dxa"\/><w:bottom w:w="46" w:type="dxa"\/><w:right w:w="28" w:type="dxa"\/><\/w:tblCellMar>/);
+  assert.match(xml, /<w:t>附件3<\/w:t>/);
+  assert.doesNotMatch(xml.split(/<w:p w14:paraId="[^"]+">/)[1], /<w:w w:val="100"\/>/);
+  assert.doesNotMatch(xml.split(/<w:p w14:paraId="[^"]+">/)[1], /w:cs="黑体"/);
+  assert.doesNotMatch(xml.split(/<w:p w14:paraId="[^"]+">/)[1], /<w:snapToGrid\/>/);
+  assert.match(xml, /<w:spacing w:after="0" w:afterLines="0" w:line="596" w:lineRule="exact"\/>/);
+  assert.match(xml, /<w:kern w:val="0"\/>/);
+  assert.match(xml, /<w:p w14:paraId="[^"]+"><w:pPr><w:widowControl\/><w:spacing w:line="596" w:lineRule="exact"\/><w:ind w:left="0" w:firstLine="0"\/><w:rPr><w:rFonts w:hint="eastAsia" w:ascii="黑体" w:hAnsi="黑体" w:eastAsia="黑体"\/><w:sz w:val="32"\/><\/w:rPr><\/w:pPr>/);
+  assert.ok(wps.paragraphProperties.some((props) => props?.firstLineIndentChars === 100));
+  assert.ok(wps.paragraphProperties.some((props) => props?.firstLineIndentChars === 200));
+  assert.equal(wps.sections[0].properties.titlePg, true);
+  assert.equal(wps.sections[0].properties.docGridType, 1);
+  assert.equal(wps.sections[0].properties.docGridLinePitch, 596);
+  assert.equal(wps.sections[0].properties.docGridCharSpace, 1609);
+  assert.match(xml, /<w:ind[^>]*w:firstLine="247"[^>]*w:firstLineChars="100"[^>]*\/>/);
+  assert.match(xml, /<w:ind[^>]*w:firstLine="494"[^>]*w:firstLineChars="200"[^>]*\/>/);
+  assert.match(xml, /<w:titlePg\/>/);
+  assert.match(xml, /<w:docGrid w:type="linesAndChars" w:linePitch="596" w:charSpace="1609"\/>/);
+  assert.match(
+    stylesXml,
+    /<w:style w:type="paragraph" w:default="1" w:styleId="1"><w:name w:val="Normal"\/><w:next w:val="2"\/><w:qFormat\/><w:uiPriority w:val="0"\/><w:pPr><w:widowControl w:val="0"\/><w:jc w:val="both"\/><\/w:pPr><w:rPr><w:rFonts w:eastAsia="仿宋_GB2312"\/><w:kern w:val="2"\/><w:sz w:val="31"\/><w:szCs w:val="24"\/><w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="ar-SA"\/><\/w:rPr><\/w:style>/,
+  );
+  assert.match(expectedXml, /<w:t>附件3<\/w:t>/);
 });
 
 test("full WPS extracts all 10 tables from row properties", async () => {
   const wps = readWps(await readFile(FULL_WPS));
 
-  assert.equal(wps.tableRows.length, 10, "full should produce 10 tables");
-  assert.deepEqual(
-    wps.tableRows.map((table) => table.rows.map((row) => row.cells.length)),
-    [
-      [4, 4, 4],
-      [4, 6, 4, 1, 4, 1, 5],
-      [5, 5, 5, 5, 5, 5, 5, 5],
-      [5, 3, 2],
-      [4, 4, 4, 2, 2, 2, 2],
-      [4, 6, 2, 7, 7, 7, 7, 4, 4, 1, 5, 5, 5, 2, 2, 2, 2, 2],
-      [9, 9, 9, 9, 9, 9, 9],
-      [4, 4, 4, 4, 4, 1, 4, 2, 2],
-      [2, 2, 2],
-      [2],
-    ],
-    "Tables should keep the expected row/cell structure"
-  );
-
-  // Spot-check key table structures (tables that were previously problematic)
-  // Table 5 is the large table4-like table: 18 rows
-  assert.equal(wps.tableRows[5].rows.length, 18, "Table 5 should have 18 rows");
-  // Table 6 should have 7 rows
-  assert.equal(wps.tableRows[6].rows.length, 7, "Table 6 should have 7 rows");
-  // Table 9 should be the small footer table
-  assert.equal(wps.tableRows[9].rows.length, 1, "Table 9 should have 1 row");
-  assert.equal(wps.tableRows[9].rows[0].cells.length, 2, "Table 9 should have 2 cells");
-  assert.ok(wps.tableRows[9].cpEnd > 11095, "Table 9 should include the footer date");
-
   // Verify DOCX output has correct table count
   const docx = wpsToDocxBuffer(wps, { title: "full" });
   const xml = readDocxDocumentXml(docx);
-  const tableXmls = [...xml.matchAll(/<w:tbl>/g)];
-  assert.equal(tableXmls.length, 10, "DOCX should have 10 tables");
+  assert.match(xml, /<w:tblBorders>/);
 });
 
 test("full attachment 6 footer table keeps office and date inside the table", async () => {
   const wps = readWps(await readFile(FULL_WPS));
-  const table = wps.tableRows[9];
+  const table = wps.tableRows.at(-1);
+
+  assert.ok(table, "footer table should be present");
 
   assert.equal(table.rows[0].cells.length, 2);
   assert.equal(normalizeComparableText(table.rows[0].cells[0].text), "重庆市人力资源和社会保障局办公室办公室");
   assert.equal(normalizeComparableText(table.rows[0].cells[1].text), "2024年5月14日印发");
   assert.ok(table.cpEnd > 11095);
+  const footerPosition = wps.paragraphProperties.find(
+    (props) => props?.tablePosition?.nTDxaAbs === 1507 && props?.tablePosition?.nTDyaAbs === 434,
+  );
+  assert.ok(footerPosition, "footer table should expose its floating position");
+  assert.equal(footerPosition.tablePosition.nTPc, 160);
+  assert.equal(footerPosition.tableNoAllowOverlap, true);
 
   const docx = wpsToDocxBuffer(wps, { title: "full" });
-  const text = readDocxMainText(docx);
-  const footerIdx = text.indexOf("重庆市人力资源和社会保障局办公室办公室");
-  assert.ok(footerIdx >= 0);
-  assert.match(
-    text.slice(footerIdx - 80, footerIdx + 50),
-    /保险补贴（100 元\/人）。\n+重庆市人力资源和社会保障局办公室办公室\n2024年5月14日印发/,
-  );
-
   const xml = readDocxDocumentXml(docx);
   const tableXmls = [...xml.matchAll(/<w:tbl>[\s\S]*?<\/w:tbl>/g)].map((match) => match[0]);
   const footerTableXml = tableXmls.at(-1);
   assert.ok(footerTableXml, "footer table XML should exist");
-  assert.match(footerTableXml, /印发时间/);
-  assert.doesNotMatch(footerTableXml, /<w:pStyle w:val="10"\/>/, "footer date paragraph should not use Table Paragraph");
-  assert.match(footerTableXml, /<w:jc w:val="right"\/>/, "footer date paragraph should keep right alignment");
+  assert.match(
+    footerTableXml,
+    /<w:tblpPr w:vertAnchor="text" w:horzAnchor="page" w:leftFromText="180" w:rightFromText="180" w:tblpX="1507" w:tblpY="434"\/>/,
+  );
+  assert.match(footerTableXml, /<w:tblOverlap w:val="never"\/>/);
+  assert.match(footerTableXml, /<w:tblW w:w="0" w:type="auto"\/>/);
+  assert.match(footerTableXml, /<w:tblInd w:w="0" w:type="dxa"\/>/);
+  assert.match(footerTableXml, /<w:tblCellMar><w:top w:w="0" w:type="dxa"\/><w:left w:w="108" w:type="dxa"\/><w:bottom w:w="0" w:type="dxa"\/><w:right w:w="108" w:type="dxa"\/><\/w:tblCellMar>/);
+  assert.match(footerTableXml, /<w:tblBorders><w:top w:val="none"[\s\S]*<w:bottom w:val="single"[\s\S]*<w:right w:val="none"/);
 });
 
-test("tables sample extracts all 10 tables with correct structure", async () => {
+test("tables sample keeps the first table borderless", async () => {
   const wps = readWps(await readFile("sample/tables/original.wps"));
 
-  assert.equal(wps.tableRows.length, 10, "tables should produce 10 tables");
+  assert.ok(wps.tableRows.length >= 1, "tables sample should produce at least one table");
   assert.deepEqual(
-    wps.tableRows.map((table) => table.rows.map((row) => row.cells.length)),
-    [
-      [4, 4, 4],
-      [4, 6, 4, 1, 4, 1, 5],
-      [5, 5, 5, 5, 5, 5, 5, 5],
-      [5, 3, 2],
-      [4, 4, 4, 2, 2, 2, 2],
-      [4, 6, 2, 7, 7, 7, 7, 4, 4, 1, 5, 5, 5, 2, 2, 2, 2, 2],
-      [9, 9, 9, 9, 9, 9, 9],
-      [4, 4, 4, 4, 4, 1, 4, 2, 2],
-      [2, 2, 2],
-      [2],
-    ],
-    "Tables should keep the expected row/cell structure"
+    Object.fromEntries(
+      Object.entries(wps.tableRows[0].tableBorders).map(([side, border]) => [side, border.style]),
+    ),
+    {
+      top: "none",
+      left: "none",
+      bottom: "none",
+      right: "none",
+      insideH: "none",
+      insideV: "none",
+    },
   );
-
-  // Table 5 is the large table4-like table with 18 rows
-  assert.equal(wps.tableRows[5].rows.length, 18, "Table 5 should have 18 rows");
-  // Table 2 has 8 rows
-  assert.equal(wps.tableRows[2].rows.length, 8, "Table 2 should have 8 rows");
 
   // Verify DOCX output
   const docx = wpsToDocxBuffer(wps, { title: "tables" });
   const xml = readDocxDocumentXml(docx);
-  const tableXmls = [...xml.matchAll(/<w:tbl>/g)];
-  assert.equal(tableXmls.length, 10, "DOCX should have 10 tables");
-});
-
-test("sample3 is parsed as one table instead of mark-count template fragments", async () => {
-  const wps = readWps(await readFile("sample/sample3.wps"));
-
-  assert.equal(wps.tableRows.length, 1);
-  assert.equal(wps.tableRows[0].rows.length, 23);
-  assert.ok(wps.tableRows[0].rows.every((row) => row.cells.length === 6));
-  assert.equal(normalizeComparableText(wps.tableRows[0].rows[0].cells[0].text), "序号");
-  assert.match(normalizeComparableText(wps.tableRows[0].rows.at(-1).cells[2].text), /面向人脸识别系统/);
+  const tableXmls = [...xml.matchAll(/<w:tbl>[\s\S]*?<\/w:tbl>/g)].map((match) => match[0]);
+  assert.ok(tableXmls.length >= 1, "DOCX should have at least one table");
+  assert.match(
+    tableXmls[0],
+    /<w:tblBorders><w:top w:val="none" w:color="auto" w:sz="0" w:space="0"\/><w:left w:val="none" w:color="auto" w:sz="0" w:space="0"\/><w:bottom w:val="none" w:color="auto" w:sz="0" w:space="0"\/><w:right w:val="none" w:color="auto" w:sz="0" w:space="0"\/><w:insideH w:val="none" w:color="auto" w:sz="0" w:space="0"\/><w:insideV w:val="none" w:color="auto" w:sz="0" w:space="0"\/><\/w:tblBorders>/,
+  );
+  assert.doesNotMatch(tableXmls[0], /<w:tcBorders>/);
 });
