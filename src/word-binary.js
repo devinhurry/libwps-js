@@ -416,8 +416,19 @@ function parseParagraphGrpprl(data) {
     firstLineIndent: parsed.firstLineIndent ?? null,
     spacingBefore: parsed.spacingBefore ?? null,
     spacingAfter: parsed.spacingAfter ?? null,
+    spacingBeforeAuto: parsed.spacingBeforeAuto ?? null,
+    spacingAfterAuto: parsed.spacingAfterAuto ?? null,
+    listLevel: parsed.listLevel ?? null,
+    listId: parsed.listId ?? null,
     tabs: parsed.tabs ?? null,
     inTable: parsed.inTable ?? false,
+    keepLines: parsed.keepLines ?? null,
+    keepNext: parsed.keepNext ?? null,
+    pageBreakBefore: parsed.pageBreakBefore ?? null,
+    widowControl: parsed.widowControl ?? null,
+    bidi: parsed.bidi ?? null,
+    snapToGrid: parsed.snapToGrid ?? null,
+    textAlignment: parsed.textAlignment ?? null,
     kinsoku: parsed.kinsoku ?? null,
     wordWrap: parsed.wordWrap ?? null,
     overflowPunct: parsed.overflowPunct ?? null,
@@ -425,6 +436,7 @@ function parseParagraphGrpprl(data) {
     autoSpaceDE: parsed.autoSpaceDE ?? null,
     autoSpaceDN: parsed.autoSpaceDN ?? null,
     adjustRightInd: parsed.adjustRightInd ?? null,
+    lineNumberCount: parsed.lineNumberCount ?? null,
     tablePosition: parsed.tablePosition ?? null,
     tableNoAllowOverlap: parsed.tableNoAllowOverlap ?? null,
   };
@@ -489,8 +501,38 @@ function extractStyleSheet(tableStream, fib) {
     }
     order += 1;
   }
+  applyCompactWpsStyleProfile(styles);
 
   return styles;
+}
+
+function applyCompactWpsStyleProfile(styles) {
+  if (!styles.some((style) => style?.name === "正文文本")) return;
+
+  // Evidence: WPS desktop exports documents with the compact built-in style set
+  // containing "正文文本" as Body Text styleId=3, with footer/header shifted to
+  // 4/5 and Default Paragraph Font/Normal Table at 7/6. Documents with the
+  // larger built-in set, such as sample3, do not contain "正文文本" and keep the
+  // standard parsed built-in ids from style-defs.js.
+  const compactBuiltIns = new Map([
+    ["标题 1", { styleId: "2", styleName: "heading 1", type: STYLE_TYPE_PARAGRAPH }],
+    ["正文文本", { styleId: "3", styleName: "Body Text", type: STYLE_TYPE_PARAGRAPH }],
+    ["页脚", { styleId: "4", styleName: "footer", type: STYLE_TYPE_PARAGRAPH }],
+    ["页眉", { styleId: "5", styleName: "header", type: STYLE_TYPE_PARAGRAPH }],
+    ["普通表格", { styleId: "6", styleName: "Normal Table", type: STYLE_TYPE_TABLE }],
+    ["默认段落字体", { styleId: "7", styleName: "Default Paragraph Font", type: STYLE_TYPE_CHARACTER }],
+    ["Table Normal", { styleId: "8", styleName: "Table Normal", type: STYLE_TYPE_TABLE }],
+    ["List Paragraph", { styleId: "9", styleName: "List Paragraph", type: STYLE_TYPE_PARAGRAPH }],
+    ["Table Paragraph", { styleId: "10", styleName: "Table Paragraph", type: STYLE_TYPE_PARAGRAPH }],
+  ]);
+
+  for (const style of styles) {
+    const compact = compactBuiltIns.get(style?.name);
+    if (!compact) continue;
+    style.styleId = compact.styleId;
+    style.styleName = compact.styleName;
+    style.type = compact.type;
+  }
 }
 
 function parseStd(std, index) {
@@ -530,9 +572,36 @@ function parseStd(std, index) {
     next: istdNext,
     baseCode: istdBase,
     nextCode: istdNext,
-    lineSpacing: parsed.lineSpacing ?? null,
+    lineSpacing: parsed.lineSpacing ?? extractLineSpacingFromGrpprl(grpprl),
     alignment: parsed.alignment ?? null,
+    leftIndentChars: parsed.leftIndentChars ?? null,
+    rightIndentChars: parsed.rightIndentChars ?? null,
+    firstLineIndentChars: parsed.firstLineIndentChars ?? null,
+    leftIndent: parsed.leftIndent ?? null,
+    rightIndent: parsed.rightIndent ?? null,
+    firstLineIndent: parsed.firstLineIndent ?? null,
+    spacingBefore: parsed.spacingBefore ?? null,
+    spacingAfter: parsed.spacingAfter ?? null,
+    spacingBeforeAuto: parsed.spacingBeforeAuto ?? null,
+    spacingAfterAuto: parsed.spacingAfterAuto ?? null,
+    listLevel: parsed.listLevel ?? null,
+    listId: parsed.listId ?? null,
     tabs: parsed.tabs ?? null,
+    keepLines: parsed.keepLines ?? null,
+    keepNext: parsed.keepNext ?? null,
+    pageBreakBefore: parsed.pageBreakBefore ?? null,
+    widowControl: parsed.widowControl ?? null,
+    bidi: parsed.bidi ?? null,
+    snapToGrid: parsed.snapToGrid ?? null,
+    textAlignment: parsed.textAlignment ?? null,
+    kinsoku: parsed.kinsoku ?? null,
+    wordWrap: parsed.wordWrap ?? null,
+    overflowPunct: parsed.overflowPunct ?? null,
+    topLinePunct: parsed.topLinePunct ?? null,
+    autoSpaceDE: parsed.autoSpaceDE ?? null,
+    autoSpaceDN: parsed.autoSpaceDN ?? null,
+    adjustRightInd: parsed.adjustRightInd ?? null,
+    lineNumberCount: parsed.lineNumberCount ?? null,
     runProperties,
   };
 }
@@ -565,15 +634,50 @@ function extractCharacterPropertiesFromGrpprl(grpprl) {
   scanKnownSprm(grpprl, 0x4a50, 2, (value) => { props.fontEastAsia = value.readUInt16LE(0); });
   scanKnownSprm(grpprl, 0x4a51, 2, (value) => { props.fontHAnsi = value.readUInt16LE(0); });
   scanKnownSprm(grpprl, 0x4a5e, 2, (value) => { props.fontCs = value.readUInt16LE(0); });
+  scanKnownSprm(grpprl, 0x286f, 1, (value) => { props.fontHint = value[0] === 1 ? "eastAsia" : "default"; });
   scanKnownSprm(grpprl, 0x4852, 2, (value) => { props.charWidth = value.readUInt16LE(0); });
   scanKnownSprm(grpprl, 0x8840, 2, (value) => { props.charSpacing = value.readInt16LE(0); });
   scanKnownSprm(grpprl, 0x484b, 2, (value) => { props.kern = value.readUInt16LE(0); });
+  scanKnownSprm(grpprl, 0x2a42, 1, (value) => { props.textColor = styleTextColorHex(value[0]); });
+  scanKnownSprm(grpprl, 0x2a0e, 1, (value) => {
+    if (value[0] === 0) props.underline = false;
+  });
+  scanKnownSprm(grpprl, 0x2a3e, 1, (value) => {
+    if (value[0] === 0) props.underline = false;
+  });
   scanKnownSprm(grpprl, 0x485f, 2, (value) => { props.langIdBidi = value.readUInt16LE(0); });
   scanKnownSprm(grpprl, 0x486d, 2, (value) => { props.langId = value.readUInt16LE(0); });
   scanKnownSprm(grpprl, 0x486e, 2, (value) => { props.langIdEastAsia = value.readUInt16LE(0); });
   scanKnownSprm(grpprl, 0x4873, 2, (value) => { props.langId = value.readUInt16LE(0); });
   scanKnownSprm(grpprl, 0x4874, 2, (value) => { props.langIdEastAsia = value.readUInt16LE(0); });
   return Object.keys(props).length ? props : null;
+}
+
+function styleTextColorHex(index) {
+  const colors = [
+    "auto",
+    "000000",
+    "8080FF",
+    "80FFFF",
+    "80FF80",
+    "FF80FF",
+    // WPS STSH style color index 6 exports as red in sample3 styles.xml.
+    "FF0000",
+    "FFFF00",
+    "FFFFFF",
+    "0000FF",
+    "00FFFF",
+    "00FF00",
+    "FF00FF",
+    "FF0000",
+    "800000",
+    "808080",
+    "C0C0C0",
+  ];
+  if (index >= 0 && index < colors.length) {
+    return colors[index];
+  }
+  throw new Error(`Unsupported style text color index ${index}`);
 }
 
 function scanKnownSprm(grpprl, sprm, operandSize, apply) {

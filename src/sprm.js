@@ -3,12 +3,14 @@ const SPRM_SIZES = {
   0x2405: 1, 0x2406: 1, 0x2407: 1, 0x2408: 1, 0x2409: 1,
   0x240A: 4, 0x240B: 1, 0x240C: 4, 0x240D: 4, 0x240E: 4,
   0x2410: 1, 0x2411: 1, 0x2413: 1, 0x2414: 1, 0x2415: 1,
+  0x240C: 1,
   0x2416: 1, 0x2417: 4, 0x2418: 4, 0x2419: 1, 0x241A: 1,
   0x241B: 1, 0x241C: 1, 0x241D: 1, 0x241E: 1, 0x241F: 1,
   0x2420: 1, 0x2421: 1, 0x2422: 1, 0x2423: 1, 0x2424: 1,
   0x2431: 1, 0x2433: 1, 0x2434: 1, 0x2435: 1, 0x2436: 1,
   0x2437: 1, 0x2438: 1, 0x2439: 2, 0x243A: 2, 0x243B: 2,
   0x243C: 1, 0x243D: 1, 0x243E: 1, 0x243F: 1,
+  0x2441: 1, 0x2447: 1, 0x4439: 2,
   0x2425: 1, 0x2426: 1, 0x2427: 1, 0x2428: 1, 0x2429: 1,
   0x242A: 1, 0x242B: 1, 0x242C: 1, 0x242D: 1, 0x242E: 1,
   0x242F: 1, 0x2430: 1, 0x2432: 1,
@@ -16,6 +18,8 @@ const SPRM_SIZES = {
   0x2446: 4, 0x2447: 1, 0x2448: 1, 0x2449: 4, 0x244A: 4,
   0x244B: 4, 0x244C: 4, 0x244D: 4, 0x244E: 4, 0x244F: 4,
   0x2450: 4, 0x2451: 4, 0x2452: 4, 0x2453: 4, 0x2454: 4,
+  0x245B: 1, 0x245C: 1,
+  0x260A: 1, 0x460B: 2,
   0x2461: 1, 0x2462: 1, 0x2463: 1, 0x2464: 1, 0x2465: 4,
   0x6412: 4,
   0x6A0C: 4, 0x6A0D: 4, 0x6A0E: 4, 0x6A0F: 4,
@@ -109,6 +113,15 @@ const SPRM_CATEGORIES = {
   0x941E: "tablePositionRightMargin",
   0x941F: "tablePositionBottomMargin",
   0x6A0C: "fontIdWps",
+  // LibreOffice WW8 maps these paragraph flags as:
+  // PFKeep -> keepLines, PFKeepFollow -> keepNext, PFPageBreakBefore -> pageBreakBefore.
+  0x2405: "keepLines",
+  0x2406: "keepNext",
+  0x2407: "pageBreakBefore",
+  0x2441: "bidi",
+  0x2447: "snapToGrid",
+  0x4439: "textAlignment",
+  0x2431: "widowControl",
   0x2433: "kinsoku",
   0x2434: "wordWrap",
   0x2435: "overflowPunct",
@@ -116,12 +129,100 @@ const SPRM_CATEGORIES = {
   0x2437: "autoSpaceDE",
   0x2438: "autoSpaceDN",
   0x2448: "adjustRightInd",
+  0x245B: "spacingBeforeAuto",
+  0x245C: "spacingAfterAuto",
+  0x260A: "listLevel",
+  0x460B: "listId",
 };
 
 const ALIGNMENT_MAP = { 0: "left", 1: "right", 2: "center", 3: "both", 4: "distribute", 5: "numTab" };
 const WORD_ALIGNMENT_MAP = { 0: "left", 1: "center", 2: "right", 3: "both", 4: "distribute", 5: "numTab" };
 
 const SPRM_OPERAND_SIZE_BY_SPRA = [1, 1, 2, 4, 2, 2, -1, 3];
+const WW8_TEXT_COLOR_INDEXES = [
+  "auto",
+  "000000",
+  "8080FF",
+  "80FFFF",
+  "80FF80",
+  "FF80FF",
+  "FF8080",
+  "FFFF00",
+  "FFFFFF",
+  "0000FF",
+  "00FFFF",
+  "00FF00",
+  "FF00FF",
+  "FF0000",
+  "800000",
+  "808080",
+  "C0C0C0",
+];
+
+const WW8_SHADING_STRENGTHS = [
+  0,
+  1000,
+  50,
+  100,
+  200,
+  250,
+  300,
+  400,
+  500,
+  600,
+  700,
+  750,
+  800,
+  900,
+  333,
+  333,
+  333,
+  333,
+  333,
+  333,
+  333,
+  333,
+  333,
+  333,
+  333,
+  333,
+  500,
+  500,
+  500,
+  500,
+  500,
+  500,
+  500,
+  500,
+  500,
+  25,
+  75,
+  125,
+  150,
+  175,
+  225,
+  275,
+  325,
+  350,
+  375,
+  425,
+  450,
+  475,
+  525,
+  550,
+  575,
+  625,
+  650,
+  675,
+  725,
+  775,
+  825,
+  850,
+  875,
+  925,
+  950,
+  975,
+];
 
 export function parseSprms(grpprl, skipIstd = false) {
   const props = {};
@@ -265,6 +366,17 @@ function applySprm(props, sprm, val, size) {
       props.underlineStyle = underlineStyleFromCode(val[0]);
       props.underline = props.underlineStyle != null;
       break;
+    case 0x2A42:
+    case 0x4A60:
+      props.textColor = ww8TextColorHex(val[0]);
+      break;
+    case 0x2A0C:
+      props.highlight = ww8HighlightName(val[0]);
+      break;
+    case 0x4866:
+    case 0xCA71:
+      props.background = parseWw8Shade(val);
+      break;
     case 0x286F:
       props.fontHint = val[0] === 1 ? "eastAsia" : "default";
       break;
@@ -313,6 +425,23 @@ function applySprm(props, sprm, val, size) {
     case 0x2416:
       props.inTable = val[0] !== 0;
       break;
+    case 0x240C:
+      // LibreOffice WW8 maps pap.fNoLnn to RES_LINENUMBER and writes
+      // <w:suppressLineNumbers w:val="0"/> when the paragraph count flag is set.
+      props.lineNumberCount = val[0] === 0;
+      break;
+    case 0x2405:
+      props.keepLines = val[0] !== 0;
+      break;
+    case 0x2406:
+      props.keepNext = val[0] !== 0;
+      break;
+    case 0x2407:
+      props.pageBreakBefore = val[0] !== 0;
+      break;
+    case 0x2431:
+      props.widowControl = val[0] !== 0;
+      break;
     case 0x2433:
       props.kinsoku = val[0] !== 0;
       break;
@@ -331,12 +460,132 @@ function applySprm(props, sprm, val, size) {
     case 0x2438:
       props.autoSpaceDN = val[0] !== 0;
       break;
+    case 0x245B:
+      props.spacingBeforeAuto = val[0] !== 0;
+      break;
+    case 0x245C:
+      props.spacingAfterAuto = val[0] !== 0;
+      break;
+    case 0x260A:
+      props.listLevel = val[0];
+      break;
+    case 0x460B:
+      props.listId = val.readInt16LE(0);
+      break;
     case 0x2448:
       props.adjustRightInd = val[0] !== 0;
       break;
+    case 0x2441:
+      props.bidi = val[0] !== 0;
+      break;
+    case 0x2447:
+      props.snapToGrid = val[0] !== 0;
+      break;
+    case 0x4439: {
+      const alignMap = {
+        0: "top",
+        1: "center",
+        2: "baseline",
+        3: "bottom",
+        4: "auto",
+      };
+      props.textAlignment = alignMap[val.readUInt16LE(0)] ?? "auto";
+      break;
+    }
     default:
       break;
   }
+}
+
+function ww8TextColorHex(index) {
+  if (index == null) return null;
+  if (index >= 0 && index < WW8_TEXT_COLOR_INDEXES.length) {
+    return WW8_TEXT_COLOR_INDEXES[index];
+  }
+  throw new Error(`Unsupported WW8 text color index ${index}`);
+}
+
+function ww8ShadeColorHex(index, autoHex) {
+  if (index == null) return null;
+  if (index === 0) return autoHex;
+  if (index >= 0 && index < WW8_TEXT_COLOR_INDEXES.length) {
+    return WW8_TEXT_COLOR_INDEXES[index];
+  }
+  throw new Error(`Unsupported WW8 shading color index ${index}`);
+}
+
+function parseWw8Shade(val) {
+  if (val.length < 2) {
+    return null;
+  }
+
+  const raw = val.readUInt16LE(0);
+  const foreIndex = raw & 0x1f;
+  const backIndex = (raw >> 5) & 0x1f;
+  const styleIndex = (raw >> 10) & 0x3f;
+  const foreHex = ww8ShadeColorHex(foreIndex, "000000");
+  const backHex = ww8ShadeColorHex(backIndex, "FFFFFF");
+  const strength = WW8_SHADING_STRENGTHS[styleIndex] ?? 0;
+
+  if (styleIndex === 0) {
+    return {
+      val: "clear",
+      color: "auto",
+      fill: backHex,
+    };
+  }
+
+  if (strength === 0) {
+    return {
+      val: "clear",
+      color: "auto",
+      fill: backHex,
+    };
+  }
+
+  if (strength === 1000) {
+    return {
+      val: "clear",
+      color: "auto",
+      fill: foreHex,
+    };
+  }
+
+  const mix = (fore, back) => Math.round((fore * strength + back * (1000 - strength)) / 1000);
+  const fill = [0, 1, 2].map((i) => {
+    const foreChannel = Number.parseInt(foreHex.slice(i * 2, i * 2 + 2), 16);
+    const backChannel = Number.parseInt(backHex.slice(i * 2, i * 2 + 2), 16);
+    return mix(foreChannel, backChannel).toString(16).toUpperCase().padStart(2, "0");
+  }).join("");
+
+  return {
+    val: styleIndex === 38 ? "pct15" : "clear",
+    color: "auto",
+    fill,
+  };
+}
+
+function ww8HighlightName(index) {
+  const map = {
+    0: "auto",
+    1: "black",
+    2: "blue",
+    3: "cyan",
+    4: "green",
+    5: "magenta",
+    6: "red",
+    7: "yellow",
+    8: "white",
+    9: "darkBlue",
+    10: "darkCyan",
+    11: "darkGreen",
+    12: "darkMagenta",
+    13: "darkRed",
+    14: "darkYellow",
+    15: "darkGray",
+    16: "lightGray",
+  };
+  return map[index] ?? "auto";
 }
 
 function underlineStyleFromCode(code) {
@@ -393,11 +642,51 @@ function parseTabsOperand(val) {
   }
 
   const tabs = [];
+  const tbdOffset = positionsOffset + addedCount * 2;
+  if (tbdOffset + addedCount > payload.length) {
+    throw new Error("Truncated tab-stop SPRM: missing tab descriptors");
+  }
   for (let i = 0; i < addedCount; i += 1) {
+    const descriptor = payload[tbdOffset + i];
     tabs.push({
       position: payload.readUInt16LE(positionsOffset + i * 2),
-      alignment: "left",
+      alignment: tabAlignmentFromCode(descriptor & 0x07),
+      leader: tabLeaderFromCode((descriptor >> 3) & 0x07),
     });
   }
   return tabs;
+}
+
+function tabAlignmentFromCode(code) {
+  switch (code) {
+    case 0:
+      return "left";
+    case 1:
+      return "center";
+    case 2:
+      return "right";
+    case 3:
+      return "decimal";
+    case 4:
+      return "bar";
+    default:
+      throw new Error(`Unsupported tab alignment code ${code}`);
+  }
+}
+
+function tabLeaderFromCode(code) {
+  switch (code) {
+    case 0:
+      return null;
+    case 1:
+      return "dot";
+    case 2:
+      return "hyphen";
+    case 3:
+      return "underscore";
+    case 4:
+      return "heavy";
+    default:
+      throw new Error(`Unsupported tab leader code ${code}`);
+  }
 }

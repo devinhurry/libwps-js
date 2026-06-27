@@ -2,8 +2,12 @@
 
 - Ensure never heuristic.
 - Prefer explicit, parsed Word binary properties over inferred row counts, signatures, or sample-specific pattern matching.
-- Distill behavior from Kingsoft WPS first; sample `expected.docx` files come from WPS Office desktop exports.
-- Refer to `libreoffice/core` WW8 implementation as the secondary source because it already converts `.wps` to `.docx` correctly most of the time.
+- The way to implement: 
+  - Distill behavior from Kingsoft WPS first; sample `expected.docx` files come from WPS Office desktop exports.
+  - By comparing the converted and expected xml, keep reducing the diffs(rsid/docvar/paraId diffs are ignored).
+- SPEC
+  - spec difinition: MS-DOC-SPEC/
+  - implementation reference: Refer to `libreoffice/core` WW8 implementation as the secondary source because it already converts `.wps` to `.docx` correctly most(althought not all) of the time.
 - If you need a visual comparison, first convert the DOCX files to PDF with `soffice` and compare the PDFs instead of judging the DOCX render directly.
 - Fail fast when required structure is missing instead of silently guessing.
 - Do not add backward-compatible fallback paths unless the user explicitly asks for them.

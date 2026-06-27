@@ -34,6 +34,7 @@ const BUILTIN_STYLE_DEFINITIONS = [
     styleName: "Plain Text",
     type: "paragraph",
     basedOn: "1",
+    link: "13",
     uiPriority: "99",
     qFormat: true,
     unhideWhenUsed: true,
