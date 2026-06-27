@@ -391,15 +391,6 @@ function applySprm(props, sprm, val, size) {
     case 0x4A60:
       props.textColor = ww8TextColorHex(val[0]);
       break;
-    case 0x6870: {
-      // sprmCCv: 4-byte COLORREF (BBGGRR00 little-endian)
-      const colorref = val.readUInt32LE(0);
-      const r = colorref & 0xFF;
-      const g = (colorref >> 8) & 0xFF;
-      const b = (colorref >> 16) & 0xFF;
-      props.textColor = ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1).toUpperCase();
-      break;
-    }
     case 0x2A0C:
       props.highlight = ww8HighlightName(val[0]);
       break;
@@ -818,45 +809,32 @@ function parseTabsOperand(val) {
   }
   for (let i = 0; i < addedCount; i += 1) {
     const descriptor = payload[tbdOffset + i];
+    const rawAlign = descriptor & 0x07;
+    const rawLeader = (descriptor >> 3) & 0x07;
+    // WPS sometimes stores the alignment in bits 3-5 and leader in bits 0-2;
+    // if rawAlign is unrecognised, try the swapped layout.
+    let alignCode = rawAlign;
+    let leaderCode = rawLeader;
+    if (!(rawAlign in TAB_ALIGNMENT_MAP) && (rawLeader in TAB_ALIGNMENT_MAP)) {
+      alignCode = rawLeader;
+      leaderCode = rawAlign;
+    }
     tabs.push({
-      position: payload.readUInt16LE(positionsOffset + i * 2),
-      alignment: tabAlignmentFromCode(descriptor & 0x07),
-      leader: tabLeaderFromCode((descriptor >> 3) & 0x07),
+      position: payload.readInt16LE(positionsOffset + i * 2),
+      alignment: TAB_ALIGNMENT_MAP[alignCode] ?? "left",
+      leader: TAB_LEADER_MAP[leaderCode] ?? null,
     });
   }
   return tabs;
 }
 
+const TAB_ALIGNMENT_MAP = { 0: "left", 1: "center", 2: "right", 3: "decimal", 4: "bar" };
+const TAB_LEADER_MAP = { 0: null, 1: "dot", 2: "hyphen", 3: "underscore", 4: "heavy", 5: "middleDot" };
+
 function tabAlignmentFromCode(code) {
-  switch (code) {
-    case 0:
-      return "left";
-    case 1:
-      return "center";
-    case 2:
-      return "right";
-    case 3:
-      return "decimal";
-    case 4:
-      return "bar";
-    default:
-      throw new Error(`Unsupported tab alignment code ${code}`);
-  }
+  return TAB_ALIGNMENT_MAP[code] ?? "left";
 }
 
 function tabLeaderFromCode(code) {
-  switch (code) {
-    case 0:
-      return null;
-    case 1:
-      return "dot";
-    case 2:
-      return "hyphen";
-    case 3:
-      return "underscore";
-    case 4:
-      return "heavy";
-    default:
-      throw new Error(`Unsupported tab leader code ${code}`);
-  }
+  return TAB_LEADER_MAP[code] ?? null;
 }

@@ -258,37 +258,135 @@ function shouldEmitNumberingXml(wpsDocument = {}) {
 }
 function createNumberingXml(wpsDocument = {}) {
   const paragraphProperties = wpsDocument.paragraphProperties ?? [];
+  const listData = wpsDocument.listData ?? { lstfList: [], lfoList: [] };
   const listIds = [...new Set(
     paragraphProperties
       .map((p) => p?.listId)
       .filter((id) => id != null && id > 0)
   )].sort((a, b) => a - b);
 
-  if (listIds.length === 0) return '';
+  // Always include the default abstractNum (abstractNumId="0") even if no paragraphs use it
+  const needNumbering = listIds.length > 0 || listData.lstfList.length > 0;
+  if (!needNumbering) return '';
 
   const parts = [];
   parts.push('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>');
   const ns = 'xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" xmlns:wpsCustomData="http://www.wps.cn/officeDocument/2013/wpsCustomData" mc:Ignorable="w14 wp14"';
   parts.push('<w:numbering ' + ns + '>');
 
-  for (const listId of listIds) {
-    parts.push('<w:abstractNum w:abstractNumId="0">');
-    parts.push('<w:multiLevelType w:val="multilevel"/>');
-    parts.push('<w:lvl w:ilvl="0" w:tentative="0">');
-    parts.push('<w:start w:val="1"/>');
-    parts.push('<w:numFmt w:val="decimal"/>');
-    parts.push('<w:lvlText w:val="%1"/>');
-    parts.push('<w:lvlJc w:val="left"/>');
-    parts.push('</w:lvl>');
+  // Map LFO index → LSTF for abstractNum assignment
+  const lfoToLstf = listData.lfoList.map(lfo => {
+    const lstf = listData.lstfList.find(l => l.lsid === lfo.lsid);
+    return lstf || null;
+  });
+
+  // Generate abstractNum for each LSTF
+  const fontTable = wpsDocument.fontTable ?? [];
+  for (let aIdx = 0; aIdx < listData.lstfList.length; aIdx++) {
+    const lstf = listData.lstfList[aIdx];
+    parts.push(`<w:abstractNum w:abstractNumId="${aIdx}">`);
+    if (lstf.lsid) parts.push(`<w:nsid w:val="${lstf.lsid.toString(16).toUpperCase().padStart(8, '0')}"/>`);
+    if (!lstf.fSimpleList) parts.push('<w:multiLevelType w:val="multilevel"/>');
+    if (lstf.tplc) parts.push(`<w:tmpl w:val="${lstf.tplc.toString(16).toUpperCase().padStart(8, '0')}"/>`);
+
+    for (const lvl of lstf.lvlList) {
+      const t = lstf.fHybrid && lvl.fTentative ? '1' : '0';
+      parts.push(`<w:lvl w:ilvl="${lvl.ilvl}" w:tentative="${t}">`);
+      parts.push(`<w:start w:val="${lvl.iStartAt}"/>`);
+      parts.push(`<w:numFmt w:val="${nfcToNumFmtXml(lvl.nfc)}"/>`);
+      // Suffix (ixchFollow): omit for "tab" (default), emit for "space" or "nothing"
+      const suff = ({0:"tab",1:"space",2:"nothing"})[lvl.ixchFollow] ?? "tab";
+      if (suff !== "tab") parts.push(`<w:suff w:val="${suff}"/>`);
+      // pStyle from LSTF rgistdPara (MS-DOC-SPEC §LSTF: rgistdPara[level] is istd of linked style, or 0x0FFF if none)
+      const istdPara = lstf.rgistdPara[lvl.ilvl];
+      if (istdPara != null && istdPara !== 0 && istdPara < 0x0FFF) {
+        parts.push(`<w:pStyle w:val="${istdPara}"/>`);
+      }
+      // Level text: convert binary xst to OOXML lvlText.
+      // Binary xst is Xst: cch + rgtchar (cch UTF-16LE code units, NO null terminator).
+      // Placeholders are 0-based ilvl values (U+0000=ilvl 0, ..., U+0008=ilvl 8).
+      // OOXML lvlText uses 1-based %N placeholders; suffix text passes through.
+      let lvlText = "";
+      for (let k = 0; k < lvl.xst.length; k++) {
+        const ch = lvl.xst.charCodeAt(k);
+        if (ch <= 8 && ch === lvl.ilvl) lvlText += "%" + (ch + 1);
+        else if (ch > 8) lvlText += lvl.xst[k]; // printable suffix (incl. PUA bullet chars)
+      }
+      // For numbered levels with empty text, use current-level placeholder.
+      // Bullet (nfc=23) and none (nfc=255) levels keep empty text.
+      if (!lvlText && lvl.nfc !== 23 && lvl.nfc !== 255) {
+        lvlText = "%" + (lvl.ilvl + 1);
+      }
+      parts.push(`<w:lvlText w:val="${escapeXml(lvlText)}"/>`);
+      // Justification
+      const jcMap = { 0: "left", 1: "center", 2: "right" };
+      parts.push(`<w:lvlJc w:val="${jcMap[lvl.jc] || "left"}"/>`);
+      // Paragraph properties: tabs, indents from grpprlPapx
+      const hasTabs = lvl.tabs && lvl.tabs.length > 0;
+      const hasIndents = lvl.leftIndent != null || lvl.firstLineIndent != null || lvl.rightIndent != null;
+      if (hasTabs || hasIndents) {
+        parts.push('<w:pPr>');
+        if (hasTabs) {
+          const tabsXml = lvl.tabs
+            .map((tab) => `<w:tab w:val="${tab.alignment}"${tab.leader ? ` w:leader="${tab.leader}"` : ""} w:pos="${tab.position}"/>`)
+            .join("");
+          parts.push(`<w:tabs>${tabsXml}</w:tabs>`);
+        }
+        if (hasIndents) {
+          const indParts = [];
+          if (lvl.leftIndent != null) indParts.push(`w:left="${lvl.leftIndent}"`);
+          if (lvl.firstLineIndent != null) {
+            if (lvl.firstLineIndent < 0) indParts.push(`w:hanging="${Math.abs(lvl.firstLineIndent)}"`);
+            else indParts.push(`w:firstLine="${lvl.firstLineIndent}"`);
+          }
+          if (lvl.rightIndent != null) indParts.push(`w:right="${lvl.rightIndent}"`);
+          if (indParts.length) parts.push(`<w:ind ${indParts.join(" ")}/>`);
+        }
+        parts.push('</w:pPr>');
+      }
+      // Run properties from grpprlChpx: rFonts, szCs, color
+      const fontAttrs = [];
+      if (lvl.fontHint != null) fontAttrs.push(`w:hint="${lvl.fontHint}"`);
+      if (lvl.fontAscii != null) fontAttrs.push(`w:ascii="${escapeXml(resolveFontName(fontTable, lvl.fontAscii))}"`);
+      if (lvl.fontHAnsi != null) fontAttrs.push(`w:hAnsi="${escapeXml(resolveFontName(fontTable, lvl.fontHAnsi))}"`);
+      if (lvl.fontEastAsia != null) fontAttrs.push(`w:eastAsia="${escapeXml(resolveFontName(fontTable, lvl.fontEastAsia))}"`);
+      if (lvl.fontCs != null) fontAttrs.push(`w:cs="${escapeXml(resolveFontName(fontTable, lvl.fontCs))}"`);
+      const hasFontRPr = fontAttrs.length > 0;
+      const hasSizeRPr = lvl.fontSizeCs != null;
+      const hasColorRPr = lvl.textColor != null;
+      if (hasFontRPr || hasSizeRPr || hasColorRPr) {
+        parts.push('<w:rPr>');
+        if (hasFontRPr) parts.push(`<w:rFonts ${fontAttrs.join(" ")}/>`);
+        if (hasSizeRPr) parts.push(`<w:szCs w:val="${lvl.fontSizeCs}"/>`);
+        if (hasColorRPr) parts.push(`<w:color w:val="${lvl.textColor}"/>`);
+        parts.push('</w:rPr>');
+      }
+      parts.push('</w:lvl>');
+    }
     parts.push('</w:abstractNum>');
   }
 
+  // Generate num entries: each LFO gets a numId = LFO index + 1
+  for (const lfo of listData.lfoList) {
+    const aIdx = listData.lstfList.findIndex(l => l.lsid === lfo.lsid);
+    if (aIdx >= 0) {
+      parts.push(`<w:num w:numId="${lfo.index + 1}"><w:abstractNumId w:val="${aIdx}"/></w:num>`);
+    }
+  }
+  // Also generate num entries for any listIds not covered by LFOs
   for (const listId of listIds) {
-    parts.push('<w:num w:numId="' + listId + '"><w:abstractNumId w:val="0"/></w:num>');
+    if (listData.lfoList.every(l => l.index + 1 !== listId)) {
+      parts.push(`<w:num w:numId="${listId}"><w:abstractNumId w:val="0"/></w:num>`);
+    }
   }
 
   parts.push('</w:numbering>');
   return parts.join('\n');
+}
+
+function nfcToNumFmtXml(nfc) {
+  const map = { 0: "decimal", 1: "upperRoman", 2: "lowerRoman", 3: "upperLetter", 4: "lowerLetter", 23: "bullet", 255: "none" };
+  return map[nfc] ?? "decimal";
 }
 
 // Footer mapping per section index (0-based): [defaultFooterNum, evenFooterNum]
@@ -1382,9 +1480,11 @@ function buildSectionPropertiesXml(properties = {}, { defaultFooterId, evenFoote
       throw new Error(`Unsupported section docGrid type ${section.docGridType}`);
     }
     if (section.docGridLinePitch == null || section.docGridCharSpace == null) {
-      throw new Error("Incomplete section docGrid properties");
+      // Some WPS files have docGridType but not the full charSpace/linePitch pair.
+      // Omit the docGrid element rather than emitting invalid OOXML.
+    } else {
+      parts.push(`<w:docGrid w:type="${docGridType}" w:linePitch="${section.docGridLinePitch}" w:charSpace="${section.docGridCharSpace}"/>`);
     }
-    parts.push(`<w:docGrid w:type="${docGridType}" w:linePitch="${section.docGridLinePitch}" w:charSpace="${section.docGridCharSpace}"/>`);
   }
   return `<w:sectPr>${parts.join("")}</w:sectPr>`;
 }
@@ -1715,16 +1815,6 @@ function buildLatentStylesXml(styles = [], wpsDocument = {}) {
     const latent = latentLsd[sti];
     if (!latent || !name) continue;
     if (sti === 92 || sti === 93 || (sti >= 107 && sti <= 110) || sti === 156 || sti === 157 || sti === 178 || sti === 180 || sti === 181) continue;
-    // WPS includes LSD entries up to the maximum sti of any defined built-in style.
-    // For entries beyond that, only include if they have non-default values.
-    const maxDefinedBuiltinSti = styles.reduce((max, s) => {
-      if (!s || s.sti >= 4094) return max;
-      return Math.max(max, s.sti);
-    }, 0);
-    if (sti > maxDefinedBuiltinSti) {
-      const isDefaultLsd = !latent.fQFormat && latent.fUnhideWhenUsed && latent.fSemiHidden && latent.iPriority === 99;
-      if (isDefaultLsd) continue;
-    }
     const attrs = [];
     if (latent.fQFormat) attrs.push('w:qFormat="1"');
     if (!latent.fUnhideWhenUsed) attrs.push('w:unhideWhenUsed="0"');

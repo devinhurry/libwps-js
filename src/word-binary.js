@@ -28,6 +28,8 @@ const PHE_SIZE = 12;
 const SPRM_WPS_DYA_LINE = 0x6412;
 const SPRM_WPS_DYA_LINE_OPERAND_SIZE = 2;
 const FIB_FC_CHPX_INDEX = 12;
+const FIB_FC_PLCFLST_INDEX = 73;
+const FIB_FC_PLCFLFO_INDEX = 74;
 
 const STSH_NIL_BASE = 0xfff0;
 const STSH_STD_HEADER_SIZE = 18;
@@ -55,6 +57,7 @@ export function extractWordBinaryDocument({ wordDocument, table0, table1 = null,
   const { styles, latentLsd, stiMaxWhenSaved } = extractStyleSheet(tableStream, fib);
   const fontTable = extractFontTable(tableStream, fib);
   const sections = extractSections(wordDocument, tableStream, fib);
+  const listData = extractListData(tableStream, fib);
   const defaultTabStop = inferDefaultTabStop(sections);
   const plcfHdd = parsePlcfHdd(tableStream, fib);
   const paragraphProperties = extractParagraphProperties(wordDocument, tableStream, fib, bodyText, styles, pieces);
@@ -77,6 +80,7 @@ export function extractWordBinaryDocument({ wordDocument, table0, table1 = null,
     stiMaxWhenSaved,
     fontTable,
     sections,
+    listData,
     defaultTabStop,
     subdocuments,
     tableRows,
@@ -109,6 +113,8 @@ function readFib(wordDocument) {
   const chpxOffset = FIB_FC_LCB_START + FIB_FC_CHPX_INDEX * 8;
   const fontTableOffset = FIB_FC_LCB_START + FIB_FC_FONT_TABLE_INDEX * 8;
   const stshOffset = FIB_FC_LCB_START + FIB_FC_STSH_INDEX * 8;
+  const plcfLstOffset = FIB_FC_LCB_START + FIB_FC_PLCFLST_INDEX * 8;
+  const plcfLfoOffset = FIB_FC_LCB_START + FIB_FC_PLCFLFO_INDEX * 8;
   if (tableStreamOffset + 8 > FIB_FC_LCB_START + fcLcbCount * 4) {
     throw new Error("Unsupported Word binary document: FIB does not contain fcClx/lcbClx");
   }
@@ -133,6 +139,10 @@ function readFib(wordDocument) {
     lcbFontTable: wordDocument.readUInt32LE(fontTableOffset + 4),
     fcStsh: wordDocument.readUInt32LE(stshOffset),
     lcbStsh: wordDocument.readUInt32LE(stshOffset + 4),
+    fcPlcfLst: wordDocument.readUInt32LE(plcfLstOffset),
+    lcbPlcfLst: wordDocument.readUInt32LE(plcfLstOffset + 4),
+    fcPlfLfo: wordDocument.readUInt32LE(plcfLfoOffset),
+    lcbPlfLfo: wordDocument.readUInt32LE(plcfLfoOffset + 4),
     characterCounts: {
       body: wordDocument.readUInt32LE(FIB_CCP_TEXT_OFFSET),
       footnotes: wordDocument.readUInt32LE(FIB_CCP_FTN_OFFSET),
@@ -818,7 +828,7 @@ function styleTextColorHex(index) {
     "80FFFF",
     "80FF80",
     "FF80FF",
-    "FF8080",
+    "FF0000",
     "FFFF00",
     "FFFFFF",
     "0000FF",
@@ -2311,4 +2321,135 @@ function readDataStreamGrpprl(dataStream, offset) {
   }
 
   return dataStream.subarray(start, end);
+}
+
+// --- List/numbering parsing (LSTF, LVL, LFO, LFOData) ---
+
+// Number format codes per MS-DOC-SPEC MSONFC
+const NFC_TO_NUMFMT = {
+  0: "decimal", 1: "upperRoman", 2: "lowerRoman", 3: "upperLetter",
+  4: "lowerLetter", 5: "ordinal", 6: "cardinalText", 7: "ordinalText",
+  14: "decimal", 23: "bullet", 255: "none",
+};
+function nfcToNumFmt(nfc) { return NFC_TO_NUMFMT[nfc] ?? "decimal"; }
+
+// ixchFollow: what follows the number
+const IXCH_FOLLOW = { 0: "tab", 1: "space", 2: "nothing" };
+
+function extractListData(tableStream, fib) {
+  const result = { lstfList: [], lfoList: [] };
+
+  // Parse PlfLst (list format templates)
+  if (fib.lcbPlcfLst >= 2 && fib.fcPlcfLst + fib.lcbPlcfLst <= tableStream.length) {
+    const plfLst = tableStream.subarray(fib.fcPlcfLst, fib.fcPlcfLst + fib.lcbPlcfLst);
+    const cLst = plfLst.readUInt16LE(0);
+    let off = 2;
+    for (let i = 0; i < cLst && off + 28 <= plfLst.length; i++) {
+      const lstf = {
+        lsid: plfLst.readUInt32LE(off),
+        tplc: plfLst.readUInt32LE(off + 4),
+        rgistdPara: [],
+        fSimpleList: !!(plfLst[off + 26] & 1),
+        fHybrid: !!(plfLst[off + 26] & 16),
+        lvlList: [],
+      };
+      for (let j = 0; j < 9; j++) {
+        lstf.rgistdPara.push(plfLst.readUInt16LE(off + 8 + j * 2));
+      }
+      off += 28;
+      result.lstfList.push(lstf);
+    }
+
+    // LVL arrays follow the PlfLst in the stream immediately after the LSTF entries
+    let lvlOff = fib.fcPlcfLst + off; // off = 2 + cLst*28 from LSTF loop
+    for (const lstf of result.lstfList) {
+      const numLvls = lstf.fSimpleList ? 1 : 9;
+      for (let i = 0; i < numLvls; i++) {
+        if (lvlOff + 20 > tableStream.length) break;
+        const iStartAt = tableStream.readUInt32LE(lvlOff);
+        const nfc = tableStream[lvlOff + 4];
+        const flags = tableStream[lvlOff + 5];
+        const jc = flags & 3;
+        const fTentative = !!(flags & 0x40);
+        const rgbxchNums = [];
+        for (let j = 0; j < 9; j++) rgbxchNums.push(tableStream[lvlOff + 6 + j]);
+        const ixchFollow = tableStream[lvlOff + 15];
+        // skip dxaIndentSav(4) + unused2(4) = 8 bytes at offset 16
+        const cbGrpprlChpx = tableStream[lvlOff + 24];
+        const cbGrpprlPapx = tableStream[lvlOff + 25];
+        lvlOff += 28; // fixed LVLF header size (28 bytes per MS-DOC-SPEC §LVLF)
+
+        // Read grpprlPapx then grpprlChpx (LVL stores papx first, then chpx)
+        const grpprlPapx = tableStream.subarray(lvlOff, lvlOff + cbGrpprlPapx);
+        lvlOff += cbGrpprlPapx;
+        const grpprlChpx = tableStream.subarray(lvlOff, lvlOff + cbGrpprlChpx);
+        lvlOff += cbGrpprlChpx;
+
+        // Read xst (level text): Xst structure per MS-DOC-SPEC §Xst.
+        // cch (2 bytes, unsigned) = character count, followed by cch × 2 bytes of rgtchar.
+        // Xst is NOT null-terminated (unlike Xstz).
+        // cch=0 means empty string.
+        const cch = lvlOff + 2 <= tableStream.length ? tableStream.readUInt16LE(lvlOff) : 0;
+        const xstDataLen = Math.min(cch * 2, tableStream.length - lvlOff - 2);
+        const xst = cch > 0 && xstDataLen > 0
+          ? tableStream.subarray(lvlOff + 2, lvlOff + 2 + xstDataLen).toString("utf16le")
+          : "";
+        lvlOff += 2 + cch * 2; // skip cch + rgtchar
+
+        const lvl = {
+          ilvl: i, iStartAt, nfc, jc, fTentative,
+          ixchFollow, rgbxchNums, xst,
+          grpprlPapx, grpprlChpx,
+        };
+        // Parse paragraph properties from grpprlPapx for indents.
+        // Some LVLs have a phantom SPRM at the end (0x8460) whose operand is missing;
+        // try with the full size first, then with reduced size if truncated.
+        if (cbGrpprlPapx > 0) {
+          let papxProps = null;
+          try { papxProps = parseSprms(grpprlPapx, false); } catch(e) { /* ignore */ }
+          // Retry with 2 fewer bytes if the last SPRM was truncated
+          if (!papxProps && cbGrpprlPapx > 2) {
+            try { papxProps = parseSprms(grpprlPapx.subarray(0, cbGrpprlPapx - 2), false); } catch(e2) { /* ignore */ }
+          }
+          if (papxProps) {
+            lvl.leftIndent = papxProps.leftIndent ?? null;
+            lvl.firstLineIndent = papxProps.firstLineIndent ?? null;
+            lvl.rightIndent = papxProps.rightIndent ?? null;
+            lvl.tabs = papxProps.tabs ?? null;
+          }
+        }
+        // Parse character properties from grpprlChpx for font and rPr
+        if (cbGrpprlChpx > 0) {
+          try {
+            const chpxProps = parseSprms(grpprlChpx, false);
+            lvl.fontAscii = chpxProps.fontAscii ?? null;
+            lvl.fontHAnsi = chpxProps.fontHAnsi ?? null;
+            lvl.fontEastAsia = chpxProps.fontEastAsia ?? null;
+            lvl.fontCs = chpxProps.fontCs ?? null;
+            lvl.fontSizeCs = chpxProps.fontSizeCs ?? null;
+            lvl.fontHint = chpxProps.fontHint ?? null;
+            lvl.textColor = chpxProps.textColor ?? null;
+            lvl.bold = chpxProps.bold ?? null;
+            lvl.italic = chpxProps.italic ?? null;
+          } catch(e) { /* ignore */ }
+        }
+        lstf.lvlList.push(lvl);
+      }
+    }
+  }
+
+  // Parse PlfLfo (list format overrides)
+  if (fib.lcbPlfLfo >= 4 && fib.fcPlfLfo + fib.lcbPlfLfo <= tableStream.length) {
+    const plfLfo = tableStream.subarray(fib.fcPlfLfo, fib.fcPlfLfo + fib.lcbPlfLfo);
+    const lfoMac = plfLfo.readUInt32LE(0);
+    let off = 4;
+    for (let i = 0; i < lfoMac && off + 16 <= plfLfo.length; i++) {
+      const lsid = plfLfo.readUInt32LE(off);
+      const clfolvl = plfLfo[off + 12];
+      result.lfoList.push({ lsid, clfolvl, index: i, lfolvlList: [] });
+      off += 16;
+    }
+  }
+
+  return result;
 }
