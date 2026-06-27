@@ -72,149 +72,36 @@ the ranges of **[Sprm](#sprm).ispmd** that each version of Microsoft
 Word processes. All versions of Microsoft Word skip [Prl](#prl)s that
 they cannot process.
 
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 20%" />
-<col style="width: 53%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Version</strong></th>
-<th><strong>Sprm.sgc</strong></th>
-<th><strong>Range of Sprm.ispmd processed</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Word 97</td>
-<td>1 (paragraph)</td>
-<td>0x00 – 0x48</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>2 (character)</td>
-<td>0x00 – 0x10, 0x30 – 0x6F</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>3 (picture)</td>
-<td>0x00 – 0x07</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>4 (section)</td>
-<td>0x00 – 0x33</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>5 (table)</td>
-<td>0x00 – 0x0C, 0x20, 0x2C</td>
-</tr>
-<tr class="even">
-<td>Word 2000</td>
-<td>1 (paragraph)</td>
-<td>0x00 – 0x63</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>2 (character)</td>
-<td>0x00 – 0x13, 0x30 – 0x81</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>3 (picture)</td>
-<td>0x00 – 0x0B</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>4 (section)</td>
-<td>0x00 – 0x38</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>5 (table)</td>
-<td>0x00 – 0x39, 0x60 – 0x65</td>
-</tr>
-<tr class="odd">
-<td>Word 2002</td>
-<td>1 (paragraph)</td>
-<td>0x00 – 0x6E</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>2 (character)</td>
-<td>0x00 – 0x18, 0x30 – 0x88</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>3 (picture)</td>
-<td>0x00 – 0x0B</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>4 (section)</td>
-<td>0x00 – 0x42</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>5 (table)</td>
-<td>0x00 – 0x3D, 0x60 – 0x8A</td>
-</tr>
-<tr class="even">
-<td>Office Word 2003</td>
-<td>1 (paragraph)</td>
-<td>0x00 – 0x6F</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>2 (character)</td>
-<td>0x00 – 0x18, 0x30 – 0x89, 0x90</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>3 (picture)</td>
-<td>0x00 – 0x0B</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>4 (section)</td>
-<td>0x00 – 0x43</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>5 (table)</td>
-<td>0x00 – 0x3E, 0x60 – 0x90</td>
-</tr>
-<tr class="odd">
-<td><p>Office Word 2007,</p>
-<p>Word 2010,</p>
-<p>and later</p></td>
-<td>1 (paragraph)</td>
-<td>0x00 – 0x73</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>2 (character)</td>
-<td>0x00 – 0x1D, 0x30 – 0x89, 0x90 – 0x95</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>3 (picture)</td>
-<td>0x00 – 0x0B</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>4 (section)</td>
-<td>0x00 – 0x44</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>5 (table)</td>
-<td>0x00 – 0x42, 0x60 – 0x90</td>
-</tr>
-</tbody>
-</table>
+
+| Version | Sprm.sgc | Range of Sprm.ispmd processed |
+| --- | --- | --- |
+| Word 97 | 1 (paragraph) | 0x00 – 0x48 |
+|  | 2 (character) | 0x00 – 0x10, 0x30 – 0x6F |
+|  | 3 (picture) | 0x00 – 0x07 |
+|  | 4 (section) | 0x00 – 0x33 |
+|  | 5 (table) | 0x00 – 0x0C, 0x20, 0x2C |
+| Word 2000 | 1 (paragraph) | 0x00 – 0x63 |
+|  | 2 (character) | 0x00 – 0x13, 0x30 – 0x81 |
+|  | 3 (picture) | 0x00 – 0x0B |
+|  | 4 (section) | 0x00 – 0x38 |
+|  | 5 (table) | 0x00 – 0x39, 0x60 – 0x65 |
+| Word 2002 | 1 (paragraph) | 0x00 – 0x6E |
+|  | 2 (character) | 0x00 – 0x18, 0x30 – 0x88 |
+|  | 3 (picture) | 0x00 – 0x0B |
+|  | 4 (section) | 0x00 – 0x42 |
+|  | 5 (table) | 0x00 – 0x3D, 0x60 – 0x8A |
+| Office Word 2003 | 1 (paragraph) | 0x00 – 0x6F |
+|  | 2 (character) | 0x00 – 0x18, 0x30 – 0x89, 0x90 |
+|  | 3 (picture) | 0x00 – 0x0B |
+|  | 4 (section) | 0x00 – 0x43 |
+|  | 5 (table) | 0x00 – 0x3E, 0x60 – 0x90 |
+| Office Word 2007, / Word 2010, / and later | 1 (paragraph) | 0x00 – 0x73 |
+|  | 2 (character) | 0x00 – 0x1D, 0x30 – 0x89, 0x90 – 0x95 |
+|  | 3 (picture) | 0x00 – 0x0B |
+|  | 4 (section) | 0x00 – 0x44 |
+|  | 5 (table) | 0x00 – 0x42, 0x60 – 0x90 |
+
+
 
 [\<7\> Section 2.2.6](#Appendix_A_Target_7): Word 97 and Word 2000
 cannot open files which are password protected with Office binary

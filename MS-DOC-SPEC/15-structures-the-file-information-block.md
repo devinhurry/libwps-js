@@ -12,129 +12,25 @@ The **Fib** is a variable length structure. With the exception of the
 base portion which is fixed in size, every section is preceded with a
 count field that specifies the size of the next section.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">base (32 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="16">csw</td>
-<td colspan="16">fibRgW (28 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">cslw</td>
-</tr>
-<tr class="even">
-<td colspan="32">fibRgLw (88 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cbRgFcLcb</td>
-<td colspan="16">fibRgFcLcbBlob (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cswNew</td>
-<td colspan="16">fibRgCswNew (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| base (32 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| csw |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | fibRgW (28 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cslw |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fibRgLw (88 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbRgFcLcb |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | fibRgFcLcbBlob (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cswNew |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | fibRgCswNew (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **base (32 bytes):** The [**FibBase**](#fibbase).
 
@@ -183,131 +79,19 @@ file.
 
 The **FibBase** structure is the fixed-size portion of the [Fib](#fib).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">wIdent</td>
-<td colspan="16">nFib</td>
-</tr>
-<tr class="even">
-<td colspan="16">unused</td>
-<td colspan="16">lid</td>
-</tr>
-<tr class="odd">
-<td colspan="16">pnNext</td>
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td colspan="4">E</td>
-<td>F</td>
-<td>G</td>
-<td>H</td>
-<td>I</td>
-<td>J</td>
-<td>K</td>
-<td>L</td>
-<td>M</td>
-</tr>
-<tr class="even">
-<td colspan="16">nFibBack</td>
-<td colspan="16">lKey</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="8">envr</td>
-<td>N</td>
-<td>O</td>
-<td>P</td>
-<td>Q</td>
-<td>R</td>
-<td colspan="3">S</td>
-</tr>
-<tr class="even">
-<td colspan="16">reserved3</td>
-<td colspan="16">reserved4</td>
-</tr>
-<tr class="odd">
-<td colspan="32">reserved5</td>
-</tr>
-<tr class="even">
-<td colspan="32">reserved6</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| wIdent |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | nFib |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| unused |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | lid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| pnNext |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | A | B | C | D | E |  |  |  | F | G | H | I | J | K | L | M |
+| nFibBack |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | lKey |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | envr |  |  |  |  |  |  |  | N | O | P | Q | R | S |  |  |
+| reserved3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | reserved4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved5 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **wIdent (2 bytes):** An unsigned integer that specifies that this is a
 Word Binary File. This value MUST be 0xA5EC.
@@ -441,111 +225,18 @@ application.
 The **FibRgW97** structure is a variable-length portion of the
 [Fib](#fib).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">reserved1</td>
-<td colspan="16">reserved2</td>
-</tr>
-<tr class="even">
-<td colspan="16">reserved3</td>
-<td colspan="16">reserved4</td>
-</tr>
-<tr class="odd">
-<td colspan="16">reserved5</td>
-<td colspan="16">reserved6</td>
-</tr>
-<tr class="even">
-<td colspan="16">reserved7</td>
-<td colspan="16">reserved8</td>
-</tr>
-<tr class="odd">
-<td colspan="16">reserved9</td>
-<td colspan="16">reserved10</td>
-</tr>
-<tr class="even">
-<td colspan="16">reserved11</td>
-<td colspan="16">reserved12</td>
-</tr>
-<tr class="odd">
-<td colspan="16">reserved13</td>
-<td colspan="16">lidFE</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| reserved1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | reserved2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | reserved4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved5 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | reserved6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved7 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | reserved8 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved9 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | reserved10 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved11 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | reserved12 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved13 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | lidFE |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **reserved1 (2 bytes):** This value is undefined and MUST be ignored.
 
@@ -600,184 +291,46 @@ ignored.
 [**nFib**](#Section_fe6610529c884ae1aec444799b2b4777) value, which is
 one of the following.
 
-<table>
-<colgroup>
-<col style="width: 13%" />
-<col style="width: 86%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>nFib value</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0x00C1</td>
-<td>If <a
-href="#fibbase"><strong>FibBase</strong></a>.<strong>fFarEast</strong>
-is "true", this is the <strong>LID</strong> of the stored style names.
-Otherwise it MUST be ignored.</td>
-</tr>
-<tr class="even">
-<td><p>0x00D9</p>
-<p>0x0101</p>
-<p>0x010C</p>
-<p>0x0112</p></td>
-<td>The <strong>LID</strong> of the stored style names (<a
-href="#std"><strong>STD</strong></a>.<strong>xstzName</strong>)</td>
-</tr>
-</tbody>
-</table>
+
+| nFib value | Meaning |
+| --- | --- |
+| 0x00C1 | If FibBase . fFarEast is "true", this is the LID of the stored style names. Otherwise it MUST be ignored. |
+| 0x00D9 / 0x0101 / 0x010C / 0x0112 | The LID of the stored style names ( STD . xstzName ) |
+
+
 
 ### FibRgLw97
 
 The **FibRgLw97** structure is the third section of the **FIB**. This
 contains an array of 4-byte values.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">cbMac</td>
-</tr>
-<tr class="even">
-<td colspan="32">reserved1</td>
-</tr>
-<tr class="odd">
-<td colspan="32">reserved2</td>
-</tr>
-<tr class="even">
-<td colspan="32">ccpText</td>
-</tr>
-<tr class="odd">
-<td colspan="32">ccpFtn</td>
-</tr>
-<tr class="even">
-<td colspan="32">ccpHdd</td>
-</tr>
-<tr class="odd">
-<td colspan="32">reserved3</td>
-</tr>
-<tr class="even">
-<td colspan="32">ccpAtn</td>
-</tr>
-<tr class="odd">
-<td colspan="32">ccpEdn</td>
-</tr>
-<tr class="even">
-<td colspan="32">ccpTxbx</td>
-</tr>
-<tr class="odd">
-<td colspan="32">ccpHdrTxbx</td>
-</tr>
-<tr class="even">
-<td colspan="32">reserved4</td>
-</tr>
-<tr class="odd">
-<td colspan="32">reserved5</td>
-</tr>
-<tr class="even">
-<td colspan="32">reserved6</td>
-</tr>
-<tr class="odd">
-<td colspan="32">reserved7</td>
-</tr>
-<tr class="even">
-<td colspan="32">reserved8</td>
-</tr>
-<tr class="odd">
-<td colspan="32">reserved9</td>
-</tr>
-<tr class="even">
-<td colspan="32">reserved10</td>
-</tr>
-<tr class="odd">
-<td colspan="32">reserved11</td>
-</tr>
-<tr class="even">
-<td colspan="32">reserved12</td>
-</tr>
-<tr class="odd">
-<td colspan="32">reserved13</td>
-</tr>
-<tr class="even">
-<td colspan="32">reserved14</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cbMac |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ccpText |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ccpFtn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ccpHdd |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ccpAtn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ccpEdn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ccpTxbx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ccpHdrTxbx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved5 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved7 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved8 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved9 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved10 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved11 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved12 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved13 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved14 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cbMac (4 bytes):** Specifies the count of bytes of those written to
 the [WordDocument stream](#Section_d7fae142670d4cd5869a708366984a71) of
@@ -874,641 +427,197 @@ the following.
 The **FibRgFcLcb97** structure is a variable-length portion of the
 [Fib](#fib).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">fcStshfOrig</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbStshfOrig</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcStshf</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbStshf</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcffndRef</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcffndRef</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcffndTxt</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcffndTxt</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfandRef</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfandRef</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfandTxt</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfandTxt</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfSed</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfSed</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcPad</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcPad</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfPhe</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfPhe</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcSttbfGlsy</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbSttbfGlsy</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfGlsy</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfGlsy</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfHdd</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfHdd</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfBteChpx</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfBteChpx</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfBtePapx</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfBtePapx</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfSea</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfSea</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcSttbfFfn</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbSttbfFfn</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfFldMom</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfFldMom</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfFldHdr</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfFldHdr</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfFldFtn</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfFldFtn</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfFldAtn</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfFldAtn</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfFldMcr</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfFldMcr</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcSttbfBkmk</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbSttbfBkmk</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfBkf</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfBkf</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfBkl</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfBkl</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcCmds</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbCmds</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcUnused1</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbUnused1</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcSttbfMcr</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbSttbfMcr</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPrDrvr</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPrDrvr</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPrEnvPort</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPrEnvPort</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPrEnvLand</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPrEnvLand</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcWss</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbWss</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcDop</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbDop</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcSttbfAssoc</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbSttbfAssoc</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcClx</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbClx</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfPgdFtn</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfPgdFtn</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcAutosaveSource</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbAutosaveSource</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcGrpXstAtnOwners</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbGrpXstAtnOwners</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcSttbfAtnBkmk</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbSttbfAtnBkmk</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcUnused2</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbUnused2</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcUnused3</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbUnused3</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcSpaMom</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcSpaMom</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcSpaHdr</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcSpaHdr</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfAtnBkf</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfAtnBkf</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfAtnBkl</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfAtnBkl</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPms</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPms</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcFormFldSttbs</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbFormFldSttbs</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfendRef</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfendRef</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfendTxt</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfendTxt</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfFldEdn</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfFldEdn</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcUnused4</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbUnused4</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcDggInfo</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbDggInfo</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcSttbfRMark</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbSttbfRMark</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcSttbfCaption</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbSttbfCaption</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcSttbfAutoCaption</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbSttbfAutoCaption</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfWkb</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfWkb</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfSpl</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfSpl</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcftxbxTxt</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcftxbxTxt</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfFldTxbx</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfFldTxbx</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfHdrtxbxTxt</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfHdrtxbxTxt</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcffldHdrTxbx</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcffldHdrTxbx</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcStwUser</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbStwUser</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcSttbTtmbd</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbSttbTtmbd</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcCookieData</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbCookieData</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPgdMotherOldOld</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPgdMotherOldOld</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcBkdMotherOldOld</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbBkdMotherOldOld</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPgdFtnOldOld</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPgdFtnOldOld</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcBkdFtnOldOld</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbBkdFtnOldOld</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPgdEdnOldOld</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPgdEdnOldOld</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcBkdEdnOldOld</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbBkdEdnOldOld</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcSttbfIntlFld</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbSttbfIntlFld</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcRouteSlip</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbRouteSlip</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcSttbSavedBy</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbSttbSavedBy</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcSttbFnm</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbSttbFnm</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlfLst</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlfLst</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlfLfo</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlfLfo</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfTxbxBkd</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfTxbxBkd</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfTxbxHdrBkd</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfTxbxHdrBkd</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcDocUndoWord9</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbDocUndoWord9</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcRgbUse</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbRgbUse</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcUsp</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbUsp</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcUskf</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbUskf</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcupcRgbUse</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcupcRgbUse</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcupcUsp</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcupcUsp</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcSttbGlsyStyle</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbSttbGlsyStyle</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlgosl</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlgosl</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcocx</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcocx</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfBteLvc</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfBteLvc</td>
-</tr>
-<tr class="odd">
-<td colspan="32">dwLowDateTime</td>
-</tr>
-<tr class="even">
-<td colspan="32">dwHighDateTime</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfLvcPre10</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfLvcPre10</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfAsumy</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfAsumy</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcPlcfGram</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbPlcfGram</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcSttbListNames</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbSttbListNames</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcSttbfUssr</td>
-</tr>
-<tr class="even">
-<td colspan="32">lcbSttbfUssr</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fcStshfOrig |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbStshfOrig |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcStshf |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbStshf |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcffndRef |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcffndRef |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcffndTxt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcffndTxt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfandRef |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfandRef |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfandTxt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfandTxt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfSed |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfSed |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcPad |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcPad |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfPhe |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfPhe |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbfGlsy |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbfGlsy |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfGlsy |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfGlsy |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfHdd |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfHdd |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfBteChpx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfBteChpx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfBtePapx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfBtePapx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfSea |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfSea |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbfFfn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbfFfn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfFldMom |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfFldMom |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfFldHdr |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfFldHdr |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfFldFtn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfFldFtn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfFldAtn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfFldAtn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfFldMcr |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfFldMcr |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbfBkmk |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbfBkmk |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfBkf |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfBkf |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfBkl |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfBkl |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcCmds |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbCmds |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcUnused1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbUnused1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbfMcr |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbfMcr |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPrDrvr |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPrDrvr |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPrEnvPort |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPrEnvPort |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPrEnvLand |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPrEnvLand |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcWss |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbWss |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcDop |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbDop |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbfAssoc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbfAssoc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcClx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbClx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfPgdFtn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfPgdFtn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcAutosaveSource |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbAutosaveSource |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcGrpXstAtnOwners |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbGrpXstAtnOwners |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbfAtnBkmk |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbfAtnBkmk |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcUnused2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbUnused2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcUnused3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbUnused3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcSpaMom |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcSpaMom |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcSpaHdr |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcSpaHdr |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfAtnBkf |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfAtnBkf |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfAtnBkl |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfAtnBkl |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPms |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPms |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcFormFldSttbs |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbFormFldSttbs |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfendRef |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfendRef |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfendTxt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfendTxt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfFldEdn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfFldEdn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcUnused4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbUnused4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcDggInfo |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbDggInfo |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbfRMark |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbfRMark |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbfCaption |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbfCaption |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbfAutoCaption |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbfAutoCaption |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfWkb |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfWkb |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfSpl |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfSpl |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcftxbxTxt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcftxbxTxt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfFldTxbx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfFldTxbx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfHdrtxbxTxt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfHdrtxbxTxt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcffldHdrTxbx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcffldHdrTxbx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcStwUser |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbStwUser |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbTtmbd |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbTtmbd |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcCookieData |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbCookieData |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPgdMotherOldOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPgdMotherOldOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcBkdMotherOldOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbBkdMotherOldOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPgdFtnOldOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPgdFtnOldOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcBkdFtnOldOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbBkdFtnOldOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPgdEdnOldOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPgdEdnOldOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcBkdEdnOldOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbBkdEdnOldOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbfIntlFld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbfIntlFld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcRouteSlip |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbRouteSlip |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbSavedBy |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbSavedBy |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbFnm |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbFnm |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlfLst |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlfLst |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlfLfo |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlfLfo |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfTxbxBkd |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfTxbxBkd |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfTxbxHdrBkd |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfTxbxHdrBkd |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcDocUndoWord9 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbDocUndoWord9 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcRgbUse |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbRgbUse |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcUsp |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbUsp |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcUskf |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbUskf |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcupcRgbUse |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcupcRgbUse |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcupcUsp |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcupcUsp |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbGlsyStyle |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbGlsyStyle |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlgosl |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlgosl |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcocx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcocx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfBteLvc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfBteLvc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| dwLowDateTime |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| dwHighDateTime |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfLvcPre10 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfLvcPre10 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfAsumy |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfAsumy |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfGram |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfGram |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbListNames |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbListNames |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbfUssr |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbfUssr |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **fcStshfOrig (4 bytes):** This value is undefined and MUST be ignored.
 
@@ -2525,182 +1634,44 @@ in bytes, of the deprecated, version-specific undo information at offset
 The **FibRgFcLcb2000** structure is a variable-sized portion of the
 [Fib](#fib). It extends the [FibRgFcLcb97](#fibrgfclcb97).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">rgFcLcb97 (744 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfTch</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfTch</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcRmdThreading</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbRmdThreading</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcMid</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbMid</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcSttbRgtplc</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbSttbRgtplc</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcMsoEnvelope</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbMsoEnvelope</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfLad</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfLad</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcRgDofr</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbRgDofr</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcosl</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcosl</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfCookieOld</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfCookieOld</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPgdMotherOld</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPgdMotherOld</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcBkdMotherOld</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbBkdMotherOld</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPgdFtnOld</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPgdFtnOld</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcBkdFtnOld</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbBkdFtnOld</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPgdEdnOld</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPgdEdnOld</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcBkdEdnOld</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbBkdEdnOld</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| rgFcLcb97 (744 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfTch |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfTch |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcRmdThreading |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbRmdThreading |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcMid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbMid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbRgtplc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbRgtplc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcMsoEnvelope |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbMsoEnvelope |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfLad |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfLad |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcRgDofr |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbRgDofr |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcosl |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcosl |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfCookieOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfCookieOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPgdMotherOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPgdMotherOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcBkdMotherOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbBkdMotherOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPgdFtnOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPgdFtnOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcBkdFtnOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbBkdFtnOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPgdEdnOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPgdEdnOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcBkdEdnOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbBkdEdnOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **rgFcLcb97 (744 bytes):** The contained **FibRgFcLcb97**.
 
@@ -2876,260 +1847,70 @@ in bytes, of the deprecated endnote text flow break cache at offset
 The **FibRgFcLcb2002** structure is a variable-sized portion of the
 [Fib](#fib). It extends the [FibRgFcLcb2000](#fibrgfclcb2000).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">rgFcLcb2000 (864 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcUnused1</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbUnused1</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfPgp</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfPgp</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfuim</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfuim</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlfguidUim</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlfguidUim</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcAtrdExtra</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbAtrdExtra</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlrsid</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlrsid</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcSttbfBkmkFactoid</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbSttbfBkmkFactoid</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfBkfFactoid</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfBkfFactoid</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfcookie</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfcookie</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfBklFactoid</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfBklFactoid</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcFactoidData</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbFactoidData</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcDocUndo</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbDocUndo</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcSttbfBkmkFcc</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbSttbfBkmkFcc</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfBkfFcc</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfBkfFcc</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfBklFcc</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfBklFcc</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcSttbfbkmkBPRepairs</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbSttbfbkmkBPRepairs</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfbkfBPRepairs</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfbkfBPRepairs</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfbklBPRepairs</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfbklBPRepairs</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPmsNew</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPmsNew</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcODSO</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbODSO</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfpmiOldXP</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfpmiOldXP</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfpmiNewXP</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfpmiNewXP</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfpmiMixedXP</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfpmiMixedXP</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcUnused2</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbUnused2</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcffactoid</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcffactoid</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcflvcOldXP</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcflvcOldXP</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcflvcNewXP</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcflvcNewXP</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcflvcMixedXP</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcflvcMixedXP</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| rgFcLcb2000 (864 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcUnused1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbUnused1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfPgp |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfPgp |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfuim |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfuim |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlfguidUim |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlfguidUim |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcAtrdExtra |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbAtrdExtra |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlrsid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlrsid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbfBkmkFactoid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbfBkmkFactoid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfBkfFactoid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfBkfFactoid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfcookie |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfcookie |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfBklFactoid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfBklFactoid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcFactoidData |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbFactoidData |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcDocUndo |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbDocUndo |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbfBkmkFcc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbfBkmkFcc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfBkfFcc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfBkfFcc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfBklFcc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfBklFcc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbfbkmkBPRepairs |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbfbkmkBPRepairs |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfbkfBPRepairs |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfbkfBPRepairs |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfbklBPRepairs |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfbklBPRepairs |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPmsNew |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPmsNew |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcODSO |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbODSO |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfpmiOldXP |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfpmiOldXP |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfpmiNewXP |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfpmiNewXP |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfpmiMixedXP |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfpmiMixedXP |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcUnused2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbUnused2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcffactoid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcffactoid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcflvcOldXP |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcflvcOldXP |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcflvcNewXP |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcflvcNewXP |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcflvcMixedXP |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcflvcMixedXP |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **rgFcLcb2000 (864 bytes):** The contained **FibRgFcLcb2000**.
 
@@ -3522,260 +2303,70 @@ class="anchor"></span>[\<98\>](#Appendix_A_98) be zero.
 The **FibRgFcLcb2003** structure is a variable-sized portion of the
 [Fib](#fib). It extends the [FibRgFcLcb2002](#fibrgfclcb2002).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">rgFcLcb2002 (1088 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcHplxsdr</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbHplxsdr</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcSttbfBkmkSdt</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbSttbfBkmkSdt</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfBkfSdt</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfBkfSdt</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfBklSdt</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfBklSdt</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcCustomXForm</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbCustomXForm</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcSttbfBkmkProt</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbSttbfBkmkProt</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfBkfProt</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfBkfProt</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfBklProt</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfBklProt</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcSttbProtUser</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbSttbProtUser</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcUnused</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbUnused</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfpmiOld</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfpmiOld</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfpmiOldInline</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfpmiOldInline</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfpmiNew</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfpmiNew</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfpmiNewInline</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfpmiNewInline</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcflvcOld</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcflvcOld</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcflvcOldInline</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcflvcOldInline</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcflvcNew</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcflvcNew</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcflvcNewInline</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcflvcNewInline</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPgdMother</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPgdMother</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcBkdMother</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbBkdMother</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcAfdMother</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbAfdMother</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPgdFtn</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPgdFtn</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcBkdFtn</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbBkdFtn</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcAfdFtn</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbAfdFtn</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPgdEdn</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPgdEdn</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcBkdEdn</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbBkdEdn</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcAfdEdn</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbAfdEdn</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcAfd</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbAfd</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| rgFcLcb2002 (1088 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcHplxsdr |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbHplxsdr |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbfBkmkSdt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbfBkmkSdt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfBkfSdt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfBkfSdt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfBklSdt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfBklSdt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcCustomXForm |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbCustomXForm |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbfBkmkProt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbfBkmkProt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfBkfProt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfBkfProt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfBklProt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfBklProt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbProtUser |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbProtUser |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcUnused |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbUnused |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfpmiOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfpmiOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfpmiOldInline |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfpmiOldInline |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfpmiNew |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfpmiNew |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfpmiNewInline |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfpmiNewInline |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcflvcOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcflvcOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcflvcOldInline |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcflvcOldInline |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcflvcNew |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcflvcNew |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcflvcNewInline |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcflvcNewInline |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPgdMother |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPgdMother |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcBkdMother |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbBkdMother |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcAfdMother |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbAfdMother |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPgdFtn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPgdFtn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcBkdFtn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbBkdFtn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcAfdFtn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbAfdFtn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPgdEdn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPgdEdn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcBkdEdn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbBkdEdn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcAfdEdn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbAfdEdn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcAfd |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbAfd |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **rgFcLcb2002 (1088 bytes):** The contained **FibRgFcLcb2002**.
 
@@ -4176,206 +2767,52 @@ Table Stream.
 The **FibRgFcLcb2007** structure is a variable-sized portion of the
 [Fib](#fib). It extends the [FibRgFcLcb2003](#fibrgfclcb2003).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">rgFcLcb2003 (1312 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfmthd</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfmthd</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcSttbfBkmkMoveFrom</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbSttbfBkmkMoveFrom</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfBkfMoveFrom</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfBkfMoveFrom</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfBklMoveFrom</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfBklMoveFrom</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcSttbfBkmkMoveTo</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbSttbfBkmkMoveTo</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfBkfMoveTo</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfBkfMoveTo</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfBklMoveTo</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfBklMoveTo</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcUnused1</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbUnused1</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcUnused2</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbUnused2</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcUnused3</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbUnused3</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcSttbfBkmkArto</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbSttbfBkmkArto</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfBkfArto</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfBkfArto</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcPlcfBklArto</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbPlcfBklArto</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcArtoData</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbArtoData</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcUnused4</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbUnused4</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcUnused5</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbUnused5</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcUnused6</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbUnused6</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcOssTheme</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbOssTheme</td>
-</tr>
-<tr class="even">
-<td colspan="32">fcColorSchemeMapping</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lcbColorSchemeMapping</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| rgFcLcb2003 (1312 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfmthd |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfmthd |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbfBkmkMoveFrom |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbfBkmkMoveFrom |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfBkfMoveFrom |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfBkfMoveFrom |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfBklMoveFrom |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfBklMoveFrom |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbfBkmkMoveTo |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbfBkmkMoveTo |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfBkfMoveTo |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfBkfMoveTo |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfBklMoveTo |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfBklMoveTo |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcUnused1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbUnused1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcUnused2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbUnused2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcUnused3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbUnused3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSttbfBkmkArto |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbSttbfBkmkArto |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfBkfArto |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfBkfArto |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcPlcfBklArto |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbPlcfBklArto |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcArtoData |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbArtoData |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcUnused4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbUnused4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcUnused5 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbUnused5 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcUnused6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbUnused6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcOssTheme |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbOssTheme |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcColorSchemeMapping |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lcbColorSchemeMapping |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **rgFcLcb2003 (1312 bytes):** The contained **FibRgFcLcb2003**.
 
@@ -4480,90 +2917,13 @@ ignored.
 The **FibRgCswNew** structure is an extension to the [**Fib**](#fib)
 structure that exists only if **Fib**.**cswNew** is nonzero.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">nFibNew</td>
-<td colspan="16">rgCswNewData (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| nFibNew |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | rgCswNewData (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **nFibNew (2 bytes):** An unsigned integer that specifies the version
 number of the file format that is used. This value MUST be one of the
@@ -4591,102 +2951,12 @@ is one of the following.
 The **FibRgCswNewData2000** structure is a variable-sized portion of the
 [Fib](#fib).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">cQuickSavesNew</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cQuickSavesNew |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cQuickSavesNew (2 bytes):** An unsigned integer that specifies the
 number of times that this document was incrementally saved since the
@@ -4698,91 +2968,13 @@ value MUST be between 0 and 0x000F, inclusively.
 The **FibRgCswNewData2007** structure is a variable-sized portion of the
 [Fib](#fib). It extends the [FibRgCswNewData2000](#fibrgcswnewdata2000).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">rgCswNewData2000</td>
-<td colspan="16">lidThemeOther</td>
-</tr>
-<tr class="even">
-<td colspan="16">lidThemeFE</td>
-<td colspan="16">lidThemeCS</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| rgCswNewData2000 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | lidThemeOther |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lidThemeFE |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | lidThemeCS |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **rgCswNewData2000 (2 bytes):** The contained **FibRgCswNewData2000**.
 

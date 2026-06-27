@@ -25,95 +25,15 @@ largest valid value for a CP marking the start or end of a range-level
 protection bookmark is the CP representing the end of all document
 parts.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aBKF (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aBKF (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of CPs. Each CP in the array specifies the
 start of a bookmark in the document.
@@ -176,95 +96,15 @@ The largest value that a CP marking the start or end of a structured
 document tag bookmark is allowed to have is the CP representing the end
 of all document parts.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aBKFD (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aBKFD (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of CPs, each indicating the start of a
 bookmark in the document.
@@ -285,89 +125,13 @@ Part](#Section_5f0c432987184d678cc760d8968c5127). Additional constraints
 upon the CPs inside a Plcbkl can be found in the specification of
 [Plcbkf](#plcbkf).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of CPs, each indicating the first character
 beyond the end of a bookmark in the document.
@@ -384,95 +148,15 @@ Part](#Section_5f0c432987184d678cc760d8968c5127). Additional constraints
 on the CPs inside a Plcbkld can be found in the description of
 [Plcbkfd](#plcbkfd).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aBKLD (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aBKLD (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of CPs. Each CP in the array indicates the
 first character following the end of a bookmark in the document.
@@ -492,95 +176,15 @@ properties of that text. Where most PLCs map
 **PlcBteChpx** maps stream offsets to data instead. A **PlcBteChpx**
 MUST NOT contain duplicate stream offsets.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aFC (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aPnBteChpx (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aFC (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aPnBteChpx (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aFC (variable):** An array of unsigned integers. Each element in this
 array specifies an offset in the WordDocument stream where text begins.
@@ -612,95 +216,15 @@ table rows, or table cells.
 A **PlcBtePapx** MUST NOT contain duplicate stream offsets. Each data
 element of **PlcBtePapx** is 4 bytes long.
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aFC (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aPnBtePapx (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aFC (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aPnBtePapx (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aFC (variable):** An array of unsigned integers. Each element in this
 array specifies an offset in the WordDocument stream. The elements of
@@ -720,95 +244,15 @@ The **PlcfandRef** structure is a
 [PLC](#Section_a649fcc578684245be1204eea89d916b) whose data elements are
 [ATRDPre10](#atrdpre10) structures (30 bytes each).
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aATRDPre10 (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aATRDPre10 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of
 [CP](#Section_a3d44e167d2946f7bb7bd0d8a5734f83)s, all but the last of
@@ -835,89 +279,13 @@ The **PlcfandTxt** structure is a
 [CP](#Section_a3d44e167d2946f7bb7bd0d8a5734f83)s and no additional data.
 This means that the size of the data is 0 bytes.
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of CPs that specifies positions in the
 [comment document](#Section_486f5a89fba5412f8ac61c551654ddcd). Each CP
@@ -941,95 +309,15 @@ The **PlcfAsumy** structure is a
 [PLC](#Section_a649fcc578684245be1204eea89d916b) whose data elements are
 [ASUMY](#asumy) (4 bytes each).
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aASUMY(variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aASUMY(variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of
 [CP](#Section_a3d44e167d2946f7bb7bd0d8a5734f83)s. CPs are positions in
@@ -1100,95 +388,15 @@ following rule 1 MUST apply. Otherwise, the following rule 2 MUST apply:
     a table cell mark or TTP mark, then it MUST NOT span partial rows of
     the table containing that cell or TTP.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aFBKF (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aFBKF (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of CPs, each indicating the start of a
 bookmark (1) in the document.
@@ -1223,95 +431,15 @@ value that a CP marking the start or end of a format consistency-checker
 bookmark or a smart tag bookmark is allowed to have is the CP
 representing the end of all document parts.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aFBKFD (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aFBKFD (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of CPs. Each CP in the array indicates the
 start of a bookmark in the document.
@@ -1333,89 +461,13 @@ part](#Section_5f0c432987184d678cc760d8968c5127). Further constraints on
 the CPs inside a Plcfbkl can be found in the description of
 [Plcfbkf](#plcfbkf).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of CPs. Each CP in the array indicates the
 first character following the end of a bookmark in the document.
@@ -1433,95 +485,15 @@ part](#Section_5f0c432987184d678cc760d8968c5127). Further constraints on
 the CPs inside a Plcfbkld can be found in the description of
 [Plcfbkfd](#plcfbkfd).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aFBKLD (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aFBKLD (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of CPs. Each CP in the array indicates the
 first character following the end of a bookmark in the document.
@@ -1536,95 +508,15 @@ The **Plcfcookie** structure is a
 [PLC](#Section_a649fcc578684245be1204eea89d916b) whose data elements are
 [FCKS](#fcks) structures (10 bytes).
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aFCKS (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aFCKS (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of
 [CP](#Section_a3d44e167d2946f7bb7bd0d8a5734f83)s specifying the starting
@@ -1649,95 +541,15 @@ The **PlcfcookieOld** structure is a
 [**PLC**](#Section_a649fcc578684245be1204eea89d916b) whose data elements
 are [**FCKSOLD**](#fcksold) structures (16 bytes).
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aFCKSOLD (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aFCKSOLD (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of
 [CP](#Section_a3d44e167d2946f7bb7bd0d8a5734f83)s specifying the starting
@@ -1761,95 +573,15 @@ applies to text starting at the corresponding CP value.
 The **PlcfendRef** is a [PLC](#Section_a649fcc578684245be1204eea89d916b)
 whose data elements are integers of 2 bytes each.
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aEndIdx (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aEndIdx (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of
 [CP](#Section_a3d44e167d2946f7bb7bd0d8a5734f83)s, all but the last of
@@ -1877,89 +609,13 @@ The **PlcfendTxt** structure is a
 [CP](#Section_a3d44e167d2946f7bb7bd0d8a5734f83)s and no additional data.
 The data thus has a size of zero bytes.
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of CPs that specifies offsets into the
 [endnote document](#Section_13659f756a694a5f8e035f9bced90faa). Each CP
@@ -1977,95 +633,15 @@ The **Plcffactoid** structure is a
 [**PLC**](#Section_a649fcc578684245be1204eea89d916b) structure where the
 data elements are [FactoidSpls](#sed) structures of 2 bytes each.
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aFactoidSpls (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aFactoidSpls (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of
 [CP](#Section_a3d44e167d2946f7bb7bd0d8a5734f83)s. CPs are positions in
@@ -2098,95 +674,15 @@ The **PlcffndRef** structure is a
 [PLC](#Section_a649fcc578684245be1204eea89d916b) whose data elements are
 integers of 2 bytes each.
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 7%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aFtnIdx (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aFtnIdx (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of
 [CP](#Section_a3d44e167d2946f7bb7bd0d8a5734f83)s, all but the last of
@@ -2214,89 +710,13 @@ The **PlcffndTxt** structure is a
 [CP](#Section_a3d44e167d2946f7bb7bd0d8a5734f83)s and no additional data.
 The data thus has a size of 0 bytes.
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 7%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of CPs that specifies offsets into the
 [footnote document](#Section_f7e96a05aad74acba06dbfa430ac1fcc). Each CP
@@ -2314,95 +734,15 @@ The **Plcfgram** structure is a
 [PLC](#Section_a649fcc578684245be1204eea89d916b) structure where the
 data elements are [GrammarSpls](#grammarspls) structures (2 bytes each).
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aGrammarSpls (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aGrammarSpls (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of
 [CP](#Section_a3d44e167d2946f7bb7bd0d8a5734f83)s. CPs are positions in
@@ -2437,89 +777,13 @@ It specifies where [header
 document](#Section_8465bee76c7945a9812e58b0c5fd6cdc) stories begin and
 end.
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of CPs. Each CP except the last two
 specifies the beginning of a story in the header document. Each story
@@ -2539,95 +803,15 @@ The **PlcfHdrtxbxTxt** structure is a
 [PLC](#Section_a649fcc578684245be1204eea89d916b) structure in which the
 data elements are [FTXBXS](#ftxbxs) structures (22 bytes each).
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aFTXBXS (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aFTXBXS (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of
 [CP](#Section_a3d44e167d2946f7bb7bd0d8a5734f83)s. CPs are positions in
@@ -2654,95 +838,15 @@ The **Plcflad** structure is a
 [**PLC**](#Section_a649fcc578684245be1204eea89d916b) structure where the
 data elements are [**LadSpls**](#ladspls) structures (2 bytes each).
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aLadSpls (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aLadSpls (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of
 [CP](#Section_a3d44e167d2946f7bb7bd0d8a5734f83)s. CPs are positions in
@@ -2837,95 +941,15 @@ MUST NOT appear in **aFld**.
 
 5.  PRIVATE, as specified in \[ECMA-376\] Part 1, Section 17.16.5.48
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aFld (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aFld (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of CPs. Specifies the positions of field
 characters in the document.
@@ -2940,95 +964,15 @@ The **PlcfSed** structure is a
 [**PLC**](#Section_a649fcc578684245be1204eea89d916b) structure where the
 data elements are [**Sed**](#sed) structures (12 bytes each).
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aSed (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aSed (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of
 [CP](#Section_a3d44e167d2946f7bb7bd0d8a5734f83)s. Each CP specifies the
@@ -3058,95 +1002,15 @@ The **PlcfSpa** structure is a
 [**PLC**](#Section_a649fcc578684245be1204eea89d916b) structure in which
 the data elements are [**SPA**](#spa) structures (26 bytes each).
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aSpa (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aSpa (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of
 [CP](#Section_a3d44e167d2946f7bb7bd0d8a5734f83)s. Each CP specifies the
@@ -3166,95 +1030,15 @@ The **Plcfspl** structure is a
 [Plc](#Section_a649fcc578684245be1204eea89d916b) structure whose data
 elements are [SpellingSpls](#spellingspls) structures (2 bytes each).
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aSpellingSpls (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aSpellingSpls (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of
 [CP](#Section_a3d44e167d2946f7bb7bd0d8a5734f83)s. CPs are positions in
@@ -3290,95 +1074,15 @@ more than the count of **Tch**. Each pair of CPs represents a range of
 text in the [main document](#Section_f426d9a2004d418e8d8ce7fd88e7c48e)
 described by the corresponding **Tch**.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aTCH (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aTCH (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 This information is a deprecated cache of table characters that
 SHOULD<span id="Appendix_A_Target_201"
@@ -3424,95 +1128,15 @@ The **PlcfTxbxBkd** structure is a
 [**PLC**](#Section_a649fcc578684245be1204eea89d916b) structure where the
 data elements are [**Tbkd**](#tbkd) structures (6 bytes each).
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aTbkd (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aTbkd (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of
 [CP](#Section_a3d44e167d2946f7bb7bd0d8a5734f83)s. CPs are positions in
@@ -3535,95 +1159,15 @@ The **PlcfTxbxHdrBkd** structure is a
 [PLC](#Section_a649fcc578684245be1204eea89d916b) structure where the
 data elements are [Tbkd](#tbkd) structures (6 bytes each).
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aTbkd (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aTbkd (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of
 [CP](#Section_a3d44e167d2946f7bb7bd0d8a5734f83)s. CPs are positions in
@@ -3647,95 +1191,15 @@ The **PlcftxbxTxt** structure is a
 [**PLC**](#Section_a649fcc578684245be1204eea89d916b) structure where the
 data elements are [**FTXBXS**](#ftxbxs) structures (22 bytes each).
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aFTXBXS (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aFTXBXS (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of
 [CP](#Section_a3d44e167d2946f7bb7bd0d8a5734f83)s. CPs are positions in
@@ -3763,95 +1227,15 @@ are [**UIM**](#uim)s (20 bytes each), with the exception that the
 elements are not sorted according to their
 [CP](#Section_a3d44e167d2946f7bb7bd0d8a5734f83)s.
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aUIM (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aUIM (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of CPs. CPs are positions in the set of all
 [document parts](#Section_5f0c432987184d678cc760d8968c5127). CPs are
@@ -3871,95 +1255,15 @@ whose data elements are [WKB](#wkb) structures (12 bytes each). Each
 [**subdocument**](#gt_30c0248a-accc-4ae5-b3b7-9c3c97f94d73) is assigned
 one **WKB** structure.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aWKB (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aWKB (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of
 [CP](#Section_a3d44e167d2946f7bb7bd0d8a5734f83)s. CPs are relative to
@@ -3981,95 +1285,15 @@ The **PlcPcd** structure is a
 [Pcd](#pcd)s (8 bytes each). A **PlcPcd** MUST NOT contain duplicate
 [CP](#Section_a3d44e167d2946f7bb7bd0d8a5734f83)s.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aPcd (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aPcd (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of CPs that specifies the starting points
 of text ranges. The end of each range is the beginning of the next

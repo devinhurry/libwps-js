@@ -20,8 +20,12 @@ const SPRM_SIZES = {
   0x2450: 4, 0x2451: 4, 0x2452: 4, 0x2453: 4, 0x2454: 4,
   0x245B: 1, 0x245C: 1,
   0x260A: 1, 0x460B: 2,
+  0x261B: 1, 0x2423: 1, 0x2430: 1,
+  0x8418: 2, 0x8419: 2, 0x841A: 2, 0x442B: 2,
+  0x2640: 1,
   0x2461: 1, 0x2462: 1, 0x2463: 1, 0x2464: 1, 0x2465: 4,
   0x6412: 4,
+  0x6424: 4, 0x6425: 4, 0x6426: 4, 0x6427: 4, 0x6428: 4, 0x6629: 4,
   0x6A0C: 4, 0x6A0D: 4, 0x6A0E: 4, 0x6A0F: 4,
   0x4455: 2, 0x4456: 2, 0x4457: 2,
   0x840E: 2, 0x840F: 2, 0x8411: 2, 0x8458: 2, 0x845D: 2,
@@ -224,12 +228,15 @@ const WW8_SHADING_STRENGTHS = [
   975,
 ];
 
-export function parseSprms(grpprl, skipIstd = false) {
+export function parseSprms(grpprl, skipIstd = false, cupx = 0) {
   const props = {};
   let off = skipIstd ? 2 : 0;
   if (skipIstd && grpprl.length >= 2) {
     props.istd = grpprl.readUInt16LE(0);
   }
+  // Skip Upx section (user-defined properties) in style GRPPRLs.
+  // cupx values per MS-DOC StdfBase: 1=char, 2=para, 3=table
+  off += cupx;
   if (skipIstd && off < grpprl.length && grpprl[off] === 0) {
     off += 1;
   }
@@ -271,9 +278,23 @@ export function parseSprms(grpprl, skipIstd = false) {
 function applySprm(props, sprm, val, size) {
   switch (sprm) {
     case 0x6412: {
-      const raw = val.readUInt16LE(0);
-      const signed = raw > 0x7fff ? raw - 0x10000 : raw;
-      props.lineSpacing = { twips: Math.abs(signed), rule: signed < 0 ? "exact" : "atLeast" };
+      // Byte 2 of the 4-byte operand encodes the rule: 0=atLeast, 1=auto, 2+=exact.
+      // When byte 2 is absent (old 2-byte format), use signed twips convention.
+      const ruleByte = val.length >= 3 ? val[2] : null;
+      let rule, twips;
+      if (ruleByte === 1) {
+        twips = val.readUInt16LE(0);
+        rule = "auto";
+      } else if (ruleByte != null && ruleByte >= 2) {
+        twips = val.readUInt16LE(0);
+        rule = "exact";
+      } else {
+        const raw = val.readUInt16LE(0);
+        const signed = raw > 0x7fff ? raw - 0x10000 : raw;
+        twips = Math.abs(signed);
+        rule = signed < 0 ? "exact" : "atLeast";
+      }
+      props.lineSpacing = { twips, rule };
       break;
     }
     case 0x2403:
@@ -370,6 +391,15 @@ function applySprm(props, sprm, val, size) {
     case 0x4A60:
       props.textColor = ww8TextColorHex(val[0]);
       break;
+    case 0x6870: {
+      // sprmCCv: 4-byte COLORREF (BBGGRR00 little-endian)
+      const colorref = val.readUInt32LE(0);
+      const r = colorref & 0xFF;
+      const g = (colorref >> 8) & 0xFF;
+      const b = (colorref >> 16) & 0xFF;
+      props.textColor = ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1).toUpperCase();
+      break;
+    }
     case 0x2A0C:
       props.highlight = ww8HighlightName(val[0]);
       break;
@@ -469,6 +499,55 @@ function applySprm(props, sprm, val, size) {
     case 0x260A:
       props.listLevel = val[0];
       break;
+    case 0x2640:
+      // sprmPOutLvl: WW8 values 0-8 = DOCX outlineLvl 0-8 (0=level 1, …), 9 = body text
+      props.outlineLevel = val[0] <= 8 ? val[0] : null;
+      break;
+    // Frame properties per MS-DOC-SPEC §2.6.2
+    case 0x2423: // sprmPWr: text wrap around frame
+      props.frameWrap = FRAME_WRAP_NAMES[val[0]] ?? null;
+      break;
+    case 0x2430: // sprmPFLocked: anchor lock
+      props.frameLocked = val[0] !== 0;
+      break;
+    case 0x8418: { // sprmPDxaAbs: horizontal position (XAS_plusOne)
+      const x = val.readInt16LE(0);
+      if (x === 0) props.frameXAlign = "left";
+      else if (x === -4) props.frameXAlign = "center";
+      else if (x === -8) props.frameXAlign = "right";
+      else if (x === -12) props.frameXAlign = "inside";
+      else if (x === -16) props.frameXAlign = "outside";
+      else props.frameX = x;
+      break;
+    }
+    case 0x8419: { // sprmPDyaAbs: vertical position (YAS_plusOne)
+      const y = val.readInt16LE(0);
+      if (y === 0) props.frameYAlign = "inline";
+      else if (y === -4) props.frameYAlign = "top";
+      else if (y === -8) props.frameYAlign = "center";
+      else if (y === -12) props.frameYAlign = "bottom";
+      else if (y === -16) props.frameYAlign = "inside";
+      else if (y === -20) props.frameYAlign = "outside";
+      else props.frameY = y;
+      break;
+    }
+    case 0x841A: // sprmPDxaWidth: frame width in twips
+      props.frameWidth = val.readUInt16LE(0);
+      break;
+    case 0x442B: { // sprmPWHeightAbs: frame height; bit 15 = fMinHeight (atLeast vs exact)
+      const raw = val.readUInt16LE(0);
+      props.frameHeight = raw & 0x7FFF;
+      props.frameHRule = (raw & 0x8000) ? "atLeast" : "exact";
+      break;
+    }
+    case 0x261B: { // sprmPPc: frame anchor (PositionCodeOperand)
+      const pc = val[0];
+      const pcVert = (pc >> 4) & 3;
+      const pcHorz = (pc >> 6) & 3;
+      props.frameVAnchor = FRAME_V_ANCHOR[pcVert] ?? "page";
+      props.frameHAnchor = FRAME_H_ANCHOR[pcHorz] ?? "page";
+      break;
+    }
     case 0x460B:
       props.listId = val.readInt16LE(0);
       break;
@@ -492,9 +571,100 @@ function applySprm(props, sprm, val, size) {
       props.textAlignment = alignMap[val.readUInt16LE(0)] ?? "auto";
       break;
     }
+    // Paragraph borders (Brc80 format: 4 bytes — dptLineWidth, brcType, ico, dptSpace|flags)
+    case 0x6424: // sprmPBrcTop80
+      props.paragraphBorders ??= {};
+      props.paragraphBorders.top = parseBrc80(val);
+      break;
+    case 0x6425: // sprmPBrcLeft80
+      props.paragraphBorders ??= {};
+      props.paragraphBorders.left = parseBrc80(val);
+      break;
+    case 0x6426: // sprmPBrcBottom80
+      props.paragraphBorders ??= {};
+      props.paragraphBorders.bottom = parseBrc80(val);
+      break;
+    case 0x6427: // sprmPBrcRight80
+      props.paragraphBorders ??= {};
+      props.paragraphBorders.right = parseBrc80(val);
+      break;
+    case 0x6428: // sprmPBrcBetween80
+      props.paragraphBorders ??= {};
+      props.paragraphBorders.between = parseBrc80(val);
+      break;
+    case 0x6629: // sprmPBrcBar80
+      props.paragraphBorders ??= {};
+      props.paragraphBorders.bar = parseBrc80(val);
+      break;
     default:
       break;
   }
+}
+
+// Brc80 structure (4 bytes): dptLineWidth(1), brcType(1), ico(1), dptSpace+flags(1)
+// per MS-DOC-SPEC 19-structures-basic-types.md §Brc80
+// Frame wrap styles per MS-DOC-SPEC sprmPWr
+const FRAME_WRAP_NAMES = {
+  0: "auto",
+  1: "notBeside",
+  2: "around",
+  3: "none",
+  4: "tight",
+  5: "through",
+};
+
+// Frame vertical anchor per MS-DOC-SPEC sprmPPc pcVert
+const FRAME_V_ANCHOR = ["margin", "page", "text", "margin"];
+
+// Frame horizontal anchor per MS-DOC-SPEC sprmPPc pcHorz
+const FRAME_H_ANCHOR = ["text", "margin", "page", "margin"];
+
+function parseBrc80(val) {
+  if (val.length < 4) return null;
+  const dptLineWidth = val[0];
+  const brcType = val[1];
+  const ico = val[2];
+  const dptSpace = val[3] & 0x1F;
+  if (brcType === 0) return null; // no border
+  return {
+    val: BRC_TYPE_NAMES[brcType] ?? "single",
+    color: brcColorFromIco(ico),
+    sz: String(dptLineWidth),
+    space: String(dptSpace),
+  };
+}
+
+// BrcType values per MS-DOC-SPEC
+const BRC_TYPE_NAMES = {
+  0x01: "single",
+  0x02: "thick",
+  0x03: "double",
+  0x05: "thinThickSmallGap",
+  0x06: "dotted",
+  0x07: "dashed",
+  0x08: "dotDash",
+  0x09: "dotDotDash",
+  0x0A: "triple",
+  0x0B: "thinThickThinSmallGap",
+  0x0C: "thinThickMediumGap",
+  0x0D: "thickThinMediumGap",
+  0x0E: "thinThickLargeGap",
+  0x0F: "thickThinLargeGap",
+  0x16: "wave",
+  0x17: "doubleWave",
+  0x2A: "inset",
+  0x2B: "outset",
+};
+
+// ico color palette index per MS-DOC-SPEC §ICO (0x00=auto)
+function brcColorFromIco(ico) {
+  if (ico === 0) return "auto";
+  const colors = [
+    null, "000000", "0000FF", "00FFFF", "00FF00", "FF00FF",
+    "FF0000", "FFFF00", "FFFFFF", "000080", "008080",
+    "008000", "800080", "800000", "808000", "808080", "C0C0C0",
+  ];
+  return colors[ico] ?? "auto";
 }
 
 function ww8TextColorHex(index) {

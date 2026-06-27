@@ -1,4 +1,6 @@
-# MS-DOC 260217 split Markdown
+# MS-DOC Markdown Split
+
+Note: HTML table blocks have been converted into Markdown pipe tables. Complex colspan/rowspan tables are flattened, with merged-cell content placed in the first covered column.
 
 This ZIP contains the MS-DOC Markdown conversion split into multiple Markdown files.
 

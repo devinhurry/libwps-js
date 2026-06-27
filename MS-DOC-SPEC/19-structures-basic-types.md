@@ -7,90 +7,12 @@
 The **Acd** structure specifies an [**allocated
 command**](#gt_390da589-0ab2-467d-a90e-69ca94f8c2f4).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">ibst</td>
-<td colspan="13">fciBasedOn</td>
-<td>A</td>
-<td>B</td>
-<td>C</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ibst |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | fciBasedOn |  |  |  |  |  |  |  |  |  |  |  |  | A | B | C |
+
+
 
 **ibst (2 bytes):** Index in the Command [String
 Table](#Section_4a491aedad454b41910b082c71d5ef14)
@@ -212,92 +134,14 @@ The **AFD** structure is an array of indices into the author list that
 specifies whose revisions and comments were being hidden when this
 document was last saved.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">iMac</td>
-</tr>
-<tr class="even">
-<td colspan="32">AuthorArray (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| iMac |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| AuthorArray (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **iMac (4 bytes):** A signed integer that specifies the number of
 elements in **AuthorArray**. This value MUST be a non-negative number.
@@ -312,86 +156,12 @@ saved.
 The **ASUMY** structure indicates the priority of a text range for
 [**AutoSummary**](#gt_f4f3be71-a6a0-43a1-974d-cf345372f5bf).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">lLevel</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| lLevel |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **lLevel (4 bytes):** An integer that specifies the priority of the
 corresponding text range for AutoSummary. A smaller number implies
@@ -404,110 +174,14 @@ greater than 0, and MUST be less than or equal to the
 The **ATNBE** structure contains information about an [**annotation
 bookmark**](#gt_0a40ee6b-0144-44fd-b4de-d3f1aa29d008) in the document.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">bmc</td>
-<td colspan="16">lTag</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">lTagOld</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| bmc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | lTag |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | lTagOld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **bmc (2 bytes):** An unsigned integer specifying the bookmark (1) class
 that MUST be 0x0100, for annotation.
@@ -529,89 +203,13 @@ that are kept parallel to the array of [ATRDPre10](#atrdpre10)s in the
 [PlcfandRef](#plcfandref) specified by **fcPlcfandRef** in
 [FibRgFcLcb97](#fibrgfclcb97).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">commentTree (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| commentTree (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **commentTree (variable):** An array of [ATRDPost10](#atrdpost10)s. The
 number of elements in this array MUST be equal to the number of
@@ -636,119 +234,16 @@ corresponding to the [ATRDPre10](#atrdpre10) in the
 [PlcfandRef](#plcfandref) specified by **fcPlcfandRef** in
 [FibRgFcLcb97](#fibrgfclcb97) with the same index as the **ATRDPost10**.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">dttm</td>
-</tr>
-<tr class="even">
-<td colspan="16">padding1</td>
-<td colspan="16">cDepth</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">diatrdParent</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td>A</td>
-<td>B</td>
-<td colspan="14">padding2</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| dttm |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| padding1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cDepth |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | diatrdParent |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | A | B | padding2 |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **dttm (4 bytes):** A [DTTM](#dttm) specifying the date and time on
 which this comment was last created or modified.
@@ -785,119 +280,17 @@ information about the comment can be specified in a corresponding
 [**ATRDPost10**](#atrdpost10) in the [**AtrdExtra**](#atrdextra) at
 position **fcAtrdExtra**.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">xstUsrInitl (20 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="16">ibst</td>
-<td colspan="16">bitsNotUsed</td>
-</tr>
-<tr class="odd">
-<td colspan="16">grfNotused</td>
-<td colspan="16">lTagBkmk</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| xstUsrInitl (20 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ibst |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | bitsNotUsed |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| grfNotused |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | lTagBkmk |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **xstUsrInitl (20 bytes):** An [LPXCharBuffer9](#lpxcharbuffer9)
 containing the initials of the user who left the annotation.
@@ -922,106 +315,12 @@ The **BKC** structure contains information about how a
 [**bookmark**](#gt_42f9c2f4-8a4b-4d64-a0e1-fc071debdf4c) interacts with
 tables.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="7">itcFirst</td>
-<td>A</td>
-<td colspan="6">itcLim</td>
-<td>B</td>
-<td>C</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| itcFirst |  |  |  |  |  |  | A | itcLim |  |  |  |  |  | B | C |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **itcFirst (7 bits):** If **fCol** is zero, this value MUST be ignored.
 Otherwise, this value is an unsigned integer specifying the zero-based
@@ -1074,105 +373,13 @@ text defined by the CPs of a bookmark can be found in section
 The **BKF** structure contains information about a
 [**bookmark**](#gt_42f9c2f4-8a4b-4d64-a0e1-fc071debdf4c).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">ibkl</td>
-</tr>
-<tr class="even">
-<td colspan="16">bkc</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ibkl |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| bkc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **ibkl (4 bytes):** An unsigned integer that specifies a zero-based
 index into the [Plcbkl](#plcbkl) or [Plcbkld](#plcbkld) that is paired
@@ -1190,109 +397,14 @@ The **BKFD** structure is a [BKF](#bkf) with additional information used
 for structured document tag
 [**bookmarks**](#gt_42f9c2f4-8a4b-4d64-a0e1-fc071debdf4c).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">bkf</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">cDepth</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| bkf |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cDepth |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **bkf (6 bytes):** A BKF specifying further information about the
 bookmark.
@@ -1323,86 +435,12 @@ The **BKL** structure links the end of a
 [**bookmark**](#gt_42f9c2f4-8a4b-4d64-a0e1-fc071debdf4c) to the
 beginning of the same bookmark.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">ibkf</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ibkf |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **ibkf (4 bytes):** An unsigned integer that specifies a zero-based
 index into the [Plcbkfd](#plcbkfd) that is paired with the
@@ -1416,89 +454,13 @@ The **BKLD** structure is a [BKL](#bkl) with additional information used
 for structured document tag
 [**bookmarks**](#gt_42f9c2f4-8a4b-4d64-a0e1-fc071debdf4c).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">bkl</td>
-</tr>
-<tr class="even">
-<td colspan="32">cDepth</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| bkl |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cDepth |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **bkl (4 bytes):** A BKL specifying further information about the
 bookmark.
@@ -1531,87 +493,12 @@ The **BlockSel** structure is used by [Selsf](#selsf) to specify the
 left and right boundaries of a text block selection. The values are
 pixels at the zoom level in which the selection was made.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">zpFirst</td>
-<td colspan="16">zpLim</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| zpFirst |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | zpLim |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **zpFirst (2 bytes):** A signed integer that specifies the [**physical
 left**](#gt_109a1037-0ae1-48da-8597-dc99be0a0aa8) boundary of the
@@ -1636,94 +523,13 @@ either 0x00 ("false") or 0x01 ("true").
 
 The **Brc** structure specifies a border.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">cv</td>
-</tr>
-<tr class="even">
-<td colspan="8">dptLineWidth</td>
-<td colspan="8">brcType</td>
-<td colspan="5">dptSpace</td>
-<td>A</td>
-<td>B</td>
-<td colspan="9">fReserved</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cv |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| dptLineWidth |  |  |  |  |  |  |  | brcType |  |  |  |  |  |  |  | dptSpace |  |  |  |  | A | B | fReserved |  |  |  |  |  |  |  |  |
+
+
 
 **cv (4 bytes):** A [COLORREF](#colorref) that specifies the color of
 this border.
@@ -1760,92 +566,12 @@ no visual effect.
 
 The **Brc80** structure describes a border.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">dptLineWidth</td>
-<td colspan="8">brcType</td>
-<td colspan="8">ico</td>
-<td colspan="5">dptSpace</td>
-<td>A</td>
-<td>B</td>
-<td>C</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| dptLineWidth |  |  |  |  |  |  |  | brcType |  |  |  |  |  |  |  | ico |  |  |  |  |  |  |  | dptSpace |  |  |  |  | A | B | C |
+
+
 
 **dptLineWidth (8 bits):** An unsigned integer that specifies the width
 of the border in
@@ -1885,90 +611,13 @@ border.
 
 The **BrcCvOperand** structure specifies border colors.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="24">rgcv (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | rgcv (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** An unsigned integer value that specifies the size, in
 bytes, of **rgcv.** This value MUST be 4\**n*, where *n* is the number
@@ -2003,117 +652,14 @@ type of table cells.
 The **BrcOperand** structure is the operand to several
 [**SPRM**](#sprm)s that control borders.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="24">brc</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="8">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | brc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** An unsigned integer value that specifies the size of
 this BrcOperand, not including this byte. The cb MUST be 8.
@@ -2332,120 +878,15 @@ section 17.18.2, that further specifies the meaning of the border type.
 The **BxPap** structure specifies the offset of a
 [**PapxInFkp**](#papxinfkp) in [**PapxFkp**](#papxfkp).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">bOffset</td>
-<td colspan="24">reserved</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="8">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| bOffset |  |  |  |  |  |  |  | reserved |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **bOffset (1 byte):** An unsigned integer that specifies the offset of a
 **PapxInFkp** in a **PapxFkp**. The offset of the **PapxInFkp** is
@@ -2464,110 +905,13 @@ class="anchor"></span>[\<204\>](#Appendix_A_204) be ignored.
 The **CAPI** structure contains information about a
 [**caption**](#gt_81d81412-1575-4084-ba61-742de406b418).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="2">A</td>
-<td>B</td>
-<td colspan="4">C</td>
-<td colspan="8">unused1</td>
-<td>D</td>
-<td colspan="16">nfc</td>
-</tr>
-<tr class="even">
-<td colspan="16">xchSeparator</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A |  | B | C |  |  |  | unused1 |  |  |  |  |  |  |  | D | nfc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| xchSeparator |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - iLocation (2 bits):** An unsigned integer that specifies the
 insert location for the caption. This MUST be one of the following
@@ -2634,92 +978,14 @@ cookie**](#gt_69c5a114-8e6b-4003-b8e4-a06577cfc226) that is stored by
 the given [**grammar
 checker**](#gt_19363950-99e9-4f11-a562-96e4dd4ea5ce).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">cbData</td>
-</tr>
-<tr class="even">
-<td colspan="32">rgbCookieData (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cbData |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rgbCookieData (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cbData (4 bytes):** An unsigned integer value that specifies the
 length of **rgbCookieData**, in bytes.
@@ -2733,88 +999,12 @@ The **CellHideMarkOperand** structure is an operand that is used by
 [sprmTCellFHideMark](#table-properties). This operand specifies which
 cells are rendered with no height when cells are empty.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="16">itc</td>
-<td colspan="8">bArg</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | itc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | bArg |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** An unsigned integer that specifies the size of this
 operand in bytes, not including **cb**. **cb** MUST be 3.
@@ -2833,95 +1023,12 @@ The **CellRangeFitText** structure is an operand that is used by
 in a table row, and whether their contents stretch or compress to fill
 their widths.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">itc</td>
-<td colspan="8">fFitText</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| itc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | fFitText |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **itc (2 bytes):** A [ItcFirstLim](#itcfirstlim) structure that
 specifies a cell range in the table row.
@@ -2939,88 +1046,12 @@ The **CellRangeNoWrap** structure is an operand that is used by
 [sprmTFCellNoWrap](#table-properties). This operand specifies a set of
 cells in a table row and the preferred line wrapping layout of each.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="16">itc</td>
-<td colspan="8">fNoWrap</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | itc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | fNoWrap |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** An unsigned integer that specifies the size in bytes of
 the remainder of this structure. MUST be 3.
@@ -3037,87 +1068,12 @@ ignored when the preferred width of the cell is set to [ftsDxa](#fts).
 The **CellRangeTextFlow** structure specifies a range of cells in a
 table row, and the text flow model of the cell contents.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">itc</td>
-<td colspan="16">tf</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| itc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | tf |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **itc (2 bytes):** An [ItcFirstLim](#itcfirstlim) that specifies a cell
 range in the table row.
@@ -3130,88 +1086,12 @@ each cell flow, and how text is rotated.
 The **CellRangeVertAlign** structure specifies a range of cells in a
 table row, and the vertical alignment of the cell contents.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="16">itc</td>
-<td colspan="8">valign</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | itc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | valign |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** Specifies the byte count of the remainder of this
 structure. The value MUST be 3.
@@ -3228,118 +1108,14 @@ The **CFitTextOperand** structure is an operand that is used by
 [sprmCFitText](#character-properties) to specify how text runs are
 formatted to fit a particular width.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="24">dxaFitText</td>
-</tr>
-<tr class="even">
-<td colspan="8">...</td>
-<td colspan="24">FitTextID</td>
-</tr>
-<tr class="odd">
-<td colspan="8">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | dxaFitText |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  | FitTextID |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** The number of bytes that this operand occupies. This
 value MUST be 0x08.
@@ -3364,90 +1140,13 @@ contiguous, the **FitTextID** is ignored and they are not linked.
 
 The **Chpx** structure specifies a set of properties for text.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="24">grpprl (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | grpprl (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** An unsigned integer that specifies the size of
 **grpprl**, in bytes.
@@ -3462,122 +1161,16 @@ The **ChpxFkp** structure maps text to its character properties. A
 byte. The elements of **rgb** point to [Chpx](#chpx)s that start at
 offsets between **crun** and the end of **rgb**.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">rgfc (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">rgb (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="8">crun</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| rgfc (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rgb (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| crun |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **rgfc (variable):** An array of 4-byte unsigned integers. Each element
 of this array specifies an offset in the [WordDocument
@@ -3630,88 +1223,12 @@ follows.
 The **CidAllocated** structure specifies an [**allocated
 command**](#gt_390da589-0ab2-467d-a90e-69ca94f8c2f4).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="3">cmt</td>
-<td colspan="13">reserved</td>
-<td colspan="16">iacd</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cmt |  |  | reserved |  |  |  |  |  |  |  |  |  |  |  |  | iacd |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cmt (3 bits):** A [Cmt](#cmt) value that specifies the command type.
 This value MUST be cmtAllocated.
@@ -3727,88 +1244,12 @@ the allocated command to be executed.
 The **CidFci** structure is a command identifier that specifies a
 built-in command.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="3">cmt</td>
-<td colspan="13">fci</td>
-<td colspan="16">swArg</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cmt |  |  | fci |  |  |  |  |  |  |  |  |  |  |  |  | swArg |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cmt (3 bits):** A [Cmt](#cmt) value that specifies the command type.
 MUST be cmtFci.
@@ -4017,88 +1458,12 @@ The following special meaning applies:
 The **CidMacro** structure is a command identifier that specifies a
 command based on a macro.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="3">cmt</td>
-<td colspan="13">reserved</td>
-<td colspan="16">ibst</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cmt |  |  | reserved |  |  |  |  |  |  |  |  |  |  |  |  | ibst |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cmt (3 bits):** This value MUST be [cmtMacro](#cmt).
 
@@ -4115,95 +1480,15 @@ MacroNames MUST contain such an entry.
 The **Clx** structure is an array of zero, 1, or more [Prc](#prc)s
 followed by a [Pcdt](#pcdt).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">RgPrc (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Pcdt (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| RgPrc (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Pcdt (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **RgPrc (variable):** An array of Prc. If this array is empty, the first
 byte of the Clx MUST be 0x02. 0x02 is invalid as the first byte of a
@@ -4218,90 +1503,13 @@ The **CMajorityOperand** structure is used by
 properties of the text to reset to match that of the underlying
 paragraph style.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="24">grpprl (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | grpprl (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** An unsigned 8-bit integer that specifies the size, in
 bytes, of **grpprl**.
@@ -4332,91 +1540,13 @@ valid values are as follows.
 The **CNFOperand** structure provides conditional formatting for a table
 style.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="16">cnfc</td>
-<td colspan="8">grpprl (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | cnfc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | grpprl (variable) |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** An unsigned integer that specifies the size, in bytes,
 of this CNFOperand, excluding the **cb** member.
@@ -4467,89 +1597,12 @@ page number fields.
 The **COLORREF** structure specifies a color in terms of its red, green,
 and blue components.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">red</td>
-<td colspan="8">green</td>
-<td colspan="8">blue</td>
-<td colspan="8">fAuto</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| red |  |  |  |  |  |  |  | green |  |  |  |  |  |  |  | blue |  |  |  |  |  |  |  | fAuto |  |  |  |  |  |  |  |
+
+
 
 **red (1 byte):** An unsigned integer that specifies the intensity of
 the color red. A value of zero specifies that there is no red. Larger
@@ -4580,109 +1633,14 @@ checker implementing the
 [**NLCheck**](#gt_1a58e1ef-5801-4587-9a0f-d62a7544c806) interface, as
 well as information to identify the corresponding grammar checker.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">cos</td>
-<td colspan="16">lid</td>
-</tr>
-<tr class="even">
-<td colspan="32">dwVersion</td>
-</tr>
-<tr class="odd">
-<td colspan="16">ceid</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cos |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | lid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| dwVersion |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ceid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cos (2 bytes):** An unsigned integer that specifies a NLCheck option
 set, which is implementation-specific to the grammar checker that is
@@ -4728,107 +1686,13 @@ many [Table SPRMs](#Section_b39a6648501c436183664f042f579469) to define
 table [**cell**](#gt_43d1e51e-4f26-493b-b7c9-e84e920d7461) margins and
 [**cell spacing**](#gt_4a64964b-c1e8-41b3-b3da-e9866f5227d2).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">itc</td>
-<td colspan="8">grfbrc</td>
-<td colspan="8">ftsWidth</td>
-</tr>
-<tr class="even">
-<td colspan="16">wWidth</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| itc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | grfbrc |  |  |  |  |  |  |  | ftsWidth |  |  |  |  |  |  |  |
+| wWidth |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **itc (2 bytes):** An [ItcFirstLim](#itcfirstlim) that specifies which
 cells this CSSA structure applies to.
@@ -4863,98 +1727,13 @@ The **CSSAOperand** structure is an operand that is used by several
 table [**cell margin**](#gt_30232e45-c2f5-4d92-854c-74ffdea1e163) or
 [**cell spacing**](#gt_4a64964b-c1e8-41b3-b3da-e9866f5227d2).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="24">cssa</td>
-</tr>
-<tr class="even">
-<td colspan="24">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | cssa |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** An unsigned integer value that specifies the size of
 this operand in bytes, not including **cb**. The **cb** MUST be 6.
@@ -4967,87 +1746,12 @@ cell spacing to apply.
 The **CSymbolOperand** structure specifies the properties of a symbol
 character.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">ftc</td>
-<td colspan="16">xchar</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ftc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | xchar |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **ftc (2 bytes):** A 16-bit unsigned integer that is an index into the
 font table [SttbfFfn](#sttbfffn) and that specifies the font for this
@@ -5062,123 +1766,24 @@ of the specified font.
 The **CTB** structure specifies a [**custom
 toolbar**](#gt_6ee69c13-ffa9-43b1-989e-a942dceb1fa5).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">name (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">cbTBData</td>
-</tr>
-<tr class="even">
-<td colspan="32">tb (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">rVisualData (100 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">iWCTB</td>
-</tr>
-<tr class="even">
-<td colspan="16">reserved</td>
-<td colspan="16">unused</td>
-</tr>
-<tr class="odd">
-<td colspan="32">cCtls</td>
-</tr>
-<tr class="even">
-<td colspan="32">rTBC (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| name (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbTBData |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| tb (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rVisualData (100 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| iWCTB |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | unused |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cCtls |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rTBC (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **name (variable):** A structure of type [**Xst**](#xst) that specifies
 the name of this custom toolbar.
@@ -5237,111 +1842,19 @@ structure contains the custom toolbars and [**toolbar
 deltas**](#gt_1bf3a37c-f6bd-495b-9405-d107aa82ed73) that are saved to
 the file.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">reserved1</td>
-<td colspan="16">reserved2</td>
-<td colspan="8">reserved3</td>
-</tr>
-<tr class="even">
-<td colspan="16">reserved4</td>
-<td colspan="16">reserved5</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cbTBD</td>
-<td colspan="16">cCust</td>
-</tr>
-<tr class="even">
-<td colspan="32">cbDTBC</td>
-</tr>
-<tr class="odd">
-<td colspan="32">rtbdc (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">rCustomizations (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| reserved1 |  |  |  |  |  |  |  | reserved2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | reserved3 |  |  |  |  |  |  |  |
+| reserved4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | reserved5 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbTBD |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cCust |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbDTBC |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rtbdc (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rCustomizations (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **reserved1 (1 byte):** This value MUST be 0x12.
 
@@ -5380,96 +1893,15 @@ The **Customization** structure specifies either a [**custom
 toolbar**](#gt_6ee69c13-ffa9-43b1-989e-a942dceb1fa5) or [**toolbar
 delta**](#gt_1bf3a37c-f6bd-495b-9405-d107aa82ed73) values.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">tbidForTBD</td>
-</tr>
-<tr class="even">
-<td colspan="16">reserved1</td>
-<td colspan="16">ctbds</td>
-</tr>
-<tr class="odd">
-<td colspan="32">customizationData (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| tbidForTBD |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | ctbds |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| customizationData (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **tbidForTBD (4 bytes):** A signed integer that specifies if
 **customizationData** contains a [CTB](#ctb) structure or an array of
@@ -5501,104 +1933,12 @@ following.
 
 The **DCS** structure specifies the drop cap properties for a paragraph.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="3">fdct</td>
-<td colspan="5">cl</td>
-<td colspan="8">reserved</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fdct |  |  | cl |  |  |  |  | reserved |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **fdct (3 bits):** An integer that specifies the drop cap type. This
 MUST be one of the following values.
@@ -5621,90 +1961,13 @@ several [Table Sprm](#Section_b39a6648501c436183664f042f579469)s to
 specify each style of background shading that is applied to each of the
 cells in a single row.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="24">rgShd80 (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | rgShd80 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** An unsigned integer that specifies the size in bytes of
 this operand, not including **cb**. **cb** MUST be a multiple of 2 (the
@@ -5722,90 +1985,13 @@ several [Table Sprm](#Section_b39a6648501c436183664f042f579469)s to
 specify each style of background shading that is applied to each of the
 cells in a single row.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="24">rgShd (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | rgShd (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** An unsigned integer that specifies the size in bytes of
 this operand, not including **cb**. The **cb** value MUST be a multiple
@@ -5827,100 +2013,16 @@ The **DispFldRmOperand** structure is an operand that is used by
 [**sprmCDispFldRMark**](#character-properties) and specifies whether the
 result of a LISTNUM display field contains a revision.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="8">f</td>
-<td colspan="16">ibstshort</td>
-</tr>
-<tr class="even">
-<td colspan="32">dttm</td>
-</tr>
-<tr class="odd">
-<td colspan="32">xst (32 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | f |  |  |  |  |  |  |  | ibstshort |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| dttm |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| xst (32 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** An unsigned integer that specifies the size, in bytes,
 of the remainder of this structure. This value MUST be 39.
@@ -5966,112 +2068,20 @@ this record applies to the frame that is associated with the previous
 before the first **DofrFsn** with **fsnk** equal to **fsnkFrame**. In
 that case, this record applies to the outermost frame.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">fssd</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">tCols</td>
-</tr>
-<tr class="even">
-<td colspan="32">fsnk</td>
-</tr>
-<tr class="odd">
-<td colspan="32">dxMargin</td>
-</tr>
-<tr class="even">
-<td colspan="32">dyMargin</td>
-</tr>
-<tr class="odd">
-<td colspan="32">iidsScroll</td>
-</tr>
-<tr class="even">
-<td>A</td>
-<td>B</td>
-<td colspan="30">fUnused1</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fUnused2</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fssd |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| tCols |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fsnk |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| dxMargin |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| dyMargin |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| iidsScroll |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| A | B | fUnused1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fUnused2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **fssd (8 bytes):** An [**Fssd**](#fssd) that specifies the position of
 the divider. If **fsnk** is not **fsnkFrame**, this value MUST be
@@ -6116,89 +2126,13 @@ file name of the file that is loaded into the frame. **DofrFsnFnm**
 applies to the frame that is associated with the most recently read
 [**DofrFsn**](#dofrfsn) record.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">xstzFilename (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| xstzFilename (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **xstzFilename (variable):** An **Xstz** that specifies the file name
 and path of the frame. The string MUST be between 0 and 258 characters
@@ -6210,89 +2144,13 @@ The **DofrFsnName** structure is a type that specifies the name of the
 frame. **DofrFsnName** applies to the frame that is associated with the
 most recently read [**DofrFsn**](#dofrfsn) record.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">xstzFilename (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| xstzFilename (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **xstzFilename (variable):** An [**Xstz**](#xstz) that specifies the
 name of the frame. The name MUST be between 0 and 255 characters in
@@ -6318,87 +2176,12 @@ within the frame set.
 records with **fPush** set to "false" as there are records with
 **fPush** set to "true".
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td colspan="31">fUnused</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | fUnused |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - fPush (1 bit):** Specifies if this marker indicates the beginning
 or end of a group of frames. A value of 1 specifies the beginning of a
@@ -6411,94 +2194,14 @@ set of child frames. A value of 0 specifies the end of the child frames.
 The **DofrFsnSpbd** structure specifies borders and divider (splitter
 bar) properties for the entire frame set.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">dzaSpb</td>
-</tr>
-<tr class="even">
-<td colspan="32">cvSpb</td>
-</tr>
-<tr class="odd">
-<td>A</td>
-<td>B</td>
-<td colspan="30">fUnused</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| dzaSpb |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cvSpb |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| A | B | fUnused |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **dzaSpb (4 bytes):** A signed integer that specifies the width, in
 twips, of the borders and dividers. This value MUST be between 0 and
@@ -6532,95 +2235,15 @@ Similarly, an array of list specifications MUST begin with a record
 containing a **dofrt** equal to **dofrtRglstsf**, followed by any number
 of list records.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">cb</td>
-</tr>
-<tr class="even">
-<td colspan="32">dofrt</td>
-</tr>
-<tr class="odd">
-<td colspan="32">dofr (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| dofrt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| dofr (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (4 bytes):** An unsigned integer that specifies the size of the
 **Dofrh**, including all contained variable or optional data such as the
@@ -6638,92 +2261,14 @@ records, this field MUST exist.
 The **DofrRglstsf** structure specifies the list styles that are used in
 the document.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">clstsf</td>
-</tr>
-<tr class="even">
-<td colspan="32">rglstsf (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| clstsf |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rglstsf (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **clstsf (4 bytes):** A signed integer that specifies the count of the
 items in **rglstsf**.
@@ -6753,107 +2298,16 @@ The **DPCID** structure contains information about a [**format
 consistency-checker
 bookmark**](#gt_2f3fbf82-4359-4b12-aeec-1968eb797ee5) in the document.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">padding1</td>
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td colspan="13">fUnused</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">idpci</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">idata</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="8">fcct</td>
-<td colspan="8">id</td>
-</tr>
-<tr class="odd">
-<td colspan="24">...</td>
-<td colspan="8">padding2</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| padding1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | A | B | C | fUnused |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | idpci |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | idata |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | fcct |  |  |  |  |  |  |  | id |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | padding2 |  |  |  |  |  |  |  |
+
+
 
 **padding1 (2 bytes):** Two bytes that are used for padding. This MUST
 be ignored.
@@ -6901,91 +2355,12 @@ this DPCID. This value MUST be unique for all DPCIDs inside a given
 
 The **DTTM** structure specifies date and time.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="6">mint</td>
-<td colspan="5">hr</td>
-<td colspan="5">dom</td>
-<td colspan="4">mon</td>
-<td colspan="9">yr</td>
-<td colspan="3">wdy</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| mint |  |  |  |  |  | hr |  |  |  |  | dom |  |  |  |  | mon |  |  |  | yr |  |  |  |  |  |  |  |  | wdy |  |  |
+
+
 
 **mint (6 bits):** An unsigned integer that specifies the minute. This
 value MUST be less than or equal to 0x3B.
@@ -7014,94 +2389,14 @@ to 0x6.
 The **FACTOIDINFO** structure contains information about a [**smart tag
 bookmark**](#gt_4ce58819-c45f-4bcc-8c3d-36268e1f8f0b) in the document.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">dwId</td>
-</tr>
-<tr class="even">
-<td>A</td>
-<td colspan="15">fUnused</td>
-<td colspan="16">fto</td>
-</tr>
-<tr class="odd">
-<td colspan="32">pfpb</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| dwId |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| A | fUnused |  |  |  |  |  |  |  |  |  |  |  |  |  |  | fto |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| pfpb |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **dwId (4 bytes):** An unsigned integer that specifies a unique value
 this is used to reference the smart tag bookmark associated with this
@@ -7127,102 +2422,12 @@ recognizer**](#gt_31f2a874-4490-4c2c-9e2c-6267f373bf5c) over a range of
 text. Some states that are possible in a generic **SPLS** are not
 allowed in a FactoidSpls structure.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">spls</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| spls |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **spls (2 bytes):** An SPLS structure.
 
@@ -7248,99 +2453,13 @@ text in [**East Asian
 languages**](#gt_12f63b8b-1c85-4855-9ae1-e6b05720bcfc), as well as the
 text that is considered part of the same layout unit.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="16">ufel</td>
-<td colspan="8">lFELayoutID</td>
-</tr>
-<tr class="even">
-<td colspan="24">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | ufel |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | lFELayoutID |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** The size of this structure, in bytes, not including
 this byte. **cb** MUST be 0x06.
@@ -7365,113 +2484,12 @@ are enabled.
 Not all formatting categories are available for every table style or
 table auto-format.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td>E</td>
-<td>F</td>
-<td>G</td>
-<td>H</td>
-<td>I</td>
-<td>J</td>
-<td>K</td>
-<td colspan="5">padding</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | B | C | D | E | F | G | H | I | J | K | padding |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - fatlBorders (1 bit):** This bit MAY[\<212\>](#Appendix_A_212)
 specify that the border formats of a table auto-format were applied by
@@ -7537,87 +2555,12 @@ columns.
 The **FBKF** structure contains information about a
 [**bookmark**](#gt_42f9c2f4-8a4b-4d64-a0e1-fc071debdf4c).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">ibkl</td>
-<td colspan="16">bkc</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ibkl |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | bkc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **ibkl (2 bytes):** An unsigned integer that specifies a zero-based
 index into the [Plcfbkl](#plcfbkl) or [Plcfbkld](#plcfbkld) that is
@@ -7634,105 +2577,13 @@ about the bookmark associated with this FBKF.
 The **FBKFD** structure contains information about a
 [**bookmark**](#gt_42f9c2f4-8a4b-4d64-a0e1-fc071debdf4c).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">fbkf</td>
-</tr>
-<tr class="even">
-<td colspan="16">cDepth</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fbkf |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cDepth |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **fbkf (4 bytes):** An [**FBKF**](#fbkf) specifying further information
 about the bookmark.
@@ -7760,87 +2611,12 @@ following constraints:
 The **FBKLD** structure contains information about a
 [**bookmark**](#gt_42f9c2f4-8a4b-4d64-a0e1-fc071debdf4c).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">ibkf</td>
-<td colspan="16">cDepth</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ibkf |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cDepth |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **ibkf (2 bytes):** An unsigned integer that specifies a zero-based
 index into the [Plcfbkfd](#plcfbkfd) that is paired with the
@@ -7869,88 +2645,12 @@ constraints:
 The **FcCompressed** structure specifies the location of text in the
 [WordDocument Stream](#Section_d7fae142670d4cd5869a708366984a71).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="30">fc</td>
-<td>A</td>
-<td>B</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | A | B |
+
+
 
 **fc (30 bits):** An unsigned integer that specifies an offset in the
 WordDocument Stream where the text starts. If **fCompressed** is zero,
@@ -7998,114 +2698,12 @@ The **FCCT** structure specifies information about a [**format
 consistency-checker
 bookmark**](#gt_2f3fbf82-4359-4b12-aeec-1968eb797ee5).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td colspan="4">E</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | B | C | D | E |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - fcctChp (1 bit):** A bit field specifying that the character
 properties associated with the region of text were flagged as
@@ -10108,113 +4706,14 @@ cookie**](#gt_69c5a114-8e6b-4003-b8e4-a06577cfc226). The grammar checker
 cookie itself is contained within the data that corresponds to the
 **fcCookieData** member of [FibRgFcLcb97](#fibrgfclcb97).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">dcp</td>
-<td colspan="16">dcpSent</td>
-</tr>
-<tr class="even">
-<td colspan="32">icdb</td>
-</tr>
-<tr class="odd">
-<td colspan="2">cet</td>
-<td>A</td>
-<td colspan="5">lidSub</td>
-<td colspan="7">lidPrimary</td>
-<td>B</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| dcp |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | dcpSent |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| icdb |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cet |  | A | lidSub |  |  |  |  | lidPrimary |  |  |  |  |  |  | B |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **dcp (2 bytes):** An integer that specifies the number of characters
 that are spanned by the text corresponding to the given grammar checker
@@ -10269,100 +4768,15 @@ checker cookie**](#gt_69c5a114-8e6b-4003-b8e4-a06577cfc226). The grammar
 checker cookie itself is contained within the data that corresponds to
 the **fcCookieData** member of [FibRgFcLcb97](#fibrgfclcb97).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">lid</td>
-<td colspan="16">dcp</td>
-</tr>
-<tr class="even">
-<td colspan="16">dcpSent</td>
-<td colspan="16">padding1</td>
-</tr>
-<tr class="odd">
-<td colspan="2">cet</td>
-<td colspan="13">spare</td>
-<td>A</td>
-<td colspan="16">padding2</td>
-</tr>
-<tr class="even">
-<td colspan="32">icdb</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| lid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | dcp |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| dcpSent |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | padding1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cet |  | spare |  |  |  |  |  |  |  |  |  |  |  |  | A | padding2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| icdb |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **lid (2 bytes):** A [LID](#lid) that corresponds to the [**grammar
 checker**](#gt_19363950-99e9-4f11-a562-96e4dd4ea5ce) that created the
@@ -10408,140 +4822,29 @@ The **FFData** structure specifies [**form
 field**](#gt_8fa0b648-6259-4969-8561-a87b325fb240) data for a text box,
 check box, or drop-down list box.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">version</td>
-</tr>
-<tr class="even">
-<td colspan="16">bits</td>
-<td colspan="16">cch</td>
-</tr>
-<tr class="odd">
-<td colspan="16">hps</td>
-<td colspan="16">xstzName (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">xstzTextDef (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="16">wDef (optional)</td>
-<td colspan="16">xstzTextFormat (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">xstzHelpText (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">xstzStatText (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">xstzEntryMcr (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">xstzExitMcr (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">hsttbDropList (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| version |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| bits |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cch |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| hps |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | xstzName (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| xstzTextDef (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| wDef (optional) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | xstzTextFormat (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| xstzHelpText (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| xstzStatText (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| xstzEntryMcr (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| xstzExitMcr (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| hsttbDropList (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **version (4 bytes):** An unsigned integer that MUST be 0xFFFFFFFF.
 
@@ -10613,110 +4916,12 @@ The **FFDataBits** structure specifies the type and properties for a
 [**form field**](#gt_8fa0b648-6259-4969-8561-a87b325fb240) that is
 specified by a [FFData](#ffdata).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="2">A</td>
-<td colspan="5">iRes</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td>E</td>
-<td colspan="3">F</td>
-<td>G</td>
-<td>H</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A |  | iRes |  |  |  |  | B | C | D | E | F |  |  | G | H |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - iType (2 bits):** An unsigned integer that specifies the type of
 the form field. This value MUST be one of the following.
@@ -10779,114 +4984,12 @@ Otherwise, this value MUST be 0.
 The **FFID** structure specifies the font family and [**character
 pitch**](#gt_44c69cba-79c8-4147-8b3a-ead7b39a63d5) for a font.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="2">prq</td>
-<td>A</td>
-<td>B</td>
-<td colspan="3">ff</td>
-<td>C</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| prq |  | A | B | ff |  |  | C |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **prq (2 bits):** A 2-bit field that specifies character pitch. This
 MUST contain one of the following values.
@@ -10940,118 +5043,21 @@ addition to specifying a specific named font, this information is
 intended for the purpose of font substitution when that named font is
 not available.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">ffid</td>
-<td colspan="16">wWeight</td>
-<td colspan="8">chs</td>
-</tr>
-<tr class="even">
-<td colspan="8">ixchSzAlt</td>
-<td colspan="24">panose</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="24">...</td>
-<td colspan="8">fs (24 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="24">...</td>
-<td colspan="8">xszFfn (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">xszAlt (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ffid |  |  |  |  |  |  |  | wWeight |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | chs |  |  |  |  |  |  |  |
+| ixchSzAlt |  |  |  |  |  |  |  | panose |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | fs (24 bytes) |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | xszFfn (variable) |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| xszAlt (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **ffid (1 byte):** An [FFID](#ffid) that specifies the font family.
 
@@ -11118,92 +5124,14 @@ standard mail merge address fields, which are defined for
 [ODSOPropertyBase](#odsopropertybase).OdsoProp when ODSOPropertyBase.id
 is equal to 0x0016.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">FieldMap (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">FieldMapLast</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| FieldMap (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| FieldMapLast |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **FieldMap (variable):** An array of
 [FieldMapDataItem](#fieldmapdataitem). Data that specifies the mapping
@@ -11224,93 +5152,14 @@ no further data about this field mapping, and any subsequent
 **FieldMapDataItem** structures are associated with subsequent field
 mappings.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">FieldMapDataId</td>
-<td colspan="16">cbFieldMapData</td>
-</tr>
-<tr class="even">
-<td colspan="32">Data (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| FieldMapDataId |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cbFieldMapData |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **FieldMapDataId (2 bytes):** An unsigned integer that specifies the
 type of this **FieldMapDataItem**. This value MUST be 0x0001, 0x0002,
@@ -11338,103 +5187,17 @@ fields, which are defined for
 **[ODSOPropertyBase](#odsopropertybase).OdsoProp** when
 **ODSOPropertyBase.id** is equal to 0x0016.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">countMarker</td>
-<td colspan="16">cbCount</td>
-</tr>
-<tr class="even">
-<td colspan="32">cFields</td>
-</tr>
-<tr class="odd">
-<td colspan="16">FieldMapListSizeMarker</td>
-<td colspan="16">cbFieldMapList</td>
-</tr>
-<tr class="even">
-<td colspan="32">cbFieldMapListOverflow (optional)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">FieldMappings (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| countMarker |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cbCount |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cFields |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| FieldMapListSizeMarker |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cbFieldMapList |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbFieldMapListOverflow (optional) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| FieldMappings (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **countMarker (2 bytes):** An unsigned integer that specifies that the
 count of **FieldMappings** follows. This value MUST be 0.
@@ -11470,87 +5233,12 @@ The **FieldMapTerminator** structure marks the end of the
 [**FieldMapDataItem**](#filterdataitem) structures that apply to an
 element of the **FieldMap** field of a [FieldMapBase](#fieldmapbase).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">FieldMapDataId</td>
-<td colspan="16">CbFieldMapData</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| FieldMapDataId |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | CbFieldMapData |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **FieldMapDataId (2 bytes):** An unsigned integer that specifies there
 is no further data to read for the current **FieldMap**. This value MUST
@@ -11563,101 +5251,17 @@ be 0.
 The **FilterDataItem** structure contains data that is used to filter a
 list of mail merge recipients.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">cbItem</td>
-</tr>
-<tr class="even">
-<td colspan="32">iColumn</td>
-</tr>
-<tr class="odd">
-<td colspan="32">iComparisonOperator</td>
-</tr>
-<tr class="even">
-<td colspan="32">iCondition</td>
-</tr>
-<tr class="odd">
-<td colspan="32">rgwchFilter (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cbItem |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| iColumn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| iComparisonOperator |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| iCondition |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rgwchFilter (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cbItem (4 bytes):** An unsigned integer that specifies the size, in
 bytes, of this **FilterDataItem**.
@@ -11694,103 +5298,12 @@ and MUST contain no more than 212 characters.
 
 The **Fld** structure specifies a field character.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">fldch</td>
-<td colspan="8">grffld</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fldch |  |  |  |  |  |  |  | grffld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **fldch (1 byte):** An [**fldch**](#fldch) whose **ch** member controls
 the interpretation of **grffld**. This value MUST be 0x13, 0x14, or
@@ -11809,111 +5322,12 @@ of **fldch**, as defined following.
 
 The **fldch** structure determines the type of the field character.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="5">ch</td>
-<td colspan="3">A</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ch |  |  |  |  | A |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **ch (5 bits):** An unsigned integer whose value MUST be either 0x13,
 0x14, or 0x15. This value controls the interpretation of the **grffld**
@@ -11932,584 +5346,109 @@ entries in
 section 17.16.5. Values that are not specified following MUST NOT be
 used.
 
-<table>
-<colgroup>
-<col style="width: 9%" />
-<col style="width: 18%" />
-<col style="width: 72%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Value</th>
-<th>Name</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0x01</td>
-<td>Not Named</td>
-<td>Specifies that the field was unable to be parsed.</td>
-</tr>
-<tr class="even">
-<td>0x02</td>
-<td>Not Named</td>
-<td><p>Specifies that the field represents a <strong>REF</strong> field
-where the keyword has been omitted.</p>
-<p>The <strong>REF</strong> field is specified in [ECMA-376] part 1,
-section17.16.5.51.</p></td>
-</tr>
-<tr class="odd">
-<td>0x03</td>
-<td>REF</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.51</td>
-</tr>
-<tr class="even">
-<td>0x05</td>
-<td>FTNREF</td>
-<td>This field is identical to NOTEREF specified in [ECMA-376] part 1,
-section 17.16.5.40.</td>
-</tr>
-<tr class="odd">
-<td>0x06</td>
-<td>SET</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.57.</td>
-</tr>
-<tr class="even">
-<td>0x07</td>
-<td>IF</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.26.</td>
-</tr>
-<tr class="odd">
-<td>0x08</td>
-<td>INDEX</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.29.</td>
-</tr>
-<tr class="even">
-<td>0x0A</td>
-<td>STYLEREF</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.59.</td>
-</tr>
-<tr class="odd">
-<td>0x0C</td>
-<td>SEQ</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.56.</td>
-</tr>
-<tr class="even">
-<td>0x0D</td>
-<td>TOC</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.68.</td>
-</tr>
-<tr class="odd">
-<td>0x0E</td>
-<td>INFO</td>
-<td>Specified in [ECMA-376] part 4, section 14.10.4.7.</td>
-</tr>
-<tr class="even">
-<td>0x0F</td>
-<td>TITLE</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.66.</td>
-</tr>
-<tr class="odd">
-<td>0x10</td>
-<td>SUBJECT</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.60.</td>
-</tr>
-<tr class="even">
-<td>0x11</td>
-<td>AUTHOR</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.4.</td>
-</tr>
-<tr class="odd">
-<td>0x12</td>
-<td>KEYWORDS</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.30.</td>
-</tr>
-<tr class="even">
-<td>0x13</td>
-<td>COMMENTS</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.9.</td>
-</tr>
-<tr class="odd">
-<td>0x14</td>
-<td>LASTSAVEDBY</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.31.</td>
-</tr>
-<tr class="even">
-<td>0x15</td>
-<td>CREATEDATE</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.11.</td>
-</tr>
-<tr class="odd">
-<td>0x16</td>
-<td>SAVEDATE</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.53.</td>
-</tr>
-<tr class="even">
-<td>0x17</td>
-<td>PRINTDATE</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.47.</td>
-</tr>
-<tr class="odd">
-<td>0x18</td>
-<td>REVNUM</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.52.</td>
-</tr>
-<tr class="even">
-<td>0x19</td>
-<td>EDITTIME</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.16.</td>
-</tr>
-<tr class="odd">
-<td>0x1A</td>
-<td>NUMPAGES</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.42.</td>
-</tr>
-<tr class="even">
-<td>0x1B</td>
-<td>NUMWORDS</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.43.</td>
-</tr>
-<tr class="odd">
-<td>0x1C</td>
-<td>NUMCHARS</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.41.</td>
-</tr>
-<tr class="even">
-<td>0x1D</td>
-<td>FILENAME</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.17.</td>
-</tr>
-<tr class="odd">
-<td>0x1E</td>
-<td>TEMPLATE</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.64.</td>
-</tr>
-<tr class="even">
-<td>0x1F</td>
-<td>DATE</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.13.</td>
-</tr>
-<tr class="odd">
-<td>0x20</td>
-<td>TIME</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.65.</td>
-</tr>
-<tr class="even">
-<td>0x21</td>
-<td>PAGE</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.44.</td>
-</tr>
-<tr class="odd">
-<td>0x22</td>
-<td>=</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.3.3.</td>
-</tr>
-<tr class="even">
-<td>0x23</td>
-<td>QUOTE</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.49.</td>
-</tr>
-<tr class="odd">
-<td>0x24</td>
-<td>INCLUDE</td>
-<td>This field is identical to <strong>INCLUDETEXT</strong> specified in
-[ECMA-376] part 1, section 17.16.5.28.</td>
-</tr>
-<tr class="even">
-<td>0x25</td>
-<td>PAGEREF</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.45.</td>
-</tr>
-<tr class="odd">
-<td>0x26</td>
-<td>ASK</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.3.</td>
-</tr>
-<tr class="even">
-<td>0x27</td>
-<td>FILLIN</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.19.</td>
-</tr>
-<tr class="odd">
-<td>0x28</td>
-<td>DATA</td>
-<td><p>Usage:</p>
-<p>DATA <em>datafile [headerfile]</em></p>
-<p>Specifies that this field SHOULD<span id="Appendix_A_Target_223"
-class="anchor"></span><a href="#Appendix_A_223">&lt;223&gt;</a> redirect
-the mail merge data and header files to the ones specified.</p></td>
-</tr>
-<tr class="even">
-<td>0x29</td>
-<td>NEXT</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.38.</td>
-</tr>
-<tr class="odd">
-<td>0x2A</td>
-<td>NEXTIF</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.39.</td>
-</tr>
-<tr class="even">
-<td>0x2B</td>
-<td>SKIPIF</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.58.</td>
-</tr>
-<tr class="odd">
-<td>0x2C</td>
-<td>MERGEREC</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.36.</td>
-</tr>
-<tr class="even">
-<td>0x2D</td>
-<td>DDE</td>
-<td>Specified in <a
-href="%5bMS-OE376%5d.pdf#Section_db9b9b72b10b4e7e844c09f88c972219">[MS-OE376]</a>
-section 3.1.3.2.1.</td>
-</tr>
-<tr class="odd">
-<td>0x2E</td>
-<td>DDEAUTO</td>
-<td>Specified in [MS-OE376] section 3.1.3.2.2.</td>
-</tr>
-<tr class="even">
-<td>0x2F</td>
-<td>GLOSSARY</td>
-<td>This field is identical to <strong>AUTOTEXT</strong> specified in
-[ECMA-376] part 1, section 17.16.5.5.</td>
-</tr>
-<tr class="odd">
-<td>0x30</td>
-<td>PRINT</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.46.</td>
-</tr>
-<tr class="even">
-<td>0x31</td>
-<td>EQ</td>
-<td>Specified in [ECMA-376] part 4, section 14.10.4.6.</td>
-</tr>
-<tr class="odd">
-<td>0x32</td>
-<td>GOTOBUTTON</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.23.</td>
-</tr>
-<tr class="even">
-<td>0x33</td>
-<td>MACROBUTTON</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.34.</td>
-</tr>
-<tr class="odd">
-<td>0x34</td>
-<td>AUTONUMOUT</td>
-<td>Specified in [ECMA-376] part 4, section 14.10.4.3.</td>
-</tr>
-<tr class="even">
-<td>0x35</td>
-<td>AUTONUMLGL</td>
-<td>Specified in [ECMA-376] part 4, section 14.10.4.2.</td>
-</tr>
-<tr class="odd">
-<td>0x36</td>
-<td>AUTONUM</td>
-<td>Specified in [ECMA-376] part 4, section 14.10.4.1.</td>
-</tr>
-<tr class="even">
-<td>0x37</td>
-<td>IMPORT</td>
-<td>Identical to the INCLUDEPICTURE field specified in [ECMA-376] part
-1, section 17.16.5.27.</td>
-</tr>
-<tr class="odd">
-<td>0x38</td>
-<td>LINK</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.32.</td>
-</tr>
-<tr class="even">
-<td>0x39</td>
-<td>SYMBOL</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.61.</td>
-</tr>
-<tr class="odd">
-<td>0x3A</td>
-<td>EMBED</td>
-<td>Specifies that the field represents an embedded <a
-href="#gt_cdff9514-a3fb-4897-941d-4e99193a0096"><strong>OLE
-object</strong></a>.</td>
-</tr>
-<tr class="even">
-<td>0x3B</td>
-<td>MERGEFIELD</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.35.</td>
-</tr>
-<tr class="odd">
-<td>0x3C</td>
-<td>USERNAME</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.71.</td>
-</tr>
-<tr class="even">
-<td>0x3D</td>
-<td>USERINITIALS</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.70.</td>
-</tr>
-<tr class="odd">
-<td>0x3E</td>
-<td>USERADDRESS</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.69.</td>
-</tr>
-<tr class="even">
-<td>0x3F</td>
-<td>BARCODE</td>
-<td>Specified in [ECMA-376] part 4, section 14.10.4.4.</td>
-</tr>
-<tr class="odd">
-<td>0x40</td>
-<td>DOCVARIABLE</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.15.</td>
-</tr>
-<tr class="even">
-<td>0x41</td>
-<td>SECTION</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.54.</td>
-</tr>
-<tr class="odd">
-<td>0x42</td>
-<td>SECTIONPAGES</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.55.</td>
-</tr>
-<tr class="even">
-<td>0x43</td>
-<td>INCLUDEPICTURE</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.27.</td>
-</tr>
-<tr class="odd">
-<td>0x44</td>
-<td>INCLUDETEXT</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.28.</td>
-</tr>
-<tr class="even">
-<td>0x45</td>
-<td>FILESIZE</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.18.</td>
-</tr>
-<tr class="odd">
-<td>0x46</td>
-<td>FORMTEXT</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.22.</td>
-</tr>
-<tr class="even">
-<td>0x47</td>
-<td>FORMCHECKBOX</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.20.</td>
-</tr>
-<tr class="odd">
-<td>0x48</td>
-<td>NOTEREF</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.40.</td>
-</tr>
-<tr class="even">
-<td>0x49</td>
-<td>TOA</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.67.</td>
-</tr>
-<tr class="odd">
-<td>0x4B</td>
-<td>MERGESEQ</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.37.</td>
-</tr>
-<tr class="even">
-<td>0x4F</td>
-<td>AUTOTEXT</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.5.</td>
-</tr>
-<tr class="odd">
-<td>0x50</td>
-<td>COMPARE</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.10.</td>
-</tr>
-<tr class="even">
-<td>0x51</td>
-<td>ADDIN</td>
-<td>Specifies that the field contains data created by an add-in.</td>
-</tr>
-<tr class="odd">
-<td>0x53</td>
-<td>FORMDROPDOWN</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.21.</td>
-</tr>
-<tr class="even">
-<td>0x54</td>
-<td>ADVANCE</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.2.</td>
-</tr>
-<tr class="odd">
-<td>0x55</td>
-<td>DOCPROPERTY</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.14.</td>
-</tr>
-<tr class="even">
-<td>0x57</td>
-<td>CONTROL</td>
-<td>Specifies that the field represents an OCX control.</td>
-</tr>
-<tr class="odd">
-<td>0x58</td>
-<td>HYPERLINK</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.25.</td>
-</tr>
-<tr class="even">
-<td>0x59</td>
-<td>AUTOTEXTLIST</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.6.</td>
-</tr>
-<tr class="odd">
-<td>0x5A</td>
-<td>LISTNUM</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.33.</td>
-</tr>
-<tr class="even">
-<td>0x5B</td>
-<td>HTMLCONTROL</td>
-<td>Specifies the field represents an HTML control.</td>
-</tr>
-<tr class="odd">
-<td>0x5C</td>
-<td>BIDIOUTLINE</td>
-<td>Specified in [ECMA-376] part 4, section 14.10.4.5.</td>
-</tr>
-<tr class="even">
-<td>0x5D</td>
-<td>ADDRESSBLOCK</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.1.</td>
-</tr>
-<tr class="odd">
-<td>0x5E</td>
-<td>GREETINGLINE</td>
-<td>Specified in [ECMA-376] part 1, section 17.16.5.24.</td>
-</tr>
-<tr class="even">
-<td>0x5F</td>
-<td>SHAPE</td>
-<td>This field is identical to <strong>QUOTE</strong> specified in
-[ECMA-376] part 1, section 17.16.5.49.</td>
-</tr>
-</tbody>
-</table>
+
+| Value | Name | Meaning |
+| --- | --- | --- |
+| 0x01 | Not Named | Specifies that the field was unable to be parsed. |
+| 0x02 | Not Named | Specifies that the field represents a REF field where the keyword has been omitted. / The REF field is specified in [ECMA-376] part 1, section17.16.5.51. |
+| 0x03 | REF | Specified in [ECMA-376] part 1, section 17.16.5.51 |
+| 0x05 | FTNREF | This field is identical to NOTEREF specified in [ECMA-376] part 1, section 17.16.5.40. |
+| 0x06 | SET | Specified in [ECMA-376] part 1, section 17.16.5.57. |
+| 0x07 | IF | Specified in [ECMA-376] part 1, section 17.16.5.26. |
+| 0x08 | INDEX | Specified in [ECMA-376] part 1, section 17.16.5.29. |
+| 0x0A | STYLEREF | Specified in [ECMA-376] part 1, section 17.16.5.59. |
+| 0x0C | SEQ | Specified in [ECMA-376] part 1, section 17.16.5.56. |
+| 0x0D | TOC | Specified in [ECMA-376] part 1, section 17.16.5.68. |
+| 0x0E | INFO | Specified in [ECMA-376] part 4, section 14.10.4.7. |
+| 0x0F | TITLE | Specified in [ECMA-376] part 1, section 17.16.5.66. |
+| 0x10 | SUBJECT | Specified in [ECMA-376] part 1, section 17.16.5.60. |
+| 0x11 | AUTHOR | Specified in [ECMA-376] part 1, section 17.16.5.4. |
+| 0x12 | KEYWORDS | Specified in [ECMA-376] part 1, section 17.16.5.30. |
+| 0x13 | COMMENTS | Specified in [ECMA-376] part 1, section 17.16.5.9. |
+| 0x14 | LASTSAVEDBY | Specified in [ECMA-376] part 1, section 17.16.5.31. |
+| 0x15 | CREATEDATE | Specified in [ECMA-376] part 1, section 17.16.5.11. |
+| 0x16 | SAVEDATE | Specified in [ECMA-376] part 1, section 17.16.5.53. |
+| 0x17 | PRINTDATE | Specified in [ECMA-376] part 1, section 17.16.5.47. |
+| 0x18 | REVNUM | Specified in [ECMA-376] part 1, section 17.16.5.52. |
+| 0x19 | EDITTIME | Specified in [ECMA-376] part 1, section 17.16.5.16. |
+| 0x1A | NUMPAGES | Specified in [ECMA-376] part 1, section 17.16.5.42. |
+| 0x1B | NUMWORDS | Specified in [ECMA-376] part 1, section 17.16.5.43. |
+| 0x1C | NUMCHARS | Specified in [ECMA-376] part 1, section 17.16.5.41. |
+| 0x1D | FILENAME | Specified in [ECMA-376] part 1, section 17.16.5.17. |
+| 0x1E | TEMPLATE | Specified in [ECMA-376] part 1, section 17.16.5.64. |
+| 0x1F | DATE | Specified in [ECMA-376] part 1, section 17.16.5.13. |
+| 0x20 | TIME | Specified in [ECMA-376] part 1, section 17.16.5.65. |
+| 0x21 | PAGE | Specified in [ECMA-376] part 1, section 17.16.5.44. |
+| 0x22 | = | Specified in [ECMA-376] part 1, section 17.16.3.3. |
+| 0x23 | QUOTE | Specified in [ECMA-376] part 1, section 17.16.5.49. |
+| 0x24 | INCLUDE | This field is identical to INCLUDETEXT specified in [ECMA-376] part 1, section 17.16.5.28. |
+| 0x25 | PAGEREF | Specified in [ECMA-376] part 1, section 17.16.5.45. |
+| 0x26 | ASK | Specified in [ECMA-376] part 1, section 17.16.5.3. |
+| 0x27 | FILLIN | Specified in [ECMA-376] part 1, section 17.16.5.19. |
+| 0x28 | DATA | Usage: / DATA datafile [headerfile] / Specifies that this field SHOULD <223> redirect the mail merge data and header files to the ones specified. |
+| 0x29 | NEXT | Specified in [ECMA-376] part 1, section 17.16.5.38. |
+| 0x2A | NEXTIF | Specified in [ECMA-376] part 1, section 17.16.5.39. |
+| 0x2B | SKIPIF | Specified in [ECMA-376] part 1, section 17.16.5.58. |
+| 0x2C | MERGEREC | Specified in [ECMA-376] part 1, section 17.16.5.36. |
+| 0x2D | DDE | Specified in [MS-OE376] section 3.1.3.2.1. |
+| 0x2E | DDEAUTO | Specified in [MS-OE376] section 3.1.3.2.2. |
+| 0x2F | GLOSSARY | This field is identical to AUTOTEXT specified in [ECMA-376] part 1, section 17.16.5.5. |
+| 0x30 | PRINT | Specified in [ECMA-376] part 1, section 17.16.5.46. |
+| 0x31 | EQ | Specified in [ECMA-376] part 4, section 14.10.4.6. |
+| 0x32 | GOTOBUTTON | Specified in [ECMA-376] part 1, section 17.16.5.23. |
+| 0x33 | MACROBUTTON | Specified in [ECMA-376] part 1, section 17.16.5.34. |
+| 0x34 | AUTONUMOUT | Specified in [ECMA-376] part 4, section 14.10.4.3. |
+| 0x35 | AUTONUMLGL | Specified in [ECMA-376] part 4, section 14.10.4.2. |
+| 0x36 | AUTONUM | Specified in [ECMA-376] part 4, section 14.10.4.1. |
+| 0x37 | IMPORT | Identical to the INCLUDEPICTURE field specified in [ECMA-376] part 1, section 17.16.5.27. |
+| 0x38 | LINK | Specified in [ECMA-376] part 1, section 17.16.5.32. |
+| 0x39 | SYMBOL | Specified in [ECMA-376] part 1, section 17.16.5.61. |
+| 0x3A | EMBED | Specifies that the field represents an embedded OLE object . |
+| 0x3B | MERGEFIELD | Specified in [ECMA-376] part 1, section 17.16.5.35. |
+| 0x3C | USERNAME | Specified in [ECMA-376] part 1, section 17.16.5.71. |
+| 0x3D | USERINITIALS | Specified in [ECMA-376] part 1, section 17.16.5.70. |
+| 0x3E | USERADDRESS | Specified in [ECMA-376] part 1, section 17.16.5.69. |
+| 0x3F | BARCODE | Specified in [ECMA-376] part 4, section 14.10.4.4. |
+| 0x40 | DOCVARIABLE | Specified in [ECMA-376] part 1, section 17.16.5.15. |
+| 0x41 | SECTION | Specified in [ECMA-376] part 1, section 17.16.5.54. |
+| 0x42 | SECTIONPAGES | Specified in [ECMA-376] part 1, section 17.16.5.55. |
+| 0x43 | INCLUDEPICTURE | Specified in [ECMA-376] part 1, section 17.16.5.27. |
+| 0x44 | INCLUDETEXT | Specified in [ECMA-376] part 1, section 17.16.5.28. |
+| 0x45 | FILESIZE | Specified in [ECMA-376] part 1, section 17.16.5.18. |
+| 0x46 | FORMTEXT | Specified in [ECMA-376] part 1, section 17.16.5.22. |
+| 0x47 | FORMCHECKBOX | Specified in [ECMA-376] part 1, section 17.16.5.20. |
+| 0x48 | NOTEREF | Specified in [ECMA-376] part 1, section 17.16.5.40. |
+| 0x49 | TOA | Specified in [ECMA-376] part 1, section 17.16.5.67. |
+| 0x4B | MERGESEQ | Specified in [ECMA-376] part 1, section 17.16.5.37. |
+| 0x4F | AUTOTEXT | Specified in [ECMA-376] part 1, section 17.16.5.5. |
+| 0x50 | COMPARE | Specified in [ECMA-376] part 1, section 17.16.5.10. |
+| 0x51 | ADDIN | Specifies that the field contains data created by an add-in. |
+| 0x53 | FORMDROPDOWN | Specified in [ECMA-376] part 1, section 17.16.5.21. |
+| 0x54 | ADVANCE | Specified in [ECMA-376] part 1, section 17.16.5.2. |
+| 0x55 | DOCPROPERTY | Specified in [ECMA-376] part 1, section 17.16.5.14. |
+| 0x57 | CONTROL | Specifies that the field represents an OCX control. |
+| 0x58 | HYPERLINK | Specified in [ECMA-376] part 1, section 17.16.5.25. |
+| 0x59 | AUTOTEXTLIST | Specified in [ECMA-376] part 1, section 17.16.5.6. |
+| 0x5A | LISTNUM | Specified in [ECMA-376] part 1, section 17.16.5.33. |
+| 0x5B | HTMLCONTROL | Specifies the field represents an HTML control. |
+| 0x5C | BIDIOUTLINE | Specified in [ECMA-376] part 4, section 14.10.4.5. |
+| 0x5D | ADDRESSBLOCK | Specified in [ECMA-376] part 1, section 17.16.5.1. |
+| 0x5E | GREETINGLINE | Specified in [ECMA-376] part 1, section 17.16.5.24. |
+| 0x5F | SHAPE | This field is identical to QUOTE specified in [ECMA-376] part 1, section 17.16.5.49. |
+
+
 
 ### FNFB
 
 The **FNFB** structure describes the file systems for which a given path
 is valid.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td>E</td>
-<td colspan="2">F</td>
-<td>G</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | B | C | D | E | F |  | G |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - fFAT (1 bit):** A bit that specifies whether the path is valid on
 [**FAT**](#gt_f2bf797b-e733-4fb9-b5e5-7e122f4abbe0) file systems. If
@@ -12539,91 +5478,13 @@ The **FNIF** structure contains information about a file name (see
 [SttbFnm](#sttbfnm)) so that the path, type, and file system of the file
 can be determined.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fnpi</td>
-<td colspan="8">ichRelative</td>
-<td colspan="8">fnfb</td>
-</tr>
-<tr class="even">
-<td colspan="32">unused</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fnpi |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | ichRelative |  |  |  |  |  |  |  | fnfb |  |  |  |  |  |  |  |
+| unused |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **fnpi (2 bytes):** An [FNPI](#fnpi) that specifies the type and the
 identifier of the file name, which is unique within the scope of
@@ -12650,103 +5511,12 @@ file name in [SttbFnm](#sttbfnm), or it can be used to reference the
 file name in SttbFnm that has an identical **fnpi** in the appended
 [FNIF](#fnif). The definition of each **FNPI** specifies how it is used.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="4">fnpt</td>
-<td colspan="12">fnpd</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fnpt |  |  |  | fnpd |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **fnpt (4 bits):** A signed integer that specifies the type of a file
 name. This MUST be one of the following values.
@@ -12773,91 +5543,13 @@ If **fCompressed** is 1, the bytes of the OLE object storage are
 compressed by the algorithm specified in
 [\[RFC1950\]](https://go.microsoft.com/fwlink/?LinkId=90301).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">cbHeader</td>
-<td>A</td>
-<td colspan="15">unused</td>
-</tr>
-<tr class="even">
-<td colspan="32">cbObj</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cbHeader |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | A | unused |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbObj |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cbHeader (2 bytes):** A signed integer that specifies the size, in
 bytes, of the FOBJH. This value MUST be 8.
@@ -12875,105 +5567,12 @@ of the FOBJH and the OLE object storage that follows it.
 The **FrameTextFlowOperand** structure specifies the direction of text
 flow for a frame.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td colspan="13">reserved</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | B | C | reserved |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - fVertical (1 bit):** A bit that specifies that text flows
 vertically instead of horizontally.
@@ -12993,96 +5592,15 @@ The **FSDAP** structure specifies information about an attribute on a
 [**structured document tag**](#gt_b4b00e1c-5410-4a49-8914-f2fb445b5c4d)
 in the document.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">tiq</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cch</td>
-<td colspan="16">rgValue (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| tiq |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cch |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | rgValue (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **tiq (8 bytes):** A [TIQ](#tiq) that specifies further information
 about the attribute represented by this FSDAP.
@@ -13111,89 +5629,13 @@ contain one of the following values.
 The **Fssd** structure specifies the position and units of a frame
 divider position.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">Units</td>
-</tr>
-<tr class="even">
-<td colspan="32">Val</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Units |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Val |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **Units (4 bytes):** An [**FssUnits**](#fssunits) element that specifies
 how to interpret **Val**.
@@ -13239,158 +5681,28 @@ margin**](#gt_30232e45-c2f5-4d92-854c-74ffdea1e163), or cell spacing
 MUST also specify an **Fts** value to determine how the size is defined.
 Some **Fts** values are disallowed for some [Sprms](#sprm).
 
-<table>
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 7%" />
-<col style="width: 80%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Value</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>ftsNil</strong></td>
-<td>0x00</td>
-<td>The size is undefined and MUST be ignored.</td>
-</tr>
-<tr class="even">
-<td><strong>ftsAuto</strong></td>
-<td>0x01</td>
-<td><p>No preferred width is specified.</p>
-<p>The width is derived from other table measurements where a preferred
-size is specified, as well as from the size of the table contents, and
-the constraining size of the container of the table.</p></td>
-</tr>
-<tr class="odd">
-<td><strong>ftsPercent</strong></td>
-<td>0x02</td>
-<td><p>The preferred width is measured in units of 1/50th of a percent
-(that is, a value of 50 translates to 1 percent).</p>
-<p>When specifying the preferred width of a portion of a table, such as
-a cell, spacing or indent, the percentage is relative to the width of
-the entire table.</p>
-<p>When specifying the preferred width of an entire table, the
-percentage is relative to the width of the page, less any margin or
-gutter space. Alternatively, if the table is nested inside another
-table, the percentage is relative to the width of the cell in the
-containing table, less cell margins.</p></td>
-</tr>
-<tr class="even">
-<td><strong>ftsDxa</strong></td>
-<td>0x03</td>
-<td>The preferred width of the table, indent, cell, cell margin, or cell
-spacing is an absolute width measured in <a
-href="#gt_4b82472c-103d-4eff-a07e-6a0f784e3382"><strong>twips</strong></a>.</td>
-</tr>
-<tr class="odd">
-<td><strong>ftsDxaSys</strong></td>
-<td>0x13</td>
-<td>The preferred cell spacing is an absolute width measured in twips.
-ftsDxaSys is used when cell spacing is applied as a result of applying a
-table border.</td>
-</tr>
-</tbody>
-</table>
+
+| Name | Value | Meaning |
+| --- | --- | --- |
+| ftsNil | 0x00 | The size is undefined and MUST be ignored. |
+| ftsAuto | 0x01 | No preferred width is specified. / The width is derived from other table measurements where a preferred size is specified, as well as from the size of the table contents, and the constraining size of the container of the table. |
+| ftsPercent | 0x02 | The preferred width is measured in units of 1/50th of a percent (that is, a value of 50 translates to 1 percent). / When specifying the preferred width of a portion of a table, such as a cell, spacing or indent, the percentage is relative to the width of the entire table. / When specifying the preferred width of an entire table, the percentage is relative to the width of the page, less any margin or gutter space. Alternatively, if the table is nested inside another table, the percentage is relative to the width of the cell in the containing table, less cell margins. |
+| ftsDxa | 0x03 | The preferred width of the table, indent, cell, cell margin, or cell spacing is an absolute width measured in twips . |
+| ftsDxaSys | 0x13 | The preferred cell spacing is an absolute width measured in twips. ftsDxaSys is used when cell spacing is applied as a result of applying a table border. |
+
+
 
 ### FtsWWidth_Indent
 
 The **FtsWWidth_Indent** structure specifies the preferred width of
 indentation for a table.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">ftsWidth</td>
-<td colspan="16">wWidth</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ftsWidth |  |  |  |  |  |  |  | wWidth |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **ftsWidth (1 byte):** A value from the [**Fts**](#fts) enumeration that
 specifies the units of measurement for the **wWidth** value.
@@ -13412,95 +5724,12 @@ the indent. The size is evaluated differently depending on the value of
 The **FtsWWidth_Table** structure specifies the preferred horizontal
 width of a table.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">ftsWidth</td>
-<td colspan="16">wWidth</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ftsWidth |  |  |  |  |  |  |  | wWidth |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **ftsWidth (1 byte):** A value from the [**Fts**](#fts) enumeration that
 specifies the units of measurement for the **wWidth** value. The
@@ -13521,95 +5750,12 @@ size is evaluated differently depending on the value of **ftsWidth**.
 The **FtsWWidth_TablePart** structure specifies the preferred horizontal
 width of an internal part of a table.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">ftsWidth</td>
-<td colspan="16">wWidth</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ftsWidth |  |  |  |  |  |  |  | wWidth |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **ftsWidth (1 byte):** A value from the [**Fts**](#fts) enumeration that
 specifies the units of measurement for the **wWidth** value. The
@@ -13632,89 +5778,13 @@ The **FTXBXNonReusable** structure is used within the
 textbox. A real textbox is any shape object into which text is added,
 and that is the first or only shape in a linked chain.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">cTxbx</td>
-</tr>
-<tr class="even">
-<td colspan="32">cTxbxEdit</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cTxbx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cTxbxEdit |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cTxbx (4 bytes):** An integer that specifies how many shapes are in
 the chain into which the textbox text can flow. This number MUST be
@@ -13737,120 +5807,17 @@ application when creating new actual textboxes. The last FTXBXS in the
 structure rather than an actual textbox. Additional reusable FTXBXS
 structures can occur at any index in the PLC.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">ftxbxsunion</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="16">fReusable</td>
-<td colspan="16">itxbxsDest</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">lid</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">txidUndo</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ftxbxsunion |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fReusable |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | itxbxsDest |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | lid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | txidUndo |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **ftxbxsunion (8 bytes):** If **fReusable** is "true", **ftxbxsunion**
 is an [FTXBXSReusable](#ftxbxsreusable) structure. Also, if this is the
@@ -13910,89 +5877,13 @@ reusable **FTXBXS** structures in a **PLC** are part of a single chain,
 with the last **FTXBXS** structure in a **PLC** being the first item in
 the chain.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">iNextReuse</td>
-</tr>
-<tr class="even">
-<td colspan="32">cReusable</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| iNextReuse |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cReusable |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **iNextReuse (4 bytes):** An integer that specifies the index of the
 next reusable item in the chain. If this is the last **FTXBXS**
@@ -14015,91 +5906,13 @@ implementing the [**CGAPI**](#gt_28faddfb-e8ce-4bde-8e29-a85ce2dd5e49)
 interface, as well as information to identify the corresponding grammar
 checker.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">gos</td>
-<td colspan="16">lid</td>
-</tr>
-<tr class="even">
-<td colspan="16">ver</td>
-<td colspan="16">geid</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| gos |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | lid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ver |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | geid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **gos (2 bytes):** An unsigned integer that specifies a CGAPI option
 set. **gos** is implementation-specific to the grammar checker
@@ -14122,102 +5935,12 @@ specifies the state of the grammar checker over a range of text. Some
 states that are possible in a generic **SPLS** are not allowed in a
 **GrammarSpls** structure.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">spls</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| spls |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **spls (2 bytes):** An **SPLS** structure. The **spls.fExtend** field
 MUST be zero if the **spls.fError** field is zero. The **spls.splf**
@@ -14243,117 +5966,12 @@ field MUST be one of the following:
 
 The **grffldEnd** structure describes the properties of the field.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td>E</td>
-<td>F</td>
-<td>G</td>
-<td>H</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | B | C | D | E | F | G | H |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - fDiffer (1 bit):** If this bit is set, the field shows results if
 the document-level setting is to show field instructions, and shows
@@ -14390,117 +6008,12 @@ specify the HTML incompatibilities of a list structure. The values
 specify possible incompatibilities between an [LVL](#lvl) or
 [LVLF](#lvlf) and HTML lists. The values do not define list properties.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td>E</td>
-<td>F</td>
-<td>G</td>
-<td>H</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | B | C | D | E | F | G | H |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - fhicChecked (1 bit):** A bit that specifies whether the list
 structure that contains this **grfhic** structure is checked for HTML
@@ -14578,115 +6091,12 @@ ignored.
 
 The **GRFSTD** structure specifies the general properties of a style.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td>E</td>
-<td>F</td>
-<td>G</td>
-<td>H</td>
-<td>I</td>
-<td>J</td>
-<td>K</td>
-<td>L</td>
-<td>M</td>
-<td colspan="3">N</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | B | C | D | E | F | G | H | I | J | K | L | M | N |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - fAutoRedef (1 bit):** Specifies whether user formatting
 modifications are automatically merged into the paragraph style
@@ -14773,90 +6183,13 @@ style (the **stk** member of [StdfBase](#stdfbase)); see the following.
 The **GrpPrlAndIstd** structure specifies the style and properties that
 are applied to a paragraph, a table row, or a table cell.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">istd</td>
-<td colspan="16">grpprl (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| istd |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | grpprl (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **istd (2 bytes):** An integer that specifies the style that is applied
 to this paragraph, cell marker or table row marker. See [Applying
@@ -14873,100 +6206,16 @@ The **HFD** structure specifies hyperlink field data including how to
 handle the hyperlink when it is traversed and a location in this
 document or an external document or webpage.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">bits</td>
-<td colspan="24">clsid (16 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="8">...</td>
-<td colspan="24">hyperlink (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| bits |  |  |  |  |  |  |  | clsid (16 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  | hyperlink (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **bits (1 byte):** An [HFDBits](#hfdbits) that specifies how to handle
 the hyperlink when it is traversed.
@@ -14986,115 +6235,12 @@ external document or webpage.
 The **HFDBits** structure specifies how to handle a hyperlink when it is
 traversed.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td>E</td>
-<td colspan="3">F</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | B | C | D | E | F |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - fNew (1 bit):** A bit that specifies if the hyperlink is to be
 opened in a new window.
@@ -15124,92 +6270,14 @@ Resource Identifier (URI)**](#gt_e18af8e8-01d7-4f91-8a1e-0fb21b191f95),
 [**manifest**](#gt_d1a20cdc-cced-44de-a041-857fb9054856) location, table
 of elements, and table of attributes.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">cXSDR</td>
-</tr>
-<tr class="even">
-<td colspan="32">rgxsdr (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cXSDR |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rgxsdr (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cXSDR (4 bytes):** A signed integer that specifies the number of
 schema definition references. The minimum value is 0.
@@ -15220,103 +6288,12 @@ schema definition references. The minimum value is 0.
 
 The **HresiOperand** structure specifies how word-breaking is handled.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">Hres</td>
-<td colspan="8">ChHres</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Hres |  |  |  |  |  |  |  | ChHres |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **Hres (1 byte):** An unsigned integer that specifies the word-breaking
 method. This property MUST specify one of the following values. By
@@ -15343,110 +6320,12 @@ character.
 The **Ico** structure specifies an entry in the color palette that is
 listed in the following table.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">value</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| value |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **value (1 byte):** An unsigned integer which maps to a
 [COLORREF](#colorref) according to the following. The value MUST be less
@@ -15510,356 +6389,65 @@ format and are lost if converted from the MS-DOC format to the
 NOT<span id="Appendix_A_Target_225"
 class="anchor"></span>[\<225\>](#Appendix_A_225) be used.
 
-<table>
-<colgroup>
-<col style="width: 18%" />
-<col style="width: 9%" />
-<col style="width: 72%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Value</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>ipatAuto</strong></td>
-<td>0x0000</td>
-<td>Clear, ST_Shd: clear</td>
-</tr>
-<tr class="even">
-<td><strong>ipatSolid</strong></td>
-<td>0x0001</td>
-<td>Solid ST_Shd: solid</td>
-</tr>
-<tr class="odd">
-<td><strong>ipatPct5</strong></td>
-<td>0x0002</td>
-<td>5%, ST_Shd: pct5</td>
-</tr>
-<tr class="even">
-<td><strong>ipatPct10</strong></td>
-<td>0x0003</td>
-<td>10%, ST_Shd: pct10</td>
-</tr>
-<tr class="odd">
-<td><strong>ipatPct20</strong></td>
-<td>0x0004</td>
-<td>20%, ST_Shd: pct20</td>
-</tr>
-<tr class="even">
-<td><strong>ipatPct25</strong></td>
-<td>0x0005</td>
-<td>25%, ST_Shd: pct25</td>
-</tr>
-<tr class="odd">
-<td><strong>ipatPct30</strong></td>
-<td>0x0006</td>
-<td>30%, ST_Shd: pct30</td>
-</tr>
-<tr class="even">
-<td><strong>ipatPct40</strong></td>
-<td>0x0007</td>
-<td>40%, ST_Shd: pct40</td>
-</tr>
-<tr class="odd">
-<td><strong>ipatPct50</strong></td>
-<td>0x0008</td>
-<td>50%, ST_Shd: pct50</td>
-</tr>
-<tr class="even">
-<td><strong>ipatPct60</strong></td>
-<td>0x0009</td>
-<td>60%, ST_Shd: pct60</td>
-</tr>
-<tr class="odd">
-<td><strong>ipatPct70</strong></td>
-<td>0x000A</td>
-<td>70%, ST_Shd: pct70</td>
-</tr>
-<tr class="even">
-<td><strong>ipatPct75</strong></td>
-<td>0x000B</td>
-<td>75%, ST_Shd: pct75</td>
-</tr>
-<tr class="odd">
-<td><strong>ipatPct80</strong></td>
-<td>0x000C</td>
-<td>80%, ST_Shd: pct80</td>
-</tr>
-<tr class="even">
-<td><strong>ipatPct90</strong></td>
-<td>0x000D</td>
-<td>90%, ST_Shd: pct90</td>
-</tr>
-<tr class="odd">
-<td><strong>ipatDkHorizontal</strong></td>
-<td>0x000E</td>
-<td>Horizontal Stripe, ST_Shd: horzStripe</td>
-</tr>
-<tr class="even">
-<td><strong>ipatDkVertical</strong></td>
-<td>0x000F</td>
-<td>Vertical Stripe, ST_Shd: vertStripe</td>
-</tr>
-<tr class="odd">
-<td><strong>ipatDkForeDiag</strong></td>
-<td>0x0010</td>
-<td>Reverse Diagonal Stripe, ST_Shd: reverseDiagStripe</td>
-</tr>
-<tr class="even">
-<td><strong>ipatDkBackDiag</strong></td>
-<td>0x0011</td>
-<td>Diagonal Stripe, ST_Shd: diagStripe</td>
-</tr>
-<tr class="odd">
-<td><strong>ipatDkCross</strong></td>
-<td>0x0012</td>
-<td>Horizontal Cross, ST_Shd: horzCross</td>
-</tr>
-<tr class="even">
-<td><strong>ipatDkDiagCross</strong></td>
-<td>0x0013</td>
-<td>Diagonal Cross, ST_Shd: diagCross</td>
-</tr>
-<tr class="odd">
-<td><strong>ipatHorizontal</strong></td>
-<td>0x0014</td>
-<td>Thin Horizontal Stripe, ST_Shd: thinHorzStripe</td>
-</tr>
-<tr class="even">
-<td><strong>ipatVertical</strong></td>
-<td>0x0015</td>
-<td>Thin Vertical Stripe, ST_Shd: thinVertStripe</td>
-</tr>
-<tr class="odd">
-<td><strong>ipatForeDiag</strong></td>
-<td>0x0016</td>
-<td>Thin Reverse Diagonal Stripe, ST_Shd: thinReverseDiagStripe</td>
-</tr>
-<tr class="even">
-<td><strong>ipatBackDiag</strong></td>
-<td>0x0017</td>
-<td>Thin Diagonal Stripe, ST_Shd: thinDiagStripe</td>
-</tr>
-<tr class="odd">
-<td><strong>ipatCross</strong></td>
-<td>0x0018</td>
-<td>Thin Horizontal Cross, ST_Shd: thinHorzCross</td>
-</tr>
-<tr class="even">
-<td><strong>ipatDiagCross</strong></td>
-<td>0x0019</td>
-<td>Thin Diagonal Cross, ST_Shd: thinDiagCross</td>
-</tr>
-<tr class="odd">
-<td><strong>ipatPctNew2</strong></td>
-<td>0x0023</td>
-<td><p>Specifies that the pattern used for the current shaded region
-shall be a 2.5% fill pattern, as follows:</p>
-<p><embed src="media/media/image16.bin"
-title="2 point 5 percent fill pattern"
-style="width:0.67708in;height:0.65625in" /></p></td>
-</tr>
-<tr class="even">
-<td><strong>ipatPctNew7</strong></td>
-<td>0x0024</td>
-<td><p>Specifies that the pattern used for the current shaded region
-shall be a 7.5% fill pattern, as follows:</p>
-<p><embed src="media/media/image17.bin"
-title="7 point 5 percent fill pattern"
-style="width:0.88542in;height:0.88542in" /></p></td>
-</tr>
-<tr class="odd">
-<td><strong>ipatPctNew12</strong></td>
-<td>0x0025</td>
-<td>12.5%, ST_Shd: pct12</td>
-</tr>
-<tr class="even">
-<td><strong>ipatPctNew15</strong></td>
-<td>0x0026</td>
-<td>15%, ST_Shd: pct15</td>
-</tr>
-<tr class="odd">
-<td><strong>ipatPctNew17</strong></td>
-<td>0x0027</td>
-<td><p>Specifies that the pattern used for the current shaded region
-shall be a 17.5% fill pattern, as follows:</p>
-<p><embed src="media/media/image18.bin"
-title="17 point 5 percent fill pattern"
-style="width:0.85417in;height:0.85417in" /></p></td>
-</tr>
-<tr class="even">
-<td><strong>ipatPctNew22</strong></td>
-<td>0x0028</td>
-<td><p>Specifies that the pattern used for the current shaded region
-shall be a 22.5% fill pattern, as follows:</p>
-<p><embed src="media/media/image19.bin"
-title="22 point 5 percent fill pattern"
-style="width:0.84375in;height:0.75in" /></p></td>
-</tr>
-<tr class="odd">
-<td><strong>ipatPctNew27</strong></td>
-<td>0x0029</td>
-<td><p>Specifies that the pattern used for the current shaded region
-shall be a 27.5% fill pattern, as follows:</p>
-<p><embed src="media/media/image20.bin"
-title="27 point 5 percent fill pattern"
-style="width:0.97917in;height:0.86458in" /></p></td>
-</tr>
-<tr class="even">
-<td><strong>ipatPctNew32</strong></td>
-<td>0x002A</td>
-<td><p>Specifies that the pattern used for the current shaded region
-shall be a 32.5% fill pattern, as follows:</p>
-<p><embed src="media/media/image21.bin"
-title="32 point 5 percent fill pattern"
-style="width:0.90625in;height:0.73958in" /></p></td>
-</tr>
-<tr class="odd">
-<td><strong>ipatPctNew35</strong></td>
-<td>0x002B</td>
-<td>35%, ST_Shd: pct35</td>
-</tr>
-<tr class="even">
-<td><strong>ipatPctNew37</strong></td>
-<td>0x002C</td>
-<td>37.5%, ST_Shd: pct37</td>
-</tr>
-<tr class="odd">
-<td><strong>ipatPctNew42</strong></td>
-<td>0x002D</td>
-<td><p>Specifies that the pattern used for the current shaded region
-shall be a 42.5% fill pattern, as follows:</p>
-<p><embed src="media/media/image22.bin"
-title="42 point 5 percent fill pattern"
-style="width:0.96875in;height:0.83333in" /></p></td>
-</tr>
-<tr class="even">
-<td><strong>ipatPctNew45</strong></td>
-<td>0x002E</td>
-<td>45%, ST_Shd: pct45</td>
-</tr>
-<tr class="odd">
-<td><strong>ipatPctNew47</strong></td>
-<td>0x002F</td>
-<td><p>Specifies that the pattern used for the current shaded region
-shall be a 47.5% fill pattern, as follows:</p>
-<p><embed src="media/media/image23.bin"
-title="47 point 5 percent fill pattern"
-style="width:0.91667in;height:0.84375in" /></p></td>
-</tr>
-<tr class="even">
-<td><strong>ipatPctNew52</strong></td>
-<td>0x0030</td>
-<td><p>Specifies that the pattern used for the current shaded region
-shall be a 52.5% fill pattern, as follows:</p>
-<p><embed src="media/media/image24.bin"
-title="52 point 5 percent fill pattern"
-style="width:0.9375in;height:0.82292in" /></p></td>
-</tr>
-<tr class="odd">
-<td><strong>ipatPctNew55</strong></td>
-<td>0x0031</td>
-<td>55%, ST_Shd: pct55</td>
-</tr>
-<tr class="even">
-<td><strong>ipatPctNew57</strong></td>
-<td>0x0032</td>
-<td><p>Specifies that the pattern used for the current shaded region
-shall be a 57.5% fill pattern, as follows:</p>
-<p><embed src="media/media/image25.bin"
-title="57 point 5 percent fill pattern"
-style="width:0.95833in;height:0.85417in" /></p></td>
-</tr>
-<tr class="odd">
-<td><strong>ipatPctNew62</strong></td>
-<td>0x0033</td>
-<td>62.5%, ST_Shd: pct62</td>
-</tr>
-<tr class="even">
-<td><strong>ipatPctNew65</strong></td>
-<td>0x0034</td>
-<td>65%, ST_Shd: pct65</td>
-</tr>
-<tr class="odd">
-<td><strong>ipatPctNew67</strong></td>
-<td>0x0035</td>
-<td><p>Specifies that the pattern used for the current shaded region
-shall be a 67.5% fill pattern, as follows:</p>
-<p><embed src="media/media/image26.bin"
-title="67 point 5 percent fill pattern"
-style="width:0.94792in;height:0.82292in" /></p></td>
-</tr>
-<tr class="even">
-<td><strong>ipatPctNew72</strong></td>
-<td>0x0036</td>
-<td><p>Specifies that the pattern used for the current shaded region
-shall be a 72.5% fill pattern, as follows:</p>
-<p><embed src="media/media/image27.bin"
-title="72 point 5 percent fill pattern"
-style="width:0.84375in;height:0.80208in" /></p></td>
-</tr>
-<tr class="odd">
-<td><strong>ipatPctNew77</strong></td>
-<td>0x0037</td>
-<td><p>Specifies that the pattern used for the current shaded region
-shall be a 77.5% fill pattern, as follows:</p>
-<p><embed src="media/media/image28.bin"
-title="77 point 5 percent fill pattern"
-style="width:0.89583in;height:0.77083in" /></p></td>
-</tr>
-<tr class="even">
-<td><strong>ipatPctNew82</strong></td>
-<td>0x0038</td>
-<td><p>Specifies that the pattern used for the current shaded region
-shall be an 82.5% fill pattern, as follows:</p>
-<p><embed src="media/media/image29.bin"
-title="82 point 5 percent fill pattern"
-style="width:1.02083in;height:0.9375in" /></p></td>
-</tr>
-<tr class="odd">
-<td><strong>ipatPctNew85</strong></td>
-<td>0x0039</td>
-<td>85%, ST_Shd: pct85</td>
-</tr>
-<tr class="even">
-<td><strong>ipatPctNew87</strong></td>
-<td>0x003A</td>
-<td>87.5%, ST_Shd: pct87</td>
-</tr>
-<tr class="odd">
-<td><strong>ipatPctNew92</strong></td>
-<td>0x003B</td>
-<td><p>Specifies that the pattern used for the current shaded region
-shall be a 92.5% fill pattern, as follows:</p>
-<p><embed src="media/media/image30.bin"
-title="92 point 5 percent fill pattern"
-style="width:0.84375in;height:0.78125in" /></p></td>
-</tr>
-<tr class="even">
-<td><strong>ipatPctNew95</strong></td>
-<td>0x003C</td>
-<td>95%, ST_Shd: pct95</td>
-</tr>
-<tr class="odd">
-<td><strong>ipatPctNew97</strong></td>
-<td>0x003D</td>
-<td><p>Specifies that the pattern used for the current shaded region
-shall be a 97.5% fill pattern, as follows:</p>
-<p><embed src="media/media/image30.bin"
-title="97 point 5 percent fill pattern"
-style="width:0.84375in;height:0.78125in" /></p></td>
-</tr>
-<tr class="even">
-<td><strong>ipatNil</strong></td>
-<td>0xFFFF</td>
-<td>Nil, ST_Shd: nil</td>
-</tr>
-</tbody>
-</table>
+
+| Name | Value | Meaning |
+| --- | --- | --- |
+| ipatAuto | 0x0000 | Clear, ST_Shd: clear |
+| ipatSolid | 0x0001 | Solid ST_Shd: solid |
+| ipatPct5 | 0x0002 | 5%, ST_Shd: pct5 |
+| ipatPct10 | 0x0003 | 10%, ST_Shd: pct10 |
+| ipatPct20 | 0x0004 | 20%, ST_Shd: pct20 |
+| ipatPct25 | 0x0005 | 25%, ST_Shd: pct25 |
+| ipatPct30 | 0x0006 | 30%, ST_Shd: pct30 |
+| ipatPct40 | 0x0007 | 40%, ST_Shd: pct40 |
+| ipatPct50 | 0x0008 | 50%, ST_Shd: pct50 |
+| ipatPct60 | 0x0009 | 60%, ST_Shd: pct60 |
+| ipatPct70 | 0x000A | 70%, ST_Shd: pct70 |
+| ipatPct75 | 0x000B | 75%, ST_Shd: pct75 |
+| ipatPct80 | 0x000C | 80%, ST_Shd: pct80 |
+| ipatPct90 | 0x000D | 90%, ST_Shd: pct90 |
+| ipatDkHorizontal | 0x000E | Horizontal Stripe, ST_Shd: horzStripe |
+| ipatDkVertical | 0x000F | Vertical Stripe, ST_Shd: vertStripe |
+| ipatDkForeDiag | 0x0010 | Reverse Diagonal Stripe, ST_Shd: reverseDiagStripe |
+| ipatDkBackDiag | 0x0011 | Diagonal Stripe, ST_Shd: diagStripe |
+| ipatDkCross | 0x0012 | Horizontal Cross, ST_Shd: horzCross |
+| ipatDkDiagCross | 0x0013 | Diagonal Cross, ST_Shd: diagCross |
+| ipatHorizontal | 0x0014 | Thin Horizontal Stripe, ST_Shd: thinHorzStripe |
+| ipatVertical | 0x0015 | Thin Vertical Stripe, ST_Shd: thinVertStripe |
+| ipatForeDiag | 0x0016 | Thin Reverse Diagonal Stripe, ST_Shd: thinReverseDiagStripe |
+| ipatBackDiag | 0x0017 | Thin Diagonal Stripe, ST_Shd: thinDiagStripe |
+| ipatCross | 0x0018 | Thin Horizontal Cross, ST_Shd: thinHorzCross |
+| ipatDiagCross | 0x0019 | Thin Diagonal Cross, ST_Shd: thinDiagCross |
+| ipatPctNew2 | 0x0023 | Specifies that the pattern used for the current shaded region shall be a 2.5% fill pattern, as follows: |
+| ipatPctNew7 | 0x0024 | Specifies that the pattern used for the current shaded region shall be a 7.5% fill pattern, as follows: |
+| ipatPctNew12 | 0x0025 | 12.5%, ST_Shd: pct12 |
+| ipatPctNew15 | 0x0026 | 15%, ST_Shd: pct15 |
+| ipatPctNew17 | 0x0027 | Specifies that the pattern used for the current shaded region shall be a 17.5% fill pattern, as follows: |
+| ipatPctNew22 | 0x0028 | Specifies that the pattern used for the current shaded region shall be a 22.5% fill pattern, as follows: |
+| ipatPctNew27 | 0x0029 | Specifies that the pattern used for the current shaded region shall be a 27.5% fill pattern, as follows: |
+| ipatPctNew32 | 0x002A | Specifies that the pattern used for the current shaded region shall be a 32.5% fill pattern, as follows: |
+| ipatPctNew35 | 0x002B | 35%, ST_Shd: pct35 |
+| ipatPctNew37 | 0x002C | 37.5%, ST_Shd: pct37 |
+| ipatPctNew42 | 0x002D | Specifies that the pattern used for the current shaded region shall be a 42.5% fill pattern, as follows: |
+| ipatPctNew45 | 0x002E | 45%, ST_Shd: pct45 |
+| ipatPctNew47 | 0x002F | Specifies that the pattern used for the current shaded region shall be a 47.5% fill pattern, as follows: |
+| ipatPctNew52 | 0x0030 | Specifies that the pattern used for the current shaded region shall be a 52.5% fill pattern, as follows: |
+| ipatPctNew55 | 0x0031 | 55%, ST_Shd: pct55 |
+| ipatPctNew57 | 0x0032 | Specifies that the pattern used for the current shaded region shall be a 57.5% fill pattern, as follows: |
+| ipatPctNew62 | 0x0033 | 62.5%, ST_Shd: pct62 |
+| ipatPctNew65 | 0x0034 | 65%, ST_Shd: pct65 |
+| ipatPctNew67 | 0x0035 | Specifies that the pattern used for the current shaded region shall be a 67.5% fill pattern, as follows: |
+| ipatPctNew72 | 0x0036 | Specifies that the pattern used for the current shaded region shall be a 72.5% fill pattern, as follows: |
+| ipatPctNew77 | 0x0037 | Specifies that the pattern used for the current shaded region shall be a 77.5% fill pattern, as follows: |
+| ipatPctNew82 | 0x0038 | Specifies that the pattern used for the current shaded region shall be an 82.5% fill pattern, as follows: |
+| ipatPctNew85 | 0x0039 | 85%, ST_Shd: pct85 |
+| ipatPctNew87 | 0x003A | 87.5%, ST_Shd: pct87 |
+| ipatPctNew92 | 0x003B | Specifies that the pattern used for the current shaded region shall be a 92.5% fill pattern, as follows: |
+| ipatPctNew95 | 0x003C | 95%, ST_Shd: pct95 |
+| ipatPctNew97 | 0x003D | Specifies that the pattern used for the current shaded region shall be a 97.5% fill pattern, as follows: |
+| ipatNil | 0xFFFF | Nil, ST_Shd: nil |
+
+
 
 ### IScrollType
 
@@ -15879,103 +6467,12 @@ The range is inclusive of the first index, and exclusive of the second.
 The first cell in a row is at index 0. The maximum number of cells in a
 row is 63.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">itcFirst</td>
-<td colspan="8">itcLim</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| itcFirst |  |  |  |  |  |  |  | itcLim |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **itcFirst (8 bits):** An integer value that specifies the index of the
 first cell in a contiguous range. The cell at this index is inside the
@@ -15995,106 +6492,12 @@ The **Kcm** structure specifies a shortcut key combination through a
 [**virtual key code**](#gt_0c473825-ffa5-45c3-a85b-7ded3350ec9e) and
 modifiers.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">vk</td>
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td colspan="5">reserved</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| vk |  |  |  |  |  |  |  | A | B | C | reserved |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **vk (1 byte):** An integer that specifies the Virtual key code for this
 shortcut key combination.
@@ -16115,114 +6518,15 @@ shortcut key combination.
 The **Kme** structure specifies a mapping of a shortcut key to a command
 to be executed.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">reserved1</td>
-<td colspan="16">reserved2</td>
-</tr>
-<tr class="even">
-<td colspan="16">kcm1</td>
-<td colspan="16">kcm2</td>
-</tr>
-<tr class="odd">
-<td colspan="16">kt</td>
-<td colspan="16">param</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| reserved1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | reserved2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| kcm1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | kcm2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| kt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | param |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **reserved1 (2 bytes):** This value MUST be 0.
 
@@ -16291,102 +6595,12 @@ specifies the state of the language auto-detection over a range of text.
 Some states that are possible in a generic **SPLS** are not allowed in a
 **LadSpls** structure.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">spls</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| spls |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **spls (2 bytes):** An **SPLS** structure. The **spls.fExtend** and
 **spls.fTypo** fields are not used and MUST be zero. The **spls.splf**
@@ -16413,147 +6627,27 @@ operand specifies the location at which the text continues. If a line is
 not broken by an object, the following values have no effect and the
 text simply continues on the next line.
 
-<table>
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 7%" />
-<col style="width: 82%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Value</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>lbrNone</strong></td>
-<td>0x00</td>
-<td>Text continues in the next available region of the current line, in
-logical reading order, or on the next line if no more regions are
-left.</td>
-</tr>
-<tr class="even">
-<td><strong>lbrLeft</strong></td>
-<td>0x01</td>
-<td><p>If the line break is located to the logical left of the object,
-text restarts in the next available region of the current line, in
-logical reading order, or on the next line if no more regions are
-left.</p>
-<p>If the line break is located to the logical right of the object, text
-restarts on the next available line that is not broken by an object. In
-this case, the use of this value has the same result as the use of the
-value <strong>lbrBoth</strong>.</p></td>
-</tr>
-<tr class="odd">
-<td><strong>lbrRight</strong></td>
-<td>0x02</td>
-<td><p>If the line break is located to the logical right of the object,
-text restarts in the next available region of the current line, in
-logical reading order, or on the next line if no more regions are
-left.</p>
-<p>If the line break is located to the logical left of the object, text
-restarts on the next available line that is not broken by an object. In
-this case, the use of this value has the same result as the use of the
-value <strong>lbrBoth</strong>.</p></td>
-</tr>
-<tr class="even">
-<td><strong>lbrBoth</strong></td>
-<td>0x03</td>
-<td>Text restarts on the next available line that is not broken by the
-presence of a picture, shape, or another object.</td>
-</tr>
-</tbody>
-</table>
+
+| Name | Value | Meaning |
+| --- | --- | --- |
+| lbrNone | 0x00 | Text continues in the next available region of the current line, in logical reading order, or on the next line if no more regions are left. |
+| lbrLeft | 0x01 | If the line break is located to the logical left of the object, text restarts in the next available region of the current line, in logical reading order, or on the next line if no more regions are left. / If the line break is located to the logical right of the object, text restarts on the next available line that is not broken by an object. In this case, the use of this value has the same result as the use of the value lbrBoth . |
+| lbrRight | 0x02 | If the line break is located to the logical right of the object, text restarts in the next available region of the current line, in logical reading order, or on the next line if no more regions are left. / If the line break is located to the logical left of the object, text restarts on the next available line that is not broken by an object. In this case, the use of this value has the same result as the use of the value lbrBoth . |
+| lbrBoth | 0x03 | Text restarts on the next available line that is not broken by the presence of a picture, shape, or another object. |
+
+
 
 ### LEGOXTR_V11
 
 The **LEGOXTR_V11** structure contains information about an
 [**AutoText**](#gt_90dc5ce2-c9bd-43be-8104-935d905c2a7a) item.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">flego</td>
-<td colspan="8">unused1</td>
-<td colspan="16">ibst</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| flego |  |  |  |  |  |  |  | unused1 |  |  |  |  |  |  |  | ibst |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **flego (1 byte):** An unsigned integer that specifies the type of an
 AutoText item. This MUST be one of the following values.
@@ -16579,98 +6673,15 @@ corresponds to a list that contains a paragraph. An **LFO** can also
 specify formatting information that overrides the **LSTF** element to
 which it corresponds.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">lsid</td>
-</tr>
-<tr class="even">
-<td colspan="32">unused1</td>
-</tr>
-<tr class="odd">
-<td colspan="32">unused2</td>
-</tr>
-<tr class="even">
-<td colspan="8">clfolvl</td>
-<td colspan="8">ibstFltAutoNum</td>
-<td colspan="8">grfhic</td>
-<td colspan="8">unused3</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| lsid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| unused1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| unused2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| clfolvl |  |  |  |  |  |  |  | ibstFltAutoNum |  |  |  |  |  |  |  | grfhic |  |  |  |  |  |  |  | unused3 |  |  |  |  |  |  |  |
+
+
 
 **lsid (4 bytes):** A signed integer that specifies the list identifier
 of an LSTF. This **LFO** corresponds to the LSTF in
@@ -16710,92 +6721,14 @@ Document](#Section_f426d9a2004d418e8d8ce7fd88e7c48e)
 [CP](#Section_a3d44e167d2946f7bb7bd0d8a5734f83) of the corresponding
 [LFO](#lfo), as well as an array of [LVL](#lvl) override data.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">cp</td>
-</tr>
-<tr class="even">
-<td colspan="32">rgLfoLvl (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cp |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rgLfoLvl (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cp (4 bytes):** A CP that specifies the position of the first
 paragraph in the Main Document whose **iLfo** property (see
@@ -16811,100 +6744,15 @@ array.
 The **LFOLVL** structure contains information that is used to override
 the formatting information of a corresponding [**LVL**](#lvl).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">iStartAt</td>
-</tr>
-<tr class="even">
-<td colspan="4">iLvl</td>
-<td>A</td>
-<td>B</td>
-<td colspan="8">grfhic</td>
-<td colspan="15">unused1</td>
-<td colspan="3">C</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lvl (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| iStartAt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| iLvl |  |  |  | A | B | grfhic |  |  |  |  |  |  |  | unused1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | C |  |  |
+| lvl (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **iStartAt (4 bytes):** If fStartAt is set to 0x1, this is a signed
 integer that specifies the start-at value that overrides lvlf.iStartAt
@@ -16945,90 +6793,13 @@ language code.
 
 The **LPStd** structure specifies a length-prefixed style definition.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">cbStd</td>
-<td colspan="16">std (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cbStd |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | std (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cbStd (2 bytes):** A signed integer that specifies the size, in bytes,
 of **std**. This value MUST NOT be less than 0. LPStd structures are
@@ -17043,90 +6814,13 @@ A style definition can be empty, in which case **cbStd** MUST be 0.
 
 The **LPStshi** structure specifies general stylesheet information.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">cbStshi</td>
-<td colspan="16">stshi (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cbStshi |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | stshi (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cbStshi (2 bytes):** An unsigned integer that specifies the size, in
 bytes, of **stshi**.
@@ -17139,92 +6833,14 @@ stylesheet information.
 The **LPStshiGrpPrl** structure specifies an array of formatting
 properties.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">cbGrpprl</td>
-</tr>
-<tr class="even">
-<td colspan="32">grpprl (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cbGrpprl |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| grpprl (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cbGrpprl (4 bytes):** A signed 32-bit integer that specifies the size,
 in bytes, of **grpprl**.
@@ -17238,90 +6854,13 @@ The **LPUpxChpx** structure specifies character formatting properties.
 This structure is padded to an even length, but the length in **cbUpx**
 MUST NOT include this padding.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">cbUpx</td>
-<td colspan="16">CHPX (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cbUpx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | CHPX (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cbUpx (2 bytes):** An unsigned integer that specifies the size, in
 bytes, of **CHPX**. This value does not include the padding.
@@ -17336,90 +6875,13 @@ properties for revision-marked style formatting.
 
 The structure is padded to an even length.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">cbUpx</td>
-<td colspan="16">CHPX (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cbUpx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | CHPX (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cbUpx (2 bytes):** An unsigned integer that specifies the length, in
 bytes, of **CHPX**. This value MUST NOT include padding.
@@ -17434,90 +6896,13 @@ The **LPUpxPapx** structure specifies paragraph formatting properties.
 The structure is padded to an even length, but the length in **cbUpx**
 MUST NOT include this padding.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">cbUpx</td>
-<td colspan="16">PAPX (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cbUpx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | PAPX (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cbUpx (2 bytes):** An unsigned integer that specifies the size, in
 bytes, of **PAPX**, not including the (potential) padding.
@@ -17533,90 +6918,13 @@ properties that are used for revision-marked style formatting.
 The structure is padded to be an even length, but the length in
 **cbUpx** MUST NOT include this padding.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">cbUpx</td>
-<td colspan="16">PAPX (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cbUpx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | PAPX (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cbUpx (2 bytes):** An unsigned 16-bit integer that specifies the size,
 in bytes, of **PAPX**. This value does not include any specified
@@ -17629,90 +6937,13 @@ formatting properties.
 
 The **LPUpxRm** structure specifies revision-marking information.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">cbUpx</td>
-<td colspan="16">RM</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cbUpx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RM |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cbUpx (2 bytes):** An unsigned 16-bit integer that specifies the size,
 in bytes, of **RM**. This value MUST be 0x0006.
@@ -17726,90 +6957,13 @@ The **LPUpxTapx** structure specifies table formatting properties. This
 structure is padded to an even length, but the length in **cbUpx** MUST
 NOT include this padding.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">cbUpx</td>
-<td colspan="16">TAPX (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cbUpx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | TAPX (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cbUpx (2 bytes):** An unsigned integer that specifies the size, in
 bytes, of **TAPX**. This value does not include padding.
@@ -17823,96 +6977,15 @@ The **LPXCharBuffer9** structure is a length-prefixed buffer for up to 9
 [**Unicode**](#gt_c305d0ab-8b94-461a-bd76-13b40cb8c4d8) characters. The
 text is not null-terminated.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">cch</td>
-<td colspan="16">xcharArray (18 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cch |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | xcharArray (18 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cch (2 bytes):** An unsigned integer that specifies the number of
 characters from the buffer that are actually used. This value MUST be
@@ -17928,91 +7001,12 @@ The **LSD** structure specifies the properties to be used for latent
 application-defined styles (see [StshiLsd](#stshilsd)) when they are
 created.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td colspan="12">iPriority</td>
-<td colspan="16">fReserved</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | B | C | D | iPriority |  |  |  |  |  |  |  |  |  |  |  | fReserved |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - fLocked (1 bit):** Specifies the value that the **fLocked** field
 of [GRFSTD](#grfstd) is set to when this latent style is instantiated.
@@ -18040,87 +7034,12 @@ when this latent style is instantiated. This MUST be a value between
 The **LSPD** structure specifies the spacing between lines in a
 paragraph.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">dyaLine</td>
-<td colspan="16">fMultLinespace</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| dyaLine |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | fMultLinespace |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **dyaLine (16 bits):** An integer that specifies the spacing between
 lines, based on the following rules:
@@ -18152,108 +7071,17 @@ lines, based on the following rules:
 The **LSTF** structure contains formatting properties that apply to an
 entire list.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">lsid</td>
-</tr>
-<tr class="even">
-<td colspan="32">tplc</td>
-</tr>
-<tr class="odd">
-<td colspan="32">rgistdPara (18 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td>E</td>
-<td colspan="3">F</td>
-<td colspan="8">grfhic</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| lsid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| tplc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rgistdPara (18 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | A | B | C | D | E | F |  |  | grfhic |  |  |  |  |  |  |  |
+
+
 
 **lsid (4 bytes):** A signed integer that specifies the list identifier.
 This MUST be unique for each LSTF. This value MUST NOT be 0xFFFFFFFF.
@@ -18296,89 +7124,12 @@ incompatibilities of the list.
 
 The **Lstsf** structure specifies a list style.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">ilst</td>
-<td colspan="12">istdList</td>
-<td>A</td>
-<td colspan="3">B</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ilst |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | istdList |  |  |  |  |  |  |  |  |  |  |  | A | B |  |  |
+
+
 
 **ilst (2 bytes):** An unsigned integer that specifies a zero-based
 index into the [**Plflst**](#plflst).
@@ -18411,110 +7162,20 @@ placeholder is formatted according to the **lvlf.nfc** of the **LVL**
 structure that corresponds to the level that the placeholder specifies,
 unless the **lvlf.fLegal** of this **LVL** structure is nonzero.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">lvlf (28 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">grpprlPapx (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">grpprlChpx (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">xst (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| lvlf (28 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| grpprlPapx (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| grpprlChpx (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| xst (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **lvlf (28 bytes):** An [**LVLF**](#lvlf) structure that specifies
 formatting information for this level.
@@ -18547,116 +7208,18 @@ Xst MUST be equal to 0x0001, and this MUST NOT contain any placeholders.
 The **LVLF** structure contains formatting properties for an individual
 level in a list.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">iStartAt</td>
-</tr>
-<tr class="even">
-<td colspan="8">nfc</td>
-<td colspan="2">jc</td>
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td>E</td>
-<td>F</td>
-<td colspan="16">rgbxchNums</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="24">...</td>
-<td colspan="8">ixchFollow</td>
-</tr>
-<tr class="odd">
-<td colspan="32">dxaIndentSav</td>
-</tr>
-<tr class="even">
-<td colspan="32">unused2</td>
-</tr>
-<tr class="odd">
-<td colspan="8">cbGrpprlChpx</td>
-<td colspan="8">cbGrpprlPapx</td>
-<td colspan="8">ilvlRestartLim</td>
-<td colspan="8">grfhic</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| iStartAt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| nfc |  |  |  |  |  |  |  | jc |  | A | B | C | D | E | F | rgbxchNums |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | ixchFollow |  |  |  |  |  |  |  |
+| dxaIndentSav |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| unused2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbGrpprlChpx |  |  |  |  |  |  |  | cbGrpprlPapx |  |  |  |  |  |  |  | ilvlRestartLim |  |  |  |  |  |  |  | grfhic |  |  |  |  |  |  |  |
+
+
 
 **iStartAt (4 bytes):** A signed integer that specifies the beginning
 number for the number sequence belonging to this level. This value MUST
@@ -18771,90 +7334,13 @@ incompatibilities of the level.
 The **MacroName** structure specifies a single entry in the macro name
 table, as defined in [MacroNames](#macronames).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">ibst</td>
-<td colspan="16">xstz (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ibst |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | xstz (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **ibst (2 bytes):** An unsigned integer that specifies the index of the
 current entry in the macro name table. This MUST NOT be the same as the
@@ -18871,91 +7357,13 @@ structure is used in a sequence of structures that specify
 command-related customizations. For more information, see the
 [**Tcg255**](#tcg255) structure.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">ch</td>
-<td colspan="16">iMac</td>
-<td colspan="8">rgNames (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ch |  |  |  |  |  |  |  | iMac |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | rgNames (variable) |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **ch (1 byte):** An unsigned integer that identifies this structure as a
 **MacroNames** structure. This value MUST be 17.
@@ -18971,96 +7379,12 @@ of structures is specified by **iMac**.
 The **MathPrOperand** structure is an operand to sprmCFMathPr. This
 operand specifies the justification for equations.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="3">A</td>
-<td colspan="13">unused</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | A |  |  | unused |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** The size of this structure, in bytes, not including
 this byte. This value MUST be 0x02.
@@ -19075,104 +7399,17 @@ and their meanings are specified in the **mthbpjc** member of
 
 The **Mcd** structure specifies a macro.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">reserved1</td>
-<td colspan="8">reserved2</td>
-<td colspan="16">ibst</td>
-</tr>
-<tr class="even">
-<td colspan="16">ibstName</td>
-<td colspan="16">reserved3</td>
-</tr>
-<tr class="odd">
-<td colspan="32">reserved4</td>
-</tr>
-<tr class="even">
-<td colspan="32">reserved5</td>
-</tr>
-<tr class="odd">
-<td colspan="32">reserved6</td>
-</tr>
-<tr class="even">
-<td colspan="32">reserved7</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| reserved1 |  |  |  |  |  |  |  | reserved2 |  |  |  |  |  |  |  | ibst |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ibstName |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | reserved3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved5 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved7 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **reserved1 (1 byte):** A signed integer that MUST be 0x56.
 
@@ -19205,90 +7442,13 @@ macro are specified.
 The **MDP** structure contains information that is needed to display
 information about an e-mail message and its author.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">dttm</td>
-</tr>
-<tr class="even">
-<td colspan="16">reserved1</td>
-<td colspan="16">ibstAuthor</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| dttm |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | ibstAuthor |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **dttm (4 bytes):** A [**DTTM**](#dttm) structure that specifies the
 date and time at which an e-mail message was created.
@@ -19303,91 +7463,13 @@ the [SttbfRMark](#sttbfrmark) structure of the author of the message.
 The **MFPF** structure specifies the type of picture data that is
 stored.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">mm</td>
-<td colspan="16">xExt</td>
-</tr>
-<tr class="even">
-<td colspan="16">yExt</td>
-<td colspan="16">swHMF</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| mm |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | xExt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| yExt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | swHMF |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **mm (2 bytes):** A signed integer that specifies the format of the
 picture data. This MUST be one of the following values.
@@ -19411,89 +7493,13 @@ is one possible value of the [**BrcMayBeNil**](#brcmaybenil) structure.
 It is defined as its own type because the values it contains are not
 valid for **Brc** structures in general.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">colorref</td>
-</tr>
-<tr class="even">
-<td colspan="32">nilBrc</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| colorref |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| nilBrc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **colorref (4 bytes):** This field is unused and MUST be ignored.
 
@@ -19507,105 +7513,18 @@ field**](#gt_8fa0b648-6259-4969-8561-a87b325fb240), or add-in field. The
 **NilPICFAndBinData** structure MUST be stored in the [Data
 Stream](#Section_0218f8a661504695965c9abc8a685b81).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">lcb</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbHeader</td>
-<td colspan="16">ignored (62 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">binData (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| lcb |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbHeader |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | ignored (62 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| binData (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **lcb (4 bytes):** A signed integer that specifies the size, in bytes,
 of this structure.
@@ -19646,126 +7565,24 @@ is invalid, it MUST be ignored.
 The **NumRM** structure is a numbering revision mark that specifies
 information about a numbering revision for a paragraph.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">fNumRM</td>
-<td colspan="8">fIgnored</td>
-<td colspan="16">ibstNumRM</td>
-</tr>
-<tr class="even">
-<td colspan="32">dttmNumRM</td>
-</tr>
-<tr class="odd">
-<td colspan="32">rgbxchNums</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="8">...</td>
-<td colspan="24">rgnfc</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">ignored</td>
-</tr>
-<tr class="even">
-<td colspan="32">pnbr (36 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">xst (64 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fNumRM |  |  |  |  |  |  |  | fIgnored |  |  |  |  |  |  |  | ibstNumRM |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| dttmNumRM |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rgbxchNums |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  | rgnfc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | ignored |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| pnbr (36 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| xst (64 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **fNumRM (1 byte):** A [**Bool8**](#bool8) value that specifies whether
 the paragraph was already numbered when revision mark tracking was
@@ -19821,120 +7638,15 @@ The **NumRMOperand** structure is the operand for the
 [sprmPNumRM](#paragraph-properties) value that contains information
 about a numbering revision mark.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="24">numRM (128 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="8">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | numRM (128 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** An unsigned integer that specifies the size, in bytes,
 of the [**NumRM**](#numrm) structure. This value MUST be 128.
@@ -19951,108 +7663,16 @@ contained in **OcxInfo** structures
 SHOULD<span id="Appendix_A_Target_228"
 class="anchor"></span>[\<228\>](#Appendix_A_228) be ignored.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">dwCookie</td>
-</tr>
-<tr class="even">
-<td colspan="32">ifld</td>
-</tr>
-<tr class="odd">
-<td colspan="32">hAccel</td>
-</tr>
-<tr class="even">
-<td colspan="16">cAccel</td>
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td>E</td>
-<td>F</td>
-<td>G</td>
-<td>H</td>
-<td colspan="8">reserved1</td>
-</tr>
-<tr class="odd">
-<td colspan="16">idoc</td>
-<td colspan="16">reserved2</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| dwCookie |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ifld |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| hAccel |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cAccel |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | A | B | C | D | E | F | G | H | reserved1 |  |  |  |  |  |  |  |
+| idoc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | reserved2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **dwCookie (4 bytes):** An integer value that specifies the index
 location of this **OcxInfo** in the [**RgxOcxInfo**](#rgxocxinfo) array.
@@ -20130,93 +7750,14 @@ The **ODSOPropertyBase** structure contains an Office Data Source Object
 property type (**id**), size (**cb**), and value (**OdsoProp**). An
 Office Data Source Object is used to perform the mail merge.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">id</td>
-<td colspan="16">cb</td>
-</tr>
-<tr class="even">
-<td colspan="32">OdsoProp (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| id |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cb |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| OdsoProp (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **id (2 bytes):** An unsigned integer that specifies the type of the
 Office Data Source Object property (**OdsoProp**). This MUST be one of
@@ -20234,123 +7775,22 @@ contains an object of type
 contained in the **OdsoProp** element is dependent on the **id** field
 and is defined following.
 
-<table>
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 89%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>id</th>
-<th>Meaning of data in OdsoProp</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0x0000</td>
-<td>A Unicode string, that specifies a Universal Data Link (UDL), that
-contains a data source <a
-href="#gt_03a9d0ca-2f10-4f3d-b910-052714a96f7d"><strong>connection
-string</strong></a>. The string is not null terminated.</td>
-</tr>
-<tr class="even">
-<td>0x0001</td>
-<td>A Unicode string that specifies the set of data to be used when a
-data source includes multiple data sets. The string is not null
-terminated.</td>
-</tr>
-<tr class="odd">
-<td>0x0002</td>
-<td>A Unicode string that specifies the name of the file to be used as a
-data source. The string is not null terminated.</td>
-</tr>
-<tr class="even">
-<td>0x0010</td>
-<td>A 4-byte unsigned integer that specifies the type of data source
-connection. The value stored in the file is not used by the application,
-as it is reset after loading the file, based on the connection
-information in <strong>OdsoProp</strong>s 0x0000, 0x0001, and 0x0002.
-This MUST be a value between 0 and 7.</td>
-</tr>
-<tr class="odd">
-<td>0x0011</td>
-<td>A 2-byte unsigned integer that specifies a Unicode character used as
-a column delimiter for a text data source.</td>
-</tr>
-<tr class="even">
-<td>0x0012</td>
-<td>A 4-byte unsigned integer that specifies whether the first row is a
-header row of column names. A value of 0x00000001 specifies that the
-first row contains column names; a value of 0x00000000 specifies that it
-does not.</td>
-</tr>
-<tr class="odd">
-<td>0x0013</td>
-<td>The property contains an array of <a
-href="#filterdataitem"><strong>FilterDataItem</strong></a> structures
-that are used to filter the list of recipients.</td>
-</tr>
-<tr class="even">
-<td>0x0014</td>
-<td>The property contains up to three <a
-href="#sortcolumnanddirection"><strong>SortColumnAndDirection</strong></a>
-items that are used to sort the list of recipients.</td>
-</tr>
-<tr class="odd">
-<td>0x0015</td>
-<td>The property contains a <a
-href="#recipientinfo"><strong>RecipientInfo</strong></a> structure.</td>
-</tr>
-<tr class="even">
-<td>0x0016</td>
-<td><p>The property contains a <a
-href="#fieldmapinfo"><strong>FieldMapInfo</strong></a> structure that
-specifies which database columns are mapped to each of 30 standard mail
-merge address fields. The <a
-href="#fieldmapdataitem"><strong>FieldMapDataItem</strong></a>
-structures MUST appear in the following order and all items MUST be
-present:</p>
-<ol type="1">
-<li><p>Unique Identifier</p></li>
-<li><p>Courtesy Title</p></li>
-<li><p>First Name</p></li>
-<li><p>Middle Name</p></li>
-<li><p>Last Name</p></li>
-<li><p>Suffix</p></li>
-<li><p>Nickname</p></li>
-<li><p>Job Title</p></li>
-<li><p>Company</p></li>
-<li><p>Address 1</p></li>
-<li><p>Address 2</p></li>
-<li><p>City</p></li>
-<li><p>State</p></li>
-<li><p>Postal Code</p></li>
-<li><p>Country or Region</p></li>
-<li><p>Business Phone</p></li>
-<li><p>Business Fax</p></li>
-<li><p>Home Phone</p></li>
-<li><p>Home Fax</p></li>
-<li><p>E-mail Address</p></li>
-<li><p>Web Page</p></li>
-<li><p>Spouse Courtesy Title</p></li>
-<li><p>Spouse First Name</p></li>
-<li><p>Spouse Middle Name</p></li>
-<li><p>Spouse Last Name</p></li>
-<li><p>Spouse Nickname</p></li>
-<li><p>Phonetic Guide for First Name</p></li>
-<li><p>Phonetic Guide for Last Name</p></li>
-<li><p>Address 3</p></li>
-<li><p>Department</p></li>
-</ol></td>
-</tr>
-<tr class="odd">
-<td>0x0017</td>
-<td>A 2-byte unsigned integer that specifies which step of the mail
-merge wizard the application last displayed. This MUST be a value
-between 1 and 6.</td>
-</tr>
-</tbody>
-</table>
+
+| id | Meaning of data in OdsoProp |
+| --- | --- |
+| 0x0000 | A Unicode string, that specifies a Universal Data Link (UDL), that contains a data source connection string . The string is not null terminated. |
+| 0x0001 | A Unicode string that specifies the set of data to be used when a data source includes multiple data sets. The string is not null terminated. |
+| 0x0002 | A Unicode string that specifies the name of the file to be used as a data source. The string is not null terminated. |
+| 0x0010 | A 4-byte unsigned integer that specifies the type of data source connection. The value stored in the file is not used by the application, as it is reset after loading the file, based on the connection information in OdsoProp s 0x0000, 0x0001, and 0x0002. This MUST be a value between 0 and 7. |
+| 0x0011 | A 2-byte unsigned integer that specifies a Unicode character used as a column delimiter for a text data source. |
+| 0x0012 | A 4-byte unsigned integer that specifies whether the first row is a header row of column names. A value of 0x00000001 specifies that the first row contains column names; a value of 0x00000000 specifies that it does not. |
+| 0x0013 | The property contains an array of FilterDataItem structures that are used to filter the list of recipients. |
+| 0x0014 | The property contains up to three SortColumnAndDirection items that are used to sort the list of recipients. |
+| 0x0015 | The property contains a RecipientInfo structure. |
+| 0x0016 | The property contains a FieldMapInfo structure that specifies which database columns are mapped to each of 30 standard mail merge address fields. The FieldMapDataItem structures MUST appear in the following order and all items MUST be present: |
+| 0x0017 | A 2-byte unsigned integer that specifies which step of the mail merge wizard the application last displayed. This MUST be a value between 1 and 6. |
+
+
 
 ### ODSOPropertyLarge
 
@@ -20358,92 +7798,14 @@ The **ODSOPropertyLarge** structure contains an ODSO property that is at
 least 0xFFFF bytes in size. See specifications of the ODSO property
 types under **[ODSOPropertyBase](#odsopropertybase).id**.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">dwb</td>
-</tr>
-<tr class="even">
-<td colspan="32">OdsoPropLrg (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| dwb |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| OdsoPropLrg (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **dwb (4 bytes):** An unsigned integer that specifies the size, in
 bytes, of the **OdsoPropLrg** element.
@@ -20456,89 +7818,13 @@ The **ODSOPropertyStandard** structure contains an ODSO property that is
 less than 0xFFFF bytes in size. See descriptions of the ODSO property
 types under **[ODSOPropertyBase](#odsopropertybase).id**.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">OdsoPropStd (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| OdsoPropStd (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **OdsoPropStd (variable):** Contains the data for this property.
 
@@ -20552,106 +7838,13 @@ storages has an [ObjInfo
 stream](#Section_13ba10a8d8b2433bbf3bec238dc8f9ce) which contains an
 **ODT** structure.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">ODTPersist1</td>
-<td colspan="16">cf</td>
-</tr>
-<tr class="even">
-<td colspan="16">ODTPersist2 (optional)</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ODTPersist1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cf |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ODTPersist2 (optional) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **ODTPersist1 (2 bytes):** An [**ODTPersist1**](#odtpersist1) structure
 that specifies information about the OLE object.
@@ -20681,117 +7874,12 @@ The **ODTPersist1** structure is a collection of bits that specify
 information about an [**OLE
 object**](#gt_cdff9514-a3fb-4897-941d-4e99193a0096).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td>E</td>
-<td>F</td>
-<td>G</td>
-<td>H</td>
-<td>I</td>
-<td>J</td>
-<td>K</td>
-<td>L</td>
-<td>M</td>
-<td>N</td>
-<td>O</td>
-<td>P</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - reserved1 (1 bit):** Undefined and MUST be ignored.
 
@@ -20852,108 +7940,12 @@ The **ODTPersist2** structure is a collection of bits that specify
 information about an [**OLE
 object**](#gt_cdff9514-a3fb-4897-941d-4e99193a0096).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td>E</td>
-<td>F</td>
-<td colspan="10">reserved4</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | B | C | D | E | F | reserved4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - fEMF (1 bit):** A bit that specifies that the presentation of this
 OLE object in the document is in the Enhanced Metafile format. This is
@@ -20983,92 +7975,14 @@ The **OfficeArtClientAnchor** structure is used by
 [\[MS-ODRAW\]](%5bMS-ODRAW%5d.pdf#Section_8560795e77594745838ff7f2ef2f1872)
 section 2.2.14, that specifies the location of a drawing.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">rh</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">clientanchor</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| rh |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| clientanchor |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **rh (8 bytes):** An **OfficeArtRecordHeader**, as specified in
 \[MS-ODRAW\] section 2.2.1, that specifies information about the
@@ -21086,92 +8000,14 @@ The **OfficeArtClientData** structure is used by the
 [\[MS-ODRAW\]](%5bMS-ODRAW%5d.pdf#Section_8560795e77594745838ff7f2ef2f1872)
 section 2.2.14.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">rh</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">clientdata</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| rh |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| clientdata |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **rh (8 bytes):** An **OfficeArtRecordHeader**, as specified in
 \[MS-ODRAW\] section 2.2.1, that specifies information about the
@@ -21188,92 +8024,14 @@ The **OfficeArtClientTextbox** structure used by
 [\[MS-ODRAW\]](%5bMS-ODRAW%5d.pdf#Section_8560795e77594745838ff7f2ef2f1872)
 section 2.2.14, that specifies the text identifier for a shape.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">rh</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">clienttextbox</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| rh |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| clienttextbox |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **rh (8 bytes):** An **OfficeArtRecordHeader**, as specified in
 \[MS-ODRAW\] section 2.2.1, that specifies information about the
@@ -21295,95 +8053,15 @@ in the document. The delay stream that is referenced in
 [\[MS-ODRAW\]](%5bMS-ODRAW%5d.pdf#Section_8560795e77594745838ff7f2ef2f1872)
 is the [WordDocument stream](#Section_d7fae142670d4cd5869a708366984a71).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">DrawingGroupData (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Drawings (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| DrawingGroupData (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Drawings (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **DrawingGroupData (variable):** An **OfficeArtDggContainer** element,
 as specified in \[MS-ODRAW\] section 2.2.12, that contains the drawing
@@ -21404,90 +8082,13 @@ drawings in the document. The delay stream that is referenced in
 [\[MS-ODRAW\]](%5bMS-ODRAW%5d.pdf#Section_8560795e77594745838ff7f2ef2f1872)
 is the [WordDocument stream](#Section_d7fae142670d4cd5869a708366984a71).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">dgglbl</td>
-<td colspan="24">container (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| dgglbl |  |  |  |  |  |  |  | container (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **dgglbl (1 byte):** An unsigned integer that specifies where
 **container** is located. A value of 0x00 specifies that **container**
@@ -21508,115 +8109,14 @@ specified in
 characteristics are used to associate the font with other fonts of
 similar appearance but different names.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">bFamilyType</td>
-<td colspan="8">bSerifStyle</td>
-<td colspan="8">bWeight</td>
-<td colspan="8">bProportion</td>
-</tr>
-<tr class="even">
-<td colspan="8">bContrast</td>
-<td colspan="8">bStrokeVariation</td>
-<td colspan="8">bArmStyle</td>
-<td colspan="8">bLetterform</td>
-</tr>
-<tr class="odd">
-<td colspan="8">bMidline</td>
-<td colspan="8">bHeight</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| bFamilyType |  |  |  |  |  |  |  | bSerifStyle |  |  |  |  |  |  |  | bWeight |  |  |  |  |  |  |  | bProportion |  |  |  |  |  |  |  |
+| bContrast |  |  |  |  |  |  |  | bStrokeVariation |  |  |  |  |  |  |  | bArmStyle |  |  |  |  |  |  |  | bLetterform |  |  |  |  |  |  |  |
+| bMidline |  |  |  |  |  |  |  | bHeight |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **bFamilyType (1 byte):**
 
@@ -21803,122 +8303,16 @@ locations of [**PapxInFkp**](#papxinfkp) structures that start at
 offsets between the end of **rgbx** and **cpara** within this
 **PapxFkp** structure.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">rgfc (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">rgbx (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="8">cpara</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| rgfc (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rgbx (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cpara |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **rgfc (variable):** An array of 4-byte unsigned integers. Each element
 of this array specifies an offset in the [WordDocument
@@ -21952,90 +8346,13 @@ expand and PapxFkp to exceed 512 bytes.
 
 The **PapxInFkp** structure specifies a set of text properties.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="24">grpprlInPapx (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | grpprlInPapx (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** An unsigned integer that specifies the size of the
 **grpprlInPapx**. If this value is not 0, the **grpprlInPapx** is 2×cb-1
@@ -22055,104 +8372,12 @@ If **cb** is nonzero, **grpprlInPapx** is GrpPrlAndIstd.
 The **PbiGrfOperand** structure specifies the properties of a picture
 bullet.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>B</td>
-<td colspan="14">fUnused</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | B | fUnused |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - fPicBullet (1 bit):** Specifies whether the bullet is a picture
 bullet.
@@ -22170,94 +8395,13 @@ The **Pcd** structure specifies the location of text in the
 additional properties for this text. A **Pcd** structure is an element
 of a [**PlcPcd**](#plcpcd) structure.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td colspan="13">fR2</td>
-<td colspan="16">fc</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">prm</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | B | C | fR2 |  |  |  |  |  |  |  |  |  |  |  |  | fc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | prm |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - fNoParaLast (1 bit):** If this bit is 1, the text MUST NOT contain
 a paragraph mark.
@@ -22283,94 +8427,14 @@ Formatting) and [2.4.6.2](#Section_be58bf9cd1d340cc91ee36452d7939b2)
 The **Pcdt** structure contains a [**PlcPcd**](#plcpcd) structure and
 specifies its size.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">clxt</td>
-<td colspan="24">lcb</td>
-</tr>
-<tr class="even">
-<td colspan="8">...</td>
-<td colspan="24">PlcPcd (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| clxt |  |  |  |  |  |  |  | lcb |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  | PlcPcd (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **clxt (1 byte):** This value MUST be 0x02.
 
@@ -22387,96 +8451,15 @@ that is specified by **lcb** MUST result in a whole number of
 The **PChgTabsAdd** structure specifies the locations and properties of
 custom tab stops.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cTabs</td>
-<td colspan="24">rgdxaAdd (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">rgtbdAdd (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cTabs |  |  |  |  |  |  |  | rgdxaAdd (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rgtbdAdd (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cTabs (1 byte):** An unsigned integer that specifies the number of
 records in **rgdxaAdd** and **rgtbdAdd**. This value MUST be less than
@@ -22497,90 +8480,13 @@ that is specified at the corresponding index in **rgdxaAdd**.
 The **PChgTabsDel** structure specifies the locations at which custom
 tab stops are ignored.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cTabs</td>
-<td colspan="24">rgdxaDel (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cTabs |  |  |  |  |  |  |  | rgdxaDel (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cTabs (1 byte):** An unsigned integer that specifies the number of
 records in **rgdxaDel**. This value MUST be less than or equal to 64.
@@ -22596,96 +8502,15 @@ ignore any custom tab stop within 25
 The **PChgTabsDelClose** structure specifies the locations at which
 custom tab stops are ignored.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cTabs</td>
-<td colspan="24">rgdxaDel (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">rgdxaClose (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cTabs |  |  |  |  |  |  |  | rgdxaDel (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rgdxaClose (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cTabs (1 byte):** An unsigned integer that specifies the number of
 records in **rgdxaDel** and **rgdxaClose**. This value MUST be greater
@@ -22713,96 +8538,15 @@ The **PChgTabsOperand** structure is used by
 [**sprmPChgTabs**](#paragraph-properties) to specify a list of custom
 tab stops to add and another list of custom tab stops to ignore.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="24">PChgTabsDelClose (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">PChgTabsAdd (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | PChgTabsDelClose (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| PChgTabsAdd (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** An unsigned integer that specifies the size of the
 operand. This value MUST be greater than or equal to 2 and less than or
@@ -22828,96 +8572,15 @@ The **PChgTabsPapxOperand** structure is used by
 [sprmPChgTabsPapx](#paragraph-properties) to specify custom tab stops to
 be added or ignored.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="24">PChgTabsDel (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">PChgTabsAdd (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | PChgTabsDel (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| PChgTabsAdd (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** An unsigned integer that specifies the size of the
 operand in bytes, not including **cb**. This value MUST be greater than
@@ -22968,90 +8631,13 @@ to other page elements.
 The **PGPArray** structure is a collection of the
 [**PGPInfo**](#pgpinfo) entries in the document.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">cpgp</td>
-<td colspan="16">pgpInfoArray (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cpgp |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | pgpInfoArray (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cpgp (2 bytes):** The count of **PGPInfo** entries to read.
 
@@ -23063,99 +8649,16 @@ array contains **cpgp** elements.
 The **PGPInfo** structure describes the border and margin properties
 that can be applied to a contiguous range of paragraphs.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">ipgpSelf</td>
-</tr>
-<tr class="even">
-<td colspan="32">ipgpParent</td>
-</tr>
-<tr class="odd">
-<td colspan="32">itap</td>
-</tr>
-<tr class="even">
-<td colspan="16">grfElements</td>
-<td colspan="16">pgpOptions (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ipgpSelf |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ipgpParent |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| itap |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| grfElements |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | pgpOptions (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **ipgpSelf (4 bytes):** A unique 4-byte value that is used to identify
 this entry. This value MUST NOT be 0.
@@ -23193,131 +8696,24 @@ The **PGPOptions** structure is a variable-sized container of the
 values. The members that are present in the file are indicated by
 PGPInfo.**grfElements**.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">cbOption (optional)</td>
-<td colspan="16">dxaLeft (optional)</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">dxaRight (optional)</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">dyaBefore (optional)</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">dyaAfter (optional)</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">brcLeft (optional)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">brcRight (optional)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">brcTop (optional)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">brcBottom (optional)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">type (optional)</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cbOption (optional) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | dxaLeft (optional) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | dxaRight (optional) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | dyaBefore (optional) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | dyaAfter (optional) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | brcLeft (optional) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | brcRight (optional) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | brcTop (optional) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | brcBottom (optional) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | type (optional) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cbOption (2 bytes):** If **PGPInfo.grfElements** is nonzero, this is
 the byte size of the remaining **PGPOptions** data in the file.
@@ -23367,119 +8763,22 @@ HTML. If this value is not present or is 0, it is assumed that this
 The **PICF** structure specifies the type of a picture, as well as the
 size of the picture and information about its border.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">lcb</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbHeader</td>
-<td colspan="16">mfpf</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">innerHeader (14 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">picmid (38 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">cProps</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| lcb |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbHeader |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | mfpf |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | innerHeader (14 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| picmid (38 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cProps |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **lcb (4 bytes):** A signed integer that specifies the size, in bytes,
 of this **PICF** structure and the subsequent data.
@@ -23503,112 +8802,15 @@ the size and border information of the picture.
 The **PICF_Shape** structure specifies additional header information for
 pictures of type [**MM_SHAPE**](#mfpf) or **MM_SHAPEFILE**.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">grf</td>
-</tr>
-<tr class="even">
-<td colspan="32">padding1</td>
-</tr>
-<tr class="odd">
-<td colspan="16">mmPM</td>
-<td colspan="16">padding2</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| grf |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| padding1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| mmPM |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | padding2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **grf (4 bytes):** This field MUST be ignored.
 
@@ -23628,105 +8830,18 @@ range of text that is described by the [**Chpx**](#chpx) structure which
 contains the sprmCPicLocation value MUST contain the picture character
 (U+0001).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">picf (68 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="8">cchPicName (optional)</td>
-<td colspan="24">stPicName (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">picture (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| picf (68 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchPicName (optional) |  |  |  |  |  |  |  | stPicName (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| picture (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **picf (68 bytes):** A [**PICF**](#picf) structure that specifies the
 type of the picture, as well as the picture size and border information.
@@ -23751,139 +8866,21 @@ section 2.2.15, that specifies the image.
 The **PICMID** structure specifies the size and border information for a
 picture.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">dxaGoal</td>
-<td colspan="16">dyaGoal</td>
-</tr>
-<tr class="even">
-<td colspan="16">mx</td>
-<td colspan="16">my</td>
-</tr>
-<tr class="odd">
-<td colspan="16">dxaReserved1</td>
-<td colspan="16">dyaReserved1</td>
-</tr>
-<tr class="even">
-<td colspan="16">dxaReserved2</td>
-<td colspan="16">dyaReserved2</td>
-</tr>
-<tr class="odd">
-<td colspan="8">fReserved</td>
-<td colspan="8">bpp</td>
-<td colspan="16">brcTop80</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">brcLeft80</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">brcBottom80</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">brcRight80</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">dxaReserved3</td>
-</tr>
-<tr class="even">
-<td colspan="16">dyaReserved3</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| dxaGoal |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | dyaGoal |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| mx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | my |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| dxaReserved1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | dyaReserved1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| dxaReserved2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | dyaReserved2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fReserved |  |  |  |  |  |  |  | bpp |  |  |  |  |  |  |  | brcTop80 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | brcLeft80 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | brcBottom80 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | brcRight80 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | dxaReserved3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| dyaReserved3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **dxaGoal (2 bytes):** A signed integer that specifies the initial width
 of the picture, in
@@ -23962,89 +8959,13 @@ that represents the count of strings in the corresponding
 [**SttbfGlsy**](#sttbfglsy) incremented by 2. A **PlcfGlsy** MUST NOT
 contain duplicate CPs.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable):** An array of CP. Each CP is an offset into the [main
 document](#Section_f426d9a2004d418e8d8ce7fd88e7c48e). Each CP MUST be
@@ -24065,94 +8986,14 @@ commands**](#gt_390da589-0ab2-467d-a90e-69ca94f8c2f4) in a sequence of
 command-related customizations. For more information, see
 [**Tcg255**](#tcg255).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">ch</td>
-<td colspan="24">iMac</td>
-</tr>
-<tr class="even">
-<td colspan="8">...</td>
-<td colspan="24">rgacd (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ch |  |  |  |  |  |  |  | iMac |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  | rgacd (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **ch (1 byte):** An unsigned integer value that identifies this
 structure as **PlfAcd**. This value MUST be 2.
@@ -24173,92 +9014,14 @@ specifies the option set to use for a grammar checker that implements
 the [**NLCheck**](#gt_1a58e1ef-5801-4587-9a0f-d62a7544c806) interface.
 An option set specifies a value for each grammar option.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">iMac</td>
-</tr>
-<tr class="even">
-<td colspan="32">rgcosl (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| iMac |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rgcosl (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **iMac (4 bytes):** A signed integer that specifies the number of
 entries in **rgcosl**. This value MUST be greater than or equal to zero.
@@ -24273,92 +9036,14 @@ element specifies the option set to use for a grammar checker that
 implements the [**CGAPI**](#gt_28faddfb-e8ce-4bde-8e29-a85ce2dd5e49)
 interface. An option set specifies a value for each grammar option.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">iMac</td>
-</tr>
-<tr class="even">
-<td colspan="32">rggosl (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| iMac |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rggosl (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **iMac (4 bytes):** A signed integer that represents the count of
 entries in **rgcosl**. This value MUST be greater than or equal to zero.
@@ -24370,92 +9055,14 @@ entries in **rgcosl**. This value MUST be greater than or equal to zero.
 The **PlfguidUim** structure specifies an array of GUIDs which are
 referenced by the [**UIM**](#uim) structures of [**PlcfUim**](#plcfuim).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">iMac</td>
-</tr>
-<tr class="even">
-<td colspan="32">rgguidUim (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| iMac |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rgguidUim (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **iMac (4 bytes):** An unsigned integer that specifies the number of
 GUIDs in **rgguidUim**.
@@ -24471,94 +9078,14 @@ used in the sequence of structures that specify command-related
 customizations. For more information, see the [Tcg255](#tcg255)
 structure.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">ch</td>
-<td colspan="24">iMac</td>
-</tr>
-<tr class="even">
-<td colspan="8">...</td>
-<td colspan="24">rgkme (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ch |  |  |  |  |  |  |  | iMac |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  | rgkme (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **ch (1 byte):** An unsigned integer that identifies this structure as
 **PlfKme**. This value MUST be either 3 or 4. A value of 3 indicates
@@ -24578,98 +9105,16 @@ structures is specified by **iMac**.
 The **PlfLfo** structure contains the list format override data for the
 document.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">lfoMac</td>
-</tr>
-<tr class="even">
-<td colspan="32">rgLfo (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">rgLfoData (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| lfoMac |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rgLfo (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rgLfoData (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **lfoMac (4 bytes):** An unsigned integer that specifies the count of
 elements in both the **rgLfo** and **rgLfoData** arrays.
@@ -24686,90 +9131,13 @@ array is specified by **lfoMac**.
 The **PlfLst** structure contains the list formatting information for
 the document.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">cLst</td>
-<td colspan="16">rgLstf (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cLst |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | rgLstf (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cLst (2 bytes):** A signed integer that specifies the count of
 [LSTF](#lstf) structures that are contained in **rgLstf**.
@@ -24783,94 +9151,14 @@ The **PlfMcd** structure specifies macro commands. This structure is
 used in the sequence of structures that specify command-related
 customizations. For more information, see [Tcg255](#tcg255).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">ch</td>
-<td colspan="24">iMac</td>
-</tr>
-<tr class="even">
-<td colspan="8">...</td>
-<td colspan="24">rgmcd (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ch |  |  |  |  |  |  |  | iMac |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  | rgmcd (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **ch (1 byte):** An unsigned integer that identifies this structure as
 **PlfMcd**. This value MUST be 1.
@@ -24890,107 +9178,19 @@ The **PLRSID** structure is an array of revision-save identifiers
 [\[ECMA-376\]](https://go.microsoft.com/fwlink/?LinkId=200054) part 1,
 section 17.15.1.70.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">irsidMac</td>
-</tr>
-<tr class="even">
-<td colspan="32">cbRsidInFile</td>
-</tr>
-<tr class="odd">
-<td colspan="32">cbHeadExtraInFile</td>
-</tr>
-<tr class="even">
-<td colspan="32">reserved1</td>
-</tr>
-<tr class="odd">
-<td colspan="32">reserved2</td>
-</tr>
-<tr class="even">
-<td colspan="32">reserved3</td>
-</tr>
-<tr class="odd">
-<td colspan="32">rgrsid (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| irsidMac |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbRsidInFile |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbHeadExtraInFile |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rgrsid (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **irsidMac (4 bytes):** An unsigned integer value that specifies the
 count of RSIDs that are contained in **rgrsid**.
@@ -25015,96 +9215,13 @@ than "32". This value MUST be ignored.
 The **Pmfs** structure specifies the mail merge data source connection
 properties.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">ipfnpmf</td>
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td colspan="4">unused</td>
-<td colspan="16">tkField</td>
-</tr>
-<tr class="even">
-<td colspan="16">tkRec</td>
-<td colspan="16">fnpi</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ipfnpmf |  |  |  |  |  |  |  | A | B | C | D | unused |  |  |  | tkField |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| tkRec |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | fnpi |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **ipfnpmf (8 bits):** An unsigned integer value that specifies the type
 of data source for the mail merge. This MUST be one of the following
@@ -25198,119 +9315,22 @@ identical to this one is the file name of this data file for mail merge.
 The **Pms** data structure contains the print merge or mail merge state
 information.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">wpms</td>
-<td colspan="8">ipmfMF</td>
-<td colspan="8">ipmfFetch</td>
-</tr>
-<tr class="even">
-<td colspan="32">iRecCur</td>
-</tr>
-<tr class="odd">
-<td colspan="32">rgpmfs (16 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">rfs</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cblszSqlStr</td>
-<td colspan="16">lxszSqlStr (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">sttbfRfs (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">wpmsdt (optional)</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| wpms |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | ipmfMF |  |  |  |  |  |  |  | ipmfFetch |  |  |  |  |  |  |  |
+| iRecCur |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rgpmfs (16 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rfs |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cblszSqlStr |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | lxszSqlStr (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| sttbfRfs (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| wpmsdt (optional) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **wpms (2 bytes):** The mail merge state as a [**Wpms**](#wpms).
 
@@ -25359,87 +9379,12 @@ The **PnFkpChpx** structure specifies the location in the [WordDocument
 Stream](#Section_d7fae142670d4cd5869a708366984a71) of a
 [**ChpxFkp**](#chpxfkp) structure.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="22">pn</td>
-<td colspan="10">unused</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| pn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | unused |  |  |  |  |  |  |  |  |  |
+
+
 
 **pn (22 bits):** An unsigned integer value that specifies the offset in
 the WordDocument Stream of a **ChpxFkp** structure. The **ChpxFkp**
@@ -25452,87 +9397,12 @@ structure begins at an offset of **pn** \* 512.
 The **PnFkpPapx** structure specifies the offset of a PapxFkp in the
 [WordDocument Stream](#Section_d7fae142670d4cd5869a708366984a71).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="22">pn</td>
-<td colspan="10">unused</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| pn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | unused |  |  |  |  |  |  |  |  |  |
+
+
 
 **pn (22 bits):** An unsigned integer that specifies the offset in the
 WordDocument Stream of a [**PapxFkp**](#papxfkp) structure. The
@@ -25545,112 +9415,12 @@ WordDocument Stream of a [**PapxFkp**](#papxfkp) structure. The
 The **PositionCodeOperand** structure is an operand that specifies the
 location of an anchor point for an absolutely positioned table or frame.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="4">padding</td>
-<td colspan="2">A</td>
-<td colspan="2">B</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| padding |  |  |  | A |  | B |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **padding (4 bits):** This value MUST be 0 and MUST be ignored.
 
@@ -25682,90 +9452,13 @@ Note that all horizontal position measurements are made from the
 The **Prc** structure specifies a set of properties for document content
 that is referenced by a [**Pcd**](#pcd) structure.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">clxt</td>
-<td colspan="24">data (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| clxt |  |  |  |  |  |  |  | data (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **clxt (1 byte):** This value MUST be 0x01.
 
@@ -25777,90 +9470,13 @@ properties.
 The **PrcData** structure specifies an array of [**Prl**](#prl) elements
 and the size of the array.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">cbGrpprl</td>
-<td colspan="16">GrpPrl (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cbGrpprl |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | GrpPrl (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cbGrpprl (2 bytes):** A signed integer that specifies the size of
 **GrpPrl**, in bytes. This value MUST be less than or equal to 0x3FA2.
@@ -25875,107 +9491,19 @@ contains four null-terminated strings of ANSI characters that specify
 the printer name, the port, the driver, and the product name of the
 printer.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">szPrinter (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">szPrPort (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">szPrDriver (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">szTruePrnName (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| szPrinter (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| szPrPort (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| szPrDriver (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| szTruePrnName (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **szPrinter (variable):** A null-terminated string of ANSI characters
 that specifies the printer name that is used by the computer or the
@@ -26009,103 +9537,12 @@ A **Prm** structure is either a [**Prm0**](#prm0) structure or a
 [**Prm1**](#prm1) structure, depending on the value of the **fComplex**
 bit.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td colspan="15">data</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | data |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - fComplex (1 bit):** If **fComplex** is 1, this **Prm** is a
 **Prm1** structure. If **fComplex** is zero, this **Prm** is a **Prm0**
@@ -26122,104 +9559,12 @@ The **Prm0** structure is a [**Prm**](#prm) that has an **fComplex**
 value of zero. It specifies a single [**Sprm**](#sprm) and operand to
 apply to all document content that is referenced by a [**Pcd**](#pcd).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td colspan="7">isprm</td>
-<td colspan="8">val</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | isprm |  |  |  |  |  |  | val |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - fComplex (1 bit):** This value MUST be 0.
 
@@ -26292,103 +9637,12 @@ The **Prm1** structure is a [**Prm**](#prm) with an **fComplex** value
 of 1. It specifies properties for document content that is referenced by
 a [**Pcd**](#pcd).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td colspan="15">igrpprl</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | igrpprl |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - fComplex (1 bit):** This value MUST be 1.
 
@@ -26401,99 +9655,13 @@ less than the number of **Prc** elements in **Clx.RgPrc**.
 The **PropRMark** structure specifies information about a [**property
 revision mark**](#gt_4d5c1e95-df26-408b-a964-4a6cba5d2239).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">fPropRMark</td>
-<td colspan="16">ibstshort</td>
-<td colspan="8">dttm</td>
-</tr>
-<tr class="even">
-<td colspan="24">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fPropRMark |  |  |  |  |  |  |  | ibstshort |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | dttm |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **fPropRMark (1 byte):** An unsigned integer that specifies if there is
 a property revision. This value is 1 if there is a property revision;
@@ -26513,90 +9681,13 @@ The **PropRMarkOperand** structure is the operand to several
 [**Sprm**](#sprm) structures that specify the properties of [**property
 revision marks**](#gt_4d5c1e95-df26-408b-a964-4a6cba5d2239).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="24">proprmark</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | proprmark |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** An unsigned integer that specifies the size of this
 **PropRMarkOperand**, excluding the current byte. This value MUST be 7.
@@ -26624,91 +9715,13 @@ The **PRTI** structure contains information about a span of text that is
 delimited by a [**range-level protection
 bookmark**](#gt_de964a62-a534-4a1d-9d49-6cadafb096be) in the document.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">uidSel</td>
-<td colspan="16">iProt</td>
-</tr>
-<tr class="even">
-<td colspan="16">i</td>
-<td colspan="16">fUseMe</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| uidSel |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | iProt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| i |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | fUseMe |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **uidSel (2 bytes):** A [UidSel](#uidsel) that identifies the permitted
 editors for the text range that is associated with this PRTI.
@@ -26729,120 +9742,15 @@ associated with this PRTI. This MUST be iProtReadWrite.
 The **PTIstdInfoOperand** structure is the operand for
 [sprmPTIstdInfo](#paragraph-properties), and MUST be ignored.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="24">reserved (16 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="8">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | reserved (16 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** An unsigned integer value that specifies the size, in
 bytes, of this **PTIstdInfoOperand**, excluding the **cb** member. This
@@ -26857,95 +9765,15 @@ area in the document. Unless otherwise specified by the other structures
 that use this structure, the origin is at the top left of the page and
 the units are in [**twips**](#gt_4b82472c-103d-4eff-a07e-6a0f784e3382).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">left</td>
-</tr>
-<tr class="even">
-<td colspan="32">top</td>
-</tr>
-<tr class="odd">
-<td colspan="32">right</td>
-</tr>
-<tr class="even">
-<td colspan="32">bottom</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| left |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| top |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| right |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| bottom |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **left (4 bytes):** An integer that specifies the X coordinate of the
 top left corner of the rectangle.
@@ -26965,92 +9793,14 @@ The **RecipientBase** structure contains information about a mail merge
 recipient followed by a marker (**RecipientLast**) that specifies where
 the recipient information ends.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">recipient (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">RecipientLast</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| recipient (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| RecipientLast |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **recipient (variable):** An array of
 [RecipientDataItem](#recipientdataitem) containing data that describes a
@@ -27071,93 +9821,14 @@ a particular recipient are grouped together. The presence of a
 further data about this recipient. **RecipientDataItem** elements that
 follow a RecipientTerminator relate to subsequent recipients.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">RecipientDataId</td>
-<td colspan="16">cbRecipientData</td>
-</tr>
-<tr class="even">
-<td colspan="32">Data (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| RecipientDataId |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cbRecipientData |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **RecipientDataId (2 bytes):** An unsigned integer value that specifies
 the type of a **RecipientDataItem**. This value MUST be 0x0001, 0x0002,
@@ -27170,68 +9841,15 @@ size, in bytes, of the following **Data** element.
 **RecipientDataItem**. The meaning of the data depends on the preceding
 **RecipientDataId** and is described following.
 
-<table>
-<colgroup>
-<col style="width: 18%" />
-<col style="width: 81%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>RecipientDataId</th>
-<th>Data</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0x0001</td>
-<td>An unsigned integer that specifies the status (included or excluded)
-of a recipient record. This value MUST be 0 (excluded) or 1 (included).
-If not present, this value defaults to 1.</td>
-</tr>
-<tr class="even">
-<td>0x0002</td>
-<td>An unsigned integer that specifies the zero-based index of the data
-source column that uniquely identifies a recipient.</td>
-</tr>
-<tr class="odd">
-<td>0x0003</td>
-<td><p>An unsigned integer that specifies a hashed DWORD that uniquely
-identifies a <strong>recipient</strong> if there is no unique column in
-the data source. The hash value for a data source record is generated as
-follows:</p>
-<p>FUNCTION GetHash</p>
-<p>SET hashValue to 0x00000000</p>
-<p>FOR each column in the data source</p>
-<p>SET strColumn to the string value in the column</p>
-<p>SET hashValue to CALL AddStringToHash hashValue strColumn</p>
-<p>END FOR</p>
-<p>RETURN hashValue</p>
-<p>END FUNCTION</p>
-<p>FUNCTION AddStringToHash hashValue, unicodeString</p>
-<p>FOR each character in the unicodeString</p>
-<p>SET hashValue to CALL AddCharacterToHash hashValue character</p>
-<p>END FOR</p>
-<p>END FUNCTION</p>
-<p>FUNCTION AddCharacterToHash hashValue, unicodeCharacter</p>
-<p>SET tempCalc to 131 times hashValue plus unicodeCharacter</p>
-<p>IF tempCalc &gt;= 4294967291</p>
-<p>SET tempCalc to tempCalc minus 4294967291</p>
-<p>END IF</p>
-<p>RETURN tempCalc</p>
-<p>END FUNCTION</p>
-<p>If the data source is Microsoft Outlook, the last column in the data
-source SHOULD NOT<span id="Appendix_A_Target_232"
-class="anchor"></span><a href="#Appendix_A_232">&lt;232&gt;</a> be used
-in the preceding function <strong>GetHash</strong>.</p></td>
-</tr>
-<tr class="even">
-<td>0x0004</td>
-<td>A Unicode string that specifies the contents of the data source
-column that uniquely identifies a recipient. The string is not
-null-terminated.</td>
-</tr>
-</tbody>
-</table>
+
+| RecipientDataId | Data |
+| --- | --- |
+| 0x0001 | An unsigned integer that specifies the status (included or excluded) of a recipient record. This value MUST be 0 (excluded) or 1 (included). If not present, this value defaults to 1. |
+| 0x0002 | An unsigned integer that specifies the zero-based index of the data source column that uniquely identifies a recipient. |
+| 0x0003 | An unsigned integer that specifies a hashed DWORD that uniquely identifies a recipient if there is no unique column in the data source. The hash value for a data source record is generated as follows: / FUNCTION GetHash / SET hashValue to 0x00000000 / FOR each column in the data source / SET strColumn to the string value in the column / SET hashValue to CALL AddStringToHash hashValue strColumn / END FOR / RETURN hashValue / END FUNCTION / FUNCTION AddStringToHash hashValue, unicodeString / FOR each character in the unicodeString / SET hashValue to CALL AddCharacterToHash hashValue character / END FOR / END FUNCTION / FUNCTION AddCharacterToHash hashValue, unicodeCharacter / SET tempCalc to 131 times hashValue plus unicodeCharacter / IF tempCalc >= 4294967291 / SET tempCalc to tempCalc minus 4294967291 / END IF / RETURN tempCalc / END FUNCTION / If the data source is Microsoft Outlook, the last column in the data source SHOULD NOT <232> be used in the preceding function GetHash . |
+| 0x0004 | A Unicode string that specifies the contents of the data source column that uniquely identifies a recipient. The string is not null-terminated. |
+
+
 
 ### RecipientInfo
 
@@ -27240,103 +9858,17 @@ source are excluded from the mail merge. It also provides data to
 uniquely identify each recipient in case the data source was altered
 after the last read operation.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">countMarker</td>
-<td colspan="16">cbCount</td>
-</tr>
-<tr class="even">
-<td colspan="32">cRecipients</td>
-</tr>
-<tr class="odd">
-<td colspan="16">RecipientListSizeMarker</td>
-<td colspan="16">cbRecipientList</td>
-</tr>
-<tr class="even">
-<td colspan="32">cbRecipientListOverflow (optional)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Recipients (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| countMarker |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cbCount |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cRecipients |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| RecipientListSizeMarker |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cbRecipientList |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbRecipientListOverflow (optional) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Recipients (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **countMarker (2 bytes):** An unsigned integer that specifies that the
 count of recipients follows. This value MUST be 0.
@@ -27369,87 +9901,12 @@ The **RecipientTerminator** structure marks the end of the
 [RecipientDataItem](#recipientdataitem) elements that pertain to a
 recipient.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">RecipientDataId</td>
-<td colspan="16">cbRecipientData</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| RecipientDataId |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cbRecipientData |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **RecipientDataId (2 bytes):** An unsigned integer value that specifies
 there is no further data to read for the current recipient. This value
@@ -27462,94 +9919,12 @@ MUST be 0.
 The **Rfs** structure specifies record filtering and the other mail
 merge properties.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td colspan="2">B</td>
-<td>C</td>
-<td>D</td>
-<td>E</td>
-<td>F</td>
-<td>G</td>
-<td colspan="8">unused2</td>
-<td colspan="16">hsttbRfs</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | B |  | C | D | E | F | G | unused2 |  |  |  |  |  |  |  | hsttbRfs |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - fShowData (1 bit):** Specifies whether the data are shown in the
 merged fields. If this value is set to zero, only the merged field names
@@ -27595,95 +9970,15 @@ interface. The data for a grammar checker cookie is
 implementation-specific to the grammar checker that created the grammar
 checker cookie.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">cbTotal</td>
-</tr>
-<tr class="even">
-<td colspan="32">ccdb</td>
-</tr>
-<tr class="odd">
-<td colspan="32">rgdata (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cbTotal |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ccdb |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rgdata (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cbTotal (4 bytes):** An unsigned integer that specifies the size of
 this **RgCdb**, including **cbTotal**, in bytes.
@@ -27699,92 +9994,14 @@ by using the **icdb** field of [**FCKS**](#fcks).
 The **RgxOcxInfo** structure is an array of [**OcxInfo**](#ocxinfo)
 structures.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">cOcxInfo</td>
-</tr>
-<tr class="even">
-<td colspan="32">rgocxinfo (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cOcxInfo |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rgocxinfo (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cOcxInfo (4 bytes):** An unsigned integer that specifies the number of
 **OcxInfo** structures in **rgocxinfo**.
@@ -27796,119 +10013,23 @@ structures.
 The **RmdThreading** structure specifies data about e-mail messages and
 their authors.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">SttbMessage (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">SttbStyle (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">SttbAuthorAttrib (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">SttbAuthorValue (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">SttbMessageAttrib (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">SttbMessageValue (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| SttbMessage (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| SttbStyle (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| SttbAuthorAttrib (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| SttbAuthorValue (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| SttbMessageAttrib (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| SttbMessageValue (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **SttbMessage (variable):** An
 [**STTB**](#Section_4a491aedad454b41910b082c71d5ef14) where each string
@@ -27920,132 +10041,26 @@ e-mail message. The extra data that is appended to each string is an
 [**MDP**](#mdp) that specifies the message display properties. If a
 string is empty, the extra data that is appended to it MUST be ignored.
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbExtra (2 bytes)</td>
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>0</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">ExtraData<sub>0</sub> (8 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>1</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">ExtraData<sub>1</sub> (8 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">…</td>
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">Data<sub>cData-1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="32">ExtraData<sub>cData-1</sub> (8 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ExtraData 0 (8 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data 1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ExtraData 1 (8 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data cData-1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ExtraData cData-1 (8 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **SttbMessage** is an **STTB** with the following additional
 restrictions on its field values:
@@ -28060,114 +10075,20 @@ corresponding author in the parallel **SttbfRMark**. The string is empty
 if the corresponding author does not have a personal style. There is no
 extra data appended to the strings of this **STTB**.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbExtra (2 bytes)</td>
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>0</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>1</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">…</td>
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">Data<sub>cData-1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data 1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data cData-1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **SttbStyle** is an **STTB** with the following additional restrictions
 on its field values:
@@ -28185,137 +10106,22 @@ the corresponding value in the parallel **SttbAuthorValue** MUST be
 ignored. **SttbAuthorAttrib** SHOULD[\<233\>](#Appendix_A_233) be
 ignored.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbExtra (2 bytes)</td>
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>0</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">ExtraData<sub>0</sub> (2 bytes)</td>
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">Data<sub>1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="16">ExtraData<sub>1</sub> (2 bytes)</td>
-<td colspan="16">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>cData-1</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">ExtraData<sub>cData-1</sub> (2 bytes)</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ExtraData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ExtraData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data cData-1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ExtraData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **SttbAuthorAttrib** is an **STTB** with the following additional
 restrictions on its field values:
@@ -28331,114 +10137,20 @@ this **STTB**. **SttbAuthorValue**
 SHOULD<span id="Appendix_A_Target_234"
 class="anchor"></span>[\<234\>](#Appendix_A_234) be ignored.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbExtra (2 bytes)</td>
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>0</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>1</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">…</td>
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">Data<sub>cData-1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data 1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data cData-1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **SttbAuthorValue** is an STTB with the following additional
 restrictions on its field values:
@@ -28456,137 +10168,22 @@ the corresponding value in the parallel **SttbMessageValue** MUST be
 ignored. **SttbMessageAttrib** SHOULD<span id="Appendix_A_Target_235"
 class="anchor"></span>[\<235\>](#Appendix_A_235) be ignored.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbExtra (2 bytes)</td>
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>0</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">ExtraData<sub>0</sub> (2 bytes)</td>
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">Data<sub>1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="16">ExtraData<sub>1</sub> (2 bytes)</td>
-<td colspan="16">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>cData-1</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">ExtraData<sub>cData-1</sub> (2 bytes)</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ExtraData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ExtraData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data cData-1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ExtraData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **SttbMessageAttrib** is an **STTB** with the following additional
 restrictions on its field values:
@@ -28602,114 +10199,20 @@ of this **STTB**. **SttbMessageValue**
 SHOULD<span id="Appendix_A_Target_236"
 class="anchor"></span>[\<236\>](#Appendix_A_236) be ignored.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbExtra (2 bytes)</td>
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>0</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>1</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">…</td>
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">Data<sub>cData-1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data 1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data cData-1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **SttbMessageValue** is an **STTB** with the following additional
 restrictions on its field values:
@@ -28735,129 +10238,25 @@ specified as the following 8-bit unsigned integer values.
 The **RouteSlip** structure contains information about the routing slip
 of the document.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fRouted</td>
-<td colspan="16">fReturnOrig</td>
-</tr>
-<tr class="even">
-<td colspan="16">fTrackStatus</td>
-<td colspan="16">fDirty</td>
-</tr>
-<tr class="odd">
-<td colspan="16">nProtect</td>
-<td colspan="16">iStage</td>
-</tr>
-<tr class="even">
-<td colspan="16">delOption</td>
-<td colspan="16">cRecip</td>
-</tr>
-<tr class="odd">
-<td colspan="32">szSubject (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">szMessage (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">szStatus (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">szTitle (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">rgRouteSlips (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fRouted |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | fReturnOrig |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fTrackStatus |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | fDirty |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| nProtect |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | iStage |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| delOption |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cRecip |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| szSubject (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| szMessage (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| szStatus (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| szTitle (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rgRouteSlips (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **fRouted (2 bytes):** A 16-bit Boolean value that specifies whether the
 document was sent out for review.
@@ -28922,99 +10321,16 @@ routing slips.
 The **RouteSlipInfo** structure provides information about a single
 routing slip recipient.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">cbEntryID</td>
-<td colspan="16">cbszName</td>
-</tr>
-<tr class="even">
-<td colspan="32">rgbEntryId (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">szName (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cbEntryID |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cbszName |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rgbEntryId (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| szName (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cbEntryID (2 bytes):** A 16-bit signed integer that specifies the
 number of bytes in **rgbEntryId.**
@@ -29095,113 +10411,21 @@ The SDTI structure contains information about a [**structured document
 tag bookmark**](#gt_ad0003b6-75cc-4c4c-80fe-859dacbea6d7) in the
 document.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">dwId</td>
-</tr>
-<tr class="even">
-<td colspan="32">tiq</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">sdtt</td>
-</tr>
-<tr class="odd">
-<td colspan="32">cfsdap</td>
-</tr>
-<tr class="even">
-<td colspan="32">cbPlaceholder</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fsdaparray (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">xszPlaceholder (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| dwId |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| tiq |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| sdtt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cfsdap |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbPlaceholder |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fsdaparray (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| xszPlaceholder (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **dwId (4 bytes):** An unsigned integer that specifies a unique value
 which is used to reference the structured document tag bookmark
@@ -29256,95 +10480,12 @@ bookmark**](#gt_ad0003b6-75cc-4c4c-80fe-859dacbea6d7) in the document.
 The **SDxaColSpacingOperand** structure is the operand to
 [**Sprm**](#sprm) structures that control column size and spacing.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">iCol</td>
-<td colspan="16">dxaCol</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| iCol |  |  |  |  |  |  |  | dxaCol |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **iCol (1 byte):** An unsigned integer that specifies the zero-based
 index of the column that is being referenced by the **Sprm**. This value
@@ -29358,95 +10499,12 @@ specifies the space after the column that is specified by **iCol**.
 The **SDxaColWidthOperand** structure is the operand to
 [**Sprm**](#sprm) structures that control column size and spacing.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">iCol</td>
-<td colspan="16">dxaCol</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| iCol |  |  |  |  |  |  |  | dxaCol |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **iCol (1 byte):** An unsigned integer value that specifies the
 zero-based index of the column that is referenced by the **Sprm**. This
@@ -29461,94 +10519,14 @@ value MUST be at least 718.
 The **Sed** structure specifies the location of the
 [**section**](#gt_49a2b98a-d101-4889-9108-87f567e758cf) properties.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fn</td>
-<td colspan="16">fcSepx</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">fnMpr</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcMpr</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | fcSepx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | fnMpr |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcMpr |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **fn (2 bytes):** This value is undefined and MUST be ignored.
 
@@ -29565,130 +10543,20 @@ at which a [**Sepx**](#sepx) structure is located.
 The **Selsf** structure specifies the last selection that was made to
 the document.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td>E</td>
-<td>F</td>
-<td>G</td>
-<td>H</td>
-<td>I</td>
-<td>J</td>
-<td>K</td>
-<td>L</td>
-<td>M</td>
-<td>N</td>
-<td>O</td>
-<td>P</td>
-<td colspan="7">fForward</td>
-<td>Q</td>
-<td colspan="8">fInsEnd</td>
-</tr>
-<tr class="even">
-<td colspan="32">cpFirst</td>
-</tr>
-<tr class="odd">
-<td colspan="32">cpLim</td>
-</tr>
-<tr class="even">
-<td colspan="32">unused4</td>
-</tr>
-<tr class="odd">
-<td colspan="32">blktblSel</td>
-</tr>
-<tr class="even">
-<td colspan="32">cpAnchor</td>
-</tr>
-<tr class="odd">
-<td colspan="16">sty</td>
-<td colspan="16">unused5</td>
-</tr>
-<tr class="even">
-<td colspan="32">cpAnchorShrink</td>
-</tr>
-<tr class="odd">
-<td colspan="16">xaTableLeft</td>
-<td colspan="16">xaTableRight</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | fForward |  |  |  |  |  |  | Q | fInsEnd |  |  |  |  |  |  |  |
+| cpFirst |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cpLim |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| unused4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| blktblSel |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cpAnchor |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| sty |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | unused5 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cpAnchorShrink |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| xaTableLeft |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | xaTableRight |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - fRightward (1 bit):** A bit that specifies whether the selection
 was made from the [**physical
@@ -29831,90 +10699,13 @@ undefined and MUST be ignored.
 The **Sepx** structure specifies an array of [**Prl**](#prl) structures
 and the size of the array.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">cb</td>
-<td colspan="16">grpprl (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | grpprl (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (2 bytes):** A signed integer that specifies the size of
 **grpprl**, in bytes.
@@ -29969,108 +10760,14 @@ as the following Shd.
           style="width:1.25in;height:1.08333in" />                                 |
 | ipat   | ipatAuto                                                                |
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">cvFore</td>
-</tr>
-<tr class="even">
-<td colspan="32">cvBack</td>
-</tr>
-<tr class="odd">
-<td colspan="16">ipat</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cvFore |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cvBack |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ipat |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cvFore (4 bytes):** A [**COLORREF**](#colorref) that specifies the
 foreground color of **ipat**.
@@ -30095,104 +10792,12 @@ set to **Shd80Nil** and specifies that no shading is applied.
 | icoBack | 0x1F  |
 | ipat    | 0x3F  |
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="5">icoFore</td>
-<td colspan="5">icoBack</td>
-<td colspan="6">ipat</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| icoFore |  |  |  |  | icoBack |  |  |  |  | ipat |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **icoFore (5 bits):** An **Ico** that specifies the foreground color of
 **ipat**.
@@ -30209,101 +10814,14 @@ The **SHDOperand** structure is an operand that is used by several
 [**Sprm**](#sprm) structures to specify the background shading to be
 applied.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="24">shd</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="24">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | shd |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** An unsigned integer that specifies the size of this
 operand in bytes, not including **cb**. This value MUST be 10.
@@ -30332,95 +10850,15 @@ location of each smart tag is specified by the **fcPlcfBkfFactoid** and
 **lcbPlcfBkfFactoid** members of the
 [**FibRgFcLcb2002**](#fibrgfclcb2002).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">propBagStore (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">propBags (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| propBagStore (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| propBags (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **propBagStore (variable):** A **PropertyBagStore**, as specified in
 [\[MS-OSHARED\]](%5bMS-OSHARED%5d.pdf#Section_d93502fa5b8f4f47a3fe5574046f4b8d)
@@ -30436,89 +10874,13 @@ the **lcbFactoidData** member of FibRgFcLcb2002.
 The **SortColumnAndDirection** structure specifies the sort order and
 the column by which the list of mail merge recipients is sorted.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">iColumn</td>
-</tr>
-<tr class="even">
-<td colspan="32">iDirection</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| iColumn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| iDirection |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **iColumn (4 bytes):** An unsigned integer that specifies the zero-based
 index of the database column to which this filter applies. This value
@@ -30534,125 +10896,17 @@ zero (ascending) or 1 (descending).
 The **Spa** structure specifies information about the shapes and
 drawings that the document contains.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">lid</td>
-</tr>
-<tr class="even">
-<td colspan="32">rca (16 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td>A</td>
-<td colspan="2">bx</td>
-<td colspan="2">by</td>
-<td colspan="4">wr</td>
-<td colspan="4">wrk</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td colspan="16">cTxbx</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| lid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rca (16 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| A | bx |  | by |  | wr |  |  |  | wrk |  |  |  | B | C | D | cTxbx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **lid (4 bytes):** An integer that specifies the identifier of a shape
 that is contained in the **OfficeArtDggContainer** structure. This value
@@ -30731,102 +10985,12 @@ the state of the spell-checker over a range of text. Some states that
 are possible in a generic **SPLS** are not allowed in a **SpellingSpls**
 structure.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">spls</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| spls |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **spls (2 bytes):** An SPLS structure. The **spls.fExtend** and
 **spls.fTypo** fields are not used and MUST be zero. The **spls.splf**
@@ -30852,105 +11016,12 @@ The **SPgbPropOperand** structure is the operand to
 [**sprmSPgbProp**](#section-properties). It specifies the properties of
 a [**page border**](#gt_55699f4f-edc1-4c09-a61f-d7237a73c478).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="3">A</td>
-<td colspan="2">B</td>
-<td colspan="3">C</td>
-<td colspan="8">reserved</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A |  |  | B |  | C |  |  | reserved |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - pgbApplyTo (3 bits):** A value from the
 [**PgbApplyTo**](#pgbapplyto) enumeration that specifies to what pages
@@ -30974,202 +11045,30 @@ with regard to one of the language checking features such as the
 spell-checker, grammar-checker, language auto-detection, or [**smart tag
 recognizer**](#gt_31f2a874-4490-4c2c-9e2c-6267f373bf5c).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="4">splf</td>
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td colspan="9">unused</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| splf |  |  |  | A | B | C | unused |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **splf (4 bits):** This MUST be one of the following values.
 
-<table>
-<colgroup>
-<col style="width: 22%" />
-<col style="width: 9%" />
-<col style="width: 68%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Value</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>splfPending</td>
-<td>0x1</td>
-<td><p>Specifies that the text range is currently undergoing checking in
-another thread.</p>
-<p>Used only within the <a
-href="#plcffactoid"><strong>PlcfFactoid</strong></a> structure.</p>
-<p>On load, this is converted to <strong>splfDirty</strong>.</p></td>
-</tr>
-<tr class="even">
-<td>splfMaybeDirty</td>
-<td>0x2</td>
-<td>Specifies that the text range was edited, and could be re-scanned.
-Having text ranges in the document with this value does not, by itself,
-cause a new scan. This value MUST only be used in the <a
-href="#Section_8465bee76c7945a9812e58b0c5fd6cdc">header
-document</a>.</td>
-</tr>
-<tr class="odd">
-<td>splfDirty</td>
-<td>0x3</td>
-<td>Specifies that the text range was created or changed since the last
-scan, and that a new scan is needed to evaluate it. Additionally, the <a
-href="#plcfgram"><strong>PlcfGram</strong></a> structure SHOULD<span
-id="Appendix_A_Target_238" class="anchor"></span>&lt;238&gt; use this
-value for all grammatical errors, in which case <strong>fError</strong>
-is set to 1.</td>
-</tr>
-<tr class="even">
-<td>splfEdit</td>
-<td>0x4</td>
-<td>Specifies that the text range has been created or changed, and that
-the user is still editing in the vicinity. A scan is not needed for this
-text range until the user can be assumed to be finished making the
-edits.</td>
-</tr>
-<tr class="odd">
-<td>splfForeign</td>
-<td>0x5</td>
-<td><p>Specifies that the text range is a foreign language or
-phrase.</p>
-<p>When used by the language auto-detection, the language was explicitly
-set and no auto-detection is necessary.</p>
-<p>When used by the spell-checker or grammar-checker, the text range is
-not subject to further checking.</p></td>
-</tr>
-<tr class="even">
-<td>splfClean</td>
-<td>0x7</td>
-<td>Specifies that the text range was checked and contains no errors or
-other special states.</td>
-</tr>
-<tr class="odd">
-<td>splfNoLAD</td>
-<td>0x8</td>
-<td><p>Specifies that the text range is to be skipped by language
-auto-detection.</p>
-<p>Used only within <a
-href="#plcflad"><strong>Plcflad</strong></a>.</p></td>
-</tr>
-<tr class="even">
-<td>splfErrorMin</td>
-<td>0xA</td>
-<td>Specifies that the text range contains an error.</td>
-</tr>
-<tr class="odd">
-<td>splfRepeatWord</td>
-<td>0xB</td>
-<td>Specifies that the text range contains a word or phrase that
-duplicates a preceding word or phrase. It is an error.</td>
-</tr>
-<tr class="even">
-<td>splfUnknownWord</td>
-<td>0xC</td>
-<td>Specifies that the text range contains a word that is unknown to the
-language checker. It is an error.</td>
-</tr>
-</tbody>
-</table>
+
+| Name | Value | Meaning |
+| --- | --- | --- |
+| splfPending | 0x1 | Specifies that the text range is currently undergoing checking in another thread. / Used only within the PlcfFactoid structure. / On load, this is converted to splfDirty . |
+| splfMaybeDirty | 0x2 | Specifies that the text range was edited, and could be re-scanned. Having text ranges in the document with this value does not, by itself, cause a new scan. This value MUST only be used in the header document . |
+| splfDirty | 0x3 | Specifies that the text range was created or changed since the last scan, and that a new scan is needed to evaluate it. Additionally, the PlcfGram structure SHOULD <238> use this value for all grammatical errors, in which case fError is set to 1. |
+| splfEdit | 0x4 | Specifies that the text range has been created or changed, and that the user is still editing in the vicinity. A scan is not needed for this text range until the user can be assumed to be finished making the edits. |
+| splfForeign | 0x5 | Specifies that the text range is a foreign language or phrase. / When used by the language auto-detection, the language was explicitly set and no auto-detection is necessary. / When used by the spell-checker or grammar-checker, the text range is not subject to further checking. |
+| splfClean | 0x7 | Specifies that the text range was checked and contains no errors or other special states. |
+| splfNoLAD | 0x8 | Specifies that the text range is to be skipped by language auto-detection. / Used only within Plcflad . |
+| splfErrorMin | 0xA | Specifies that the text range contains an error. |
+| splfRepeatWord | 0xB | Specifies that the text range contains a word or phrase that duplicates a preceding word or phrase. It is an error. |
+| splfUnknownWord | 0xC | Specifies that the text range contains a word that is unknown to the language checker. It is an error. |
+
+
 
 **A - fError (1 bit):** The range is an error. This bit MUST be set when
 the **splf** value is **splfErrorMin**, **splfRepeatWord**, or
@@ -31194,95 +11093,14 @@ affected only if it is within the **istdFirst** and **istdLast** bounds
 (inclusive). If the **istd** is affected, the new **istd** is
 **rgIstdPermute**\[istd – **istdFirst**\].
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="8">fLong</td>
-<td colspan="16">istdFirst</td>
-</tr>
-<tr class="even">
-<td colspan="16">istdLast</td>
-<td colspan="16">rgIstdPermute (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | fLong |  |  |  |  |  |  |  | istdFirst |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| istdLast |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | rgIstdPermute (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** An unsigned 8-bit integer that specifies the size, in
 bytes, of this **SPPOperand** structure, excluding the **cb** member.
@@ -31304,101 +11122,17 @@ MUST be equal to **istdLast** – **istdFirst** + 1.
 
 The **STD** structure specifies a style definition.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">stdf (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">xstzName (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">grLPUpxSw (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| stdf (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| xstzName (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| grLPUpxSw (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **stdf (variable):** An [**Stdf**](#stdf) that specifies basic
 information about the style.
@@ -31423,115 +11157,16 @@ specifies the formatting for the style.
 
 The **Stdf** structure specifies general information about the style.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">stdfBase</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">StdfPost2000OrNone (optional)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| stdfBase |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | StdfPost2000OrNone (optional) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **stdfBase (10 bytes):** An [**StdfBase**](#stdfbase) structure that
 specifies general information about the style.
@@ -31544,116 +11179,14 @@ information about the style.
 
 The **StdfBase** structure specifies general information about a style.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="12">sti</td>
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td colspan="4">stk</td>
-<td colspan="12">istdBase</td>
-</tr>
-<tr class="even">
-<td colspan="4">cupx</td>
-<td colspan="12">istdNext</td>
-<td colspan="16">bchUpe</td>
-</tr>
-<tr class="odd">
-<td colspan="16">grfstd</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| sti |  |  |  |  |  |  |  |  |  |  |  | A | B | C | D | stk |  |  |  | istdBase |  |  |  |  |  |  |  |  |  |  |  |
+| cupx |  |  |  | istdNext |  |  |  |  |  |  |  |  |  |  |  | bchUpe |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| grfstd |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **sti (12 bits):** An unsigned integer that specifies the invariant
 style identifier for application-defined styles, or 0x0FFE for
@@ -31750,95 +11283,13 @@ miscellaneous style properties.
 The **StdfPost2000** structure specifies general information about a
 style.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="12">istdLink</td>
-<td>A</td>
-<td colspan="3">B</td>
-<td colspan="16">rsid</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="3">C</td>
-<td>D</td>
-<td colspan="12">iPriority</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| istdLink |  |  |  |  |  |  |  |  |  |  |  | A | B |  |  | rsid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | C |  |  | D | iPriority |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **istdLink (12 bits):** An unsigned integer that specifies the
 [**istd**](#stsh) of the style that is linked to this one, or 0x0000 if
@@ -31880,89 +11331,13 @@ This MUST be a value between 0x0000 and 0x0063, inclusive.
 The **StdfPost2000OrNone** structure specifies general information about
 a style.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">StdfPost2000</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| StdfPost2000 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **StdfPost2000 (8 bytes):** An [**StdfPost2000**](#stdfpost2000)
 structure that specifies general information about the style. This field
@@ -31978,95 +11353,15 @@ following table. Additionally, the number of members that are present
 MUST match the **cupx** member of [**StdfBase**](#stdfbase) for the
 style.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">lpUpxChpx (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">StkCharLpUpxGrLpUpxRM (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| lpUpxChpx (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| StkCharLpUpxGrLpUpxRM (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **lpUpxChpx (variable):** A [**LPUpxChpx**](#lpupxchpx) that specifies
 the character formatting properties for the style.
@@ -32082,90 +11377,13 @@ information and formatting for character styles. The structure is padded
 to be an even length. The length in **cbStkCharUpxGrLpUpxRM** MUST
 include this padding.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">cbStkCharUpxGrLpUpxRM</td>
-<td colspan="16">StkCharUpxGrLpUpxRM (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cbStkCharUpxGrLpUpxRM |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | StkCharUpxGrLpUpxRM (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cbStkCharUpxGrLpUpxRM (2 bytes):** An unsigned 16-bit integer that
 specifies the size, in bytes, of **StkCharUpxGrLpUpxRM**. This field
@@ -32181,95 +11399,15 @@ revision-marking information and formatting.
 The **StkCharUpxGrLPUpxRM** structure specifies revision-marking
 information and formatting for character styles.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">lpUpxRm</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lpUpxChpxRM (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| lpUpxRm |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lpUpxChpxRM (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **lpUpxRm (8 bytes):** An [**LPUpxRm**](#lpupxrm) structure that
 specifies the revision-marking information for the style.
@@ -32290,89 +11428,13 @@ following table. Additionally, the number of members that are present
 MUST match the **cupx** member of [**StdfBase**](#stdfbase) for the
 style.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">lpUpxPapx (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| lpUpxPapx (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **lpUpxPapx (variable):** An [**LPUpxPapx**](#lpupxpapx) that specifies
 the paragraph formatting properties for the style.
@@ -32386,101 +11448,17 @@ specified in the following table. Additionally, the number of members
 that are present MUST match the **cupx** member of
 [**StdfBase**](#stdfbase) for the style.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">lpUpxPapx (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lpUpxChpx (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">StkParaLpUpxGrLpUpxRM (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| lpUpxPapx (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lpUpxChpx (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| StkParaLpUpxGrLpUpxRM (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **lpUpxPapx (variable):** A [**LPUpxPapx**](#lpupxpapx) that specifies
 the paragraph formatting properties for the style.
@@ -32500,90 +11478,13 @@ length-prefixed and of variable length.
 
 The structure is padded to be an even length.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">cbStkParaUpxGrLpUpxRM</td>
-<td colspan="16">StkParaUpxGrLpUpxRM (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cbStkParaUpxGrLpUpxRM |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | StkParaUpxGrLpUpxRM (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cbStkParaUpxGrLpUpxRM (2 bytes):** An unsigned 16-bit integer that
 specifies the size, in bytes, of **StkParaUpxGrLpUpxRM**, including the
@@ -32598,101 +11499,17 @@ revision-marking information and formatting.
 The **StkParaUpxGrLPUpxRM** structure specifies style revision-marking
 and formatting for paragraph styles.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">lpUpxRm</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lpUpxPapxRM (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lpUpxChpxRM (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| lpUpxRm |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lpUpxPapxRM (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lpUpxChpxRM (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **lpUpxRm (8 bytes):** An [**LPUpxRm**](#lpupxrm) structure that
 specifies the revision-marking information for the style.
@@ -32714,101 +11531,17 @@ MUST appear in the order that is specified in the following table.
 Additionally, the number of members that are present MUST match the
 **cupx** member of [StdfBase](#stdfbase) for the style.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">lpUpxTapx (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lpUpxPapx (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lpUpxChpx (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| lpUpxTapx (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lpUpxPapx (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lpUpxChpx (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **lpUpxTapx (variable):** An [**LPUpxTapx**](#lpupxtapx) that specifies
 the table formatting properties for the style.
@@ -32835,95 +11568,15 @@ greater than or equal to 0x0000 and less than 0x0FFE.
 
 Each [**FIB**](#fib) MUST contain a stylesheet.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">lpstshi (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">rglpstd (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| lpstshi (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rglpstd (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **lpstshi (variable):** An [LPStshi](#lpstshi) that specifies
 information about the stylesheet.
@@ -32966,108 +11619,19 @@ from istd 13 to 14 MUST be empty.
 The **STSHI** structure specifies general stylesheet and related
 information.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">stshif (18 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">ftcBi (optional)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">StshiLsd (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">StshiB (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| stshif (18 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | ftcBi (optional) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| StshiLsd (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| StshiB (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **stshif (18 bytes):** An [**Stshif**](#stshif) that specifies general
 stylesheet information.
@@ -33086,95 +11650,15 @@ latent style data.
 
 The **STSHIB** structure has no effect and MUST be ignored.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">grpprlChpStandard (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">grpprlPapStandard (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| grpprlChpStandard (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| grpprlPapStandard (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **grpprlChpStandard (variable):** An [**LPStshiGrpPrl**](#lpstshigrpprl)
 that MUST be ignored.
@@ -33186,119 +11670,16 @@ ignored.
 
 The **Stshif** structure specifies general stylesheet information.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">cstd</td>
-<td colspan="16">cbSTDBaseInFile</td>
-</tr>
-<tr class="even">
-<td>A</td>
-<td colspan="15">fReserved</td>
-<td colspan="16">stiMaxWhenSaved</td>
-</tr>
-<tr class="odd">
-<td colspan="16">istdMaxFixedWhenSaved</td>
-<td colspan="16">nVerBuiltInNamesWhenSaved</td>
-</tr>
-<tr class="even">
-<td colspan="16">ftcAsci</td>
-<td colspan="16">ftcFE</td>
-</tr>
-<tr class="odd">
-<td colspan="16">ftcOther</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cstd |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cbSTDBaseInFile |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| A | fReserved |  |  |  |  |  |  |  |  |  |  |  |  |  |  | stiMaxWhenSaved |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| istdMaxFixedWhenSaved |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | nVerBuiltInNamesWhenSaved |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ftcAsci |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | ftcFE |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ftcOther |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cstd (2 bytes):** An unsigned integer that specifies the count of
 elements in **[STSH](#stsh).rglpstd**. This value MUST be equal to or
@@ -33367,90 +11748,13 @@ than **stiMaxWhenSaved** (in the [**Stshif**](#stshif) structure),
 regardless of whether those application-defined styles are currently
 latent or not.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">cbLSD</td>
-<td colspan="16">mpstiilsd (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cbLSD |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | mpstiilsd (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cbLSD (2 bytes):** An unsigned 16-bit integer that specifies the size
 in bytes of the **LSD** structure. This value MUST be 4.
@@ -33466,114 +11770,20 @@ The **SttbfAssoc** structure is an
 [**STTB**](#Section_4a491aedad454b41910b082c71d5ef14) that contains
 strings which are associated with this document.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbExtra (2 bytes)</td>
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>0</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>1</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">…</td>
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">Data<sub>cData-1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data 1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data cData-1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 This **STTB** MUST contain 18 strings. No extra data is appended to the
 strings of this **STTB**. Unless otherwise noted, each string in this
@@ -33623,121 +11833,22 @@ bookmark**](#gt_0a40ee6b-0144-44fd-b4de-d3f1aa29d008) in the document.
 In a document, the number of annotation bookmarks MUST NOT exceed
 0x3FFB.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbExtra (2 bytes)</td>
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">ExtraData<sub>0</sub> (10 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">ExtraData<sub>1</sub> (10 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">...</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-<td colspan="16">ExtraData<sub>cData-1</sub> (10 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ExtraData 0 (10 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ExtraData 1 (10 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | ExtraData cData-1 (10 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 The **SttbfAtnBkmk** structure is an **STTB** structure that has the
 following additional restrictions on its field values:
@@ -33765,137 +11876,22 @@ integer that specifies a zero-based index into
 [**caption**](#gt_81d81412-1575-4084-ba61-742de406b418) that is
 inserted.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbExtra (2 bytes)</td>
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>0</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">ExtraData<sub>0</sub> (2 bytes)</td>
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">Data<sub>1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="16">ExtraData<sub>1</sub> (2 bytes)</td>
-<td colspan="16">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>cData-1</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">ExtraData<sub>cData-1</sub> (2 bytes)</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ExtraData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ExtraData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data cData-1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ExtraData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 The **SttbfAutoCaption** structure is an **STTB** structure that has
 following additional restrictions on its field values:
@@ -33920,114 +11916,20 @@ greater than 0 and less than 40 characters in length. The strings in
 this table MUST be unique, and there MUST NOT be more than 0x3FFB of
 them.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbExtra (2 bytes)</td>
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>0</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>1</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">…</td>
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">Data<sub>cData-1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data 1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data cData-1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 The **SttbfBkmk** structure is an **STTB** structure with the following
 additional restrictions on its field values:
@@ -34287,114 +12189,20 @@ equivalent to an [SttbfBkmk](#sttbfbkmk). The strings of this table are
 not null-terminated. In a document, the number of repair bookmarks MUST
 NOT exceed 0x7FF0.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbExtra (2 bytes)</td>
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>0</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>1</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">…</td>
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">Data<sub>cData-1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data 1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data cData-1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 The **SttbfBkmkBPRepairs** structure is an **STTB** structure with the
 following additional restrictions on its field values:
@@ -34417,143 +12225,24 @@ an extended **STTB**, meaning that its **cchData** field size is 2
 bytes. There is no extra data appended to the strings of this **STTB**.
 In a document, the number of smart tag bookmarks MUST NOT exceed 0x7FF0.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbExtra (2 bytes)</td>
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>0</sub> (12 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>1</sub> (12 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">…</td>
-<td colspan="16">…</td>
-</tr>
-<tr class="even">
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>cData-1</sub> (12 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">…</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 0 (12 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data 1 (12 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data cData-1 (12 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 The **SttbfBkmkFactoid** structure is an STTB structure that has the
 following additional restrictions on its field values:
@@ -34579,161 +12268,30 @@ bytes. There is no extra data appended to the strings of this **STTB**.
 In a document, the number of format consistency-checker bookmark
 elements MUST NOT exceed 0x7FF0.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbExtra (2 bytes)</td>
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>0</sub> (20 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>1</sub> (20 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">…</td>
-<td colspan="16">…</td>
-</tr>
-<tr class="even">
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>cData-1</sub> (20 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">…</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 0 (20 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data 1 (20 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data cData-1 (20 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 The **SttbfBkmkFcc** structure is an **STTB** structure that has the
 following additional restrictions on its field values:
@@ -34759,118 +12317,21 @@ bookmarks**](#gt_de964a62-a534-4a1d-9d49-6cadafb096be) in the document.
 In a document, the number of range-level protection bookmarks MUST NOT
 exceed 0x00007FF0.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (4 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">…</td>
-<td colspan="16">cbExtra (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-<td colspan="16">ExtraData<sub>0</sub> (8 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">…</td>
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">ExtraData<sub>1</sub> (8 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="16">…</td>
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">ExtraData<sub>cData-1</sub> (8 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (4 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | ExtraData 0 (8 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ExtraData 1 (8 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ExtraData cData-1 (8 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 The **SttbfBkmkProt** structure is an STTB structure that has the
 following additional restrictions on its field values:
@@ -34898,115 +12359,20 @@ bytes. There is no extra data appended to the strings of this **STTB**.
 In a document, the number of structured document tag bookmarks MUST NOT
 exceed 0x7FFFFFFF.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (4 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">…</td>
-<td colspan="16">cbExtra (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>0</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>1</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">…</td>
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">Data<sub>cData-1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (4 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data 1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data cData-1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 The **SttbfBkmkSdt** structure is an **STTB** structure that has the
 following additional constraints on its field values:
@@ -35034,146 +12400,25 @@ have less than or equal to 40 characters. The extra data appended to
 each string is a [**CAPI**](#capi) structure that specifies addition
 information about the caption.
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbExtra (2 bytes)</td>
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>0</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Extra<sub>0</sub> (6 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">…</td>
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>1</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Extra<sub>1</sub> (6 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">…</td>
-<td colspan="16">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>cData-1</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Extra <sub>cData-1</sub> (6 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">…</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Extra 0 (6 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Extra 1 (6 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data cData-1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Extra cData-1 (6 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 The **SttbfCaption** structure is an **STTB** structure that has the
 following additional restrictions on its field values:
@@ -35197,112 +12442,19 @@ MAY<span id="Appendix_A_Target_244"
 class="anchor"></span>[\<244\>](#Appendix_A_244) contain fonts that are
 not referenced in the document.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 0%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 2%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th colspan="2">8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="17">cData (2 bytes)</td>
-<td colspan="16">cbExtra (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="9">cchData<sub>0</sub> (1 byte)</td>
-<td colspan="24">Data<sub>0</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="33">…</td>
-</tr>
-<tr class="even">
-<td colspan="8">cchData<sub>1</sub> (1 byte)</td>
-<td colspan="25">Data<sub>1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="33">…</td>
-</tr>
-<tr class="even">
-<td colspan="25">…</td>
-<td colspan="8">cchData<sub>cData-1</sub> (1 byte)</td>
-</tr>
-<tr class="odd">
-<td colspan="33">Data<sub>cData-1</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="33">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | Column 10 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 0 (1 byte) |  |  |  |  |  |  |  |  | Data 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 1 (1 byte) |  |  |  |  |  |  |  | Data 1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData cData-1 (1 byte) |  |  |  |  |  |  |  |
+| Data cData-1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 The **SttbfFfn** structure is a non-extended character **STTB** that has
 the following additional restrictions on its field values:
@@ -35326,123 +12478,23 @@ each string of this STTB is a [LEGOXTR_V11](#legoxtr_v11), which
 specifies additional data about the item with which the string is
 associated.
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbExtra (2 bytes)</td>
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>0</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Extra<sub>0</sub> (4 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="32">Extra<sub>1</sub> (4 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="16">…</td>
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">Data<sub>cData-1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="32">Extra <sub>cData-1</sub> (4 bytes)</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Extra 0 (4 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data 1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Extra 1 (4 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data cData-1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Extra cData-1 (4 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 The **SttbfGlsy** structure is an **STTB** with the following additional
 restrictions on its field values:
@@ -35468,132 +12520,26 @@ share the same **fnpi.fnpt**. Because **fnpi** is unique for all
 structures can be used by other structures to reference the file names
 in this **STTB** structure.
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbExtra (2 bytes)</td>
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>0</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Extra<sub>0</sub> (8 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>1</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Extra<sub>1</sub> (8 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">…</td>
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">Data<sub>cData-1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="32">Extra <sub>cData-1</sub> (8 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Extra 0 (8 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data 1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Extra 1 (8 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data cData-1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Extra cData-1 (8 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 The **SttbFnm** structure is an **STTB** with the following additional
 restrictions on its field values:
@@ -35612,125 +12558,23 @@ class="anchor"></span>[\<245\>](#Appendix_A_245) contain 5 strings, and
 MUST contain at least 4 strings, as shown in the following table. There
 is no extra data appended to the strings of this **STTB**.
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbExtra (2 bytes)</td>
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>0</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>1</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>2</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>2</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>3</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>3</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>4</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>4</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data 1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 2 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data 2 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 3 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data 3 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 4 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data 4 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 The **SttbfRfs** structure is an **STTB** structure that has the
 following additional restrictions on its field values:
@@ -35778,132 +12622,26 @@ comments, and e-mail messages in the document. There is no extra data
 appended to the strings of this **STTB**. The first entry MUST be
 "Unknown".
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 7%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 7%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbExtra (2 bytes)</td>
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>0</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>1</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>cData-1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data 1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data cData-1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 The **SttbfRMark** structure is an **STTB** with the following
 additional restrictions on its field values:
@@ -35926,143 +12664,21 @@ that is appended to each string in this **STTB** is an unsigned 8-bit
 integer that specifies how many items use the style indicated by the
 string and that MUST be less than or equal to 0x32.
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 5%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 7%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 2%" />
-<col style="width: 5%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbExtra (2 bytes)</td>
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>0</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="8">Extra<sub>0</sub> (1 byte)</td>
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-<td colspan="8">Data<sub>1</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="8">Extra<sub>1</sub> (1 byte)</td>
-<td colspan="24">…</td>
-</tr>
-<tr class="even">
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>cData-1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="8">Extra <sub>cData-1</sub> (1 byte)</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Extra 0 (1 byte) |  |  |  |  |  |  |  | cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data 1 (variable) |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Extra 1 (1 byte) |  |  |  |  |  |  |  | … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data cData-1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Extra cData-1 (1 byte) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 The **SttbGlsyStyle** structure is an **STTB** with the following
 additional restrictions on its field values:
@@ -36087,114 +12703,20 @@ string. All non-empty strings in this **STTB** structure MUST be unique.
 Each string in this **STTB** structure MUST contain no more than 255
 characters.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbExtra (2 bytes)</td>
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>0</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>1</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">…</td>
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">Data<sub>cData-1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data 1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data cData-1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 The **SttbListNames** structure is an **STTB** structure that has the
 following additional restrictions on its field values:
@@ -36212,137 +12734,22 @@ The **SttbProtUser** structure is an
 the strings specify the usernames of users who have different roles with
 respect to a protected range of content in the document.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbExtra (2 bytes)</td>
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>0</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">ExtraData<sub>0</sub> (2 bytes)</td>
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">Data<sub>1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="16">ExtraData<sub>1</sub> (2 bytes)</td>
-<td colspan="16">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>cData-1</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">ExtraData<sub>cData-1</sub> (2 bytes)</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ExtraData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ExtraData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data cData-1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ExtraData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 Each string is either the name of a mapped Windows user or group account
 that MUST be in the form "DOMAIN\NAME" or a valid e-mail address as
@@ -36391,117 +12798,21 @@ following table can be zero.
 
 There is no extra data appended to the strings of this **STTB**.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbExtra (2 bytes)</td>
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>0</sub> (0 or 36 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>1</sub> (0 or 36 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="16">…</td>
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>cData-1</sub> (0 or 36 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 0 (0 or 36 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data 1 (0 or 36 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data cData-1 (0 or 36 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 The **SttbRgtplc** structure is an **STTB** with the following
 additional restrictions on its field values:
@@ -36530,114 +12841,20 @@ MUST have an even number of strings, and MUST have less than or equal to
 20 strings. There is no extra data appended to the strings of this
 **STTB**.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbExtra (2 bytes)</td>
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>0</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>1</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">…</td>
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">Data<sub>cData-1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data 1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data cData-1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 The **SttbSavedBy** structure is an **STTB** structure that has the
 following additional restrictions on its field values:
@@ -36655,96 +12872,15 @@ The **SttbTtmbd** structure contains the list of [**TrueType
 font**](#gt_f2f46046-d233-4083-8a96-1b72a89f9583)s that are embedded in
 the document.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">sttb</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">rgTTMBD (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| sttb |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | rgTTMBD (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **sttb (10 bytes):** An [**SttbW6**](#sttbw6) structure that specifies
 the number of TrueType fonts that are embedded in the document.
@@ -36758,110 +12894,14 @@ The **SttbW6** structure specifies the count of [**TrueType
 font**](#gt_f2f46046-d233-4083-8a96-1b72a89f9583)s that are embedded in
 the document.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">unused1</td>
-<td colspan="16">ibstMac</td>
-</tr>
-<tr class="even">
-<td colspan="16">ibstMax</td>
-<td colspan="16">unused2</td>
-</tr>
-<tr class="odd">
-<td colspan="16">brgbst</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| unused1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | ibstMac |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ibstMax |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | unused2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| brgbst |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **unused1 (2 bytes):** This value MUST be 0 and MUST be ignored.
 
@@ -36887,95 +12927,15 @@ class="anchor"></span>[\<247\>](#Appendix_A_247) be 10 (the size of the
 The **StwUser** structure specifies the names and values of the
 user-defined variables that are stored in the document.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">SttbNames (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">rgxchNames (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| SttbNames (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rgxchNames (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **SttbNames (variable):** An extended-character
 [**STTB**](#Section_4a491aedad454b41910b082c71d5ef14) that specifies the
@@ -36991,123 +12951,23 @@ name **"SigAgile"** or **“SigV3”,** if either exist,
 SHOULD[\<249\>](#Appendix_A_249) specify the VBA digital signature
 variable.
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbExtra (2 bytes)</td>
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>0</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Extra<sub>0</sub> (4 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="32">Extra<sub>1</sub> (4 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="16">…</td>
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">Data<sub>cData-1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="32">Extra <sub>cData-1</sub> (4 bytes)</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Extra 0 (4 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data 1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Extra 1 (4 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data cData-1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Extra cData-1 (4 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 The **SttbNames** structure is an **STTB** structure that has the
 following additional restrictions on its field values:
@@ -37196,152 +13056,24 @@ values.
 The **TableBordersOperand** structure specifies a set of borders for a
 table row.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="24">brcTop</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="8">...</td>
-<td colspan="24">brcLeft</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="8">...</td>
-<td colspan="24">brcBottom</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="8">...</td>
-<td colspan="24">brcRight</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="8">...</td>
-<td colspan="24">brcHorizontalInside</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="8">...</td>
-<td colspan="24">brcVerticalInside</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="8">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | brcTop |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  | brcLeft |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  | brcBottom |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  | brcRight |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  | brcHorizontalInside |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  | brcVerticalInside |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** An unsigned integer that specifies the size, in bytes,
 of this **TableBordersOperand** structure, not including this byte. This
@@ -37372,134 +13104,18 @@ vertical border between the cells in the row.
 The **TableBordersOperand80** structure is an operand that specifies the
 borders which are applied to a row of table cells.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="24">brcTop</td>
-</tr>
-<tr class="even">
-<td colspan="8">...</td>
-<td colspan="24">brcLeft</td>
-</tr>
-<tr class="odd">
-<td colspan="8">...</td>
-<td colspan="24">brcBottom</td>
-</tr>
-<tr class="even">
-<td colspan="8">...</td>
-<td colspan="24">brcRight</td>
-</tr>
-<tr class="odd">
-<td colspan="8">...</td>
-<td colspan="24">brcHorizontalInside</td>
-</tr>
-<tr class="even">
-<td colspan="8">...</td>
-<td colspan="24">brcVerticalInside</td>
-</tr>
-<tr class="odd">
-<td colspan="8">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | brcTop |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  | brcLeft |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  | brcBottom |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  | brcRight |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  | brcHorizontalInside |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  | brcVerticalInside |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** An unsigned integer that specifies the size of this
 operand, not including this byte. This value MUST be 0x18.
@@ -37532,91 +13148,13 @@ row.
 The **TableBrc80Operand** structure is an operand that specifies borders
 for a range of cells in a table row.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="16">itc</td>
-<td colspan="8">bordersToApply</td>
-</tr>
-<tr class="even">
-<td colspan="32">brc</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | itc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | bordersToApply |  |  |  |  |  |  |  |
+| brc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** An unsigned integer that specifies the size, in bytes,
 of the remainder of this structure. The value MUST be 7.
@@ -37646,94 +13184,14 @@ indicated by **bordersToApply**.
 The **TableBrcOperand** structure is an operand that specifies borders
 for a range of cells in a table row.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="16">itc</td>
-<td colspan="8">bordersToApply</td>
-</tr>
-<tr class="even">
-<td colspan="32">brc</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | itc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | bordersToApply |  |  |  |  |  |  |  |
+| brc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** An unsigned integer that specifies the size, in bytes,
 of the remainder of this structure. This value MUST be 11.
@@ -37769,107 +13227,13 @@ The **TableCellWidthOperand** structure is an operand that is used by
 the [**sprmTCellWidth**](#table-properties) value to specify the width
 of one or more table cells.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="16">itc</td>
-<td colspan="8">FtsWWidth</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | itc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | FtsWWidth |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** An unsigned integer that specifies the size of this
 operand in bytes, not including **cb**. The value of **cb** MUST be 5.
@@ -37890,87 +13254,12 @@ rows; otherwise, the selection is a range of cells. If **Selsf.fBlock**
 is 1 and the selection includes rows with differing cell counts, the
 **TableSel** is interpreted based on the first row in the selection.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">itcFirst</td>
-<td colspan="16">itcLim</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| itcFirst |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | itcLim |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **itcFirst (2 bytes):** An integer that specifies the first cell that is
 included in the selection. Cell indices are zero-based. **itcFirst**
@@ -37998,121 +13287,15 @@ class="anchor"></span>[\<254\>](#Appendix_A_254) be ignored.
 The **TableShadeOperand** structure specifies a range of cells in a
 table row and the background shading to apply to those cells.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="16">itc</td>
-<td colspan="8">shd</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="8">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | itc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | shd |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** Specifies the byte count of the remainder of this
 structure. The value MUST be 12.
@@ -38128,98 +13311,16 @@ background shading that is applied.
 The **TBC** structure specifies a [**toolbar
 control**](#gt_8077f5ab-e200-481c-9980-3ea64760ce9d).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">tbch (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">cid (optional)</td>
-</tr>
-<tr class="even">
-<td colspan="32">tbcd (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| tbch (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cid (optional) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| tbcd (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **tbch (variable):** A structure of type **TBCHeader**, as specified in
 [\[MS-OSHARED\]](%5bMS-OSHARED%5d.pdf#Section_d93502fa5b8f4f47a3fe5574046f4b8d),
@@ -38241,112 +13342,12 @@ is equal to 0x016.
 A **TBD** structure specifies the alignment type and the leader type for
 a custom tab stop.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="3">jc</td>
-<td colspan="3">tlc</td>
-<td colspan="2">A</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| jc |  |  | tlc |  |  | A |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **jc (3 bits):** A [**TabJC**](#tabjc) value that specifies the
 alignment (justification) type for the current custom tab stop.
@@ -38369,155 +13370,28 @@ toolbar control is stored in the **rtbdc** array of the
 [**Customization**](#customization) structure that contains the
 **customizationData** array, that contains this structure.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="2">A</td>
-<td>B</td>
-<td colspan="5">reserved1</td>
-<td colspan="8">ibts</td>
-<td colspan="16">cidNext</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">cid</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">fc</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td>C</td>
-<td colspan="13">iTB</td>
-<td>D</td>
-<td>E</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cbTBC</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A |  | B | reserved1 |  |  |  |  | ibts |  |  |  |  |  |  |  | cidNext |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | fc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | C | iTB |  |  |  |  |  |  |  |  |  |  |  |  | D | E |
+| cbTBC |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - dopr (2 bits):** These bits specify the type of toolbar delta
 operation. This MUST be one of the following values.
 
-<table>
-<colgroup>
-<col style="width: 55%" />
-<col style="width: 44%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><p>Value</p>
-<p>(Binary value in parenthesis)</p></th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0x00 (00)</td>
-<td>Change a toolbar control.</td>
-</tr>
-<tr class="even">
-<td>0x01 (01)</td>
-<td>Insert a toolbar control.</td>
-</tr>
-<tr class="odd">
-<td>0x02 (10)</td>
-<td>Modify a toolbar control.</td>
-</tr>
-</tbody>
-</table>
+
+| Value / (Binary value in parenthesis) | Meaning |
+| --- | --- |
+| 0x00 (00) | Change a toolbar control. |
+| 0x01 (01) | Insert a toolbar control. |
+| 0x02 (10) | Modify a toolbar control. |
+
+
 
 **B - fAtEnd (1 bit):** A bit that specifies if the toolbar control that
 is associated with this **TBDelta** was inserted at the end of the
@@ -38612,110 +13486,13 @@ Document are associated with **FTXBXS** objects from
 Textboxes Document are associated with **FTXBXS** objects from
 [**PlcfHdrtxbxTxt**](#plcfhdrtxbxtxt).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">itxbxs</td>
-<td colspan="16">dcpDepend</td>
-</tr>
-<tr class="even">
-<td colspan="10">reserved1</td>
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td colspan="3">D</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| itxbxs |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | dcpDepend |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved1 |  |  |  |  |  |  |  |  |  | A | B | C | D |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **itxbxs (2 bytes):** A signed integer that specifies the index of an
 **FTXBXS** object within the **PlcftxbxTxt** structure or the
@@ -38764,99 +13541,16 @@ class="anchor"></span>[\<261\>](#Appendix_A_261) be ignored.
 The **TC80** structure specifies the border and other formatting for a
 single cell in a table.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">tcgrf</td>
-<td colspan="16">wWidth</td>
-</tr>
-<tr class="even">
-<td colspan="32">brcTop</td>
-</tr>
-<tr class="odd">
-<td colspan="32">brcLeft</td>
-</tr>
-<tr class="even">
-<td colspan="32">brcBottom</td>
-</tr>
-<tr class="odd">
-<td colspan="32">brcRight</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| tcgrf |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | wWidth |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| brcTop |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| brcLeft |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| brcBottom |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| brcRight |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **tcgrf (2 bytes):** A [**TCGRF**](#tcgrf) that specifies table cell
 formatting.
@@ -38890,90 +13584,13 @@ cell.
 A **TCellBrcTypeOperand** structure specifies an array of border types
 for table cells.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="24">rgBrcType (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | rgBrcType (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte): cb (1 byte):** An unsigned integer that specifies the
 size, in bytes, of **rgBrcType**. This value MUST be evenly divisible by
@@ -38988,90 +13605,13 @@ left, bottom and right borders, in that order.
 
 The **Tcg** structure specifies command-related customizations.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">nTcgVer</td>
-<td colspan="24">tcg (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| nTcgVer |  |  |  |  |  |  |  | tcg (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **nTcgVer (1 byte):** An unsigned integer that specifies the version of
 the structure. This value MUST be 255.
@@ -39085,116 +13625,14 @@ The **Tcg255** structure contains a sequence of structures that specify
 command-related customizations. The type of each structure is specified
 by its first byte with a special value that acts as a terminator.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">rgtcgData (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="8">chTerminator</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| rgtcgData (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| chTerminator |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **rgtcgData (variable):** A sequence of structures. Each structure is
 identified by its first byte, as follows.
@@ -39217,110 +13655,12 @@ terminator for the sequence. This value MUST be 0x40.
 A **TCGRF** structure specifies the text layout and cell merge
 properties for a single cell in a table.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="2">A</td>
-<td colspan="3">B</td>
-<td colspan="2">C</td>
-<td colspan="2">D</td>
-<td colspan="3">E</td>
-<td>F</td>
-<td>G</td>
-<td>H</td>
-<td>I</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A |  | B |  |  | C |  | D |  | E |  |  | F | G | H | I |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - horzMerge (2 bits):** A value that specifies how this cell merges
 horizontally with the neighboring cells in the same row. This value MUST
@@ -39369,90 +13709,13 @@ commands**](#gt_390da589-0ab2-467d-a90e-69ca94f8c2f4). This structure is
 used in the sequence of structures that specify command-related
 customizations in [**Tcg255**](#tcg255).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">ch</td>
-<td colspan="24">sttbf (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ch |  |  |  |  |  |  |  | sttbf (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **ch (1 byte):** This value MUST be 16.
 
@@ -39470,137 +13733,22 @@ extended **STTB** structure, which means that its **cchData** fields are
 **STTB** is an unsigned 16-bit integer that specifies the number of
 references that other structures have to that string.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fExtend (2 bytes)</td>
-<td colspan="16">cData (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="16">cbExtra (2 bytes)</td>
-<td colspan="16">cchData<sub>0</sub> (2 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>0</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">ExtraData<sub>0</sub> (2 bytes)</td>
-<td colspan="16">cchData<sub>1</sub> (2 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">Data<sub>1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">…</td>
-</tr>
-<tr class="even">
-<td colspan="16">ExtraData<sub>1</sub> (2 bytes)</td>
-<td colspan="16">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cchData<sub>cData-1</sub> (2 bytes)</td>
-<td colspan="16">Data<sub>cData-1</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="16">ExtraData <sub>cData-1</sub> (2 bytes)</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cData (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ExtraData 0 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ExtraData 1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Data cData-1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ExtraData cData-1 (2 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 The **TcgSttbfCore** structure is an **STTB** that has the following
 additional restrictions on its field values:
@@ -39615,87 +13763,12 @@ The **Tch** structure is used by [**PlcfTch**](#plcftch) and specifies
 table character information for the
 [CP](#Section_a3d44e167d2946f7bb7bd0d8a5734f83) range.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td colspan="31">unused</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | unused |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - fUnk (1 bit):** A bit that specifies that the table character
 cache for the CP range is unknown. If **fUnk** is set, **unused** MUST
@@ -39712,97 +13785,15 @@ The **TDefTableOperand** structure is the operand that is used by the
 [sprmTDefTable](#table-properties) value. It specifies the initial
 layout of the columns in the current table row.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">cb</td>
-<td colspan="8">NumberOfColumns</td>
-<td colspan="8">rgdxaCenter (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">rgTc80 (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | NumberOfColumns |  |  |  |  |  |  |  | rgdxaCenter (variable) |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rgTc80 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (2 bytes):** An unsigned integer that specifies the number of bytes
 that are used by the remainder of this structure, incremented by 1.
@@ -39838,87 +13829,12 @@ The **TDxaColOperand** structure is used by the
 [sprmTDxaCol](#table-properties) value and specifies a range of table
 cells and the width of each cell.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">itc</td>
-<td colspan="16">dxaCol</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| itc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | dxaCol |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **itc (2 bytes):** An [**ItcFirstLim**](#itcfirstlim) structure that
 specifies which cells this column width applies to.
@@ -39954,88 +13870,12 @@ The **TInsertOperand** structure is an operand that is used by the
 [**sprmTInsert**](#table-properties) value and specifies a range of
 default table cell definitions to add to a table row.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">itcFirst</td>
-<td colspan="8">ctc</td>
-<td colspan="16">dxaCol</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| itcFirst |  |  |  |  |  |  |  | ctc |  |  |  |  |  |  |  | dxaCol |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **itcFirst (1 byte):** An unsigned integer that specifies the zero-based
 index of the first new table cell definition.
@@ -40055,89 +13895,13 @@ The **TIQ** structure specifies information about a [**structured
 document tag**](#gt_b4b00e1c-5410-4a49-8914-f2fb445b5c4d) node, or an
 attribute on a structured document tag node, in the document.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">ixsdr</td>
-</tr>
-<tr class="even">
-<td colspan="32">ixstElement</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ixsdr |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ixstElement |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **ixsdr (4 bytes):** An unsigned integer that specifies the
 [**STTB**](#Section_4a491aedad454b41910b082c71d5ef14) which is the
@@ -40174,87 +13938,12 @@ The **TLP** structure specifies the [**table
 style**](#gt_3b7a61db-dd69-4fde-b53f-e445ddb47424) options for the
 current table.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">itl</td>
-<td colspan="16">grfatl</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| itl |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | grfatl |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **itl (2 bytes):** A signed integer that
 MAY<span id="Appendix_A_Target_263"
@@ -40286,110 +13975,12 @@ The **ToggleOperand** structure is an operand to an **SPRM** whose
 **spra** is 0 and whose **sgc** is 2. It modifies a Boolean character
 property.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">value</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| value |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **value (1 byte):** An unsigned integer which MUST be one of the
 following values.
@@ -40419,88 +14010,12 @@ The **TplcBuildIn** structure is a [**Tplc**](#tplc) structure that
 specifies an application predefined format for the bulleted or numbered
 list.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td colspan="15">ilgpdM1</td>
-<td colspan="16">lid</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | ilgpdM1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | lid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - fBuildIn (1 bit):** This value MUST be 1.
 
@@ -40564,87 +14079,12 @@ format specification. See the [**SttbRgtplc**](#sttbrgtplc) structure
 for more details about how **Tplc** values are mapped to **LVL**
 structures inside the **LSTF** structure.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td colspan="31">wRandom</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | wRandom |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - fBuildIn (1 bit):** This value MUST be 0.
 
@@ -40658,95 +14098,14 @@ The **Ttmbd** structure specifies information about an embedded
 [**TrueType font**](#gt_f2f46046-d233-4083-8a96-1b72a89f9583), including
 where to locate the font in the document.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">fc</td>
-</tr>
-<tr class="even">
-<td colspan="16">iiffn</td>
-<td>A</td>
-<td>B</td>
-<td colspan="14">unnamed</td>
-</tr>
-<tr class="odd">
-<td colspan="32">fcSubset</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| iiffn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | A | B | unnamed |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fcSubset |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **fc (4 bytes):** An unsigned integer value that specifies an offset
 into the [WordDocument
@@ -40784,114 +14143,12 @@ Asian languages. See also
 [\[ECMA-376\]](https://go.microsoft.com/fwlink/?LinkId=200054) part 1,
 section 17.3.2.10 eastAsianLayout paragraph property.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td>E</td>
-<td>F</td>
-<td colspan="2">G</td>
-<td colspan="3">H</td>
-<td>I</td>
-<td>J</td>
-<td>K</td>
-<td>L</td>
-<td>M</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | B | C | D | E | F | G |  | H |  |  | I | J | K | L | M |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - fTNY (1 bit):** A bit that specifies if the text displays
 horizontally within vertical text, or vertically within horizontal text.
@@ -40976,99 +14233,16 @@ Windows Text Services Framework, a service provided by Microsoft Windows
 that enables the application to receive input from different input
 sources, such as handwriting.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">iguidType</td>
-<td colspan="16">iclsidTip</td>
-</tr>
-<tr class="even">
-<td colspan="32">fc</td>
-</tr>
-<tr class="odd">
-<td colspan="32">cch</td>
-</tr>
-<tr class="even">
-<td colspan="32">cb</td>
-</tr>
-<tr class="odd">
-<td colspan="32">dwPrivate</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| iguidType |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | iclsidTip |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| fc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cch |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cb |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| dwPrivate |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **iguidType (2 bytes):** A signed integer value that specifies an index
 into the GUIDs that are listed in
@@ -41109,95 +14283,15 @@ The **UpxChpx** structure specifies the character formatting properties
 that differ from the parent style as defined by
 [**StdfBase**](#stdfbase).**istdBase**.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">grpprlChpx (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">padding (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| grpprlChpx (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| padding (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **grpprlChpx (variable):** An array of [**Prl**](#prl) elements that
 specifies character formatting properties.
@@ -41246,89 +14340,13 @@ as a zero value.
 The **UpxPapx**, **UpxChpx**, and **UpxTapx** structures MUST be written
 as an even length, even if their contents are an odd length.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">blob (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| blob (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **blob (variable):** A structure that specifies any padding that is
 required to pad structures of an odd number of bytes in length so that
@@ -41341,96 +14359,15 @@ The **UpxPapx** structure specifies the paragraph formatting properties
 that differ from the parent style, as defined by
 [**StdfBase**](#stdfbase).**istdBase**.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">istd (optional)</td>
-<td colspan="16">grpprlPapx (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">padding (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| istd (optional) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | grpprlPapx (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| padding (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **istd (2 bytes):** An unsigned integer that specifies the
 [**istd**](#stsh) value of the paragraph style. The **istd** value MUST
@@ -41489,105 +14426,13 @@ and the date and author of the revision. A revision-marked style
 contains a set of formatting properties that specify the formatting of
 the style at the time that the style was modified for revision-marking.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">date</td>
-</tr>
-<tr class="even">
-<td colspan="16">ibstAuthor</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| date |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ibstAuthor |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **date (4 bytes):** A [DTTM](#dttm) that specifies the date and time at
 which this style revision occurred.
@@ -41602,95 +14447,15 @@ The **UpxTapx** structure specifies the table formatting properties that
 differ from the parent style, as defined by the
 [**StdfBase**](#stdfbase).**istdBase** value.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">grpprlTapx (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">padding (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| grpprlTapx (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| padding (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **grpprlTapx (variable):** An array of [**Prl**](#prl) elements that
 specify table formatting properties. This array MUST contain only table
@@ -41827,96 +14592,12 @@ The **VertMergeOperand** structure is an operand that specifies the
 merge behavior of a cell in a table row with the equivalent cells in the
 rows immediately above or below it.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="8">cb</td>
-<td colspan="8">itc</td>
-<td colspan="8">vertMergeFlags</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cb |  |  |  |  |  |  |  | itc |  |  |  |  |  |  |  | vertMergeFlags |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cb (1 byte):** An integer value that specifies the byte count of the
 remainder of this structure. This value MUST be 2.
@@ -41946,103 +14627,12 @@ specifies the vertical alignment of text.
 
 The **WHeightAbs** structure specifies the frame height.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="15">DyaHeightAbs</td>
-<td>A</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| DyaHeightAbs |  |  |  |  |  |  |  |  |  |  |  |  |  |  | A |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **DyaHeightAbs (15 bits):** A [**YAS_nonNeg**](#yas_nonneg) value that
 specifies frame height. If this value is 0x0000, the frame height is
@@ -42057,102 +14647,14 @@ MUST NOT be 0x0000 when **fMinHeight** is set.
 The **WKB** structure describes a
 [**subdocument**](#gt_30c0248a-accc-4ae5-b3b7-9c3c97f94d73).
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">fn</td>
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td>E</td>
-<td>F</td>
-<td>G</td>
-<td>H</td>
-<td colspan="8">fReserved9</td>
-</tr>
-<tr class="even">
-<td colspan="16">lvl</td>
-<td colspan="16">fnpi</td>
-</tr>
-<tr class="odd">
-<td colspan="32">pdod</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | A | B | C | D | E | F | G | H | fReserved9 |  |  |  |  |  |  |  |
+| lvl |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | fnpi |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| pdod |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **fn (2 bytes):** This value MUST be 0.
 
@@ -42188,112 +14690,12 @@ this one, is the file name of the file that this **WKB** references.
 
 The **Wpms** structure specifies the current state of the mail merge.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td colspan="4">D</td>
-<td>E</td>
-<td>F</td>
-<td>G</td>
-<td>H</td>
-<td>I</td>
-<td>J</td>
-<td colspan="3">K</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | B | C | D |  |  |  | E | F | G | H | I | J | K |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - wpmsMainDoc (1 bit):** Specifies whether the main document was
 selected for the mail merge.
@@ -42345,87 +14747,12 @@ destination of the mail merge. This MUST be one of the following values.
 
 A **Wpmsdt** structure specifies the document type of the mail merge.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="6">docType</td>
-<td colspan="26">unused</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| docType |  |  |  |  |  | unused |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **docType (6 bits):** An unsigned integer that specifies the document
 type of the mail merge. This MUST be one of the following values.
@@ -42469,107 +14796,19 @@ value is decremented by 1. This value MUST be greater than or equal to
 The **XSDR** structure specifies a single reference to an XML schema
 definition.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">wzURI (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">wzManifestLocation (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">sttbElements (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">sttbAttributes (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| wzURI (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| wzManifestLocation (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| sttbElements (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| sttbAttributes (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **wzURI (variable):** A
 [**Unicode**](#gt_c305d0ab-8b94-461a-bd76-13b40cb8c4d8) string that
@@ -42598,90 +14837,13 @@ the attributes within this XML schema. This structure uses a 4-byte
 The **Xst** structure is a string. The string is prepended by its length
 and is not null-terminated.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">cch</td>
-<td colspan="16">rgtchar (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cch |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | rgtchar (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **cch (2 bytes):** An unsigned integer that specifies the number of
 characters that are contained in the **rgtchar** array.
@@ -42695,108 +14857,14 @@ make up a string.
 The **Xstz** structure is a string. The string is prepended by its
 length and is null-terminated.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">xst (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="16">chTerm</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| xst (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| chTerm |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **xst (variable):** An [**Xst**](#xst) structure that is prepended with
 a value which specifies the length of the string.

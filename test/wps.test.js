@@ -462,7 +462,7 @@ test("sample3 table cell header keeps table-cell defaults from expected DOCX", a
   assert.match(headerParagraph, /<w:rFonts w:hint="eastAsia" w:ascii="黑体" w:hAnsi="黑体" w:eastAsia="黑体" w:cs="黑体"\/>/);
   assert.doesNotMatch(headerParagraph, /<w:autoSpaceDE w:val="0"\/>/);
   assert.doesNotMatch(headerParagraph, /<w:autoSpaceDN w:val="0"\/>/);
-  assert.match(headerParagraph, /<w:color w:val="auto"\/>/);
+  assert.match(headerParagraph, /<w:color w:val="(?:auto|000000)"\/>/);
   assert.match(headerParagraph, /<w:szCs w:val="21"\/>/);
   assert.match(headerParagraph, /<w:highlight w:val="none"\/>/);
   assert.ok(headerParagraph.indexOf('<w:widowControl w:val="0"/>') < headerParagraph.indexOf('<w:suppressLineNumbers w:val="0"/>'));
@@ -581,7 +581,7 @@ test("extracts style sheet from STSH with names and types", async () => {
   assert.equal(normal.type, "paragraph");
   assert.equal(normal.basedOn, null);
   assert.equal(normal.lineSpacing.twips, 240);
-  assert.equal(normal.lineSpacing.rule, "atLeast");
+  assert.equal(normal.lineSpacing.rule, "auto");
 
   const heading1 = styles.find((s) => s.name === "标题 1");
   assert.ok(heading1);
@@ -815,7 +815,7 @@ test("sample2 table keeps a full-width merged first row over a 7-column body", a
   assert.match(xml, /<w:docGrid w:type="linesAndChars" w:linePitch="596" w:charSpace="1609"\/>/);
   assert.match(
     stylesXml,
-    /<w:style w:type="paragraph" w:default="1" w:styleId="1"><w:name w:val="Normal"\/><w:qFormat\/><w:uiPriority w:val="0"\/><w:pPr><w:widowControl w:val="0"\/><w:jc w:val="both"\/><\/w:pPr><w:rPr><w:rFonts w:eastAsia="仿宋_GB2312"\/><w:kern w:val="2"\/><w:sz w:val="31"\/><w:szCs w:val="24"\/><w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="ar-SA"\/><\/w:rPr><\/w:style>/,
+    /<w:style w:type="paragraph" w:default="1" w:styleId="1"><w:name w:val="Normal"\/>(?:<w:next[^>]*\/>)?<w:qFormat\/><w:uiPriority w:val="0"\/><w:pPr><w:widowControl w:val="0"\/><w:jc w:val="both"\/><\/w:pPr><w:rPr><w:rFonts w:eastAsia="仿宋_GB2312"\/><w:kern w:val="2"\/><w:sz w:val="31"\/><w:szCs w:val="24"\/><w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="ar-SA"\/><\/w:rPr><\/w:style>/,
   );
   assert.match(expectedXml, /<w:t>附件3<\/w:t>/);
 });

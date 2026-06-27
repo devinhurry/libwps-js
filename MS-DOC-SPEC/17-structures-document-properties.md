@@ -10,43 +10,13 @@ the document.
 Based on the value of [Fib](#fib).**cswNew**, the Dop is a structure
 from the following table.
 
-<table>
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 89%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Value</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td><a href="#dop97">Dop97</a></td>
-</tr>
-<tr class="even">
-<td>otherwise</td>
-<td><p>Based on the value of <a
-href="#fibrgcswnew">FibRgCswNew</a>.<strong>nFibNew</strong> the Dop is
-a structure from the following:</p>
-<ul>
-<li><p>0x00D9 <a href="#dop2000">Dop2000</a></p></li>
-<li><p>0x0101 <a href="#dop2002">Dop2002</a></p></li>
-<li><p>0x010C <a href="#dop2003">Dop2003</a></p></li>
-<li><p>0x0112 if <a
-href="#fibrgfclcb97">FibRgFcLcb97</a>.<strong>lcbDop</strong> is 674,
-then the Dop is a <a href="#dop2007">Dop2007</a>. If FibRgFcLcb97.
-<strong>lcbDop</strong> is 690, then the Dop is a <a
-href="#dop2010">Dop2010</a>. If FibRgFcLcb97.<strong>lcbDop</strong> is
-694, then the Dop is a section <a href="#dop2013">Dop2013</a>.
-FibRgFcLcb97.<strong>lcbDop</strong> MUST be one of these three
-values.</p></li>
-</ul></td>
-</tr>
-</tbody>
-</table>
+
+| Value | Meaning |
+| --- | --- |
+| 0 | Dop97 |
+| otherwise | Based on the value of FibRgCswNew . nFibNew the Dop is a structure from the following: |
+
+
 
 ### DopBase
 
@@ -55,210 +25,32 @@ that are common to all versions of the binary document. These settings
 influence the appearance and behavior of the current document and store
 document-level state.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td colspan="2">D</td>
-<td colspan="2">fpc</td>
-<td>E</td>
-<td colspan="8">unused4</td>
-<td colspan="2">F</td>
-<td colspan="14">nFtn</td>
-</tr>
-<tr class="even">
-<td>G</td>
-<td>H</td>
-<td>I</td>
-<td>J</td>
-<td>K</td>
-<td>L</td>
-<td>M</td>
-<td>N</td>
-<td>O</td>
-<td>P</td>
-<td>Q</td>
-<td>R</td>
-<td>S</td>
-<td>T</td>
-<td>U</td>
-<td>V</td>
-<td>W</td>
-<td>X</td>
-<td>Y</td>
-<td>Z</td>
-<td>a</td>
-<td>b</td>
-<td>c</td>
-<td>d</td>
-<td>e</td>
-<td>f</td>
-<td>g</td>
-<td>h</td>
-<td>i</td>
-<td>j</td>
-<td>k</td>
-<td>l</td>
-</tr>
-<tr class="odd">
-<td colspan="16">copts60</td>
-<td colspan="16">dxaTab</td>
-</tr>
-<tr class="even">
-<td colspan="16">cpgWebOpt</td>
-<td colspan="16">dxaHotZ</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cConsecHypLim</td>
-<td colspan="16">wSpare2</td>
-</tr>
-<tr class="even">
-<td colspan="32">dttmCreated</td>
-</tr>
-<tr class="odd">
-<td colspan="32">dttmRevised</td>
-</tr>
-<tr class="even">
-<td colspan="32">dttmLastPrint</td>
-</tr>
-<tr class="odd">
-<td colspan="16">nRevision</td>
-<td colspan="16">tmEdited</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">cWords</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">cCh</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">cPg</td>
-</tr>
-<tr class="odd">
-<td colspan="32">cParas</td>
-</tr>
-<tr class="even">
-<td colspan="2">m</td>
-<td colspan="14">nEdn</td>
-<td colspan="2">epc</td>
-<td colspan="4">n</td>
-<td colspan="4">o</td>
-<td>p</td>
-<td>q</td>
-<td>r</td>
-<td>s</td>
-<td>t</td>
-<td>u</td>
-</tr>
-<tr class="odd">
-<td colspan="32">cLines</td>
-</tr>
-<tr class="even">
-<td colspan="32">cWordsWithSubdocs</td>
-</tr>
-<tr class="odd">
-<td colspan="32">cChWithSubdocs</td>
-</tr>
-<tr class="even">
-<td colspan="16">cPgWithSubdocs</td>
-<td colspan="16">cParasWithSubdocs</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">cLinesWithSubdocs</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">lKeyProtDoc</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="3">v</td>
-<td colspan="9">pctWwdSaved</td>
-<td colspan="2">w</td>
-<td>x</td>
-<td>y</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | B | C | D |  | fpc |  | E | unused4 |  |  |  |  |  |  |  | F |  | nFtn |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | a | b | c | d | e | f | g | h | i | j | k | l |
+| copts60 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | dxaTab |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cpgWebOpt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | dxaHotZ |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cConsecHypLim |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | wSpare2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| dttmCreated |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| dttmRevised |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| dttmLastPrint |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| nRevision |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | tmEdited |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cWords |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cCh |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cPg |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cParas |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| m |  | nEdn |  |  |  |  |  |  |  |  |  |  |  |  |  | epc |  | n |  |  |  | o |  |  |  | p | q | r | s | t | u |
+| cLines |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cWordsWithSubdocs |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cChWithSubdocs |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cPgWithSubdocs |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cParasWithSubdocs |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cLinesWithSubdocs |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | lKeyProtDoc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | v |  |  | pctWwdSaved |  |  |  |  |  |  |  |  | w |  | x | y |
+
+
 
 **A - fFacingPages (1 bit):** A bit that specifies whether even and odd
 pages have different headers and footers as specified in
@@ -394,42 +186,13 @@ SHOULD<span id="Appendix_A_Target_164"
 class="anchor"></span>[\<164\>](#Appendix_A_164) be 0. **fLockAtn** can
 be one of the following.
 
-<table>
-<colgroup>
-<col style="width: 8%" />
-<col style="width: 91%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Value</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td><p>Specifies that the edits made to this document are restricted to
-the following:</p>
-<ul>
-<li><p>The insertion and deletion of comments within the
-document.</p></li>
-<li><p>The editing of the regions that are delimited by range
-permissions matching the editing rights of the user account that is
-being used to perform the editing.</p></li>
-</ul></td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td><p>Specifies that the edits made to this document are restricted to
-the following:</p>
-<ul>
-<li><p>The editing of the regions that are delimited by range
-permissions matching the editing rights of the user account that is
-being used to perform the editing.</p></li>
-</ul></td>
-</tr>
-</tbody>
-</table>
+
+| Value | Meaning |
+| --- | --- |
+| 0 | Specifies that the edits made to this document are restricted to the following: |
+| 1 | Specifies that the edits made to this document are restricted to the following: |
+
+
 
 **b - fMirrorMargins (1 bit):** Specifies that the left and right
 margins that are defined in the section properties are swapped on facing
@@ -687,95 +450,15 @@ The **Dop95** structure contains document and compatibility settings.
 These settings influence the appearance and behavior of the current
 document and store document-level state.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">dopBase (84 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">copts80</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| dopBase (84 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| copts80 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **dopBase (84 bytes):** A [**DopBase**](#dopbase) structure that
 specifies document and compatibility settings.
@@ -790,192 +473,39 @@ The **Dop97** structure contains document and compatibility settings.
 These settings influence the appearance and behavior of the current
 document and store the document-level state.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">dop95 (88 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="16">adt</td>
-<td colspan="16">doptypography (310 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">dogrid</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td>A</td>
-<td colspan="4">lvlDop</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td>E</td>
-<td>F</td>
-<td>G</td>
-<td>H</td>
-<td>I</td>
-<td>J</td>
-<td>K</td>
-<td>L</td>
-</tr>
-<tr class="odd">
-<td colspan="16">unused5</td>
-<td colspan="16">asumyi</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">cChWS</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">cChWSWithSubdocs</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">grfDocEvents</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td>M</td>
-<td>N</td>
-<td colspan="14">KeyVirusSession30</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">space (30 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">cpMaxListCacheMainDoc</td>
-</tr>
-<tr class="odd">
-<td colspan="16">ilfoLastBulletMain</td>
-<td colspan="16">ilfoLastNumberMain</td>
-</tr>
-<tr class="even">
-<td colspan="32">cDBC</td>
-</tr>
-<tr class="odd">
-<td colspan="32">cDBCWithSubdocs</td>
-</tr>
-<tr class="even">
-<td colspan="32">reserved3a</td>
-</tr>
-<tr class="odd">
-<td colspan="16">nfcFtnRef</td>
-<td colspan="16">nfcEdnRef</td>
-</tr>
-<tr class="even">
-<td colspan="16">hpsZoomFontPag</td>
-<td colspan="16">dywDispPag</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| dop95 (88 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| adt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | doptypography (310 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| dogrid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | A | lvlDop |  |  |  | B | C | D | E | F | G | H | I | J | K | L |
+| unused5 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | asumyi |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cChWS |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cChWSWithSubdocs |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | grfDocEvents |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | M | N | KeyVirusSession30 |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | space (30 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cpMaxListCacheMainDoc |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ilfoLastBulletMain |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | ilfoLastNumberMain |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cDBC |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cDBCWithSubdocs |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved3a |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| nfcFtnRef |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | nfcEdnRef |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| hpsZoomFontPag |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | dywDispPag |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **dop95 (88 bytes):** A [**Dop95**](#dop95) that specifies document and
 compatibility settings.
@@ -1166,144 +696,20 @@ A structure that contains document and compatibility settings. These
 settings influence the appearance and behavior of the current document
 and store document-level state.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">dop97 (500 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="8">ilvlLastBulletMain</td>
-<td colspan="8">ilvlLastNumberMain</td>
-<td colspan="16">istdClickParaType</td>
-</tr>
-<tr class="odd">
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td colspan="4">empty1</td>
-<td>E</td>
-<td>F</td>
-<td>G</td>
-<td>H</td>
-<td colspan="4">I</td>
-<td>J</td>
-<td>K</td>
-<td colspan="10">iPixelsPerInch_WebOpt</td>
-<td>L</td>
-<td>M</td>
-<td>N</td>
-<td>O</td>
-</tr>
-<tr class="even">
-<td colspan="32">copts (32 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="16">verCompatPre10</td>
-<td>P</td>
-<td>Q</td>
-<td>R</td>
-<td>S</td>
-<td>T</td>
-<td>U</td>
-<td>V</td>
-<td>W</td>
-<td>X</td>
-<td>Y</td>
-<td>Z</td>
-<td>a</td>
-<td>b</td>
-<td>c</td>
-<td>d</td>
-<td>e</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| dop97 (500 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ilvlLastBulletMain |  |  |  |  |  |  |  | ilvlLastNumberMain |  |  |  |  |  |  |  | istdClickParaType |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| A | B | C | D | empty1 |  |  |  | E | F | G | H | I |  |  |  | J | K | iPixelsPerInch_WebOpt |  |  |  |  |  |  |  |  |  | L | M | N | O |
+| copts (32 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| verCompatPre10 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | P | Q | R | S | T | U | V | W | X | Y | Z | a | b | c | d | e |
+
+
 
 **dop97 (500 bytes):** A [Dop97](#dop97) that specifies document and
 compatibility settings.
@@ -1505,171 +911,27 @@ A structure that contains document and compatibility settings. These
 settings influence the appearance and behavior of the current document
 and store document-level state.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">dop2000 (544 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">unused</td>
-</tr>
-<tr class="odd">
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td>E</td>
-<td>F</td>
-<td>G</td>
-<td>H</td>
-<td colspan="3">I</td>
-<td>J</td>
-<td>K</td>
-<td>L</td>
-<td>M</td>
-<td>N</td>
-<td colspan="16">istdTableDflt</td>
-</tr>
-<tr class="even">
-<td colspan="16">verCompat</td>
-<td colspan="16">grfFmtFilter</td>
-</tr>
-<tr class="odd">
-<td colspan="16">iFolioPages</td>
-<td colspan="16">cpgText</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">cpMinRMText</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">cpMinRMFtn</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">cpMinRMHdd</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">cpMinRMAtn</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">cpMinRMEdn</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">cpMinRmTxbx</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">cpMinRmHdrTxbx</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">rsidRoot</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| dop2000 (544 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| unused |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| A | B | C | D | E | F | G | H | I |  |  | J | K | L | M | N | istdTableDflt |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| verCompat |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | grfFmtFilter |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| iFolioPages |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cpgText |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cpMinRMText |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cpMinRMFtn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cpMinRMHdd |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cpMinRMAtn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cpMinRMEdn |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cpMinRmTxbx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cpMinRmHdrTxbx |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | rsidRoot |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **dop2000 (544 bytes):** A [Dop2000](#dop2000) that specifies document
 and compatibility settings.
@@ -1718,52 +980,16 @@ Default is 0.
 with when saving as a text file via automation. It MUST be one of the
 values in the following table:
 
-<table>
-<colgroup>
-<col style="width: 11%" />
-<col style="width: 88%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Value</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0 (default)</td>
-<td>Carriage return (0x0D) followed by line feed (0x0A).</td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>Carriage return (0x0D).</td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>Line feed (0x0A).</td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>Line feed (0x0A) followed by carriage return (0x0D).</td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td><p>If the <a
-href="#gt_210637d9-9634-4652-a935-ded3cd434f38"><strong>code
-page</strong></a> supports it, Line Separator (U+2028) or Paragraph
-Separator (U+2029) otherwise behave as follows:</p>
-<ul>
-<li><p>If the codepage is CP_JAPANEUC (51932), CP_CHINAEUC (51936),
-CP_KOREAEUC (51949) or CP_TAIWANEUC (51950) treat as if the value were
-2.</p></li>
-<li><p>If the code page is greater than or equal to 10000 and less than
-20000, then treat as if the value where 1.</p></li>
-<li><p>If neither of those apply, then treat as if the value were
-0.</p></li>
-</ul></td>
-</tr>
-</tbody>
-</table>
+
+| Value | Meaning |
+| --- | --- |
+| 0 (default) | Carriage return (0x0D) followed by line feed (0x0A). |
+| 1 | Carriage return (0x0D). |
+| 2 | Line feed (0x0A). |
+| 3 | Line feed (0x0A) followed by carriage return (0x0D). |
+| 4 | If the code page supports it, Line Separator (U+2028) or Paragraph Separator (U+2029) otherwise behave as follows: |
+
+
 
 **J - fHideFcc (1 bit):** Specifies whether to refrain from showing a
 visual cue around ranges flagged by the [**format consistency
@@ -1862,133 +1088,20 @@ The **Dop2003** structure contains document and compatibility settings.
 These settings influence the appearance and behavior of the current
 document and store document-level state.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">dop2002 (594 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td>E</td>
-<td>F</td>
-<td>G</td>
-<td>H</td>
-<td>I</td>
-<td>J</td>
-<td>K</td>
-<td>L</td>
-<td>M</td>
-<td colspan="3">N</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td>O</td>
-<td>P</td>
-<td>Q</td>
-<td>R</td>
-<td colspan="3">S</td>
-<td>T</td>
-<td colspan="8">empty2</td>
-</tr>
-<tr class="even">
-<td colspan="32">dxaPageLock</td>
-</tr>
-<tr class="odd">
-<td colspan="32">dyaPageLock</td>
-</tr>
-<tr class="even">
-<td colspan="32">pctFontLock</td>
-</tr>
-<tr class="odd">
-<td colspan="8">grfitbid</td>
-<td colspan="8">empty3</td>
-<td colspan="16">ilfoMacAtCleanup</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| dop2002 (594 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | A | B | C | D | E | F | G | H | I | J | K | L | M | N |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | O | P | Q | R | S |  |  | T | empty2 |  |  |  |  |  |  |  |
+| dxaPageLock |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| dyaPageLock |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| pctFontLock |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| grfitbid |  |  |  |  |  |  |  | empty3 |  |  |  |  |  |  |  | ilfoMacAtCleanup |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **dop2002 (594 bytes):** A [Dop2002](#dop2002) that specifies document
 and compatibility settings.
@@ -2132,146 +1245,24 @@ The **Dop2007** structure contains document and compatibility settings.
 These settings influence the appearance and behavior of the current
 document and store document-level state.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">dop2003 (616 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">reserved1</td>
-</tr>
-<tr class="odd">
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td>E</td>
-<td colspan="4">ssm</td>
-<td>F</td>
-<td>G</td>
-<td colspan="21">reserved3</td>
-</tr>
-<tr class="even">
-<td colspan="32">empty3</td>
-</tr>
-<tr class="odd">
-<td colspan="32">empty4</td>
-</tr>
-<tr class="even">
-<td colspan="32">empty5</td>
-</tr>
-<tr class="odd">
-<td colspan="32">empty6</td>
-</tr>
-<tr class="even">
-<td colspan="32">dopMth (34 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| dop2003 (616 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| reserved1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| A | B | C | D | E | ssm |  |  |  | F | G | reserved3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| empty3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| empty4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| empty5 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| empty6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| dopMth (34 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **dop2003 (616 bytes):** A [Dop2003](#dop2003) that specifies document
 and compatibility settings.
@@ -2335,128 +1326,19 @@ The **Dop2010** structure contains document and compatibility settings.
 These settings influence the appearance and behavior of the current
 document and store document-level state.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">dop2007 (674 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">docid</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">reserved</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td>A</td>
-<td colspan="15">empty</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">iImageDPI</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| dop2007 (674 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | docid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | reserved |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | A | empty |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | iImageDPI |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **dop2007 (674 bytes):** A **Dop2007** structure (section
 [2.7.8](#dop2007)) that specifies document and compatibility settings.
@@ -2486,116 +1368,16 @@ The **Dop2013** structure contains document and compatibility settings.
 These settings influence the appearance and behavior of the current
 document and store document-level state.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">dop2010 (690 bytes)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td>A</td>
-<td colspan="15">empty</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| dop2010 (690 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | A | empty |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **dop2010 (690 bytes):** A **Dop2010** structure (section
 [2.7.9](#dop2010)) that specifies document and compatibility settings.
@@ -2612,117 +1394,12 @@ section 2.5.1.2 (**chartTrackingRefBased**).
 
 The **Copts60** structure specifies compatibility options.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td>E</td>
-<td>F</td>
-<td>G</td>
-<td>H</td>
-<td>I</td>
-<td>J</td>
-<td>K</td>
-<td>L</td>
-<td>M</td>
-<td>N</td>
-<td>O</td>
-<td>P</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - fNoTabForInd (1 bit):** Specified in
 [\[ECMA-376\]](https://go.microsoft.com/fwlink/?LinkId=200054) Part 4,
@@ -2780,102 +1457,12 @@ the element is the opposite of **fDntBlnSbDbWid**.
 
 The **Copts80** structure specifies compatibility options.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">copts60</td>
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td>E</td>
-<td>F</td>
-<td>G</td>
-<td>H</td>
-<td>I</td>
-<td>J</td>
-<td>K</td>
-<td>L</td>
-<td>M</td>
-<td>N</td>
-<td>O</td>
-<td>P</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| copts60 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P |
+
+
 
 **copts60 (2 bytes):** A [Copts60](#copts60) that specifies additional
 compatibility options.
@@ -2965,139 +1552,19 @@ usePrinterMetrics.
 
 A structure that specifies compatibility options.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">copts80</td>
-</tr>
-<tr class="even">
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td>E</td>
-<td>F</td>
-<td>G</td>
-<td>H</td>
-<td>I</td>
-<td>J</td>
-<td>K</td>
-<td>L</td>
-<td>M</td>
-<td>N</td>
-<td>O</td>
-<td>P</td>
-<td>Q</td>
-<td>R</td>
-<td>S</td>
-<td>T</td>
-<td>U</td>
-<td>V</td>
-<td>W</td>
-<td>X</td>
-<td>Y</td>
-<td>Z</td>
-<td>a</td>
-<td>b</td>
-<td>c</td>
-<td>d</td>
-<td>e</td>
-<td>f</td>
-</tr>
-<tr class="odd">
-<td>g</td>
-<td colspan="31">empty1</td>
-</tr>
-<tr class="even">
-<td colspan="32">empty2</td>
-</tr>
-<tr class="odd">
-<td colspan="32">empty3</td>
-</tr>
-<tr class="even">
-<td colspan="32">empty4</td>
-</tr>
-<tr class="odd">
-<td colspan="32">empty5</td>
-</tr>
-<tr class="even">
-<td colspan="32">empty6</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| copts80 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | a | b | c | d | e | f |
+| g | empty1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| empty2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| empty3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| empty4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| empty5 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| empty6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **copts80 (4 bytes):** A [Copts80](#copts80) that specifies additional
 compatibility options.
@@ -3304,97 +1771,14 @@ The **Asumyi** structure specifies
 [**AutoSummary**](#gt_f4f3be71-a6a0-43a1-974d-cf345372f5bf) state
 information
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>B</td>
-<td colspan="2">C</td>
-<td>D</td>
-<td colspan="11">reserved</td>
-<td colspan="16">wDlgLevel</td>
-</tr>
-<tr class="even">
-<td colspan="32">lHighestLevel</td>
-</tr>
-<tr class="odd">
-<td colspan="32">lCurrentLevel</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | B | C |  | D | reserved |  |  |  |  |  |  |  |  |  |  | wDlgLevel |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lHighestLevel |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| lCurrentLevel |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - fValid (1 bit):** Specifies whether the rest of the information in
 the Asumyi is currently valid.
@@ -3456,113 +1840,14 @@ to be part of the summary. If ASUMY.**lLevel** is less than or equal to
 The **Dogrid** structure specifies parameters for the drawn object
 properties of the document.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">xaGrid</td>
-<td colspan="16">yaGrid</td>
-</tr>
-<tr class="even">
-<td colspan="16">dxaGrid</td>
-<td colspan="16">dyaGrid</td>
-</tr>
-<tr class="odd">
-<td colspan="7">dyGridDisplay</td>
-<td>A</td>
-<td colspan="7">dxGridDisplay</td>
-<td>B</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| xaGrid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | yaGrid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| dxaGrid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | dyaGrid |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| dyGridDisplay |  |  |  |  |  |  | A | dxGridDisplay |  |  |  |  |  |  | B |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **xaGrid (2 bytes):** An [XAS_nonNeg](#xas_nonneg) that specifies
 horizontal origin point of the drawing grid. See
@@ -3610,135 +1895,20 @@ The **DopTypography** structure contains [**East Asian
 language**](#gt_12f63b8b-1c85-4855-9ae1-e6b05720bcfc) typography
 settings.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td colspan="2">B</td>
-<td colspan="2">C</td>
-<td>D</td>
-<td>E</td>
-<td colspan="3">F</td>
-<td>G</td>
-<td colspan="5">reserved</td>
-<td colspan="16">cchFollowingPunct</td>
-</tr>
-<tr class="even">
-<td colspan="16">cchLeadingPunct</td>
-<td colspan="16">rgxchFPunct (202 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">rgxchLPunct (102 bytes)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | B |  | C |  | D | E | F |  |  | G | reserved |  |  |  |  | cchFollowingPunct |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchLeadingPunct |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | rgxchFPunct (202 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| rgxchLPunct (102 bytes) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - fKerningPunct (1 bit):** Specifies whether to kern punctuation
 characters as specified in
@@ -3764,66 +1934,14 @@ line breaking rules to use for [**East Asian
 characters**](#gt_8dcae18f-67a0-4282-860e-1b6713fe6aae). This value MUST
 be one of the following.
 
-<table>
-<colgroup>
-<col style="width: 13%" />
-<col style="width: 86%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Value</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0 (default)</td>
-<td><p>Chinese (Simplified)</p>
-<ol type="1">
-<li><p>Cannot start a line:<br />
-!%),.:;&gt;?]}¢¨°·ˇˉ―‖’"…‰′″›℃∶、。〃〉》」』】〕〗〞︶︺︾﹀﹄﹚﹜﹞！＂％＇），．：；？］｀｜｝～￠</p></li>
-<li><p>Cannot end a
-line:$([{£¥·‘"〈《「『【〔〖〝﹙﹛﹝＄（．［｛￡￥</p></li>
-</ol>
-<p>Chinese (Traditional)</p>
-<ol type="1">
-<li><p>Cannot start a line:<br />
-!),.:;?]}¢·–—’"•‥…‧′╴、。〉》」』】〕〞︰︱︳︴︶︸︺︼︾﹀﹂﹄﹏﹐﹑﹒﹔﹕﹖﹗﹚﹜﹞！），．：；？］｜｝､</p></li>
-<li><p>Cannot end a line:<br />
-([{£¥‘"‵〈《「『【〔〝︵︷︹︻︽︿﹁﹃﹙﹛﹝（｛</p></li>
-</ol>
-<p>Japanese</p>
-<ol type="1">
-<li><p>Cannot start a line:<br />
-!%),.:;?]}¢°’"‰′″℃、。々〉》」』】〕゛゜ゝゞ・ヽヾ！％），．：；？］｝｡｣､･ﾞﾟ￠</p></li>
-<li><p>Cannot end a line:<br />
-$([\{£¥‘"〈《「『【〔＄（［｛｢￡￥</p></li>
-</ol>
-<p>Korean</p>
-<ol type="1">
-<li><p>Cannot start a line:<br />
-!%),.:;?]}¢°’"′″℃〉》」』】〕！％），．：；？］｝￠</p></li>
-<li><p>Cannot end a line:<br />
-$([\{£¥‘"〈《「『【〔＄（［｛￡￥￦</p></li>
-</ol></td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td><p>Identical to 0 for all but Japanese where the following is
-used:</p>
-<p>Cannot start a line:<br />
-!%),.:;?]}¢°’"‰′″℃、。々〉》」』】〕ぁぃぅぇぉっゃゅょゎ゛゜ゝゞァィゥェォッャュョヮヵヶ・ーヽヾ！％），．：；？］｝｡｣､･ｧｨｩｪｫｬｭｮｯｰﾞﾟ￠</p>
-<p>Cannot end a line:<br />
-$([\{£¥‘"〈《「『【〔＄（［｛｢￡￥</p></td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>The characters that are forbidden to be used for starting or ending
-a line are specified by <strong>rgxchFPunct</strong> and
-<strong>rgxchLPunct</strong>.</td>
-</tr>
-</tbody>
-</table>
+
+| Value | Meaning |
+| --- | --- |
+| 0 (default) | Chinese (Simplified) / Chinese (Traditional) / Japanese / Korean |
+| 1 | Identical to 0 for all but Japanese where the following is used: / Cannot start a line: !%),.:;?]}¢°’"‰′″℃、。々〉》」』】〕ぁぃぅぇぉっゃゅょゎ゛゜ゝゞァィゥェォッャュョヮヵヶ・ーヽヾ！％），．：；？］｝｡｣､･ｧｨｩｪｫｬｭｮｯｰﾞﾟ￠ / Cannot end a line: $([\\{£¥‘"〈《「『【〔＄（［｛｢￡￥ |
+| 2 | The characters that are forbidden to be used for starting or ending a line are specified by rgxchFPunct and rgxchLPunct . |
+
+
 
 **D - f2on1 (1 bit):** Specifies whether to print two pages per sheet,
 as specified in \[ECMA-376\] Part 1, Section 17.15.1.64 printTwoOnOne.
@@ -3876,257 +1994,61 @@ of 0, this array has no effect on the document.
 
 The **DopMth** structure specifies document-wide math settings.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="2">A</td>
-<td colspan="2">B</td>
-<td colspan="3">C</td>
-<td>D</td>
-<td>E</td>
-<td>F</td>
-<td>G</td>
-<td>H</td>
-<td>I</td>
-<td colspan="19">reserved2</td>
-</tr>
-<tr class="even">
-<td colspan="16">ftcMath</td>
-<td colspan="16">dxaLeftMargin</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">dxaRightMargin</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">empty1</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">empty2</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">empty3</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td colspan="16">empty4</td>
-</tr>
-<tr class="even">
-<td colspan="16">...</td>
-<td colspan="16">dxaIndentWrapped</td>
-</tr>
-<tr class="odd">
-<td colspan="16">...</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A |  | B |  | C |  |  | D | E | F | G | H | I | reserved2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ftcMath |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | dxaLeftMargin |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | dxaRightMargin |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | empty1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | empty2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | empty3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | empty4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | dxaIndentWrapped |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **A - mthbrk (2 bits):** Specifies how to break on binary operators as
 specified in
 [\[ECMA-376\]](https://go.microsoft.com/fwlink/?LinkId=200054) Part 1,
 Section 22.1.2.16 brkBin. This MUST be one of the following values.
 
-<table>
-<colgroup>
-<col style="width: 11%" />
-<col style="width: 88%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Value</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0 (default)</td>
-<td><p>Before.</p>
-<p>In line wrapping, breaks occur on binary operators, so the binary
-operator appears before the break.</p></td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td><p>After.</p>
-<p>In line wrapping, breaks occur on binary operators, so the binary
-operator appears after the break.</p></td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td><p>Repeat.</p>
-<p>In line wrapping, breaks occur on binary operators, so the binary
-operator appears on both sides of the break.</p></td>
-</tr>
-</tbody>
-</table>
+
+| Value | Meaning |
+| --- | --- |
+| 0 (default) | Before. / In line wrapping, breaks occur on binary operators, so the binary operator appears before the break. |
+| 1 | After. / In line wrapping, breaks occur on binary operators, so the binary operator appears after the break. |
+| 2 | Repeat. / In line wrapping, breaks occur on binary operators, so the binary operator appears on both sides of the break. |
+
+
 
 **B - mthbrkSub (2 bits):** Specifies how to break on binary subtraction
 when **mthbrk** is 2 as specified in \[ECMA-376\] Part 1, Section
 22.1.2.17 brkBinSub. This value MUST be one of the following.
 
-<table>
-<colgroup>
-<col style="width: 11%" />
-<col style="width: 88%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Value</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0 (default)</td>
-<td><p>Minus Minus.</p>
-<p>Repetition of a subtraction sign after a line-wrapping break is minus
-on the first and second lines.</p></td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td><p>Plus Minus.</p>
-<p>Repetition of a subtraction sign after a line-wrapping break is plus
-on the first line and minus on the second line.</p></td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td><p>Minus Plus.</p>
-<p>Repetition of a subtraction sign after a line-wrapping break is minus
-on the first line and plus on the second line.</p></td>
-</tr>
-</tbody>
-</table>
+
+| Value | Meaning |
+| --- | --- |
+| 0 (default) | Minus Minus. / Repetition of a subtraction sign after a line-wrapping break is minus on the first and second lines. |
+| 1 | Plus Minus. / Repetition of a subtraction sign after a line-wrapping break is plus on the first line and minus on the second line. |
+| 2 | Minus Plus. / Repetition of a subtraction sign after a line-wrapping break is minus on the first line and plus on the second line. |
+
+
 
 **C - mthbpjc (3 bits):** Specifies the default justification of math as
 specified in \[ECMA-376\] Part 1, Section 22.1.2.25 defJc. This MUST be
 one of the following values.
 
-<table>
-<colgroup>
-<col style="width: 11%" />
-<col style="width: 88%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Value</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1 (default)</td>
-<td><p>Centered as Group.</p>
-<p>Justifies equations with respect to each other and centers the group
-of equations with respect to the page.</p></td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td><p>Center.</p>
-<p>Centers each equation individually with respect to margins.</p></td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td><p>Left.</p>
-<p>Left justification of the paragraph containing only math.</p></td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td><p>Right.</p>
-<p>Right justification of the paragraph containing only math.</p></td>
-</tr>
-</tbody>
-</table>
+
+| Value | Meaning |
+| --- | --- |
+| 1 (default) | Centered as Group. / Justifies equations with respect to each other and centers the group of equations with respect to the page. |
+| 2 | Center. / Centers each equation individually with respect to margins. |
+| 3 | Left. / Left justification of the paragraph containing only math. |
+| 4 | Right. / Right justification of the paragraph containing only math. |
+
+
 
 **D - reserved1 (1 bit):** This value is undefined and MUST be ignored.
 

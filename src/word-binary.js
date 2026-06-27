@@ -52,7 +52,7 @@ export function extractWordBinaryDocument({ wordDocument, table0, table1 = null,
   const subdocuments = splitSubdocuments(wordDocument, pieces, fib.characterCounts);
   const rawText = readPieces(wordDocument, pieces);
   const bodyText = subdocuments.body.rawText;
-  const { styles, latentLsd } = extractStyleSheet(tableStream, fib);
+  const { styles, latentLsd, stiMaxWhenSaved } = extractStyleSheet(tableStream, fib);
   const fontTable = extractFontTable(tableStream, fib);
   const sections = extractSections(wordDocument, tableStream, fib);
   const defaultTabStop = inferDefaultTabStop(sections);
@@ -74,6 +74,7 @@ export function extractWordBinaryDocument({ wordDocument, table0, table1 = null,
     characterRuns,
     styles,
     latentLsd,
+    stiMaxWhenSaved,
     fontTable,
     sections,
     defaultTabStop,
@@ -488,9 +489,10 @@ function buildStyleName(sti, name) {
 }
 
 function buildStyleType(sgc) {
-  // sgc: 2=character, 5=table, else paragraph
+  // stk (style kind) per MS-DOC StdfBase: 1=paragraph, 2=character, 3=table, 4=list
   if (sgc === 2) return STYLE_TYPE_CHARACTER;
-  if (sgc === 5) return STYLE_TYPE_TABLE;
+  if (sgc === 3) return STYLE_TYPE_TABLE;
+  // sgc === 4 is list/numbering style; treat as paragraph for now
   return STYLE_TYPE_PARAGRAPH;
 }
 
@@ -551,20 +553,106 @@ function extractStyleSheet(tableStream, fib) {
     off = stdEnd;
   }
 
+  // Assign non-null styles sequential order and attach latent data
   let order = 0;
-  for (const style of styles) {
+  const nonNullStyles = [];
+  const defaults = new Set([0, 65, 105]); // sti values of Normal, DPF, Normal Table
+  for (let i = 0; i < styles.length; i++) {
+    const style = styles[i];
     if (!style) continue;
     style.order = order;
-    // styleId and styleName already set by parseStd via STI_NAMES[sti]
+    style._stshIndex = i; // preserve original STSH index for ordering
     // Attach parsed latent style data for this style's sti
     const latent = latentLsd[style.sti];
     if (latent) {
       style.latent = latent;
     }
+    nonNullStyles.push(style);
     order += 1;
   }
 
-  return { styles, latentLsd };
+  // Assign styleIds per WPS numbering:
+  // Normal(sti=0) → "1"
+  // Primary paragraph styles (before first 3+ consecutive char run) → "2".."P+1"
+  // Normal Table(sti=105) → P+2, DPF(sti=65) → P+3
+  // Built-in character styles (sti < 4094) → in STSH order
+  // Custom character styles (sti == 4094) → in STSH order
+  // Remaining styles (secondary paras + leftover) → in STSH order
+
+  // Count primary paragraph styles: those before the first run of 3+ consecutive
+  // character styles (excluding the 3 default styles).
+  let consecutiveChars = 0;
+  let primaryParaCount = 0;
+  let afterCharBlock = false;
+  for (const style of nonNullStyles) {
+    if (defaults.has(style.sti)) continue;
+    if (afterCharBlock) {
+      // already past the char block, don't count more primary paras
+    } else if (style.type === STYLE_TYPE_CHARACTER) {
+      consecutiveChars += 1;
+      if (consecutiveChars >= 3) {
+        afterCharBlock = true;
+      }
+    } else if (style.type === STYLE_TYPE_PARAGRAPH) {
+      primaryParaCount += 1;
+      consecutiveChars = 0;
+    } else {
+      consecutiveChars = 0;
+    }
+  }
+
+  // Phase 1: primary paragraph styles → IDs 2..primaryParaCount+1
+  let primaryParaSeq = 1;
+  // Phase 2: defaults (Table, DPF)
+  // Phase 3: built-in char styles (sti < 4094, not defaults) → grouped first
+  // Phase 4: everything else in STSH order (custom chars + secondary paras interleaved)
+  const builtinChars = [];
+  const postDefaultStyles = []; // everything after the primary block, in STSH order
+  consecutiveChars = 0;
+  afterCharBlock = false;
+
+  for (const style of nonNullStyles) {
+    if (style.sti === 0) {
+      style.styleId = "1";
+    } else if (style.sti === 65) {
+      // assigned later (DPF)
+    } else if (style.sti === 105) {
+      // assigned later (Normal Table)
+    } else if (!afterCharBlock && style.type === STYLE_TYPE_CHARACTER) {
+      consecutiveChars += 1;
+      if (consecutiveChars >= 3) afterCharBlock = true;
+      if (style.sti < 4094) {
+        builtinChars.push(style);
+      } else {
+        postDefaultStyles.push(style);
+      }
+    } else if (!afterCharBlock && style.type === STYLE_TYPE_PARAGRAPH) {
+      consecutiveChars = 0;
+      primaryParaSeq += 1;
+      style.styleId = String(primaryParaSeq);
+    } else {
+      // after char block or non-para-non-char (table/list): keep in STSH order
+      postDefaultStyles.push(style);
+      consecutiveChars = 0;
+    }
+  }
+
+  // Assign defaults
+  for (const style of nonNullStyles) {
+    if (style.sti === 105) style.styleId = String(primaryParaCount + 2);
+    if (style.sti === 65) style.styleId = String(primaryParaCount + 3);
+  }
+
+  // Assign built-in char styles first, then everything else in STSH order
+  let nextId = primaryParaCount + 4;
+  for (const style of builtinChars) {
+    if (style.styleId == null) { style.styleId = String(nextId); nextId += 1; }
+  }
+  for (const style of postDefaultStyles) {
+    if (style.styleId == null) { style.styleId = String(nextId); nextId += 1; }
+  }
+
+  return { styles, latentLsd, stiMaxWhenSaved };
 }
 
 function parseStd(std, index) {
@@ -586,11 +674,23 @@ function parseStd(std, index) {
   const name = std.subarray(nameStart, nameEnd).toString("utf16le");
   const grpprlStart = nameEnd + 2;
   const grpprl = std.subarray(grpprlStart);
-  const parsed = parseSprms(grpprl, true);
+  // cupx (count of Upx) per MS-DOC StdfBase: para=2, char=0, table=3, list=1
+  const cupxMap = { 1: 2, 2: 0, 3: 3, 4: 1 };
+  const cupx = cupxMap[sgc] || 0;
+  const parsed = parseSprms(grpprl, true, cupx);
 
   const runProperties = extractCharacterPropertiesFromGrpprl(grpprl);
+  // extractCharacterPropertiesFromGrpprl scans from offset 0 (including istd+cupx),
+  // which may miss or misread character SPRMs. For character styles, merge the
+  // correctly-parsed character properties from parseSprms.
+  if (sgc === 2) {
+    if (parsed.underline != null) (runProperties ??= {}).underline = parsed.underline;
+    if (parsed.underlineStyle != null) (runProperties ??= {}).underlineStyle = parsed.underlineStyle;
+    if (parsed.textColor != null) (runProperties ??= {}).textColor = parsed.textColor;
+    if (parsed.bold != null) (runProperties ??= {}).bold = parsed.bold;
+    if (parsed.italic != null) (runProperties ??= {}).italic = parsed.italic;
+  }
   const type = buildStyleType(sgc);
-  const styleId = buildStyleId(sti, index);
   const styleName = buildStyleName(sti, name);
 
   return {
@@ -600,7 +700,7 @@ function parseStd(std, index) {
     sti,
     sgc,
     type,
-    styleId,
+    styleId: null, // assigned later in extractStyleSheet pass 2
     basedOn: resolveBasedOn(istdBase, index),
     next: istdNext,
     baseCode: istdBase,
@@ -636,6 +736,19 @@ function parseStd(std, index) {
     autoSpaceDN: parsed.autoSpaceDN ?? null,
     adjustRightInd: parsed.adjustRightInd ?? null,
     lineNumberCount: parsed.lineNumberCount ?? null,
+    paragraphBorders: parsed.paragraphBorders ?? null,
+    outlineLevel: parsed.outlineLevel ?? null,
+    frameWidth: parsed.frameWidth ?? null,
+    frameHeight: parsed.frameHeight ?? null,
+    frameHRule: parsed.frameHRule ?? null,
+    frameX: parsed.frameX ?? null,
+    frameY: parsed.frameY ?? null,
+    frameXAlign: parsed.frameXAlign ?? null,
+    frameYAlign: parsed.frameYAlign ?? null,
+    frameHAnchor: parsed.frameHAnchor ?? null,
+    frameVAnchor: parsed.frameVAnchor ?? null,
+    frameWrap: parsed.frameWrap ?? null,
+    frameLocked: parsed.frameLocked ?? null,
     runProperties,
   };
 }
@@ -649,12 +762,22 @@ function resolveBasedOn(istdBase, index) {
 function extractLineSpacingFromGrpprl(grpprl) {
   for (let i = 0; i + 3 < grpprl.length; i += 1) {
     if (grpprl[i] === (SPRM_WPS_DYA_LINE & 0xff) && grpprl[i + 1] === ((SPRM_WPS_DYA_LINE >> 8) & 0xff)) {
-      const raw = grpprl[i + 2] | (grpprl[i + 3] << 8);
-      const signed = raw > 0x7fff ? raw - 0x10000 : raw;
-      return {
-        twips: Math.abs(signed),
-        rule: signed < 0 ? "exact" : "atLeast",
-      };
+      // Byte i+4 (if available) encodes the rule: 0=atLeast, 1=auto, 2+=exact
+      const ruleByte = i + 4 < grpprl.length ? grpprl[i + 4] : null;
+      let rule, twips;
+      if (ruleByte === 1) {
+        twips = grpprl[i + 2] | (grpprl[i + 3] << 8);
+        rule = "auto";
+      } else if (ruleByte != null && ruleByte >= 2) {
+        twips = grpprl[i + 2] | (grpprl[i + 3] << 8);
+        rule = "exact";
+      } else {
+        const raw = grpprl[i + 2] | (grpprl[i + 3] << 8);
+        const signed = raw > 0x7fff ? raw - 0x10000 : raw;
+        twips = Math.abs(signed);
+        rule = signed < 0 ? "exact" : "atLeast";
+      }
+      return { twips, rule };
     }
   }
   return null;
@@ -695,7 +818,7 @@ function styleTextColorHex(index) {
     "80FFFF",
     "80FF80",
     "FF80FF",
-    "FF0000",
+    "FF8080",
     "FFFF00",
     "FFFFFF",
     "0000FF",

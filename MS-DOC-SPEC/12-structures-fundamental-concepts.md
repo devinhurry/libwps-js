@@ -42,95 +42,15 @@ style="width:1.20833in;height:0.51042in" />
 
 The preceding expression MUST yield a whole number for *n*.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">aCP (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-<tr class="odd">
-<td colspan="32">aData (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">…</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| aCP (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| aData (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **aCP (variable length):** An array of CP elements. Each type of **PLC**
 structure specifies the meaning of the CP elements and the allowed
@@ -198,219 +118,56 @@ The **STTB** is a string table that is made up of a header that is
 followed by an array of elements. The **cData** value specifies the
 number of elements that are contained in the array.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="32">fExtend (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">cData (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="16">cbExtra</td>
-<td colspan="16">cchData<sub>0</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>0</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">ExtraData<sub>0</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">cchData<sub>1</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">Data<sub>1</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">ExtraData<sub>1</sub> (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">cchData<sub>cData-1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">Data<sub>cData-1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">ExtraData<sub>cData-1</sub> (variable)</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-<tr class="odd">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fExtend (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cData (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cbExtra |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | cchData 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ExtraData 0 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData 1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data 1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ExtraData 1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| cchData cData-1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Data cData-1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ExtraData cData-1 (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 The header consists of the following.
 
@@ -496,105 +253,12 @@ sprmPBrcTop80 do not display a top border.
 The **Sprm** structure specifies a modification to a property of a
 character, paragraph, table, or section.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="9">ispmd</td>
-<td>A</td>
-<td colspan="3">sgc</td>
-<td colspan="3">spra</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ispmd |  |  |  |  |  |  |  |  | A | sgc |  |  | spra |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **ispmd (9 bits):** An unsigned integer that, when combined with
 **fSpec**, specifies the property being modified. See the tables in the
@@ -640,90 +304,13 @@ The **Prl** structure is a [**Sprm**](#sprm) that is followed by an
 operand. The **Sprm** specifies a property to modify, and the operand
 specifies the new value.
 
-<table>
-<colgroup>
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>1</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>2</p>
-<p>0</p></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th><p>3</p>
-<p>0</p></th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td colspan="16">sprm</td>
-<td colspan="16">operand (variable)</td>
-</tr>
-<tr class="even">
-<td colspan="32">...</td>
-</tr>
-</tbody>
-</table>
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 20 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 30 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| sprm |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | operand (variable) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| ... |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+
 
 **sprm (2 bytes):** A **Sprm** which specifies the property to be
 modified.

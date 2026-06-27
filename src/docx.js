@@ -1262,7 +1262,7 @@ function appendParagraphControlXml(parts, properties, { includeDefaults, lineNum
   }
 }
 
-function appendParagraphSpacingXml(parts, properties, sectionProperties = null) {
+function appendParagraphSpacingXml(parts, properties, sectionProperties = null, { styleContext = false } = {}) {
   const spacingParts = [];
   // beforeLines/afterLines are document-grid line counts. WPS emits them when
   // a parsed section docGrid supplies the pitch; ordinary paragraph line
@@ -1441,10 +1441,14 @@ function createFontTableXml(fontTable = []) {
 }function createStylesXml(styles, fontTable = [], wpsDocument = {}) {
   const docDefaults = createDocDefaultsXml(styles, fontTable);
 
+  // Extract docGrid line pitch from sections for beforeLines/afterLines computation
+  const sections = wpsDocument.sections ?? [];
+  const docGridLinePitch = sections.find(s => s?.properties?.docGridLinePitch != null)?.properties?.docGridLinePitch ?? null;
+
   const styleEntries = styles
     .filter((s) => s !== null)
     .sort((a, b) => compareStylesForWpsExport(a, b, styles))
-    .map((style) => createStyleXml(style, styles, fontTable));
+    .map((style) => createStyleXml(style, styles, fontTable, docGridLinePitch));
 
   return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <w:styles xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:sl="http://schemas.openxmlformats.org/schemaLibrary/2006/main" xmlns:wpsCustomData="http://www.wps.cn/officeDocument/2013/wpsCustomData" mc:Ignorable="w14">${docDefaults}${buildLatentStylesXml(styles, wpsDocument)}${styleEntries.join("")}</w:styles>`;
@@ -1457,20 +1461,45 @@ function createDocDefaultsXml(styles = [], fontTable = []) {
   return `<w:docDefaults><w:rPrDefault><w:rPr><w:rFonts w:ascii="${escapeXml(ascii)}" w:hAnsi="${escapeXml(ascii)}" w:eastAsia="${escapeXml(eastAsia)}" w:cs="Times New Roman"/></w:rPr></w:rPrDefault><w:pPrDefault/></w:docDefaults>`;
 }
 
-function createStyleXml(style, styles, fontTable = []) {
+function createStyleXml(style, styles, fontTable = [], docGridLinePitch = null) {
   const isBuiltIn = style.sti != null && style.sti < STI_NAMES.length && STI_NAMES[style.sti] != null;
   const isCustom = isBuiltIn === false;
-  const defaultAttr = style.sti === 0 || style.sti === 105 ? ' w:default="1"' : "";
+  // Default styles: Normal(sti=0), DPF(sti=65), Normal Table(sti=105)
+  const defaultAttr = (style.sti === 0 || style.sti === 65 || style.sti === 105) ? ' w:default="1"' : "";
   const customAttr = isCustom ? ' w:customStyle="1"' : "";
   const basedOnXml = buildStyleReferenceXml("basedOn", style, style.baseCode ?? style.basedOn, styles);
-  const nextXml = isBuiltIn ? "" : buildStyleReferenceXml("next", style, style.nextCode ?? style.next, styles);
+  const nextXml = buildStyleReferenceXml("next", style, style.nextCode ?? style.next, styles);
   const name = escapeXml(style.styleName ?? style.name);
-  const hasQFormat = isBuiltIn || (style.latent?.fQFormat ?? false);
+  // qFormat: built-in styles use latent LSD fQFormat; custom/user-defined styles always get qFormat
+  const hasQFormat = isCustom || style.latent?.fQFormat === true;
   const qFormat = hasQFormat ? `<w:qFormat/>` : "";
-  const uiPriority = style.latent?.iPriority != null ? String(style.latent.iPriority) : "0";
-  const uiPriorityXml = `<w:uiPriority w:val="${uiPriority}"/>`;
+  const hasSemiHidden = style.latent?.fSemiHidden === true;
+  const semiHiddenXml = hasSemiHidden ? `<w:semiHidden/>` : "";
+  // uiPriority: use latent LSD iPriority. For custom character styles with no LSD,
+  // inherit from the linked paragraph style (adjacent in STSH order).
+  let uiPriority = style.latent?.iPriority;
+  if (uiPriority == null && isCustom && style.type === "character") {
+    const ordered = styles.filter(s => s !== null).sort((a, b) => (a.index ?? 0) - (b.index ?? 0));
+    const myPos = ordered.indexOf(style);
+    if (myPos >= 0) {
+      for (const delta of [-1, 1]) {
+        const other = ordered[myPos + delta];
+        if (other && other.type === "paragraph") {
+          const charBase = stripCharSuffix(style.name ?? "");
+          // Name match or shared linkCode (for weird names like " Char Char")
+          if ((charBase !== style.name && (other.name === charBase || other.styleName === charBase))
+              || (style.linkCode != null && style.linkCode < 0xfff0 && other.linkCode === style.linkCode)) {
+            uiPriority = other.latent?.iPriority ?? 0;
+            break;
+          }
+        }
+      }
+    }
+  }
+  const uiPriorityVal = uiPriority != null ? String(uiPriority) : "0";
+  const uiPriorityXml = `<w:uiPriority w:val="${uiPriorityVal}"/>`;
   const linkXml = inferStyleLink(style, styles);
-  const pPrXml = buildStyleParagraphPropertiesXml(style);
+  const pPrXml = buildStyleParagraphPropertiesXml(style, docGridLinePitch);
   const rPrXml = buildStyleRunPropertiesXml(style, fontTable);
   const tblPrXml = style.type === "table"
     ? `<w:tblPr><w:tblStyle w:val="${escapeXml(style.styleId)}"/><w:tblCellMar><w:top w:w="0" w:type="dxa"/><w:left w:w="108" w:type="dxa"/><w:bottom w:w="0" w:type="dxa"/><w:right w:w="108" w:type="dxa"/></w:tblCellMar></w:tblPr>`
@@ -1482,6 +1511,7 @@ function createStyleXml(style, styles, fontTable = []) {
     basedOnXml,
     linkXml,
     nextXml,
+    semiHiddenXml,
     unhideXml,
     qFormat,
     uiPriorityXml,
@@ -1493,21 +1523,7 @@ function createStyleXml(style, styles, fontTable = []) {
   return `  <w:style w:type="${style.type}"${customAttr}${defaultAttr} w:styleId="${escapeXml(style.styleId)}">${parts.join("")}</w:style>`;
 }
 
-const WPS_STYLE_ORDER = new Map([
-  ["1", 1],
-  ["9", 2],
-  ["8", 3],
-  ["2", 4],
-  ["3", 5],
-  ["4", 6],
-  ["5", 7],
-  ["6", 8],
-  ["7", 9],
-  ["10", 10],
-  ["11", 11],
-  ["12", 12],
-]);
-
+// WPS export order: Normal(sti=0) → DPF(sti=65) → Normal Table(sti=105) → others in original order
 function compareStylesForWpsExport(a, b, styles = []) {
   if (hasDuplicateStyleIds(styles)) {
     return (a.order ?? a.index ?? 0) - (b.order ?? b.index ?? 0);
@@ -1529,10 +1545,13 @@ function hasDuplicateStyleIds(styles = []) {
 }
 
 function styleExportRank(style) {
-  const styleId = String(style?.styleId ?? "");
-  if (WPS_STYLE_ORDER.has(styleId)) return WPS_STYLE_ORDER.get(styleId);
-  const numeric = Number(styleId);
-  if (Number.isInteger(numeric)) return numeric;
+  // Default styles come first: Normal(sti=0) → DPF(sti=65) → Normal Table(sti=105)
+  if (style?.sti === 0) return 0;
+  if (style?.sti === 65) return 1;
+  if (style?.sti === 105) return 2;
+  // All other styles follow by numeric styleId
+  const numeric = Number(style?.styleId);
+  if (Number.isInteger(numeric)) return numeric + 100;
   return 10000 + (style?.order ?? style?.index ?? 0);
 }
 
@@ -1553,33 +1572,75 @@ function buildStyleReferenceXml(tag, style, rawCode, styles = []) {
   }
   return `<w:${tag} w:val="${escapeXml(styleId)}"/>`;
 }
+// Strip repeated " Char[digits]" suffixes from linked character style names
+function stripCharSuffix(n) {
+  let prev = n;
+  while (true) {
+    const stripped = prev.replace(/ Char[0-9]*$/, "");
+    if (stripped === prev) break;
+    prev = stripped;
+  }
+  return prev;
+}
 
 function inferStyleLink(style, styles = []) {
   const name = style.name ?? "";
+
+  // Build a list of non-null styles in STSH index order for adjacency checks
+  const ordered = styles.filter(s => s !== null).sort((a, b) => (a.index ?? 0) - (b.index ?? 0));
+
+  // Check if two adjacent styles share the same istdLink (linkCode) — WPS uses this
+  // as the primary link signal when names don't match (e.g. " Char Char" → "页脚").
+  const shareLinkCode = (a, b) => {
+    if (a.linkCode == null || b.linkCode == null) return false;
+    if (a.linkCode >= 0xfff0 || b.linkCode >= 0xfff0) return false;
+    return a.linkCode === b.linkCode;
+  };
+
   if (style.type === "character") {
-    const baseName = name.replace(/ Char[0-9]+$/, "");
-    if (baseName !== name) {
-      for (const other of styles) {
-        if (other && other.type === "paragraph" && (other.name === baseName || other.styleName === baseName)) {
-          return `<w:link w:val="${escapeXml(other.styleId)}"/>`;
-        }
+    const baseName = stripCharSuffix(name);
+    const myPos = ordered.indexOf(style);
+    // First pass: try name matching
+    for (const delta of [-1, 1]) {
+      const other = ordered[myPos + delta];
+      if (!other || other.type !== "paragraph") continue;
+      if (other.name === baseName || other.styleName === baseName) {
+        return `<w:link w:val="${escapeXml(other.styleId)}"/>`;
+      }
+    }
+    // Second pass: try shared istdLink (linkCode) as fallback for weird names
+    for (const delta of [-1, 1]) {
+      const other = ordered[myPos + delta];
+      if (!other || other.type !== "paragraph") continue;
+      if (shareLinkCode(style, other)) {
+        return `<w:link w:val="${escapeXml(other.styleId)}"/>`;
       }
     }
   } else if (style.type === "paragraph") {
-    for (const other of styles) {
-      if (other && other.type === "character") {
-        const otherName = other.name ?? "";
-        const baseOther = otherName.replace(/ Char[0-9]+$/, "");
-        if (baseOther === name && baseOther !== otherName) {
-          return `<w:link w:val="${escapeXml(other.styleId)}"/>`;
-        }
+    const myPos = ordered.indexOf(style);
+    // First pass: name matching
+    for (const delta of [-1, 1]) {
+      const other = ordered[myPos + delta];
+      if (!other || other.type !== "character") continue;
+      const otherName = other.name ?? "";
+      const baseOther = stripCharSuffix(otherName);
+      if (baseOther === name && baseOther !== otherName) {
+        return `<w:link w:val="${escapeXml(other.styleId)}"/>`;
+      }
+    }
+    // Second pass: shared linkCode fallback
+    for (const delta of [-1, 1]) {
+      const other = ordered[myPos + delta];
+      if (!other || other.type !== "character") continue;
+      if (shareLinkCode(style, other)) {
+        return `<w:link w:val="${escapeXml(other.styleId)}"/>`;
       }
     }
   }
   return "";
 }
 
-function buildStyleParagraphPropertiesXml(style) {
+function buildStyleParagraphPropertiesXml(style, docGridLinePitch = null) {
   const parts = [];
   const paragraphStyle = style;
 
@@ -1590,6 +1651,16 @@ function buildStyleParagraphPropertiesXml(style) {
     numberingXml: numbering.xml,
     phase: "beforeTabs",
   });
+  if (paragraphStyle.paragraphBorders) {
+    const borderParts = [];
+    for (const [side, brc] of Object.entries(paragraphStyle.paragraphBorders)) {
+      if (!brc) continue;
+      borderParts.push(`<w:${side} w:val="${escapeXml(brc.val)}" w:color="${escapeXml(brc.color)}" w:sz="${escapeXml(brc.sz)}" w:space="${escapeXml(brc.space)}"/>`);
+    }
+    if (borderParts.length) {
+      parts.push(`<w:pBdr>${borderParts.join("")}</w:pBdr>`);
+    }
+  }
   if (!numbering.xml) {
     appendParagraphTabsXml(parts, paragraphStyle, "", false);
   }
@@ -1597,13 +1668,31 @@ function buildStyleParagraphPropertiesXml(style) {
     includeDefaults: false,
     phase: "afterTabs",
   });
-  appendParagraphSpacingXml(parts, paragraphStyle, null);
+  if (paragraphStyle.frameWidth != null || paragraphStyle.frameHeight != null || paragraphStyle.frameXAlign != null || paragraphStyle.frameY != null) {
+    const fparts = [];
+    if (paragraphStyle.frameWidth != null) fparts.push(`w:w="${paragraphStyle.frameWidth}"`);
+    if (paragraphStyle.frameHeight != null) fparts.push(`w:h="${paragraphStyle.frameHeight}"`);
+    if (paragraphStyle.frameHRule != null) fparts.push(`w:hRule="${paragraphStyle.frameHRule}"`);
+    if (paragraphStyle.frameWrap != null) fparts.push(`w:wrap="${paragraphStyle.frameWrap}"`);
+    if (paragraphStyle.frameVAnchor != null) fparts.push(`w:vAnchor="${paragraphStyle.frameVAnchor}"`);
+    if (paragraphStyle.frameHAnchor != null) fparts.push(`w:hAnchor="${paragraphStyle.frameHAnchor}"`);
+    if (paragraphStyle.frameXAlign != null) fparts.push(`w:xAlign="${paragraphStyle.frameXAlign}"`);
+    if (paragraphStyle.frameYAlign != null) fparts.push(`w:yAlign="${paragraphStyle.frameYAlign}"`);
+    if (paragraphStyle.frameX != null) fparts.push(`w:x="${paragraphStyle.frameX}"`);
+    if (paragraphStyle.frameY != null) fparts.push(`w:y="${paragraphStyle.frameY}"`);
+    if (paragraphStyle.frameLocked) fparts.push(`w:anchorLock="1"`);
+    if (fparts.length) parts.push(`<w:framePr ${fparts.join(" ")}/>`);
+  }
+  appendParagraphSpacingXml(parts, paragraphStyle, docGridLinePitch != null ? { docGridLinePitch } : null, { styleContext: true });
   appendParagraphIndentXml(parts, paragraphStyle, "");
   if (paragraphStyle.alignment) {
     parts.push(`<w:jc w:val="${paragraphStyle.alignment}"/>`);
   }
   if (paragraphStyle.textAlignment) {
     parts.push(`<w:textAlignment w:val="${paragraphStyle.textAlignment}"/>`);
+  }
+  if (paragraphStyle.outlineLevel != null) {
+    parts.push(`<w:outlineLvl w:val="${paragraphStyle.outlineLevel}"/>`);
   }
 
   if (!parts.length) return "";
@@ -1619,12 +1708,23 @@ function buildStyleRunPropertiesXml(style, fontTable) {
 
 function buildLatentStylesXml(styles = [], wpsDocument = {}) {
   const latentLsd = wpsDocument.latentLsd ?? [];
+  const stiMax = wpsDocument.stiMaxWhenSaved ?? STI_NAMES.length;
   const parts = ['<w:latentStyles w:count="260" w:defQFormat="0" w:defUnhideWhenUsed="1" w:defSemiHidden="1" w:defUIPriority="99" w:defLockedState="0">'];
-  for (let sti = 0; sti < STI_NAMES.length; sti += 1) {
+  for (let sti = 0; sti < STI_NAMES.length && sti <= stiMax; sti += 1) {
     const name = STI_NAMES[sti];
     const latent = latentLsd[sti];
     if (!latent || !name) continue;
     if (sti === 92 || sti === 93 || (sti >= 107 && sti <= 110) || sti === 156 || sti === 157 || sti === 178 || sti === 180 || sti === 181) continue;
+    // WPS includes LSD entries up to the maximum sti of any defined built-in style.
+    // For entries beyond that, only include if they have non-default values.
+    const maxDefinedBuiltinSti = styles.reduce((max, s) => {
+      if (!s || s.sti >= 4094) return max;
+      return Math.max(max, s.sti);
+    }, 0);
+    if (sti > maxDefinedBuiltinSti) {
+      const isDefaultLsd = !latent.fQFormat && latent.fUnhideWhenUsed && latent.fSemiHidden && latent.iPriority === 99;
+      if (isDefaultLsd) continue;
+    }
     const attrs = [];
     if (latent.fQFormat) attrs.push('w:qFormat="1"');
     if (!latent.fUnhideWhenUsed) attrs.push('w:unhideWhenUsed="0"');
