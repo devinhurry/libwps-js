@@ -887,6 +887,7 @@ function parseStd(std, index, cbSTDBaseInFile) {
     spacingAfter: parsed.spacingAfter ?? null,
     spacingBeforeAuto: parsed.spacingBeforeAuto ?? null,
     spacingAfterAuto: parsed.spacingAfterAuto ?? null,
+    contextualSpacing: parsed.contextualSpacing ?? null,
     listLevel: parsed.listLevel ?? null,
     listId: parsed.listId ?? null,
     tabs: parsed.tabs ?? null,

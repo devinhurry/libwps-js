@@ -771,12 +771,28 @@ function buildTablePropertiesXml(table, tablePosition, tableStyleId = TABLE_STYL
   const cellMargins = table.cellMargins ?? TABLE_DOCX_PROPS.cellMar;
   const overlapXml = tablePosition?.noAllowOverlap ? `<w:tblOverlap w:val="never"/>` : "";
   const positionXml = tablePosition ? buildTablePositionXml(tablePosition) : "";
+  // MS-DOC-SPEC/16 §sprmTWidthIndent: when wWidth is negative, the table is
+  // centered (the absolute indent is the space from margins). Explicit table
+  // justification (sprmTJc/sprmTJc90) overrides this heuristic.
+  // OOXML: <w:tblInd> and <w:jc> are mutually exclusive — a centered table
+  // uses <w:jc w:val="center"/> without <w:tblInd>.
+  const explicitJc = table.tableJustification;
   const indXml = tablePosition
     ? `<w:tblInd w:w="0" w:type="dxa"/>`
     : table.tableIndent
-      ? `<w:tblInd w:w="${table.tableIndent.width}" w:type="${table.tableIndent.type}"/>`
+      ? (explicitJc || table.tableIndent.width < 0)
+        ? "" // alignment via jc
+        : `<w:tblInd w:w="${table.tableIndent.width}" w:type="${table.tableIndent.type}"/>`
       : "";
-  const jc = tablePosition || table.tableIndent ? "" : TABLE_DOCX_PROPS.jc ? `<w:jc w:val="${TABLE_DOCX_PROPS.jc}"/>` : "";
+  const jc = tablePosition
+    ? ""
+    : explicitJc
+      ? `<w:jc w:val="${explicitJc}"/>`
+      : table.tableIndent
+        ? table.tableIndent.width < 0
+          ? `<w:jc w:val="center"/>`
+          : ""
+        : TABLE_DOCX_PROPS.jc ? `<w:jc w:val="${TABLE_DOCX_PROPS.jc}"/>` : "";
 
   return `      <w:tblPr>
         <w:tblStyle w:val="${tableStyleId}"/>
@@ -1131,7 +1147,9 @@ function splitWordParagraphs(rawText) {
 }
 
 function cleanParagraphText(text) {
-  return text.replace(/[\x00-\x06\x08\x0b\x0e-\x1f]/g, "");
+  // MS-DOC-SPEC/16: 0x0E is the column-break character — keep it for
+  // rendering as <w:br w:type="column"/> in buildRuns.
+  return text.replace(/[\x00-\x06\x08\x0b\x0d\x0f-\x1f]/g, "");
 }
 
 function paragraphToXml(paragraph, properties, characterProperties, fontTable, charIdx, sectionProperties = null, spacingSectionProperties = sectionProperties, sectionIndex = -1, paraId = null, includeGoBackBookmark = false, documentOptions = {}) {
@@ -1203,6 +1221,16 @@ function buildRuns(paragraph, characterProperties, fontTable, charIdx, paragraph
       runs.push(bookmarkTagsAtCp(bookmarkEvents, currentCharIdx));
       continue;
     }
+    // MS-DOC-SPEC/16: 0x0E is the column-break character
+    // (end-of-column character). Render as <w:br w:type="column"/>.
+    if (part === "\x0e") {
+      runs.push(bookmarkTagsAtCp(bookmarkEvents, currentCharIdx));
+      const rPr = buildRunPropertiesXml(characterProperties, fontTable, currentCharIdx, runOverrides, runDefaults);
+      runs.push(`<w:r>${rPr}<w:br w:type="column"/></w:r>`);
+      currentCharIdx += 1;
+      runs.push(bookmarkTagsAtCp(bookmarkEvents, currentCharIdx));
+      continue;
+    }
 
     runs.push(...buildTextRuns(part, characterProperties, fontTable, currentCharIdx, paragraphProperties, runOverrides, runDefaults, bookmarkEvents));
     currentCharIdx += part.length;
@@ -1225,7 +1253,7 @@ function splitTabsAndMarks(value) {
   const parts = [];
   let start = 0;
   for (let i = 0; i < value.length; i += 1) {
-    if (value[i] === "\t" || value[i] === "\x07" || value[i] === "\x0c") {
+    if (value[i] === "\t" || value[i] === "\x07" || value[i] === "\x0c" || value[i] === "\x0e") {
       if (i > start) {
         parts.push(value.slice(start, i));
       }
@@ -1585,6 +1613,7 @@ function appendParagraphControlXml(parts, properties, { includeDefaults, lineNum
     emit("bidi", properties?.bidi, { defaultValue: false });
     emit("adjustRightInd", properties?.adjustRightInd);
     emit("snapToGrid", properties?.snapToGrid);
+    emit("contextualSpacing", properties?.contextualSpacing);
   }
 }
 
@@ -2100,7 +2129,7 @@ function buildLatentStylesXml(styles = [], wpsDocument = {}) {
     if (latent.fQFormat) attrs.push('w:qFormat="1"');
     if (!latent.fUnhideWhenUsed) attrs.push('w:unhideWhenUsed="0"');
     attrs.push('w:uiPriority="' + latent.iPriority + '"');
-    if (!latent.fSemiHidden || sti === 65) attrs.push('w:semiHidden="0"');
+    if (!latent.fSemiHidden) attrs.push('w:semiHidden="0"');
     parts.push('<w:lsdException ' + attrs.join(' ') + ' w:name="' + name + '"/>');
   }
   parts.push('</w:latentStyles>');

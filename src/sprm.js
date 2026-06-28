@@ -18,7 +18,7 @@ const SPRM_SIZES = {
   0x2446: 4, 0x2447: 1, 0x2448: 1, 0x2449: 4, 0x244A: 4,
   0x244B: 4, 0x244C: 4, 0x244D: 4, 0x244E: 4, 0x244F: 4,
   0x2450: 4, 0x2451: 4, 0x2452: 4, 0x2453: 4, 0x2454: 4,
-  0x245B: 1, 0x245C: 1,
+  0x245B: 1, 0x245C: 1, 0x246D: 1,
   0x260A: 1, 0x460B: 2,
   0x261B: 1, 0x2423: 1, 0x2430: 1,
   0x8418: 2, 0x8419: 2, 0x841A: 2, 0x442B: 2,
@@ -493,6 +493,10 @@ function applySprm(props, sprm, val, size) {
       break;
     case 0x245C:
       props.spacingAfterAuto = val[0] !== 0;
+      break;
+    case 0x246D:
+      // sprmPFContextualSpacing (MS-DOC-SPEC/16): Bool8 — ignore space between same-style paragraphs
+      props.contextualSpacing = val[0] !== 0;
       break;
     case 0x260A:
       props.listLevel = val[0];
