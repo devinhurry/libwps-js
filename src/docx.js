@@ -329,10 +329,11 @@ function createNumberingXml(wpsDocument = {}) {
       // Justification
       const jcMap = { 0: "left", 1: "center", 2: "right" };
       parts.push(`<w:lvlJc w:val="${jcMap[lvl.jc] || "left"}"/>`);
-      // Paragraph properties: tabs, indents from grpprlPapx
+      // Paragraph properties: tabs, jc, indents from grpprlPapx
       const hasTabs = lvl.tabs && lvl.tabs.length > 0;
       const hasIndents = lvl.leftIndent != null || lvl.firstLineIndent != null || lvl.rightIndent != null;
-      if (hasTabs || hasIndents) {
+      const hasPapxJc = lvl.papxAlignment != null;
+      if (hasTabs || hasIndents || hasPapxJc) {
         parts.push('<w:pPr>');
         if (hasTabs) {
           const tabsXml = lvl.tabs
@@ -350,9 +351,10 @@ function createNumberingXml(wpsDocument = {}) {
           if (lvl.rightIndent != null) indParts.push(`w:right="${lvl.rightIndent}"`);
           if (indParts.length) parts.push(`<w:ind ${indParts.join(" ")}/>`);
         }
+        if (hasPapxJc) parts.push(`<w:jc w:val="${lvl.papxAlignment}"/>`);
         parts.push('</w:pPr>');
       }
-      // Run properties from grpprlChpx: rFonts, szCs, color
+      // Run properties from grpprlChpx: rFonts, spacing, w, sz, szCs, color
       const fontAttrs = [];
       if (lvl.fontHint != null) fontAttrs.push(`w:hint="${lvl.fontHint}"`);
       if (lvl.fontAscii != null) fontAttrs.push(`w:ascii="${escapeXml(resolveFontName(fontTable, lvl.fontAscii))}"`);
@@ -362,9 +364,15 @@ function createNumberingXml(wpsDocument = {}) {
       const hasFontRPr = fontAttrs.length > 0;
       const hasSizeRPr = lvl.fontSizeCs != null;
       const hasColorRPr = lvl.textColor != null;
-      if (hasFontRPr || hasSizeRPr || hasColorRPr) {
+      const hasSpacingRPr = lvl.charSpacing != null;
+      const hasCharWidthRPr = lvl.charWidth != null;
+      const hasFontSizeRPr = lvl.fontSize != null;
+      if (hasFontRPr || hasSizeRPr || hasColorRPr || hasSpacingRPr || hasCharWidthRPr || hasFontSizeRPr) {
         parts.push('<w:rPr>');
         if (hasFontRPr) parts.push(`<w:rFonts ${fontAttrs.join(" ")}/>`);
+        if (hasSpacingRPr) parts.push(`<w:spacing w:val="${lvl.charSpacing}"/>`);
+        if (hasCharWidthRPr) parts.push(`<w:w w:val="${lvl.charWidth}"/>`);
+        if (hasFontSizeRPr) parts.push(`<w:sz w:val="${lvl.fontSize}"/>`);
         if (hasSizeRPr) parts.push(`<w:szCs w:val="${lvl.fontSizeCs}"/>`);
         if (hasColorRPr) parts.push(`<w:color w:val="${lvl.textColor}"/>`);
         parts.push('</w:rPr>');

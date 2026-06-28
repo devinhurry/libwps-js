@@ -900,3 +900,49 @@ test("tables sample keeps the first table borderless", async () => {
   );
   assert.doesNotMatch(tableXmls[0], /<w:tcBorders>/);
 });
+
+test("style outline level extracted from GRPPRL fallback scanner (SPRM 0x2640)", async () => {
+  const basicWps = readWps(await readFile(BASIC_WPS));
+  const headerStyle = basicWps.styles.find((s) => s?.name === "header（页眉）" || s?.name === "header" || s?.sti === 31);
+  assert.ok(headerStyle, "header style should exist");
+  assert.equal(headerStyle.outlineLevel, 9, "header style outlineLevel should be 9 per MS-DOC-SPEC sprmPOutLvl (0x2640)");
+});
+
+test("style paragraph borders extracted from GRPPRL fallback scanner (SPRM 0x6424–0x6428)", async () => {
+  const basicWps = readWps(await readFile(BASIC_WPS));
+  const headerStyle = basicWps.styles.find((s) => s?.name === "header（页眉）" || s?.name === "header" || s?.sti === 31);
+  assert.ok(headerStyle?.paragraphBorders, "header style should have paragraphBorders");
+  assert.equal(headerStyle.paragraphBorders.top?.val, "none");
+  assert.equal(headerStyle.paragraphBorders.top?.space, "1");
+  assert.equal(headerStyle.paragraphBorders.left?.space, "4");
+});
+
+test("parseBrc80Raw preserves none-type borders with meaningful dptSpace in styles.xml", async () => {
+  const basicWps = readWps(await readFile(BASIC_WPS));
+  const docx = wpsToDocxBuffer(basicWps, { title: "test" });
+  const stylesXml = readZipEntry(docx, "word/styles.xml").toString("utf8");
+  // The header style's pBdr should have all four sides with space values
+  assert.match(stylesXml, /<w:pBdr>/);
+  assert.match(stylesXml, /<w:top w:val="none" w:color="auto" w:sz="0" w:space="1"\/>/);
+  assert.match(stylesXml, /<w:left w:val="none" w:color="auto" w:sz="0" w:space="4"\/>/);
+});
+
+test("numbering level character properties emitted in w:rPr (spacing, w, sz)", async () => {
+  const fullWps = readWps(await readFile(FULL_WPS));
+  const docx = wpsToDocxBuffer(fullWps, { title: "full" });
+  const numberingXml = readZipEntry(docx, "word/numbering.xml").toString("utf8");
+  // Level 0 rPr should contain spacing, w, sz from chpx SPRMs
+  const lvl0 = numberingXml.match(/<w:lvl w:ilvl="0"[^>]*>[\s\S]*?<\/w:lvl>/)?.[0] ?? "";
+  assert.match(lvl0, /<w:rPr>/);
+  assert.match(lvl0, /<w:spacing w:val="-5"\/>/);
+  assert.match(lvl0, /<w:w w:val="100"\/>/);
+  assert.match(lvl0, /<w:sz w:val="22"\/>/);
+});
+
+test("numbering level paragraph alignment from papx SPRM emitted in w:pPr/w:jc", async () => {
+  const fullWps = readWps(await readFile(FULL_WPS));
+  const nXml = readZipEntry(wpsToDocxBuffer(fullWps, { title: "full" }), "word/numbering.xml").toString("utf8");
+  const lvl0 = nXml.match(/<w:lvl w:ilvl="0"[^>]*>[\s\S]*?<\/w:lvl>/)?.[0] ?? "";
+  assert.match(lvl0, /<w:pPr>/);
+  assert.match(lvl0, /<w:jc w:val="left"\/>/);
+});

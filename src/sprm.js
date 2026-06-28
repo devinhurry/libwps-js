@@ -498,8 +498,9 @@ function applySprm(props, sprm, val, size) {
       props.listLevel = val[0];
       break;
     case 0x2640:
-      // sprmPOutLvl: WW8 values 0-8 = DOCX outlineLvl 0-8 (0=level 1, …), 9 = body text
-      props.outlineLevel = val[0] <= 8 ? val[0] : null;
+      // sprmPOutLvl: WW8 values 0-9 → OOXML outlineLvl 0-9 (0=Level1, …, 8=Level9, 9=BodyText).
+      // OOXML §17.3.1.20 outlineLvl explicitly allows 9; WPS exports it.
+      props.outlineLevel = val[0] <= 9 ? val[0] : null;
       break;
     // Frame properties per MS-DOC-SPEC §2.6.2
     case 0x2423: // sprmPWr: text wrap around frame
@@ -633,7 +634,8 @@ function parseBrc80(val) {
 }
 
 // BrcType values per MS-DOC-SPEC
-const BRC_TYPE_NAMES = {
+export const BRC_TYPE_NAMES = {
+  0x00: "none",
   0x01: "single",
   0x02: "thick",
   0x03: "double",
@@ -655,7 +657,7 @@ const BRC_TYPE_NAMES = {
 };
 
 // ico color palette index per MS-DOC-SPEC §ICO (0x00=auto)
-function brcColorFromIco(ico) {
+export function brcColorFromIco(ico) {
   if (ico === 0) return "auto";
   const colors = [
     null, "000000", "0000FF", "00FFFF", "00FF00", "FF00FF",

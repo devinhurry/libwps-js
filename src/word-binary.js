@@ -1,4 +1,5 @@
 import { parseSprms } from "./sprm.js";
+import { BRC_TYPE_NAMES, brcColorFromIco } from "./sprm.js";
 // sti→name mapping per MS-OI29500 §2.1.237 (Part 1 Section 17.7.4.9)
 export const STI_NAMES = ["Normal","heading 1","heading 2","heading 3","heading 4","heading 5","heading 6","heading 7","heading 8","heading 9","index 1","index 2","index 3","index 4","index 5","index 6","index 7","index 8","index 9","toc 1","toc 2","toc 3","toc 4","toc 5","toc 6","toc 7","toc 8","toc 9","Normal Indent","footnote text","annotation text","header","footer","index heading","caption","table of figures","envelope address","envelope return","footnote reference","annotation reference","line number","page number","endnote reference","endnote text","table of authorities","macro","toa heading","List","List Bullet","List Number","List 2","List 3","List 4","List 5","List Bullet 2","List Bullet 3","List Bullet 4","List Bullet 5","List Number 2","List Number 3","List Number 4","List Number 5","Title","Closing","Signature","Default Paragraph Font","Body Text","Body Text Indent","List Continue","List Continue 2","List Continue 3","List Continue 4","List Continue 5","Message Header","Subtitle","Salutation","Date","Body Text First Indent","Body Text First Indent 2","Note Heading","Body Text 2","Body Text 3","Body Text Indent 2","Body Text Indent 3","Block Text","Hyperlink","FollowedHyperlink","Strong","Emphasis","Document Map","Plain Text","E-mail Signature","HTML Top of Form","HTML Bottom of Form","Normal (Web)","HTML Acronym","HTML Address","HTML Cite","HTML Code","HTML Definition","HTML Keyboard","HTML Preformatted","HTML Sample","HTML Typewriter","HTML Variable","Normal Table","annotation subject","No List","Outline List 1","Outline List 2","Outline List 3","Table Simple 1","Table Simple 2","Table Simple 3","Table Classic 1","Table Classic 2","Table Classic 3","Table Classic 4","Table Colorful 1","Table Colorful 2","Table Colorful 3","Table Columns 1","Table Columns 2","Table Columns 3","Table Columns 4","Table Columns 5","Table Grid 1","Table Grid 2","Table Grid 3","Table Grid 4","Table Grid 5","Table Grid 6","Table Grid 7","Table Grid 8","Table List 1","Table List 2","Table List 3","Table List 4","Table List 5","Table List 6","Table List 7","Table List 8","Table 3D effects 1","Table 3D effects 2","Table 3D effects 3","Table Contemporary","Table Elegant","Table Professional","Table Subtle 1","Table Subtle 2","Table Web 1","Table Web 2","Table Web 3","Balloon Text","Table Grid","Table Theme","Placeholder Text","No Spacing","Light Shading","Light List","Light Grid","Medium Shading 1","Medium Shading 2","Medium List 1","Medium List 2","Medium Grid 1","Medium Grid 2","Medium Grid 3","Dark List","Colorful Shading","Colorful List","Colorful Grid","Light Shading Accent 1","Light List Accent 1","Light Grid Accent 1","Medium Shading 1 Accent 1","Medium Shading 2 Accent 1","Medium List 1 Accent 1","Revision","List Paragraph","Quote","Intense Quote","Medium List 2 Accent 1","Medium Grid 1 Accent 1","Medium Grid 2 Accent 1","Medium Grid 3 Accent 1","Dark List Accent 1","Colorful Shading Accent 1","Colorful List Accent 1","Colorful Grid Accent 1","Light Shading Accent 2","Light List Accent 2","Light Grid Accent 2","Medium Shading 1 Accent 2","Medium Shading 2 Accent 2","Medium List 1 Accent 2","Medium List 2 Accent 2","Medium Grid 1 Accent 2","Medium Grid 2 Accent 2","Medium Grid 3 Accent 2","Dark List Accent 2","Colorful Shading Accent 2","Colorful List Accent 2","Colorful Grid Accent 2","Light Shading Accent 3","Light List Accent 3","Light Grid Accent 3","Medium Shading 1 Accent 3","Medium Shading 2 Accent 3","Medium List 1 Accent 3","Medium List 2 Accent 3","Medium Grid 1 Accent 3","Medium Grid 2 Accent 3","Medium Grid 3 Accent 3","Dark List Accent 3","Colorful Shading Accent 3","Colorful List Accent 3","Colorful Grid Accent 3","Light Shading Accent 4","Light List Accent 4","Light Grid Accent 4","Medium Shading 1 Accent 4","Medium Shading 2 Accent 4","Medium List 1 Accent 4","Medium List 2 Accent 4","Medium Grid 1 Accent 4","Medium Grid 2 Accent 4","Medium Grid 3 Accent 4","Dark List Accent 4","Colorful Shading Accent 4","Colorful List Accent 4","Colorful Grid Accent 4","Light Shading Accent 5","Light List Accent 5","Light Grid Accent 5","Medium Shading 1 Accent 5","Medium Shading 2 Accent 5","Medium List 1 Accent 5","Medium List 2 Accent 5","Medium Grid 1 Accent 5","Medium Grid 2 Accent 5","Medium Grid 3 Accent 5","Dark List Accent 5","Colorful Shading Accent 5","Colorful List Accent 5","Colorful Grid Accent 5","Light Shading Accent 6","Light List Accent 6","Light Grid Accent 6","Medium Shading 1 Accent 6","Medium Shading 2 Accent 6","Medium List 1 Accent 6","Medium List 2 Accent 6","Medium Grid 1 Accent 6","Medium Grid 2 Accent 6","Medium Grid 3 Accent 6","Dark List Accent 6","Colorful Shading Accent 6","Colorful List Accent 6","Colorful Grid Accent 6"];
 
@@ -828,6 +829,17 @@ function parseStd(std, index, cbSTDBaseInFile) {
   const cupxMap = { 1: 2, 2: 0, 3: 3, 4: 1 };
   const cupx = cupxMap[sgc] || 0;
   const parsed = parseSprms(grpprl, true, cupx);
+  // Fallback raw-grpprl scanners catch properties that parseSprms may miss
+  // when Upx data (GrLPUpxSw) shifts the SPRM block. The scanners are cheap
+  // O(n) passes on small buffers; the parsed.* == null guards prevent
+  // overwriting values already correctly captured by parseSprms.
+  if (parsed.outlineLevel == null) {
+    parsed.outlineLevel = extractOutlineLevelFromGrpprl(grpprl);
+  }
+  if (parsed.paragraphBorders == null || Object.values(parsed.paragraphBorders).every(v => v == null)) {
+    const fbBorders = extractParagraphBordersFromGrpprl(grpprl);
+    if (fbBorders) parsed.paragraphBorders = fbBorders;
+  }
 
   const runProperties = extractCharacterPropertiesFromGrpprl(grpprl);
   // extractCharacterPropertiesFromGrpprl scans from offset 0 (including istd+cupx),
@@ -938,6 +950,48 @@ function extractLineSpacingFromGrpprl(grpprl) {
     }
   }
   return null;
+}
+
+// SPRM 0x2640: outline level (1-byte operand, per MS-DOC-SPEC §sprmPOutLvl)
+function extractOutlineLevelFromGrpprl(grpprl) {
+  // Scan the full buffer; the SPRM may appear before or after the Upx data.
+  for (let i = 0; i + 2 < grpprl.length; i += 1) {
+    const sprm = grpprl[i] | (grpprl[i + 1] << 8);
+    if (sprm === 0x2640 && i + 3 <= grpprl.length) {
+      const raw = grpprl[i + 2];
+      return raw <= 9 ? raw : null; // match applySprm clamp per MS-DOC-SPEC sprmPOutLvl
+    }
+  }
+  return null;
+}
+
+// SPRMs 0x6424–0x6428, 0x6629: paragraph border Brc80 (4-byte operands)
+// per MS-DOC-SPEC §sprmPBrcTop80, sprmPBrcLeft80, etc.
+// Brc80 per MS-DOC-SPEC §Brc80: dptLineWidth(1) + brcType(1) + ico(1) + dptSpace(1)
+function extractParagraphBordersFromGrpprl(grpprl) {
+  const borders = {};
+  const BORDER_SPRMS = { 0x6424: "top", 0x6425: "left", 0x6426: "bottom", 0x6427: "right", 0x6428: "between", 0x6629: "bar" };
+  for (let i = 0; i + 5 < grpprl.length; i += 1) {
+    const sprm = grpprl[i] | (grpprl[i + 1] << 8);
+    const side = BORDER_SPRMS[sprm];
+    if (side && borders[side] == null) {
+      borders[side] = parseBrc80Raw(grpprl[i + 2], grpprl[i + 3], grpprl[i + 4], grpprl[i + 5]);
+      i += 5; // skip 4-byte operand (+ loop's i++ = net 6 = 2-byte SPRM + 4-byte Brc80)
+    }
+  }
+  return Object.keys(borders).length > 0 ? borders : null;
+}
+
+// Parse Brc80 from raw bytes. Uses the shared BRC_TYPE_NAMES/brcColorFromIco from sprm.js.
+// Unlike the primary parseBrc80(), this does NOT return null for brcType===0 (none),
+// because "none" borders carry meaningful dptSpace values that OOXML needs.
+function parseBrc80Raw(dptLineWidth, brcType, ico, dptSpace) {
+  return {
+    val: BRC_TYPE_NAMES[brcType] ?? "single",
+    sz: String(dptLineWidth),
+    color: brcColorFromIco(ico),
+    space: String(dptSpace & 0x1F), // dptSpace per MS-DOC-SPEC §Brc80: only bits 0-4
+  };
 }
 
 function extractCharacterPropertiesFromGrpprl(grpprl) {
@@ -2790,6 +2844,7 @@ function extractListData(tableStream, fib) {
             lvl.firstLineIndent = papxProps.firstLineIndent ?? null;
             lvl.rightIndent = papxProps.rightIndent ?? null;
             lvl.tabs = papxProps.tabs ?? null;
+            lvl.papxAlignment = papxProps.alignment ?? null;
           }
         }
         // Parse character properties from grpprlChpx for font and rPr
@@ -2805,6 +2860,9 @@ function extractListData(tableStream, fib) {
             lvl.textColor = chpxProps.textColor ?? null;
             lvl.bold = chpxProps.bold ?? null;
             lvl.italic = chpxProps.italic ?? null;
+            lvl.charSpacing = chpxProps.charSpacing ?? null;
+            lvl.charWidth = chpxProps.charWidth ?? null;
+            lvl.fontSize = chpxProps.fontSize ?? null;
           } catch(e) { /* ignore */ }
         }
         lstf.lvlList.push(lvl);
