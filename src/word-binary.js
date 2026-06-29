@@ -950,7 +950,10 @@ function parseStd(std, index, cbSTDBaseInFile) {
     adjustRightInd: parsed.adjustRightInd ?? null,
     lineNumberCount: parsed.lineNumberCount ?? null,
     paragraphBorders: parsed.paragraphBorders ?? null,
-    outlineLevel: parsed.outlineLevel ?? null,
+    // MS-DOC-SPEC/16 sprmPOutLvl: "This MUST be ignored if the paragraph has
+    // an istd that is greater than or equal to 0x1 and less than or equal
+    // to 0x9." For these heading styles (sti 1–9), outlineLevel = sti - 1.
+    outlineLevel: (sti >= 1 && sti <= 9) ? sti - 1 : (parsed.outlineLevel ?? null),
     frameWidth: parsed.frameWidth ?? null,
     frameHeight: parsed.frameHeight ?? null,
     frameHRule: parsed.frameHRule ?? null,

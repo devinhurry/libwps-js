@@ -168,7 +168,9 @@ function buildSettingsXml(wpsDocument = {}) {
     `<w:hyphenationZone w:val="360"/>`,
   );
 
-  if (!hasEastAsianGrid) {
+  // MS-DOC-SPEC/19 §SClmOperand: evenAndOddHeaders is absent only for
+  // clmLinesOnly (docGridType=2). Types 0, 1, undefined all emit it.
+  if (sectionDocGridType !== 2) {
     parts.push(`<w:evenAndOddHeaders w:val="1"/>`);
   }
 
