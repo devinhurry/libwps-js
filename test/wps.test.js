@@ -225,12 +225,13 @@ test("sample3 settings use the 420 default tab stop from parsed document setting
 
 test("sample3 settings.xml matches WPS expected export without metadata noise", async () => {
   const wps = readWps(await readFile("sample/sample3/original.wps"));
+  assert.equal(wps.dop.compatibility.ulTrailSpace, true);
   const docx = wpsToDocxBuffer(wps, { title: "sample3" });
   const convertedXml = readZipEntry(docx, "word/settings.xml").toString("utf8");
   const expectedXml = readZipEntry(await readFile("sample/sample3/expected.docx"), "word/settings.xml").toString("utf8");
 
-  assert.ok(countXmlLineEdits(convertedXml, expectedXml) < 2);
-  assert.doesNotMatch(extractSettingsNode(convertedXml, "w:compat"), /<w:ulTrailSpace\/>/);
+  assert.ok(countXmlLineEdits(convertedXml, expectedXml) === 0);
+  assert.match(extractSettingsNode(convertedXml, "w:compat"), /<w:ulTrailSpace\/>/);
 });
 
 test("sample5 settings use parsed DOP typography, grid display, and XML validation flags", async () => {
@@ -284,6 +285,22 @@ test("converted DOCX maps parsed MS-DOC LIDs without unknown-language fallback",
   const sample6ExpectedXml = readDocxDocumentXml(await readFile("sample/sample6/expected.docx"));
   assert.match(sample6Xml, /<w:lang w:val="en-US" w:eastAsia="zh" w:bidi="ar"\/>/);
   assert.ok(countXmlLineEdits(sample6Xml, sample6ExpectedXml) < 4);
+});
+
+test("sample document.xml matches WPS expected export without metadata noise", async () => {
+  for (const sample of ["basic", "full", "sample2", "sample3", "sample4", "sample5", "sample6", "table2", "table4", "table6", "tables"]) {
+    const wps = readWps(await readFile(`sample/${sample}/original.wps`));
+    const convertedXml = readDocxDocumentXml(wpsToDocxBuffer(wps, { title: sample }));
+    const expectedXml = readDocxDocumentXml(await readFile(`sample/${sample}/expected.docx`));
+    assert.equal(countXmlLineEdits(convertedXml, expectedXml), 0, sample);
+  }
+});
+
+test("parses the MS-DOC Selsf last-selection structure", async () => {
+  const basic = readWps(await readFile(BASIC_WPS));
+  assert.equal(basic.lastSelection.fIns, true);
+  assert.equal(basic.lastSelection.cpFirst, basic.lastSelection.cpLim);
+  assert.equal(basic.lastSelection.cpFirst, 253);
 });
 
 test("sample3 styles.xml stays close to WPS expected export", async () => {

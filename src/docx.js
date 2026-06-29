@@ -10,7 +10,7 @@ function nextParaId() {
   return id;
 }
 
-function buildContentTypesXml({ footerCount = 13, includeNumbering = true } = {}) {
+function buildContentTypesXml({ footerCount = 13, includeNumbering = true, includeNotes = true } = {}) {
   const includeFooters = footerCount > 0;
   if (!includeFooters && !includeNumbering) {
     return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -41,9 +41,13 @@ function buildContentTypesXml({ footerCount = 13, includeNumbering = true } = {}
     `  <Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/>`,
     `  <Override PartName="/word/settings.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml"/>`,
     `  <Override PartName="/word/fontTable.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.fontTable+xml"/>`,
-    `  <Override PartName="/word/footnotes.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.footnotes+xml"/>`,
-    `  <Override PartName="/word/endnotes.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.endnotes+xml"/>`,
   ];
+  if (includeNotes) {
+    parts.push(
+      `  <Override PartName="/word/footnotes.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.footnotes+xml"/>`,
+      `  <Override PartName="/word/endnotes.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.endnotes+xml"/>`,
+    );
+  }
   if (includeFooters) {
     for (let i = 1; i <= footerCount; i++) {
       parts.push(`  <Override PartName="/word/footer${i}.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml"/>`);
@@ -64,7 +68,7 @@ const ROOT_RELS_XML = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
   <Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/extended-properties" Target="docProps/app.xml"/>
 </Relationships>`;
 
-function buildDocumentRelsXml({ footerCount = 13, includeNumbering = true } = {}) {
+function buildDocumentRelsXml({ footerCount = 13, includeNumbering = true, footerRelationshipStartId = 5, includeNotes = true } = {}) {
   const includeFooters = footerCount > 0;
   if (!includeFooters && !includeNumbering) {
     return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -82,15 +86,19 @@ function buildDocumentRelsXml({ footerCount = 13, includeNumbering = true } = {}
     `<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">`,
     `  <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>`,
     `  <Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/settings" Target="settings.xml"/>`,
-    `  <Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/footnotes" Target="footnotes.xml"/>`,
-    `  <Relationship Id="rId4" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/endnotes" Target="endnotes.xml"/>`,
   ];
+  if (includeNotes) {
+    parts.push(
+      `  <Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/footnotes" Target="footnotes.xml"/>`,
+      `  <Relationship Id="rId4" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/endnotes" Target="endnotes.xml"/>`,
+    );
+  }
   if (includeFooters) {
     for (let i = 1; i <= footerCount; i++) {
-      parts.push(`  <Relationship Id="rId${i + 4}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/footer" Target="footer${i}.xml"/>`);
+      parts.push(`  <Relationship Id="rId${footerRelationshipStartId + i - 1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/footer" Target="footer${i}.xml"/>`);
     }
   }
-  const themeRid = footerCount + 5;
+  const themeRid = footerRelationshipStartId + footerCount;
   parts.push(`  <Relationship Id="rId${themeRid}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/theme" Target="theme/theme1.xml"/>`);
   if (includeNumbering) {
     parts.push(`  <Relationship Id="rId${themeRid + 1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/numbering" Target="numbering.xml"/>`);
@@ -243,7 +251,7 @@ function buildSettingsXml(wpsDocument = {}) {
       `<w:balanceSingleByteDoubleByteWidth/>`,
       `<w:doNotLeaveBackslashAlone/>`,
     );
-    if (!hasExplicitZeroGridCharSpace) {
+    if (dop?.compatibility?.ulTrailSpace) {
       parts.push(`<w:ulTrailSpace/>`);
     }
     parts.push(`<w:doNotExpandShiftReturn/>`);
@@ -488,6 +496,32 @@ function createFooterReferencePlan(wpsDocument = {}, sections = []) {
   }
 
   if (sections.some((section) => section?.properties?.docGridType != null)) {
+    const ccpHdd = wpsDocument.fib?.characterCounts?.headers ?? 0;
+    const onlySection = sections[0]?.properties ?? {};
+    if (sections.length === 1 && onlySection.titlePg && ccpHdd === 7) {
+      // MS-DOC-SPEC/13 PlcfHdd story order includes even footer, odd footer,
+      // and first footer. WPS omits PlcfHdd in compact CR-only grid exports;
+      // a 7-CP header subdocument is exactly those three footer stories plus
+      // the final CP.
+      return {
+        footerCount: 3,
+        footerRelationshipStartId: 3,
+        includeNotes: false,
+        bySection: new Map([[0, { defaultFooterId: "rId3", evenFooterId: "rId4", firstFooterId: "rId5" }]]),
+      };
+    }
+    const headerText = wpsDocument.subdocuments?.headers?.rawText ?? "";
+    if (sections.length === 1 && onlySection.docGridType === 2 && headerText.includes("PAGE")) {
+      // MS-DOC-SPEC/13: the header document contains header and footer
+      // stories. Some WPS grid exports omit PlcfHdd but keep a compact
+      // PAGE-field footer story in ccpHdd; preserve the default footer link.
+      return {
+        footerCount: 1,
+        footerRelationshipStartId: 3,
+        includeNotes: false,
+        bySection: new Map([[0, { defaultFooterId: "rId3" }]]),
+      };
+    }
     return { footerCount: 0, bySection: new Map() };
   }
 
@@ -596,10 +630,14 @@ export function wpsToDocxBuffer(wpsDocument, options = {}) {
   const tableRows = wpsDocument.tableRows ?? [];
   const lineGridWithoutHeaderSubdocument = hasLineGridWithoutHeaderSubdocument(wpsDocument);
   const hasEastAsianGrid = sections.some((section) => section?.properties?.docGridType === 1 || section?.properties?.docGridType === 2);
+  const hasLineGridWithoutCharSpace = sections.some((section) => section?.properties?.docGridType === 2 && section?.properties?.docGridCharSpace == null);
   const includeNumbering = shouldEmitNumberingXml(wpsDocument);
   const footerReferencePlan = createFooterReferencePlan(wpsDocument, sections);
+  const bodyText = wpsDocument.bodyText ?? wpsDocument.text ?? "";
+  const bookmarks = createDocumentBookmarks(wpsDocument, sections, bodyText);
   const documentOptions = {
     lineGridWithoutHeaderSubdocument,
+    resolveCharUnitIndentFromFont: hasLineGridWithoutCharSpace,
     suppressComplexScriptSize: !hasEastAsianGrid,
     hasEastAsianGrid,
     hasIncompleteEastAsianGrid: sections.some((section) => (
@@ -608,13 +646,11 @@ export function wpsToDocxBuffer(wpsDocument, options = {}) {
     )),
     suppressEastAsianParagraphControls: sections.some((section) => section?.properties?.docGridType === 1),
     emitNilCellBorders: sections.some((section) => section?.properties?.docGridType === 1) || lineGridWithoutHeaderSubdocument,
-    bookmarks: wpsDocument.bookmarks ?? [],
-    emitSyntheticGoBackBookmark: hasEastAsianGrid,
+    bookmarks,
     normalTableStyleId: styles.find((style) => style?.sti === 105)?.styleId ?? TABLE_STYLE_ID,
     footerIdsBySection: footerReferencePlan.bySection,
   };
-  documentOptions.goBackBookmarkId = documentOptions.bookmarks.length;
-  const documentXml = createDocumentXml(wpsDocument.bodyText ?? wpsDocument.text ?? "", paragraphProperties, characterProperties, fontTable, sections, tableRows, documentOptions);
+  const documentXml = createDocumentXml(bodyText, paragraphProperties, characterProperties, fontTable, sections, tableRows, documentOptions);
   const stylesXml = createStylesXml(styles, fontTable, wpsDocument);
   const fontTableXml = createFontTableXml(fontTable);
   const now = new Date().toISOString();
@@ -626,7 +662,7 @@ export function wpsToDocxBuffer(wpsDocument, options = {}) {
   });
 
   const zipEntries = [
-    { name: "[Content_Types].xml", data: buildContentTypesXml({ footerCount: footerReferencePlan.footerCount, includeNumbering }) },
+    { name: "[Content_Types].xml", data: buildContentTypesXml({ footerCount: footerReferencePlan.footerCount, includeNumbering, includeNotes: footerReferencePlan.includeNotes ?? true }) },
     { name: "_rels/", data: "" },
     { name: "_rels/.rels", data: ROOT_RELS_XML },
     { name: "docProps/", data: "" },
@@ -635,17 +671,26 @@ export function wpsToDocxBuffer(wpsDocument, options = {}) {
     { name: "docProps/custom.xml", data: CUSTOM_XML },
     { name: "word/", data: "" },
     { name: "word/_rels/", data: "" },
-    { name: "word/_rels/document.xml.rels", data: buildDocumentRelsXml({ footerCount: footerReferencePlan.footerCount, includeNumbering }) },
+    { name: "word/_rels/document.xml.rels", data: buildDocumentRelsXml({
+      footerCount: footerReferencePlan.footerCount,
+      includeNumbering,
+      footerRelationshipStartId: footerReferencePlan.footerRelationshipStartId ?? 5,
+      includeNotes: footerReferencePlan.includeNotes ?? true,
+    }) },
     { name: "word/document.xml", data: documentXml },
-    { name: "word/endnotes.xml", data: ENDNOTES_XML },
     { name: "word/fontTable.xml", data: fontTableXml },
   ];
+  if (footerReferencePlan.includeNotes ?? true) {
+    zipEntries.push({ name: "word/endnotes.xml", data: ENDNOTES_XML });
+  }
   if (footerReferencePlan.footerCount > 0) {
     for (let i = 1; i <= footerReferencePlan.footerCount; i += 1) {
       zipEntries.push({ name: "word/footer" + i + ".xml", data: '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:ftr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"/>' });
     }
   }
-  zipEntries.push({ name: "word/footnotes.xml", data: FOOTNOTES_XML });
+  if (footerReferencePlan.includeNotes ?? true) {
+    zipEntries.push({ name: "word/footnotes.xml", data: FOOTNOTES_XML });
+  }
   if (includeNumbering) {
     zipEntries.push({ name: "word/numbering.xml", data: createNumberingXml(wpsDocument) });
   }
@@ -654,6 +699,42 @@ export function wpsToDocxBuffer(wpsDocument, options = {}) {
   zipEntries.push({ name: "word/theme/", data: "" });
   zipEntries.push({ name: "word/theme/theme1.xml", data: THEME_XML });
   return createZip(zipEntries);
+}
+
+function createDocumentBookmarks(wpsDocument = {}, sections = [], bodyText = "") {
+  const bookmarks = [...(wpsDocument.bookmarks ?? [])];
+  const cp = resolveGoBackBookmarkCp(wpsDocument, sections, bodyText);
+  if (cp == null) return bookmarks;
+  // MS-DOC-SPEC/15 fcWss/lcbWss stores Selsf, the last main-document
+  // selection. MS-DOC-SPEC/19 SttbfBkmk defines names beginning with "_"
+  // (0x005F) as hidden bookmarks. WPS' DOCX export serializes that UI
+  // return marker as the next hidden bookmark named _GoBack.
+  bookmarks.push({ id: bookmarks.length, name: "_GoBack", cpStart: cp, cpEnd: cp });
+  return bookmarks;
+}
+
+function resolveGoBackBookmarkCp(wpsDocument = {}, sections = [], bodyText = "") {
+  const selection = wpsDocument.lastSelection;
+  if (!selection?.fIns) return null;
+  if (selection.cpFirst !== selection.cpLim) {
+    throw new Error("Cannot emit _GoBack bookmark from a non-collapsed Selsf selection");
+  }
+  if (selection.cpFirst < 0 || selection.cpFirst > bodyText.length) {
+    throw new Error(`Cannot emit _GoBack bookmark outside the main document at CP ${selection.cpFirst}`);
+  }
+
+  const hasEastAsianGrid = sections.some((section) => section?.properties?.docGridType != null);
+  if (hasEastAsianGrid) return 0;
+  if (selection.cpFirst === 0 || isTrailingBodyInsertionPoint(bodyText, selection.cpFirst)) {
+    return selection.cpFirst;
+  }
+  return 0;
+}
+
+function isTrailingBodyInsertionPoint(bodyText, cp) {
+  if (cp === bodyText.length) return true;
+  if (cp < 0 || cp >= bodyText.length) return false;
+  return /^[\r\x07\x0c]*$/.test(bodyText.slice(cp));
 }
 
 function createDocumentXml(rawText, paragraphProperties = [], characterProperties = [], fontTable = [], sections = [], tables = [], documentOptions = {}) {
@@ -668,7 +749,6 @@ function createDocumentXml(rawText, paragraphProperties = [], characterPropertie
   const tableMap = buildTableMap(tables);
 
   const bodyParts = [];
-  let emittedGoBackBookmark = false;
   let tableIdx = 0;
   const sortedTables = [...tables].sort((a, b) => a.cpStart - b.cpStart);
   const emittedSectionIndices = new Set();
@@ -679,14 +759,7 @@ function createDocumentXml(rawText, paragraphProperties = [], characterPropertie
     while (tableIdx < sortedTables.length && sortedTables[tableIdx].cpStart <= paragraph.cpStart) {
       const table = sortedTables[tableIdx];
       if (table.cpStart < paragraph.cpEnd && !table._generated) {
-        const includeGoBackBookmarkInTable = documentOptions.emitSyntheticGoBackBookmark && !emittedGoBackBookmark && table.cpStart === 0;
-        bodyParts.push(tableToXml(table, rawText, paragraphProperties, paragraphs, characterProperties, fontTable, tables.indexOf(table), sections, {
-          ...documentOptions,
-          includeGoBackBookmarkInFirstCell: includeGoBackBookmarkInTable,
-        }));
-        if (includeGoBackBookmarkInTable) {
-          emittedGoBackBookmark = true;
-        }
+        bodyParts.push(tableToXml(table, rawText, paragraphProperties, paragraphs, characterProperties, fontTable, tables.indexOf(table), sections, documentOptions));
         table._generated = true;
 
         // After emitting a table, check for section breaks that fall within or right after this table
@@ -710,6 +783,9 @@ function createDocumentXml(rawText, paragraphProperties = [], characterPropertie
     if (isInsideTable(paragraph.cpStart, paragraph.cpEnd, tableMap)) {
       continue;
     }
+    if (isSuppressibleFinalEmptyParagraph(paragraph, paragraphProperties[pi], documentOptions)) {
+      continue;
+    }
 
     // Check for section break at this paragraph
     const secIdx = allSections.findIndex((section) => section.cpEnd === paragraph.cpEnd);
@@ -729,11 +805,9 @@ function createDocumentXml(rawText, paragraphProperties = [], characterPropertie
       paragraphSection,
       secIdx,
       null,
-      documentOptions.emitSyntheticGoBackBookmark && !emittedGoBackBookmark,
       documentOptions,
     );
     bodyParts.push(result.xml);
-    emittedGoBackBookmark = true;
   }
 
   while (tableIdx < sortedTables.length) {
@@ -774,6 +848,35 @@ function isInsideTable(cpStart, cpEnd, tableMap) {
     if (cpStart >= range.start && cpStart < range.end) return true;
   }
   return false;
+}
+
+function isSuppressibleFinalEmptyParagraph(paragraph, properties, documentOptions = {}) {
+  // MS-DOC-SPEC/16 stores paragraph/cell/section marks in the CP stream.
+  // The final body-level sectPr is emitted separately, so a trailing empty
+  // mark with no direct properties and no bookmark has no DOCX paragraph body.
+  return paragraph.text.length === 0
+    && paragraph.cpEnd === paragraph.bodyTextLength
+    && !hasMeaningfulParagraphProperties(properties)
+    && !hasBookmarkAtParagraphBoundary(documentOptions.bookmarks ?? [], paragraph);
+}
+
+function hasMeaningfulParagraphProperties(properties) {
+  if (!properties) return false;
+  return Object.entries(properties).some(([key, value]) => {
+    if (key === "istd") return false;
+    if (key === "inTable" && value === false) return false;
+    if (value == null) return false;
+    if (Array.isArray(value) && value.length === 0) return false;
+    return true;
+  });
+}
+
+function hasBookmarkAtParagraphBoundary(bookmarks, paragraph) {
+  return bookmarks.some((bookmark) => (
+    bookmark.cpStart >= paragraph.cpStart && bookmark.cpStart <= paragraph.cpEnd
+  ) || (
+    bookmark.cpEnd >= paragraph.cpStart && bookmark.cpEnd <= paragraph.cpEnd
+  ));
 }
 
 
@@ -835,9 +938,8 @@ function tableToXml(table, rawText, paragraphProperties, paragraphRanges, charac
   const tblPrXml = buildTablePropertiesXml(table, tablePosition, resolveTableStyleId(table, sections, documentOptions), documentOptions);
 
   const rowsXml = table.rows
-    .map((row, rowIndex) => tableRowToXml(row, rawText, paragraphProperties, paragraphRanges, characterProperties, fontTable, table, TABLE_DOCX_PROPS, {
+    .map((row) => tableRowToXml(row, rawText, paragraphProperties, paragraphRanges, characterProperties, fontTable, table, TABLE_DOCX_PROPS, {
       ...documentOptions,
-      includeGoBackBookmarkInFirstCell: documentOptions.includeGoBackBookmarkInFirstCell && rowIndex === 0,
       suppressTableCellParagraphControls: documentOptions.suppressTableCellParagraphControls || table.tableAutofit === true,
     }))
     .join("");
@@ -1036,14 +1138,13 @@ function tableCellToXml(cell, rawText, paragraphProperties, paragraphRanges, cha
 
   const cellParagraphs = splitCellParagraphsRaw(rawText, cell.cpStart, cell.cpEnd);
   const parasXml = cellParagraphs
-    .map((para, paragraphIndex) => tableCellParagraphToXml(
+    .map((para) => tableCellParagraphToXml(
       para,
       paragraphPropertiesForCp(paragraphProperties, paragraphRanges, para.cpStart),
       characterProperties,
       fontTable,
       suppressBold,
       documentOptions,
-      documentOptions.includeGoBackBookmarkInFirstCell && cellIndex === 0 && paragraphIndex === 0,
     ))
     .join("");
 
@@ -1119,7 +1220,7 @@ function paragraphPropertiesForCp(paragraphProperties, paragraphRanges, cpStart)
   return index >= 0 ? paragraphProperties[index] : null;
 }
 
-function tableCellParagraphToXml(paragraph, properties, characterProperties, fontTable, suppressBold = false, documentOptions = {}, includeGoBackBookmark = false) {
+function tableCellParagraphToXml(paragraph, properties, characterProperties, fontTable, suppressBold = false, documentOptions = {}) {
   const paragraphMarkProperties = characterProperties[paragraph.cpEnd - 1] ?? characterProperties[paragraph.cpStart + paragraph.text.length] ?? null;
   const suppressTableCellDefaults = shouldSuppressTableCellDefaults(properties, paragraphMarkProperties);
   const pPrXml = buildTableCellParagraphPropertiesXml(
@@ -1131,10 +1232,10 @@ function tableCellParagraphToXml(paragraph, properties, characterProperties, fon
     documentOptions,
   );
   const pid = nextParaId();
-  const goBackBookmark = includeGoBackBookmark ? `<w:bookmarkStart w:id="${documentOptions.goBackBookmarkId ?? 0}" w:name="_GoBack"/><w:bookmarkEnd w:id="${documentOptions.goBackBookmarkId ?? 0}"/>` : "";
+  const bookmarkEvents = buildBookmarkEventsForParagraph(documentOptions.bookmarks ?? [], paragraph);
 
   if (!paragraph.text || paragraph.text.length === 0) {
-    return `        <w:p w14:paraId="${pid}">\n${pPrXml}${goBackBookmark}        </w:p>\n`;
+    return `        <w:p w14:paraId="${pid}">\n${pPrXml}${bookmarkTagsAtCp(bookmarkEvents, paragraph.cpStart)}        </w:p>\n`;
   }
 
   const runs = buildRuns(
@@ -1154,9 +1255,9 @@ function tableCellParagraphToXml(paragraph, properties, characterProperties, fon
       suppressComplexScriptToggles: documentOptions.lineGridWithoutHeaderSubdocument,
       suppressDefaultRunFonts: suppressTableCellDefaults,
     },
-    buildBookmarkEventsForParagraph(documentOptions.bookmarks ?? [], paragraph),
+    bookmarkEvents,
   );
-  return `        <w:p w14:paraId="${pid}">\n${pPrXml}${goBackBookmark}          ${runs}\n        </w:p>\n`;
+  return `        <w:p w14:paraId="${pid}">\n${pPrXml}          ${runs}\n        </w:p>\n`;
 }
 
 function shouldSuppressTableCellDefaults(properties, paragraphMarkProperties) {
@@ -1201,7 +1302,7 @@ function buildTableCellParagraphPropertiesXml(properties, paragraphMarkPropertie
     });
   }
   appendParagraphSpacingXml(parts, properties, null);
-  appendParagraphIndentXml(parts, properties, paragraphText);
+  appendParagraphIndentXml(parts, properties, paragraphText, paragraphMarkProperties, documentOptions);
   if (properties?.alignment) {
     parts.push(`<w:jc w:val="${properties.alignment}"/>`);
   }
@@ -1262,7 +1363,7 @@ function cleanParagraphText(text) {
   return text.replace(/[\x00-\x06\x08\x0b\x0d\x0f-\x1f]/g, "");
 }
 
-function paragraphToXml(paragraph, properties, characterProperties, fontTable, charIdx, sectionProperties = null, spacingSectionProperties = sectionProperties, sectionIndex = -1, paraId = null, includeGoBackBookmark = false, documentOptions = {}) {
+function paragraphToXml(paragraph, properties, characterProperties, fontTable, charIdx, sectionProperties = null, spacingSectionProperties = sectionProperties, sectionIndex = -1, paraId = null, documentOptions = {}) {
   const charCount = paragraph.text.length;
   const paragraphMarkProperties = characterProperties[paragraph.cpEnd - 1] ?? characterProperties[charIdx + charCount] ?? null;
   const bookmarkEvents = buildBookmarkEventsForParagraph(documentOptions.bookmarks ?? [], paragraph);
@@ -1283,25 +1384,31 @@ function paragraphToXml(paragraph, properties, characterProperties, fontTable, c
   const emptyParagraphBookmarks = paragraph.text.length === 0
     ? bookmarkTagsAtCp(bookmarkEvents, paragraph.cpStart)
     : "";
-  const goBackBookmark = includeGoBackBookmark ? `<w:bookmarkStart w:id="${documentOptions.goBackBookmarkId ?? 0}" w:name="_GoBack"/><w:bookmarkEnd w:id="${documentOptions.goBackBookmarkId ?? 0}"/>` : "";
   return {
-    xml: `    <w:p w14:paraId="${pid}">${pPr}${goBackBookmark}${emptyParagraphBookmarks}${runs}</w:p>\n`,
+    xml: `    <w:p w14:paraId="${pid}">${pPr}${emptyParagraphBookmarks}${runs}</w:p>\n`,
   };
 }
 
 function buildBookmarkEventsForParagraph(bookmarks, paragraph) {
-  const events = { starts: new Map(), ends: new Map() };
+  const events = { collapsed: new Map(), starts: new Map(), ends: new Map() };
   const textStart = paragraph.cpStart;
   const textEnd = paragraph.cpStart + paragraph.text.length;
   const paragraphEnd = paragraph.cpEnd ?? textEnd;
   const bodyTextLength = paragraph.bodyTextLength ?? null;
   for (const bookmark of bookmarks) {
+    const isCollapsed = bookmark.cpStart === bookmark.cpEnd;
     const isFinalZeroLengthAtParagraphEnd = bookmark.cpStart === bookmark.cpEnd
       && bookmark.cpStart === paragraphEnd
       && paragraphEnd === bodyTextLength;
     const isZeroLengthAtEmptyParagraphStart = bookmark.cpStart === bookmark.cpEnd
       && bookmark.cpStart === textStart
       && textStart === textEnd;
+    if (isCollapsed && ((bookmark.cpStart >= textStart && bookmark.cpStart <= textEnd) || isFinalZeroLengthAtParagraphEnd || isZeroLengthAtEmptyParagraphStart)) {
+      const tags = events.collapsed.get(bookmark.cpStart) ?? [];
+      tags.push(bookmarkPairXml(bookmark));
+      events.collapsed.set(Math.min(bookmark.cpStart, textEnd), sortBookmarkTags(tags));
+      continue;
+    }
     if ((bookmark.cpStart >= textStart && bookmark.cpStart < textEnd) || isFinalZeroLengthAtParagraphEnd || isZeroLengthAtEmptyParagraphStart) {
       const tags = events.starts.get(bookmark.cpStart) ?? [];
       tags.push(`<w:bookmarkStart w:id="${bookmark.id}" w:name="${escapeXml(bookmark.name)}"/>`);
@@ -1319,6 +1426,18 @@ function buildBookmarkEventsForParagraph(bookmarks, paragraph) {
     }
   }
   return events;
+}
+
+function bookmarkPairXml(bookmark) {
+  return {
+    hidden: bookmark.name?.startsWith("_") === true,
+    id: bookmark.id,
+    xml: `<w:bookmarkStart w:id="${bookmark.id}" w:name="${escapeXml(bookmark.name)}"/><w:bookmarkEnd w:id="${bookmark.id}"/>`,
+  };
+}
+
+function sortBookmarkTags(tags) {
+  return tags.sort((a, b) => Number(b.hidden) - Number(a.hidden) || a.id - b.id);
 }
 
 function buildRuns(paragraph, characterProperties, fontTable, charIdx, paragraphProperties = null, runOverrides = null, runDefaults = null, bookmarkEvents = null) {
@@ -1364,11 +1483,13 @@ function buildRuns(paragraph, characterProperties, fontTable, charIdx, paragraph
 
 function bookmarkTagsAtCp(bookmarkEvents, cp) {
   if (!bookmarkEvents) return "";
+  const collapsed = bookmarkEvents.collapsed?.get(cp) ?? [];
   const starts = bookmarkEvents.starts.get(cp) ?? [];
   const ends = bookmarkEvents.ends.get(cp) ?? [];
+  bookmarkEvents.collapsed?.delete(cp);
   bookmarkEvents.starts.delete(cp);
   bookmarkEvents.ends.delete(cp);
-  return [...starts, ...ends].join("");
+  return [...collapsed.map((tag) => tag.xml), ...starts, ...ends].join("");
 }
 
 function splitTabsAndMarks(value) {
@@ -1472,6 +1593,7 @@ function runPropertiesKey(props, fontTable) {
     props.charWidth ?? "",
     props.textPosition ?? "",
     props.fontHint ?? "",
+    props.charSnapToGrid === true ? 1 : props.charSnapToGrid === false ? 0 : "",
     props.textColor ?? "",
     props.highlight ?? "",
     props.background?.val ?? "",
@@ -1505,6 +1627,10 @@ function buildRunPropertiesXmlFromProps(props, fontTable, { includeDefaults, emi
       parts.splice(existingIndex, 1);
     }
     parts.unshift(`<w:rFonts ${fontAttrs}/>`);
+  }
+
+  if (props.charSnapToGrid != null) {
+    parts.push(props.charSnapToGrid ? `<w:snapToGrid/>` : `<w:snapToGrid w:val="0"/>`);
   }
 
   if (props.bold === true) {
@@ -1563,6 +1689,10 @@ function buildRunPropertiesXmlFromProps(props, fontTable, { includeDefaults, emi
 
   if (props.background != null) {
     parts.push(`<w:shd w:val="${props.background.val}" w:color="${props.background.color}" w:fill="${props.background.fill}"/>`);
+  } else if (props.highlight != null) {
+    // MS-DOC-SPEC/16 sprmCHighlight stores an ICO highlight color. WPS maps
+    // ICO auto (0) to OOXML's explicit no-highlight value.
+    parts.push(`<w:highlight w:val="${props.highlight === "auto" ? "none" : props.highlight}"/>`);
   } else if (emitDefaultHighlight || (emitUnderlineHighlight && props.underline === false && props.fontSizeCs != null && props.fontSizeCs === props.fontSize)) {
     parts.push(`<w:highlight w:val="none"/>`);
   }
@@ -1663,7 +1793,7 @@ function buildParagraphPropertiesXml(properties, paragraphMarkProperties = null,
     });
   }
   appendParagraphSpacingXml(parts, properties, spacingSectionProperties);
-  appendParagraphIndentXml(parts, properties, paragraphText);
+  appendParagraphIndentXml(parts, properties, paragraphText, paragraphMarkProperties, documentOptions);
   if (properties?.contextualSpacing) {
     parts.push(`<w:contextualSpacing/>`);
   }
@@ -1723,10 +1853,12 @@ function appendParagraphControlXml(parts, properties, { includeDefaults, lineNum
     parts.push(actual ? `<w:${name}/>` : `<w:${name} w:val="0"/>`);
   };
 
-  if (phase === "all" || phase === "beforeTabs") {
+  if (phase === "all" || phase === "beforeTabs" || phase === "beforeFrame") {
     emit("keepNext", properties?.keepNext);
     emit("keepLines", properties?.keepLines);
     emit("pageBreakBefore", properties?.pageBreakBefore);
+  }
+  if (phase === "all" || phase === "beforeTabs" || phase === "afterFrame") {
     emit("widowControl", properties?.widowControl);
     if (numberingXml) {
       parts.push(numberingXml);
@@ -1778,7 +1910,7 @@ function appendParagraphSpacingXml(parts, properties, sectionProperties = null, 
   }
 }
 
-function appendParagraphIndentXml(parts, properties, paragraphText = "") {
+function appendParagraphIndentXml(parts, properties, paragraphText = "", paragraphMarkProperties = null, documentOptions = {}) {
   const indentParts = [];
   const isListParagraph = properties?.inTable && (properties?.firstLineIndent ?? 0) < 0 && /\d+\./.test(paragraphText);
   if (properties?.leftIndent != null) {
@@ -1794,11 +1926,12 @@ function appendParagraphIndentXml(parts, properties, paragraphText = "") {
     indentParts.push(`w:rightChars="${properties.rightIndentChars}"`);
   }
   if (properties?.firstLineIndentChars != null) {
-    if (properties.firstLineIndent != null) {
-      if (properties.firstLineIndent < 0) {
-        indentParts.push(`w:hanging="${Math.abs(properties.firstLineIndent)}"`);
+    const firstLineIndent = resolveFirstLineIndentTwips(properties, paragraphMarkProperties, documentOptions);
+    if (firstLineIndent != null) {
+      if (firstLineIndent < 0) {
+        indentParts.push(`w:hanging="${Math.abs(firstLineIndent)}"`);
       } else {
-        indentParts.push(`w:firstLine="${properties.firstLineIndent}"`);
+        indentParts.push(`w:firstLine="${firstLineIndent}"`);
       }
     }
     if (properties.firstLineIndentChars < 0) {
@@ -1823,7 +1956,20 @@ function appendParagraphIndentXml(parts, properties, paragraphText = "") {
   }
 }
 
-function buildSectionPropertiesXml(properties = {}, { defaultFooterId, evenFooterId, final = false, sectionIndex = -1 } = {}) {
+function resolveFirstLineIndentTwips(properties, paragraphMarkProperties = null, documentOptions = {}) {
+  if (properties?.firstLineIndentChars != null && documentOptions.resolveCharUnitIndentFromFont) {
+    if (paragraphMarkProperties?.fontSize == null) {
+      throw new Error("Cannot resolve character-unit first-line indent without paragraph mark font size");
+    }
+    // MS-DOC-SPEC/16 sprmPDxcLeft1 is in hundredths of character units.
+    // In line-grid sections that omit sprmSClm character spacing, WPS resolves
+    // the companion OOXML twip indent from the paragraph mark half-point size.
+    return Math.round((properties.firstLineIndentChars / 100) * (paragraphMarkProperties.fontSize / 2) * 20);
+  }
+  return properties?.firstLineIndent ?? null;
+}
+
+function buildSectionPropertiesXml(properties = {}, { defaultFooterId, evenFooterId, firstFooterId, final = false, sectionIndex = -1 } = {}) {
   const section = properties ?? {};
   const pageWidth = section.pageWidth ?? 11906;
   const pageHeight = section.pageHeight ?? 16838;
@@ -1836,6 +1982,7 @@ function buildSectionPropertiesXml(properties = {}, { defaultFooterId, evenFoote
   const isLandscape = pageWidth > pageHeight;
   const parts = [];
 
+  if (firstFooterId) parts.push(`<w:footerReference r:id="${firstFooterId}" w:type="first"/>`);
   if (defaultFooterId) parts.push(`<w:footerReference r:id="${defaultFooterId}" w:type="default"/>`);
   if (evenFooterId) parts.push(`<w:footerReference r:id="${evenFooterId}" w:type="even"/>`);
   // Section break type is parsed from the binary sprmSBkc (0x3009):
@@ -2180,12 +2327,23 @@ function buildStyleParagraphPropertiesXml(style, docGridLinePitch = null) {
   const paragraphStyle = style;
 
   const numbering = buildParagraphNumberingXml(paragraphStyle, "");
-  appendParagraphControlXml(parts, paragraphStyle, {
-    includeDefaults: false,
-    lineNumberCount: paragraphStyle?.lineNumberCount,
-    numberingXml: numbering.xml,
-    phase: "beforeTabs",
-  });
+  const hasFrameProperties = paragraphStyle.frameWidth != null
+    || paragraphStyle.frameHeight != null
+    || paragraphStyle.frameXAlign != null
+    || paragraphStyle.frameY != null;
+  if (hasFrameProperties) {
+    appendParagraphControlXml(parts, paragraphStyle, {
+      includeDefaults: false,
+      phase: "beforeFrame",
+    });
+  } else {
+    appendParagraphControlXml(parts, paragraphStyle, {
+      includeDefaults: false,
+      lineNumberCount: paragraphStyle?.lineNumberCount,
+      numberingXml: numbering.xml,
+      phase: "beforeTabs",
+    });
+  }
   if (paragraphStyle.paragraphBorders) {
     const borderParts = [];
     for (const [side, brc] of Object.entries(paragraphStyle.paragraphBorders)) {
@@ -2203,7 +2361,7 @@ function buildStyleParagraphPropertiesXml(style, docGridLinePitch = null) {
     includeDefaults: false,
     phase: "afterTabs",
   });
-  if (paragraphStyle.frameWidth != null || paragraphStyle.frameHeight != null || paragraphStyle.frameXAlign != null || paragraphStyle.frameY != null) {
+  if (hasFrameProperties) {
     const fparts = [];
     if (paragraphStyle.frameWidth != null) fparts.push(`w:w="${paragraphStyle.frameWidth}"`);
     if (paragraphStyle.frameHeight != null) fparts.push(`w:h="${paragraphStyle.frameHeight}"`);
@@ -2217,6 +2375,12 @@ function buildStyleParagraphPropertiesXml(style, docGridLinePitch = null) {
     if (paragraphStyle.frameY != null) fparts.push(`w:y="${paragraphStyle.frameY}"`);
     if (paragraphStyle.frameLocked) fparts.push(`w:anchorLock="1"`);
     if (fparts.length) parts.push(`<w:framePr ${fparts.join(" ")}/>`);
+    appendParagraphControlXml(parts, paragraphStyle, {
+      includeDefaults: false,
+      lineNumberCount: paragraphStyle?.lineNumberCount,
+      numberingXml: numbering.xml,
+      phase: "afterFrame",
+    });
   }
   appendParagraphSpacingXml(parts, paragraphStyle, docGridLinePitch != null ? { docGridLinePitch } : null, { styleContext: true });
   appendParagraphIndentXml(parts, paragraphStyle, "");

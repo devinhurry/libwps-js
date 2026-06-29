@@ -50,6 +50,7 @@ const SPRM_SIZES = {
   0x2A48: 1, 0x2A49: 1, 0x2A4A: 1, 0x2A4B: 1, 0x2A4C: 1,
   0x2A4D: 1, 0x2A4E: 1, 0x2A4F: 1, 0x2A50: 1, 0x2A51: 1,
   0x2A52: 1, 0x2A53: 1, 0x2A54: 1, 0x2A55: 1, 0x2A56: 1,
+  0x0868: 1,
   0x286F: 1,
   0x4A30: 2, 0x4A31: 2, 0x4A32: 2, 0x4A33: 2, 0x4A34: 2,
   0x4A35: 2, 0x4A36: 2, 0x4A37: 2, 0x4A38: 2, 0x4A39: 2,
@@ -105,6 +106,7 @@ const SPRM_CATEGORIES = {
   0x2A03: "italic",
   0x2A0E: "underline",
   0x2A3E: "underline",
+  0x0868: "charSnapToGrid",
   0x286F: "fontHint",
   0x486D: "langId",
   0x486E: "langIdEastAsia",
@@ -410,6 +412,11 @@ function applySprm(props, sprm, val, size) {
       break;
     case 0x2A0C:
       props.highlight = ww8HighlightName(val[0]);
+      break;
+    case 0x0868:
+      // MS-DOC-SPEC/16 sprmCFUsePgsuSettings: character-level document
+      // grid usage, mapped to OOXML run snapToGrid.
+      props.charSnapToGrid = val[0] !== 0;
       break;
     case 0x4866:
     case 0xCA71:

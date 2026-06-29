@@ -34,7 +34,9 @@ const FIB_FC_PLCFLFO_INDEX = 74;
 const FIB_FC_STTBFBKMK_INDEX = 21;
 const FIB_FC_PLCFBKF_INDEX = 22;
 const FIB_FC_PLCFBKL_INDEX = 23;
+const FIB_FC_WSS_INDEX = 30;
 const FIB_FC_DOP_INDEX = 31; // 0x1F per FibRgFcLcb97
+const SELSF_SIZE = 36;
 
 const STSH_NIL_BASE = 0xfff0;
 const STSH_STD_HEADER_SIZE_WITH_POST2000 = 18;
@@ -66,6 +68,7 @@ export function extractWordBinaryDocument({ wordDocument, table0, table1 = null,
   const defaultTabStop = dop.dxaTab;
   const plcfHdd = parsePlcfHdd(tableStream, fib);
   const bookmarks = parseStandardBookmarks(tableStream, fib);
+  const lastSelection = parseLastSelection(tableStream, fib, bodyText.length);
   const paragraphProperties = extractParagraphProperties(wordDocument, tableStream, fib, bodyText, styles, pieces);
   const characterRuns = extractCharacterRuns(wordDocument, tableStream, fib, bodyText, pieces);
   const characterProperties = expandCharacterRuns(characterRuns, bodyText.length);
@@ -92,6 +95,7 @@ export function extractWordBinaryDocument({ wordDocument, table0, table1 = null,
     tableRows,
     plcfHdd,
     bookmarks,
+    lastSelection,
     dop,
   };
 }
@@ -126,6 +130,7 @@ function readFib(wordDocument) {
   const sttbfBkmkOffset = FIB_FC_LCB_START + FIB_FC_STTBFBKMK_INDEX * 8;
   const plcfBkfOffset = FIB_FC_LCB_START + FIB_FC_PLCFBKF_INDEX * 8;
   const plcfBklOffset = FIB_FC_LCB_START + FIB_FC_PLCFBKL_INDEX * 8;
+  const wssOffset = FIB_FC_LCB_START + FIB_FC_WSS_INDEX * 8;
   const dopOffset = FIB_FC_LCB_START + FIB_FC_DOP_INDEX * 8;
   if (tableStreamOffset + 8 > FIB_FC_LCB_START + fcLcbCount * 4) {
     throw new Error("Unsupported Word binary document: FIB does not contain fcClx/lcbClx");
@@ -161,6 +166,8 @@ function readFib(wordDocument) {
     lcbPlcfBkf: wordDocument.readUInt32LE(plcfBkfOffset + 4),
     fcPlcfBkl: wordDocument.readUInt32LE(plcfBklOffset),
     lcbPlcfBkl: wordDocument.readUInt32LE(plcfBklOffset + 4),
+    fcWss: wssOffset + 8 <= FIB_FC_LCB_START + fcLcbCount * 4 ? wordDocument.readUInt32LE(wssOffset) : 0,
+    lcbWss: wssOffset + 8 <= FIB_FC_LCB_START + fcLcbCount * 4 ? wordDocument.readUInt32LE(wssOffset + 4) : 0,
     fcDop: dopOffset + 8 <= FIB_FC_LCB_START + fcLcbCount * 4 ? wordDocument.readUInt32LE(dopOffset) : 0,
     lcbDop: dopOffset + 8 <= FIB_FC_LCB_START + fcLcbCount * 4 ? wordDocument.readUInt32LE(dopOffset + 4) : 0,
     characterCounts: {
@@ -197,6 +204,12 @@ function parseDop(tableStream, fib) {
   // MS-DOC-SPEC/17 DopBase.dxaTab is at bytes 10-11 and stores the
   // default tab stop interval in twips.
   const dxaTab = dop.readUInt16LE(10);
+  // MS-DOC-SPEC/17 §Copts60: fDntULTrlSpc is the opposite of OOXML
+  // compat/ulTrailSpace.
+  const copts60 = dop.readUInt16LE(8);
+  const compatibility = {
+    ulTrailSpace: ((copts60 >> 14) & 1) === 0,
+  };
 
   // DopTypography at DOP offset 90 (Dop97), present before Dogrid.
   // MS-DOC-SPEC/17 §DopTypography maps fKerningPunct to the opposite of
@@ -255,7 +268,7 @@ function parseDop(tableStream, fib) {
   // MS-DOC-SPEC/17 lines 1040-1042; default per spec is 0x5024
   const grfFmtFilter = dop.length >= 556 ? dop.readUInt16LE(554) : null;
 
-  return { fRevMarking, dxaTab, typography, dogrid, pageBorderIncludes, xmlValidation, grfFmtFilter };
+  return { fRevMarking, dxaTab, compatibility, typography, dogrid, pageBorderIncludes, xmlValidation, grfFmtFilter };
 }
 
 function readPieceTable(tableStream, fcClx, lcbClx) {
@@ -445,6 +458,41 @@ function parseStandardBookmarks(tableStream, fib) {
     const end = bkl.readUInt32LE(endIndex * 4);
     return { id: index, name, cpStart: start, cpEnd: end };
   });
+}
+
+function parseLastSelection(tableStream, fib, bodyTextLength) {
+  if (!fib.lcbWss) return null;
+  if (fib.lcbWss !== SELSF_SIZE) {
+    throw new Error(`Unsupported Word binary document: expected ${SELSF_SIZE}-byte Selsf, got ${fib.lcbWss}`);
+  }
+  assertTableRange(tableStream, fib.fcWss, fib.lcbWss, "Selsf");
+
+  // MS-DOC-SPEC/15 fcWss/lcbWss points to Selsf, and MS-DOC-SPEC/19
+  // defines Selsf as the last selection made in the Main Document.
+  const selsf = tableStream.subarray(fib.fcWss, fib.fcWss + SELSF_SIZE);
+  const flags = selsf.readUInt32LE(0);
+  const cpFirst = selsf.readInt32LE(4);
+  const cpLim = selsf.readInt32LE(8);
+  const selection = {
+    fIns: ((flags >> 15) & 1) !== 0,
+    fForward: (flags >> 16) & 0x7f,
+    fInsEnd: (flags >> 24) & 0xff,
+    cpFirst,
+    cpLim,
+    cpAnchor: selsf.readInt32LE(20),
+    sty: selsf.readUInt16LE(24),
+    cpAnchorShrink: selsf.readInt32LE(28),
+    xaTableLeft: selsf.readInt16LE(32),
+    xaTableRight: selsf.readInt16LE(34),
+  };
+
+  if (selection.cpFirst < 0 || selection.cpLim < selection.cpFirst || selection.cpLim > bodyTextLength) {
+    throw new Error(`Invalid Word binary document: Selsf selection range ${selection.cpFirst}-${selection.cpLim} is outside the main document`);
+  }
+  if (selection.fIns && selection.cpFirst !== selection.cpLim) {
+    throw new Error("Invalid Word binary document: Selsf insertion point has mismatched cpFirst/cpLim");
+  }
+  return selection;
 }
 
 function assertTableRange(tableStream, fc, lcb, label) {
@@ -1097,6 +1145,7 @@ function extractCharacterPropertiesFromGrpprl(grpprl) {
   scanKnownSprm(grpprl, 0x2a3e, 1, (value) => {
     if (value[0] === 0) props.underline = false;
   });
+  scanKnownSprm(grpprl, 0x0868, 1, (value) => { props.charSnapToGrid = value[0] !== 0; });
   scanKnownSprm(grpprl, 0x485f, 2, (value) => { props.langIdBidi = value.readUInt16LE(0); });
   scanKnownSprm(grpprl, 0x486d, 2, (value) => { props.langId = value.readUInt16LE(0); });
   scanKnownSprm(grpprl, 0x486e, 2, (value) => { props.langIdEastAsia = value.readUInt16LE(0); });
