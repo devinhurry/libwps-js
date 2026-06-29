@@ -27,7 +27,7 @@ const SPRM_SIZES = {
   0x6412: 4,
   0x6424: 4, 0x6425: 4, 0x6426: 4, 0x6427: 4, 0x6428: 4, 0x6629: 4,
   0x6A0C: 4, 0x6A0D: 4, 0x6A0E: 4, 0x6A0F: 4,
-  0x4455: 2, 0x4456: 2, 0x4457: 2,
+  0x4455: 2, 0x4456: 2, 0x4457: 2, 0x4458: 2, 0x4459: 2,
   0x840E: 2, 0x840F: 2, 0x8411: 2, 0x8458: 2, 0x845D: 2,
   0x845E: 2, 0x8460: 2,
   0xA413: 2, 0xA414: 2,
@@ -80,6 +80,8 @@ const SPRM_CATEGORIES = {
   0x4455: "rightIndentChars",
   0x4456: "leftIndentChars",
   0x4457: "firstLineIndentChars",
+  0x4458: "spacingBeforeLines",
+  0x4459: "spacingAfterLines",
   0x8458: "firstLineIndent",
   0x845D: "rightIndent",
   0x845E: "leftIndent",
@@ -325,6 +327,14 @@ function applySprm(props, sprm, val, size) {
       break;
     case 0x4457:
       props.firstLineIndentChars = val.readInt16LE(0);
+      break;
+    case 0x4458:
+      // MS-DOC-SPEC/16 sprmPDylBefore is already in 1/100 line units.
+      props.spacingBeforeLines = val.readInt16LE(0);
+      break;
+    case 0x4459:
+      // MS-DOC-SPEC/16 sprmPDylAfter is already in 1/100 line units.
+      props.spacingAfterLines = val.readInt16LE(0);
       break;
     case 0x8411:
     case 0x8458:

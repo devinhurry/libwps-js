@@ -116,6 +116,7 @@ function buildSettingsXml(wpsDocument = {}) {
   const hasGridType1 = sectionDocGridType === 1;
   const hasGridType2 = sectionDocGridType === 2;
   const noHeaderLineGrid = hasLineGridWithoutHeaderSubdocument(wpsDocument);
+  const hasExplicitZeroGridCharSpace = sections.some((section) => section?.properties?.docGridType === 2 && section?.properties?.docGridCharSpace === 0);
   const hasVbaProject = (wpsDocument.streams ?? []).some((stream) => stream?.name === "_VBA_PROJECT");
   const readOnlyEastAsianProfile = hasGridType1 && hasVbaProject;
   const dop = wpsDocument.dop;
@@ -176,7 +177,9 @@ function buildSettingsXml(wpsDocument = {}) {
   if (!dogrid) {
     throw new Error("Invalid WPS document: missing parsed Dogrid for settings drawing grid");
   }
-  if (!noHeaderLineGrid) {
+  // MS-DOC-SPEC/17 Dogrid.dxaGrid maps to drawingGridHorizontalSpacing;
+  // its default is 180, so only an explicit non-default value needs XML.
+  if (dogrid.dxaGrid !== 180) {
     parts.push(`<w:drawingGridHorizontalSpacing w:val="${dogrid.dxaGrid}"/>`);
   }
 
@@ -199,7 +202,10 @@ function buildSettingsXml(wpsDocument = {}) {
     parts.push(`<w:doNotValidateAgainstSchema/>`, `<w:doNotDemarcateInvalidXml/>`);
   }
 
-  if (!hasEastAsianGrid) {
+  // WPS emits explicit note separator references for ordinary documents and
+  // for grid-2 documents whose parsed section grid has zero character spacing
+  // and whose FIB has no header/footer subdocument.
+  if (!hasEastAsianGrid || (hasGridType2 && hasExplicitZeroGridCharSpace && noHeaderLineGrid)) {
     parts.push(
       `<w:footnotePr><w:footnote w:id="0"/><w:footnote w:id="1"/></w:footnotePr>`,
       `<w:endnotePr><w:endnote w:id="0"/><w:endnote w:id="1"/></w:endnotePr>`,
@@ -214,7 +220,6 @@ function buildSettingsXml(wpsDocument = {}) {
       `<w:balanceSingleByteDoubleByteWidth/>`,
       `<w:doNotLeaveBackslashAlone/>`,
     );
-    const hasExplicitZeroGridCharSpace = sections.some((section) => section?.properties?.docGridType === 2 && section?.properties?.docGridCharSpace === 0);
     if (!hasExplicitZeroGridCharSpace) {
       parts.push(`<w:ulTrailSpace/>`);
     }
@@ -622,7 +627,14 @@ function createDocumentXml(rawText, paragraphProperties = [], characterPropertie
     while (tableIdx < sortedTables.length && sortedTables[tableIdx].cpStart <= paragraph.cpStart) {
       const table = sortedTables[tableIdx];
       if (table.cpStart < paragraph.cpEnd && !table._generated) {
-        bodyParts.push(tableToXml(table, rawText, paragraphProperties, paragraphs, characterProperties, fontTable, tables.indexOf(table), sections, documentOptions));
+        const includeGoBackBookmarkInTable = !emittedGoBackBookmark && table.cpStart === 0;
+        bodyParts.push(tableToXml(table, rawText, paragraphProperties, paragraphs, characterProperties, fontTable, tables.indexOf(table), sections, {
+          ...documentOptions,
+          includeGoBackBookmarkInFirstCell: includeGoBackBookmarkInTable,
+        }));
+        if (includeGoBackBookmarkInTable) {
+          emittedGoBackBookmark = true;
+        }
         table._generated = true;
 
         // After emitting a table, check for section breaks that fall within or right after this table
@@ -771,8 +783,9 @@ function tableToXml(table, rawText, paragraphProperties, paragraphRanges, charac
   const tblPrXml = buildTablePropertiesXml(table, tablePosition, resolveTableStyleId(table, sections, documentOptions), documentOptions);
 
   const rowsXml = table.rows
-    .map((row) => tableRowToXml(row, rawText, paragraphProperties, paragraphRanges, characterProperties, fontTable, table, TABLE_DOCX_PROPS, {
+    .map((row, rowIndex) => tableRowToXml(row, rawText, paragraphProperties, paragraphRanges, characterProperties, fontTable, table, TABLE_DOCX_PROPS, {
       ...documentOptions,
+      includeGoBackBookmarkInFirstCell: documentOptions.includeGoBackBookmarkInFirstCell && rowIndex === 0,
       suppressTableCellParagraphControls: documentOptions.suppressTableCellParagraphControls || table.tableAutofit === true,
     }))
     .join("");
@@ -793,25 +806,29 @@ function buildTablePropertiesXml(table, tablePosition, tableStyleId = TABLE_STYL
   const cellMargins = table.cellMargins ?? TABLE_DOCX_PROPS.cellMar;
   const overlapXml = tablePosition?.noAllowOverlap ? `<w:tblOverlap w:val="never"/>` : "";
   const positionXml = tablePosition ? buildTablePositionXml(tablePosition) : "";
-  // MS-DOC-SPEC/16 §sprmTWidthIndent: when wWidth is negative, the table is
-  // centered (the absolute indent is the space from margins). Explicit table
-  // justification (sprmTJc/sprmTJc90) overrides this heuristic.
-  // OOXML: <w:tblInd> and <w:jc> are mutually exclusive — a centered table
-  // uses <w:jc w:val="center"/> without <w:tblInd>.
+  // MS-DOC-SPEC/19 TDefTableOperand says rgdxaCenter outer edges include
+  // cell spacing. Remove the parsed leading cell margin before writing tblInd;
+  // a negative edge that is only that margin is WPS' centered-table marker.
   const explicitJc = table.tableJustification;
+  const normalizedTableIndent = table.tableIndent?.type === "dxa" && table.tableIndent.width < 0
+    ? { ...table.tableIndent, width: table.tableIndent.width + (cellMargins.left ?? 0) }
+    : table.tableIndent;
+  const centeredByMarginEdge = table.tableIndent?.type === "dxa"
+    && table.tableIndent.width < 0
+    && Math.abs(table.tableIndent.width) <= (cellMargins.left ?? 0);
   const indXml = tablePosition
     ? `<w:tblInd w:w="0" w:type="dxa"/>`
     : table.tableIndent
-      ? (explicitJc || table.tableIndent.width < 0)
+      ? (explicitJc || centeredByMarginEdge)
         ? "" // alignment via jc
-        : `<w:tblInd w:w="${table.tableIndent.width}" w:type="${table.tableIndent.type}"/>`
+        : `<w:tblInd w:w="${normalizedTableIndent.width}" w:type="${normalizedTableIndent.type}"/>`
       : "";
   const jc = tablePosition
     ? ""
     : explicitJc
       ? `<w:jc w:val="${explicitJc}"/>`
       : table.tableIndent
-        ? table.tableIndent.width < 0
+        ? centeredByMarginEdge
           ? `<w:jc w:val="center"/>`
           : ""
         : TABLE_DOCX_PROPS.jc ? `<w:jc w:val="${TABLE_DOCX_PROPS.jc}"/>` : "";
@@ -957,7 +974,15 @@ function tableCellToXml(cell, rawText, paragraphProperties, paragraphRanges, cha
 
   const cellParagraphs = splitCellParagraphsRaw(rawText, cell.cpStart, cell.cpEnd);
   const parasXml = cellParagraphs
-    .map((para) => tableCellParagraphToXml(para, paragraphPropertiesForCp(paragraphProperties, paragraphRanges, para.cpStart), characterProperties, fontTable, suppressBold, documentOptions))
+    .map((para, paragraphIndex) => tableCellParagraphToXml(
+      para,
+      paragraphPropertiesForCp(paragraphProperties, paragraphRanges, para.cpStart),
+      characterProperties,
+      fontTable,
+      suppressBold,
+      documentOptions,
+      documentOptions.includeGoBackBookmarkInFirstCell && cellIndex === 0 && paragraphIndex === 0,
+    ))
     .join("");
 
   return `      <w:tc>\n${tcPrXml}${bookmarkStartXml}${parasXml}${bookmarkEndXml}      </w:tc>\n`;
@@ -1032,7 +1057,7 @@ function paragraphPropertiesForCp(paragraphProperties, paragraphRanges, cpStart)
   return index >= 0 ? paragraphProperties[index] : null;
 }
 
-function tableCellParagraphToXml(paragraph, properties, characterProperties, fontTable, suppressBold = false, documentOptions = {}) {
+function tableCellParagraphToXml(paragraph, properties, characterProperties, fontTable, suppressBold = false, documentOptions = {}, includeGoBackBookmark = false) {
   const paragraphMarkProperties = characterProperties[paragraph.cpEnd - 1] ?? characterProperties[paragraph.cpStart + paragraph.text.length] ?? null;
   const suppressTableCellDefaults = shouldSuppressTableCellDefaults(properties, paragraphMarkProperties);
   const pPrXml = buildTableCellParagraphPropertiesXml(
@@ -1044,9 +1069,10 @@ function tableCellParagraphToXml(paragraph, properties, characterProperties, fon
     documentOptions,
   );
   const pid = nextParaId();
+  const goBackBookmark = includeGoBackBookmark ? `<w:bookmarkStart w:id="${documentOptions.goBackBookmarkId ?? 0}" w:name="_GoBack"/><w:bookmarkEnd w:id="${documentOptions.goBackBookmarkId ?? 0}"/>` : "";
 
   if (!paragraph.text || paragraph.text.length === 0) {
-    return `        <w:p w14:paraId="${pid}">\n${pPrXml}        </w:p>\n`;
+    return `        <w:p w14:paraId="${pid}">\n${pPrXml}${goBackBookmark}        </w:p>\n`;
   }
 
   const runs = buildRuns(
@@ -1068,7 +1094,7 @@ function tableCellParagraphToXml(paragraph, properties, characterProperties, fon
     },
     buildBookmarkEventsForParagraph(documentOptions.bookmarks ?? [], paragraph),
   );
-  return `        <w:p w14:paraId="${pid}">\n${pPrXml}          ${runs}\n        </w:p>\n`;
+  return `        <w:p w14:paraId="${pid}">\n${pPrXml}${goBackBookmark}          ${runs}\n        </w:p>\n`;
 }
 
 function shouldSuppressTableCellDefaults(properties, paragraphMarkProperties) {
@@ -1641,27 +1667,23 @@ function appendParagraphControlXml(parts, properties, { includeDefaults, lineNum
 
 function appendParagraphSpacingXml(parts, properties, sectionProperties = null, { styleContext = false } = {}) {
   const spacingParts = [];
-  // beforeLines/afterLines are document-grid line counts. WPS emits them when
-  // a parsed section docGrid supplies the pitch; ordinary paragraph line
-  // spacing or snap-to-grid flags alone are not a grid pitch.
-  const linePitch = sectionProperties?.docGridLinePitch ?? null;
   if (properties?.spacingBefore != null) {
     spacingParts.push(`w:before="${properties.spacingBefore}"`);
   }
   if (properties?.spacingBeforeAuto != null) {
     spacingParts.push(`w:beforeAutospacing="${properties.spacingBeforeAuto ? 1 : 0}"`);
-  } else if (properties?.spacingBefore != null && linePitch) {
-    const beforeLines = Math.round((properties.spacingBefore * 100) / linePitch);
-    spacingParts.push(`w:beforeLines="${beforeLines}"`);
+  } else if (properties?.spacingBeforeLines != null) {
+    // MS-DOC-SPEC/16 sprmPDylBefore is already stored as 1/100 line units.
+    spacingParts.push(`w:beforeLines="${properties.spacingBeforeLines}"`);
   }
   if (properties?.spacingAfter != null) {
     spacingParts.push(`w:after="${properties.spacingAfter}"`);
   }
   if (properties?.spacingAfterAuto != null) {
     spacingParts.push(`w:afterAutospacing="${properties.spacingAfterAuto ? 1 : 0}"`);
-  } else if (properties?.spacingAfter != null && linePitch) {
-    const afterLines = Math.round((properties.spacingAfter * 100) / linePitch);
-    spacingParts.push(`w:afterLines="${afterLines}"`);
+  } else if (properties?.spacingAfterLines != null) {
+    // MS-DOC-SPEC/16 sprmPDylAfter is already stored as 1/100 line units.
+    spacingParts.push(`w:afterLines="${properties.spacingAfterLines}"`);
   }
   if (properties?.lineSpacing) {
     spacingParts.push(`w:line="${properties.lineSpacing.twips}" w:lineRule="${properties.lineSpacing.rule}"`);

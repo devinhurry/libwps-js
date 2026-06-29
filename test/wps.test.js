@@ -426,9 +426,13 @@ test("converts sample4 without dropping its table block", async () => {
     countXmlLineEdits(xml, readZipEntry(expected, "word/document.xml").toString("utf8")) < 100,
     "sample4 document.xml normalized diff should stay below 100 edits",
   );
+  const convertedSettingsXml = readZipEntry(docx, "word/settings.xml").toString("utf8");
+  const expectedSettingsXml = readZipEntry(expected, "word/settings.xml").toString("utf8");
+  assert.equal(extractSettingsNode(convertedSettingsXml, "w:footnotePr"), extractSettingsNode(expectedSettingsXml, "w:footnotePr"));
+  assert.equal(extractSettingsNode(convertedSettingsXml, "w:endnotePr"), extractSettingsNode(expectedSettingsXml, "w:endnotePr"));
   assert.ok(
-    countXmlLineEdits(readZipEntry(docx, "word/settings.xml").toString("utf8"), readZipEntry(expected, "word/settings.xml").toString("utf8")) < 10,
-    "sample4 settings.xml normalized diff should stay below 10 edits",
+    countXmlLineEdits(convertedSettingsXml, expectedSettingsXml) < 7,
+    "sample4 settings.xml normalized diff should stay below 7 edits",
   );
   assert.equal(
     countXmlLineEdits(readZipEntry(docx, "[Content_Types].xml").toString("utf8"), readZipEntry(expected, "[Content_Types].xml").toString("utf8")),
