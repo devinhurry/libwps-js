@@ -194,6 +194,7 @@ test("sample2 settings emit the East Asian grid profile", async () => {
 
 test("sample3 settings use the 420 default tab stop from parsed document settings", async () => {
   const wps = readWps(await readFile("sample/sample3/original.wps"));
+  assert.equal(wps.dop.dxaTab, 420);
   assert.equal(wps.defaultTabStop, 420);
 
   const docx = wpsToDocxBuffer(wps, { title: "sample3" });
@@ -282,11 +283,67 @@ test("sample3 table header row repeats across pages", async () => {
 
 test("basic settings use the 720 default tab stop from parsed document settings", async () => {
   const wps = readWps(await readFile(BASIC_WPS));
+  assert.equal(wps.dop.dxaTab, 720);
   assert.equal(wps.defaultTabStop, 720);
 
   const docx = wpsToDocxBuffer(wps, { title: "basic" });
   const xml = readZipEntry(docx, "word/settings.xml").toString("utf8");
   assert.match(xml, /<w:defaultTabStop w:val="720"\/>/);
+});
+
+test("settings.xml defaultTabStop is emitted from parsed DOP, not section profile", async () => {
+  const wps = readWps(await readFile("sample/sample3/original.wps"));
+  const docx = wpsToDocxBuffer({ ...wps, defaultTabStop: 960 }, { title: "sample3" });
+  const xml = readZipEntry(docx, "word/settings.xml").toString("utf8");
+
+  assert.match(xml, /<w:defaultTabStop w:val="960"\/>/);
+});
+
+test("trackRevisions is emitted before protection and defaultTabStop", async () => {
+  const wps = readWps(await readFile("sample/sample6/original.wps"));
+  assert.equal(wps.dop.fRevMarking, true);
+
+  const docx = wpsToDocxBuffer(wps, { title: "sample6" });
+  const xml = readZipEntry(docx, "word/settings.xml").toString("utf8");
+  const trackRevisionsIndex = xml.indexOf("<w:trackRevisions");
+  const documentProtectionIndex = xml.indexOf("<w:documentProtection");
+  const defaultTabStopIndex = xml.indexOf("<w:defaultTabStop");
+
+  assert.ok(trackRevisionsIndex >= 0);
+  assert.ok(documentProtectionIndex >= 0);
+  assert.ok(defaultTabStopIndex >= 0);
+  assert.ok(trackRevisionsIndex < documentProtectionIndex);
+  assert.ok(trackRevisionsIndex < defaultTabStopIndex);
+});
+
+test("settings drawing grid fails fast when parsed Dogrid is missing", async () => {
+  const wps = readWps(await readFile("sample/sample3/original.wps"));
+  assert.equal(wps.sections[0].properties.docGridType, 2);
+
+  assert.throws(
+    () => wpsToDocxBuffer({ ...wps, dop: { ...wps.dop, dogrid: null } }, { title: "sample3" }),
+    /missing parsed Dogrid/,
+  );
+});
+
+test("non-East Asian settings drawing grid also requires parsed Dogrid", async () => {
+  const wps = readWps(await readFile(BASIC_WPS));
+  assert.equal(wps.sections[0].properties.docGridType ?? null, null);
+
+  assert.throws(
+    () => wpsToDocxBuffer({ ...wps, dop: { ...wps.dop, dogrid: null } }, { title: "basic" }),
+    /missing parsed Dogrid/,
+  );
+});
+
+test("East Asian grid settings fail fast when parsed grfFmtFilter is missing", async () => {
+  const wps = readWps(await readFile("sample/sample3/original.wps"));
+  assert.equal(wps.sections[0].properties.docGridType, 2);
+
+  assert.throws(
+    () => wpsToDocxBuffer({ ...wps, dop: { ...wps.dop, grfFmtFilter: null } }, { title: "sample3" }),
+    /missing parsed grfFmtFilter/,
+  );
 });
 
 test("sample2 bold paragraph keeps the bank/securities label bold", async () => {

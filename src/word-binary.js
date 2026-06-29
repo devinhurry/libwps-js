@@ -34,6 +34,7 @@ const FIB_FC_PLCFLFO_INDEX = 74;
 const FIB_FC_STTBFBKMK_INDEX = 21;
 const FIB_FC_PLCFBKF_INDEX = 22;
 const FIB_FC_PLCFBKL_INDEX = 23;
+const FIB_FC_DOP_INDEX = 31; // 0x1F per FibRgFcLcb97
 
 const STSH_NIL_BASE = 0xfff0;
 const STSH_STD_HEADER_SIZE_WITH_POST2000 = 18;
@@ -57,11 +58,12 @@ export function extractWordBinaryDocument({ wordDocument, table0, table1 = null,
   const subdocuments = splitSubdocuments(wordDocument, pieces, fib.characterCounts);
   const rawText = readPieces(wordDocument, pieces);
   const bodyText = subdocuments.body.rawText;
+  const dop = parseDop(tableStream, fib);
   const { styles, latentLsd, stiMaxWhenSaved } = extractStyleSheet(tableStream, fib);
   const fontTable = extractFontTable(tableStream, fib);
   const sections = extractSections(wordDocument, tableStream, fib);
   const listData = extractListData(tableStream, fib);
-  const defaultTabStop = inferDefaultTabStop(sections);
+  const defaultTabStop = dop.dxaTab;
   const plcfHdd = parsePlcfHdd(tableStream, fib);
   const bookmarks = parseStandardBookmarks(tableStream, fib);
   const paragraphProperties = extractParagraphProperties(wordDocument, tableStream, fib, bodyText, styles, pieces);
@@ -90,6 +92,7 @@ export function extractWordBinaryDocument({ wordDocument, table0, table1 = null,
     tableRows,
     plcfHdd,
     bookmarks,
+    dop,
   };
 }
 
@@ -123,6 +126,7 @@ function readFib(wordDocument) {
   const sttbfBkmkOffset = FIB_FC_LCB_START + FIB_FC_STTBFBKMK_INDEX * 8;
   const plcfBkfOffset = FIB_FC_LCB_START + FIB_FC_PLCFBKF_INDEX * 8;
   const plcfBklOffset = FIB_FC_LCB_START + FIB_FC_PLCFBKL_INDEX * 8;
+  const dopOffset = FIB_FC_LCB_START + FIB_FC_DOP_INDEX * 8;
   if (tableStreamOffset + 8 > FIB_FC_LCB_START + fcLcbCount * 4) {
     throw new Error("Unsupported Word binary document: FIB does not contain fcClx/lcbClx");
   }
@@ -157,6 +161,8 @@ function readFib(wordDocument) {
     lcbPlcfBkf: wordDocument.readUInt32LE(plcfBkfOffset + 4),
     fcPlcfBkl: wordDocument.readUInt32LE(plcfBklOffset),
     lcbPlcfBkl: wordDocument.readUInt32LE(plcfBklOffset + 4),
+    fcDop: dopOffset + 8 <= FIB_FC_LCB_START + fcLcbCount * 4 ? wordDocument.readUInt32LE(dopOffset) : 0,
+    lcbDop: dopOffset + 8 <= FIB_FC_LCB_START + fcLcbCount * 4 ? wordDocument.readUInt32LE(dopOffset + 4) : 0,
     characterCounts: {
       body: wordDocument.readUInt32LE(FIB_CCP_TEXT_OFFSET),
       footnotes: wordDocument.readUInt32LE(FIB_CCP_FTN_OFFSET),
@@ -167,6 +173,54 @@ function readFib(wordDocument) {
       headerTextboxes: wordDocument.readUInt32LE(FIB_CCP_HDR_TXBX_OFFSET),
     },
   };
+}
+
+// MS-DOC-SPEC/17 §DopBase, §Dop97, §Dop2002: parse DOP fields needed for
+// OOXML settings.xml emission (drawing grid, revision marking, format filter).
+function parseDop(tableStream, fib) {
+  const { fcDop, lcbDop } = fib;
+  if (!lcbDop) {
+    throw new Error("Invalid Word binary document: missing mandatory DOP");
+  }
+  if (fcDop > tableStream.length || lcbDop > tableStream.length - fcDop) {
+    throw new Error("Invalid Word binary document: DOP is outside the table stream");
+  }
+  if (lcbDop < 84) {
+    throw new Error(`Unsupported Word binary document: DOP is shorter than DopBase (${lcbDop} bytes)`);
+  }
+  const dop = tableStream.subarray(fcDop, fcDop + lcbDop);
+
+  // fRevMarking: DopBase bit 47 = byte 5 bit 7
+  // MS-DOC-SPEC/17 lines 153-156: fRevMarking maps to OOXML trackRevisions
+  const fRevMarking = dop.length >= 6 ? ((dop[5] >> 7) & 1) !== 0 : false;
+
+  // MS-DOC-SPEC/17 DopBase.dxaTab is at bytes 10-11 and stores the
+  // default tab stop interval in twips.
+  const dxaTab = dop.readUInt16LE(10);
+
+  // Dogrid at DOP offset 400 (Dop97), present in all DOP versions >= Dop97
+  // MS-DOC-SPEC/17 lines 1838-1890
+  let dogrid = null;
+  if (dop.length >= 410) {
+    const dyGridDisplay = dop[408] & 0x7F;
+    const dxGridDisplay = dop[409] & 0x7F;
+    const fFollowMargins = (dop[409] >> 7) & 1;
+    dogrid = {
+      xaGrid: dop.readUInt16LE(400),
+      yaGrid: dop.readUInt16LE(402),
+      dxaGrid: dop.readUInt16LE(404),
+      dyaGrid: dop.readUInt16LE(406),
+      dyGridDisplay: dyGridDisplay === 0 ? 1 : dyGridDisplay,
+      dxGridDisplay: dxGridDisplay === 0 ? 1 : dxGridDisplay,
+      fFollowMargins: !!fFollowMargins,
+    };
+  }
+
+  // grfFmtFilter at DOP offset 554 (Dop2002), present when lcbDop >= 556
+  // MS-DOC-SPEC/17 lines 1040-1042; default per spec is 0x5024
+  const grfFmtFilter = dop.length >= 556 ? dop.readUInt16LE(554) : null;
+
+  return { fRevMarking, dxaTab, dogrid, grfFmtFilter };
 }
 
 function readPieceTable(tableStream, fcClx, lcbClx) {
@@ -289,23 +343,6 @@ function assertRange(buffer, start, end, label) {
 
 function decodeSingleByteText(buffer) {
   return new TextDecoder("windows-1252", { fatal: false }).decode(buffer);
-}
-
-function inferDefaultTabStop(sections) {
-  if (!Array.isArray(sections) || sections.length === 0) {
-    // When no section profile is available, use 420 twips (half an inch)
-    // as the default tab stop — the value Word applies when no docGrid is specified.
-    return 420;
-  }
-
-  const hasExplicitDocGrid = sections.some((section) => section?.properties?.docGridType != null);
-  if (hasExplicitDocGrid) {
-    // East Asian grid documents use a denser 420-twip default tab stop
-    // to align with the character grid.
-    return 420;
-  }
-
-  return 720;
 }
 
 function parsePlcfHdd(tableStream, fib) {

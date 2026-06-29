@@ -118,8 +118,12 @@ function buildSettingsXml(wpsDocument = {}) {
   const noHeaderLineGrid = hasLineGridWithoutHeaderSubdocument(wpsDocument);
   const hasVbaProject = (wpsDocument.streams ?? []).some((stream) => stream?.name === "_VBA_PROJECT");
   const readOnlyEastAsianProfile = hasGridType1 && hasVbaProject;
-  // for these East Asian grid docs.
-  const defaultTabStop = hasEastAsianGrid ? 420 : 720;
+  const dop = wpsDocument.dop;
+
+  const defaultTabStop = wpsDocument.defaultTabStop;
+  if (!Number.isInteger(defaultTabStop) || defaultTabStop <= 0) {
+    throw new Error("Invalid WPS document: missing parsed default tab stop");
+  }
 
   const parts = [
     `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>`,
@@ -140,8 +144,21 @@ function buildSettingsXml(wpsDocument = {}) {
     `<w:bordersDoNotSurroundFooter w:val="${hasEastAsianGrid && !noHeaderLineGrid ? 0 : 1}"/>`,
   );
 
+  // MS-DOC-SPEC/17 §Dop2002 grfFmtFilter: suggested formatting filter.
+  // WPS only emits this element for East Asian grid documents.
+  if (hasEastAsianGrid && dop?.grfFmtFilter == null) {
+    throw new Error("Invalid WPS document: missing parsed grfFmtFilter for East Asian grid settings");
+  }
   if (hasEastAsianGrid) {
-    parts.push(`<w:stylePaneFormatFilter w:val="3F01" w:allStyles="1" w:customStyles="0" w:latentStyles="0" w:stylesInUse="0" w:headingStyles="0" w:numberingStyles="0" w:tableStyles="0" w:directFormattingOnRuns="1" w:directFormattingOnParagraphs="1" w:directFormattingOnNumbering="1" w:directFormattingOnTables="1" w:clearFormatting="1" w:top3HeadingStyles="1" w:visibleStyles="0" w:alternateStyleNames="0"/>`);
+    const filterHex = dop.grfFmtFilter.toString(16).toUpperCase().padStart(4, "0");
+    parts.push(`<w:stylePaneFormatFilter w:val="${filterHex}" w:allStyles="1" w:customStyles="0" w:latentStyles="0" w:stylesInUse="0" w:headingStyles="0" w:numberingStyles="0" w:tableStyles="0" w:directFormattingOnRuns="1" w:directFormattingOnParagraphs="1" w:directFormattingOnNumbering="1" w:directFormattingOnTables="1" w:clearFormatting="1" w:top3HeadingStyles="1" w:visibleStyles="0" w:alternateStyleNames="0"/>`);
+  }
+
+  // Open XML CT_Settings order places trackRevisions before
+  // documentProtection and defaultTabStop.
+  // MS-DOC-SPEC/17 DopBase.fRevMarking maps to OOXML trackRevisions.
+  if (dop?.fRevMarking) {
+    parts.push(`<w:trackRevisions w:val="1"/>`);
   }
 
   parts.push(
@@ -154,17 +171,22 @@ function buildSettingsXml(wpsDocument = {}) {
     parts.push(`<w:evenAndOddHeaders w:val="1"/>`);
   }
 
+  // MS-DOC-SPEC/17 §Dogrid: drawing grid settings from DOP
+  const dogrid = dop?.dogrid;
+  if (!dogrid) {
+    throw new Error("Invalid WPS document: missing parsed Dogrid for settings drawing grid");
+  }
   if (!noHeaderLineGrid) {
-    parts.push(`<w:drawingGridHorizontalSpacing w:val="${hasGridType1 ? 156 : hasGridType2 ? 0 : 110}"/>`);
+    parts.push(`<w:drawingGridHorizontalSpacing w:val="${dogrid.dxaGrid}"/>`);
   }
 
   if (hasEastAsianGrid) {
-    parts.push(`<w:drawingGridVerticalSpacing w:val="${hasGridType1 ? 298 : 156}"/>`);
+    parts.push(`<w:drawingGridVerticalSpacing w:val="${dogrid.dyaGrid}"/>`);
   }
 
   parts.push(
-    `<w:displayHorizontalDrawingGridEvery w:val="${hasGridType2 ? 1 : 2}"/>`,
-    `<w:displayVerticalDrawingGridEvery w:val="1"/>`,
+    `<w:displayHorizontalDrawingGridEvery w:val="${dogrid.dxGridDisplay}"/>`,
+    `<w:displayVerticalDrawingGridEvery w:val="${dogrid.dyGridDisplay}"/>`,
   );
 
   if (hasEastAsianGrid) {
@@ -2124,7 +2146,7 @@ function buildLatentStylesXml(styles = [], wpsDocument = {}) {
     const name = STI_NAMES[sti];
     const latent = latentLsd[sti] ?? synthesizeLatentStyleDefaults(sti, name);
     if (!latent || !name) continue;
-    if (sti === 92 || sti === 93 || (sti >= 107 && sti <= 110) || sti === 156 || sti === 157 || sti === 178 || sti === 180 || sti === 181) continue;
+    if (sti === 92 || sti === 93 || (sti >= 107 && sti <= 110) || sti === 156 || sti === 157 || sti === 178 || sti === 179 || sti === 180 || sti === 181) continue;
     const attrs = [];
     if (latent.fQFormat) attrs.push('w:qFormat="1"');
     if (!latent.fUnhideWhenUsed) attrs.push('w:unhideWhenUsed="0"');
