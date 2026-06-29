@@ -317,6 +317,23 @@ function createNumberingXml(wpsDocument = {}) {
     return lstf || null;
   });
 
+  // MS-DOC-SPEC/15 §LSTF.rgistdPara may be 0x0FFF (no linked style) even
+  // when a paragraph style references this numbering. Scan style definitions
+  // to build a reverse lookup: (abstractNumId, ilvl) → styleId.
+  const pStyleByLevel = {};
+  for (const style of wpsDocument.styles ?? []) {
+    if (style?.listId != null && style.listId > 0 && style.listLevel != null && style.styleId != null) {
+      const lfoIdx = style.listId - 1;
+      const lstfForLfo = lfoToLstf[lfoIdx];
+      if (lstfForLfo) {
+        const aIdx = listData.lstfList.indexOf(lstfForLfo);
+        if (aIdx >= 0) {
+          pStyleByLevel[aIdx + ':' + style.listLevel] = style.styleId;
+        }
+      }
+    }
+  }
+
   // Generate abstractNum for each LSTF
   const fontTable = wpsDocument.fontTable ?? [];
   for (let aIdx = 0; aIdx < listData.lstfList.length; aIdx++) {
@@ -338,6 +355,13 @@ function createNumberingXml(wpsDocument = {}) {
       const istdPara = lstf.rgistdPara[lvl.ilvl];
       if (istdPara != null && istdPara !== 0 && istdPara < 0x0FFF) {
         parts.push(`<w:pStyle w:val="${istdPara}"/>`);
+      } else {
+        // Fallback: derive pStyle from style definitions that reference this numbering.
+        const styleKey = aIdx + ':' + lvl.ilvl;
+        const pStyleId = pStyleByLevel[styleKey];
+        if (pStyleId) {
+          parts.push(`<w:pStyle w:val="${pStyleId}"/>`);
+        }
       }
       // Level text: convert binary xst to OOXML lvlText.
       // Binary xst is Xst: cch + rgtchar (cch UTF-16LE code units, NO null terminator).
