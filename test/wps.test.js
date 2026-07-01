@@ -5,7 +5,7 @@ import { readWps, normalizeComparableText } from "../src/index.js";
 import { wpsToDocxBuffer } from "../src/docx.js";
 import { lcidToBcp47 } from "../src/lcid.js";
 import { BRC_TYPE_NAMES, brcColorFromIco, parseSprms } from "../src/sprm.js";
-import { parseSectionSprms } from "../src/word-binary.js";
+import { parseSectionSprms, parseSttbfRMark } from "../src/word-binary.js";
 import { readDocxMainText, readDocxDocumentXml, readZipEntry } from "./fixtures-docx.js";
 
 function findParagraphXml(xml, text) {
@@ -56,6 +56,24 @@ const FULL_WPS = "sample/full/original.wps";
 const FULL_DOCX = "sample/full/expected.docx";
 const TABLE2_WPS = "sample/table2/original.wps";
 const TABLE6_DOCX = "sample/table6/expected.docx";
+const SAMPLE9_WPS = "sample/sample9/original.wps";
+const SAMPLE10_WPS = "sample/sample10/original.wps";
+
+function buildUnicodeSttbNoExtra(strings) {
+  const parts = [];
+  const header = Buffer.alloc(6);
+  header.writeUInt16LE(0xffff, 0);
+  header.writeUInt16LE(strings.length, 2);
+  header.writeUInt16LE(0, 4);
+  parts.push(header);
+  for (const value of strings) {
+    const text = Buffer.from(value, "utf16le");
+    const length = Buffer.alloc(2);
+    length.writeUInt16LE(value.length, 0);
+    parts.push(length, text);
+  }
+  return Buffer.concat(parts);
+}
 
 test("lists and reads OLE2 streams from a WPS file", async () => {
   const document = readWps(await readFile(FULL_WPS));
@@ -368,6 +386,17 @@ test("parses the MS-DOC Selsf last-selection structure", async () => {
   assert.equal(basic.lastSelection.cpFirst, 253);
 });
 
+test("Selsf selection outside the main story does not force a document.xml _GoBack bookmark", async () => {
+  const sample9 = readWps(await readFile(SAMPLE9_WPS));
+  assert.equal(sample9.lastSelection.fIns, true);
+  assert.equal(sample9.lastSelection.cpFirst, 1400);
+  assert.ok(sample9.lastSelection.cpFirst > sample9.bodyText.length);
+  assert.ok(sample9.lastSelection.cpFirst <= sample9.rawText.length);
+
+  const xml = readDocxDocumentXml(wpsToDocxBuffer(sample9, { title: "sample9" }));
+  assert.doesNotMatch(xml, /w:name="_GoBack"/);
+});
+
 test("sample3 styles.xml stays close to WPS expected export", async () => {
   const wps = readWps(await readFile("sample/sample3/original.wps"));
   const docx = wpsToDocxBuffer(wps, { title: "sample3" });
@@ -424,6 +453,48 @@ test("basic settings use the 720 default tab stop from parsed document settings"
   const docx = wpsToDocxBuffer(wps, { title: "basic" });
   const xml = readZipEntry(docx, "word/settings.xml").toString("utf8");
   assert.match(xml, /<w:defaultTabStop w:val="720"\/>/);
+});
+
+test("settings emit FIB read-only recommendation as writeProtection before zoom", () => {
+  const docx = wpsToDocxBuffer({
+    bodyText: "A\r",
+    defaultTabStop: 720,
+    fib: { fReadOnlyRecommended: true },
+    dop: {
+      pageBorderIncludes: { header: false, footer: false },
+      dogrid: { dxaGrid: 180, dyaGrid: 156, dxGridDisplay: 0, dyGridDisplay: 2 },
+      compatibility: { ulTrailSpace: true },
+    },
+  }, { title: "read-only-recommended" });
+  const xml = readZipEntry(docx, "word/settings.xml").toString("utf8");
+  const writeProtectionIndex = xml.indexOf("<w:writeProtection");
+  const zoomIndex = xml.indexOf("<w:zoom");
+
+  assert.ok(writeProtectionIndex >= 0);
+  assert.match(xml, /<w:writeProtection w:recommended="1"\/>/);
+  assert.ok(zoomIndex >= 0);
+  assert.ok(writeProtectionIndex < zoomIndex);
+});
+
+test("settings emit TrueType font embedding only from parsed DOP font flags", () => {
+  const baseDoc = {
+    bodyText: "A\r",
+    defaultTabStop: 720,
+    dop: {
+      pageBorderIncludes: { header: false, footer: false },
+      dogrid: { dxaGrid: 180, dyaGrid: 156, dxGridDisplay: 0, dyGridDisplay: 2 },
+      compatibility: { ulTrailSpace: true },
+    },
+  };
+  const noEmbedXml = readZipEntry(wpsToDocxBuffer(baseDoc, { title: "no-font-embed" }), "word/settings.xml").toString("utf8");
+  const embedXml = readZipEntry(wpsToDocxBuffer({
+    ...baseDoc,
+    dop: { ...baseDoc.dop, fEmbedFonts: true, fSubsetFonts: true },
+  }, { title: "font-embed" }), "word/settings.xml").toString("utf8");
+
+  assert.equal(extractSettingsNode(noEmbedXml, "w:embedTrueTypeFonts"), null);
+  assert.equal(extractSettingsNode(noEmbedXml, "w:saveSubsetFonts"), null);
+  assert.match(embedXml, /<w:embedTrueTypeFonts\/><w:saveSubsetFonts\/>/);
 });
 
 test("settings.xml defaultTabStop is emitted from parsed DOP, not section profile", async () => {
@@ -671,6 +742,115 @@ test("sample3 table cell header keeps table-cell defaults from expected DOCX", a
   assert.ok(headerParagraph.indexOf('<w:suppressLineNumbers w:val="0"/>') < headerParagraph.indexOf('<w:kinsoku/>'));
 });
 
+test("table cell paragraph controls are emitted only from parsed MS-DOC SPRMs", () => {
+  const noBorder = { style: "none", width: 0, color: "auto", space: 0 };
+  const docx = wpsToDocxBuffer({
+    bodyText: "A\r",
+    defaultTabStop: 720,
+    paragraphProperties: [{}],
+    characterProperties: [{}],
+    tableRows: [{
+      cpStart: 0,
+      cpEnd: 2,
+      gridCols: [1440],
+      tableWidth: 1440,
+      tableWidthType: "dxa",
+      tableBordersExplicit: false,
+      tableBorders: {
+        top: noBorder,
+        left: noBorder,
+        bottom: noBorder,
+        right: noBorder,
+        insideH: noBorder,
+        insideV: noBorder,
+      },
+      rows: [{
+        cells: [{
+          cpStart: 0,
+          cpEnd: 2,
+          width: 1440,
+        }],
+      }],
+    }],
+    dop: {
+      pageBorderIncludes: { header: false, footer: false },
+      dogrid: { dxaGrid: 180, dyaGrid: 156, dxGridDisplay: 0, dyGridDisplay: 2 },
+      compatibility: { ulTrailSpace: true },
+    },
+  }, { title: "table-cell-paragraph-controls" });
+  const xml = readDocxDocumentXml(docx);
+  const paragraph = findParagraphXml(xml, "A");
+  assert.ok(paragraph, "table cell paragraph should exist");
+
+  assert.doesNotMatch(paragraph, /<w:kinsoku\/>/);
+  assert.doesNotMatch(paragraph, /<w:wordWrap\/>/);
+  assert.doesNotMatch(paragraph, /<w:overflowPunct\/>/);
+  assert.doesNotMatch(paragraph, /<w:topLinePunct/);
+  assert.doesNotMatch(paragraph, /<w:autoSpaceDE/);
+  assert.doesNotMatch(paragraph, /<w:autoSpaceDN/);
+  assert.doesNotMatch(paragraph, /<w:adjustRightInd/);
+});
+
+test("parsed table cell paragraph controls are not suppressed by paragraph mark fonts", () => {
+  const noBorder = { style: "none", width: 0, color: "auto", space: 0 };
+  const docx = wpsToDocxBuffer({
+    bodyText: "A\r",
+    defaultTabStop: 720,
+    paragraphProperties: [{
+      kinsoku: true,
+      wordWrap: true,
+      overflowPunct: true,
+      topLinePunct: false,
+      autoSpaceDE: true,
+      autoSpaceDN: true,
+      bidi: false,
+      adjustRightInd: true,
+      snapToGrid: true,
+    }],
+    characterProperties: [{}, { fontAscii: 0 }],
+    tableRows: [{
+      cpStart: 0,
+      cpEnd: 2,
+      gridCols: [1440],
+      tableWidth: 1440,
+      tableWidthType: "dxa",
+      tableBordersExplicit: false,
+      tableBorders: {
+        top: noBorder,
+        left: noBorder,
+        bottom: noBorder,
+        right: noBorder,
+        insideH: noBorder,
+        insideV: noBorder,
+      },
+      rows: [{
+        cells: [{
+          cpStart: 0,
+          cpEnd: 2,
+          width: 1440,
+        }],
+      }],
+    }],
+    dop: {
+      pageBorderIncludes: { header: false, footer: false },
+      dogrid: { dxaGrid: 180, dyaGrid: 156, dxGridDisplay: 0, dyGridDisplay: 2 },
+      compatibility: { ulTrailSpace: true },
+    },
+  }, { title: "table-cell-parsed-paragraph-controls" });
+  const paragraph = findParagraphXml(readDocxDocumentXml(docx), "A");
+  assert.ok(paragraph, "table cell paragraph should exist");
+
+  assert.match(paragraph, /<w:kinsoku\/>/);
+  assert.match(paragraph, /<w:wordWrap\/>/);
+  assert.match(paragraph, /<w:overflowPunct\/>/);
+  assert.match(paragraph, /<w:topLinePunct w:val="0"\/>/);
+  assert.match(paragraph, /<w:autoSpaceDE\/>/);
+  assert.match(paragraph, /<w:autoSpaceDN\/>/);
+  assert.match(paragraph, /<w:bidi w:val="0"\/>/);
+  assert.match(paragraph, /<w:adjustRightInd\/>/);
+  assert.match(paragraph, /<w:snapToGrid\/>/);
+});
+
 test("sample3 body paragraph keeps one merged run with explicit black shading", async () => {
   const wps = readWps(await readFile("sample/sample3/original.wps"));
   const target = "本文件规定了大规模预训练模型时具备的能力要求，包括数据管理、模型训练、模型管理和模型部署等核心环节";
@@ -757,6 +937,186 @@ test("parses variable-length section border SPRMs", () => {
   );
 });
 
+test("parses MS-DOC section orientation and 32-bit page-number start SPRMs", () => {
+  const props = parseSectionSprms(Buffer.from([
+    0x00, 0x30, 0x04, // sprmScnsPgn: en dash chapter separator
+    0x01, 0x30, 0x02, // sprmSiHeadingPgn: Heading 2 starts chapters
+    0x06, 0x30, 0x00, // sprmSFProtected: protected section when form protection is enabled
+    0x07, 0x50, 0x02, 0x00, // sprmSDmBinFirst: paper source 2
+    0x08, 0x50, 0x04, 0x00, // sprmSDmBinOther: paper source 4
+    0x11, 0x30, 0x01, // sprmSFPgnRestart
+    0x12, 0x30, 0x00, // sprmSFEndnote: suppress endnotes in this section
+    0x1d, 0x30, 0x01, // sprmSBOrientation: landscape
+    0x44, 0x70, 0x2c, 0x01, 0x00, 0x00, // sprmSPgnStart: 300
+    0x25, 0xb0, 0x80, 0x01, // sprmSDzaGutter: 384
+    0x26, 0x50, 0x09, 0x00, // sprmSDmPaperReq: implementation-specific tie-breaker
+    0x19, 0x30, 0x01, // sprmSLBetween
+    0x1a, 0x30, 0x03, // sprmSVjc: bottom
+    0x28, 0x32, 0x01, // sprmSFBiDi
+    0x2a, 0x32, 0x01, // sprmSFRTLGutter
+    0x13, 0x30, 0x02, // sprmSLnc: continuous
+    0x15, 0x50, 0x03, 0x00, // sprmSNLnnMod: every 3 lines
+    0x16, 0x90, 0xf0, 0x00, // sprmSDxaLnn: 240 twips
+    0x1b, 0x50, 0x04, 0x00, // sprmSLnnMin: start at 5
+    0x3b, 0x30, 0x02, // sprmSFpc: footnotes beneath text
+    0x3c, 0x30, 0x02, // sprmSRncFtn: restart every page
+    0x3e, 0x30, 0x01, // sprmSRncEdn: restart every section
+    0x3f, 0x50, 0x06, 0x00, // sprmSNFtn: footnote start offset
+    0x40, 0x50, 0x02, 0x00, // sprmSNfcFtnRef: lowerRoman
+    0x41, 0x50, 0x06, 0x00, // sprmSNEdn: endnote start offset
+    0x42, 0x50, 0x01, 0x00, // sprmSNfcEdnRef: upperRoman
+  ]));
+
+  assert.equal(props.pageNumberChapterSeparator, "enDash");
+  assert.equal(props.pageNumberChapterStyle, 2);
+  assert.equal(props.formProtection, true);
+  assert.equal(props.paperSourceFirst, 2);
+  assert.equal(props.paperSourceOther, 4);
+  assert.equal(props.pageNumberRestart, true);
+  assert.equal(props.endnotesSuppressed, true);
+  assert.equal(props.orientation, "landscape");
+  assert.equal(props.pageNumberStart, 300);
+  assert.equal(props.gutterMargin, 384);
+  assert.equal(props.paperFormatTieBreaker, 9);
+  assert.equal(props.columnsLineBetween, true);
+  assert.equal(props.verticalAlign, "bottom");
+  assert.equal(props.sectionBidi, true);
+  assert.equal(props.rtlGutter, true);
+  assert.equal(props.lineNumberRestart, "continuous");
+  assert.equal(props.lineNumberCountBy, 3);
+  assert.equal(props.lineNumberDistance, 240);
+  assert.equal(props.lineNumberStart, 5);
+  assert.equal(props.footnotePosition, "beneathText");
+  assert.equal(props.footnoteNumberRestart, "eachPage");
+  assert.equal(props.endnoteNumberRestart, "eachSect");
+  assert.equal(props.footnoteNumberStart, 6);
+  assert.equal(props.footnoteNumberFormat, 2);
+  assert.equal(props.endnoteNumberStart, 6);
+  assert.equal(props.endnoteNumberFormat, 1);
+  assert.throws(
+    () => parseSectionSprms(Buffer.from([0x1a, 0x30, 0x04])),
+    /Out-of-spec section Vjc value 4/,
+  );
+  assert.throws(
+    () => parseSectionSprms(Buffer.from([0x13, 0x30, 0x03])),
+    /Out-of-spec section line-number restart mode 3/,
+  );
+  assert.throws(
+    () => parseSectionSprms(Buffer.from([0x15, 0x50, 0x65, 0x00])),
+    /Out-of-spec section line-number countBy 101/,
+  );
+  assert.throws(
+    () => parseSectionSprms(Buffer.from([0x00, 0x30, 0x05])),
+    /Out-of-spec section chapter separator CNS value 5/,
+  );
+  assert.throws(
+    () => parseSectionSprms(Buffer.from([0x01, 0x30, 0x0a])),
+    /Out-of-spec section chapter heading level 10/,
+  );
+  assert.throws(
+    () => parseSectionSprms(Buffer.from([0x3b, 0x30, 0x00])),
+    /Out-of-spec section footnote position Fpc value 0/,
+  );
+  assert.throws(
+    () => parseSectionSprms(Buffer.from([0x3e, 0x30, 0x02])),
+    /Out-of-spec endnote numbering restart Rnc value 2/,
+  );
+  assert.throws(
+    () => parseSectionSprms(Buffer.from([0x3f, 0x50, 0x00, 0x40])),
+    /Out-of-spec footnote number start 16384/,
+  );
+});
+
+test("emits parsed section gutter margin, column separator, and vertical alignment in DOCX section properties", () => {
+  const docx = wpsToDocxBuffer({
+    bodyText: "A\r",
+    defaultTabStop: 720,
+    paragraphProperties: [{}],
+    sections: [{
+      cpStart: 0,
+      cpEnd: 2,
+      properties: {
+        pageWidth: 11906,
+        pageHeight: 16838,
+        marginTop: 1440,
+        marginRight: 1440,
+        marginBottom: 1440,
+        marginLeft: 1440,
+        headerMargin: 720,
+        footerMargin: 720,
+        gutterMargin: 384,
+        columnCount: 2,
+        columnSpacing: 720,
+        columnsLineBetween: true,
+        verticalAlign: "center",
+        sectionBidi: true,
+        rtlGutter: true,
+        formProtection: true,
+        endnotesSuppressed: true,
+        paperSourceFirst: 2,
+        paperSourceOther: 4,
+        pageNumberRestart: true,
+        pageNumberStart: 12,
+        pageNumberChapterStyle: 2,
+        pageNumberChapterSeparator: "enDash",
+        footnotePosition: "beneathText",
+        footnoteNumberRestart: "continuous",
+        footnoteNumberStart: 6,
+        footnoteNumberFormat: 2,
+        endnoteNumberRestart: "eachSect",
+        endnoteNumberStart: 6,
+        endnoteNumberFormat: 1,
+        lineNumberRestart: "continuous",
+        lineNumberCountBy: 3,
+        lineNumberDistance: 240,
+        lineNumberStart: 5,
+      },
+    }],
+    dop: {
+      pageBorderIncludes: { header: false, footer: false },
+      dogrid: { dxaGrid: 180, dyaGrid: 156, dxGridDisplay: 0, dyGridDisplay: 2 },
+      compatibility: { ulTrailSpace: true },
+    },
+  }, { title: "section-gutter" });
+  const xml = readDocxDocumentXml(docx);
+
+  assert.match(xml, /<w:footnotePr><w:pos w:val="beneathText"\/><w:numFmt w:val="lowerRoman"\/><w:numStart w:val="6"\/><\/w:footnotePr><w:endnotePr><w:numFmt w:val="upperRoman"\/><w:numRestart w:val="eachSect"\/><\/w:endnotePr><w:pgSz/);
+  assert.match(xml, /<w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="384"\/>/);
+  assert.match(xml, /<w:paperSrc w:first="2" w:other="4"\/><w:lnNumType/);
+  assert.match(xml, /<w:lnNumType w:countBy="3" w:start="5" w:distance="240" w:restart="continuous"\/>/);
+  assert.match(xml, /<w:pgNumType w:fmt="decimal" w:start="12" w:chapStyle="2" w:chapSep="enDash"\/>/);
+  assert.match(xml, /<w:cols w:space="720" w:num="2" w:sep="1"\/>/);
+  assert.match(xml, /<w:formProt\/><w:vAlign/);
+  assert.match(xml, /<w:vAlign w:val="center"\/>/);
+  assert.match(xml, /<w:noEndnote\/><w:bidi\/>/);
+  assert.match(xml, /<w:bidi\/><w:rtlGutter\/>/);
+});
+
+test("ignores MS-DOC section page-number start when restart is disabled", () => {
+  const docx = wpsToDocxBuffer({
+    bodyText: "A\r",
+    defaultTabStop: 720,
+    paragraphProperties: [{}],
+    sections: [{
+      cpStart: 0,
+      cpEnd: 2,
+      properties: {
+        pageNumberRestart: false,
+        pageNumberStart: 12,
+      },
+    }],
+    dop: {
+      pageBorderIncludes: { header: false, footer: false },
+      dogrid: { dxaGrid: 180, dyaGrid: 156, dxGridDisplay: 0, dyGridDisplay: 2 },
+      compatibility: { ulTrailSpace: true },
+    },
+  }, { title: "section-page-number-restart" });
+  const xml = readDocxDocumentXml(docx);
+
+  assert.match(xml, /<w:pgNumType w:fmt="decimal"\/>/);
+  assert.doesNotMatch(xml, /<w:pgNumType[^>]*w:start="12"/);
+});
+
 test("MS-DOC border color and type enums use spec values without fallback", () => {
   assert.equal(brcColorFromIco(0x00), "auto");
   assert.equal(brcColorFromIco(0x09), "000080");
@@ -777,7 +1137,11 @@ test("parses MS-DOC character effect toggle SPRMs", () => {
     0x75, 0x08, 0x01, // sprmCFNoProof
     0x11, 0x08, 0x01, // sprmCFWebHidden
     0x18, 0x08, 0x01, // sprmCFSpecVanish
+    0x5a, 0x08, 0x01, // sprmCFBiDi
+    0x82, 0x08, 0x81, // sprmCFComplexScripts
     0x48, 0x2a, 0x01, // sprmCIss superscript
+    0x34, 0x2a, 0x04, // sprmCKcd under-dot emphasis
+    0x59, 0x28, 0x06, // sprmCSfxText shimmer
     0x70, 0x68, 0x12, 0x34, 0x56, 0x00, // sprmCCv COLORREF
     0x77, 0x68, 0x9a, 0xbc, 0xde, 0x00, // sprmCCvUl COLORREF
   ]));
@@ -789,9 +1153,164 @@ test("parses MS-DOC character effect toggle SPRMs", () => {
   assert.equal(props.noProof, true);
   assert.equal(props.webHidden, true);
   assert.equal(props.specVanish, true);
+  assert.equal(props.rtl, true);
+  assert.equal(props.complexScript, true);
   assert.equal(props.verticalAlign, "superscript");
+  const baselineProps = parseSprms(Buffer.from([0x48, 0x2a, 0x00]));
+  assert.equal(baselineProps.verticalAlign, null);
+  assert.equal(Object.prototype.hasOwnProperty.call(baselineProps, "verticalAlign"), true);
+  assert.equal(props.emphasisMark, "underDot");
+  assert.equal(props.textEffect, "shimmer");
   assert.equal(props.textColor, "123456");
   assert.equal(props.underlineColor, "9ABCDE");
+  assert.equal(parseSprms(Buffer.from([0x59, 0x28, 0x00])).textEffect, "none");
+  assert.equal(parseSprms(Buffer.from([0x59, 0x28, 0x01])).textEffect, "lights");
+  assert.equal(parseSprms(Buffer.from([0x59, 0x28, 0x02])).textEffect, "blinkBackground");
+  assert.equal(parseSprms(Buffer.from([0x59, 0x28, 0x03])).textEffect, "sparkle");
+  assert.equal(parseSprms(Buffer.from([0x59, 0x28, 0x04])).textEffect, "antsBlack");
+  assert.equal(parseSprms(Buffer.from([0x59, 0x28, 0x05])).textEffect, "antsRed");
+  assert.throws(
+    () => parseSprms(Buffer.from([0x34, 0x2a, 0x05])),
+    /Out-of-spec MS-DOC Kcd emphasis value 5/,
+  );
+  assert.throws(
+    () => parseSprms(Buffer.from([0x59, 0x28, 0x07])),
+    /Out-of-spec MS-DOC SfxText text effect value 7/,
+  );
+});
+
+test("parses and emits MS-DOC character revision mark toggles", () => {
+  assert.equal(parseSprms(Buffer.from([0x00, 0x08, 0x01])).revisionMarkDel, true);
+  assert.equal(parseSprms(Buffer.from([0x01, 0x08, 0x01])).revisionMarkIns, true);
+
+  const docx = wpsToDocxBuffer({
+    bodyText: "AB\r",
+    defaultTabStop: 720,
+    characterProperties: [
+      { revisionMarkIns: true },
+      { revisionMarkDel: true },
+    ],
+    dop: {
+      pageBorderIncludes: { header: false, footer: false },
+      dogrid: { dxaGrid: 180, dyaGrid: 156, dxGridDisplay: 0, dyGridDisplay: 2 },
+      compatibility: { ulTrailSpace: true },
+    },
+  }, { title: "revision-marks" });
+  const xml = readDocxDocumentXml(docx);
+
+  assert.match(xml, /<w:ins w:id="\d+" w:author="Unknown"><w:r>[\s\S]*?<w:t>A<\/w:t><\/w:r><\/w:ins>/);
+  assert.match(xml, /<w:del w:id="\d+" w:author="Unknown"><w:r>[\s\S]*?<w:delText>B<\/w:delText><\/w:r><\/w:del>/);
+});
+
+test("emits explicit MS-DOC complex-script bold independently of derived toggles", () => {
+  const docx = wpsToDocxBuffer({
+    bodyText: "A\r",
+    defaultTabStop: 720,
+    characterProperties: [
+      { bold: true, boldCs: true },
+    ],
+    sections: [{
+      cpStart: 0,
+      cpEnd: 2,
+      properties: { docGridType: 2, docGridLinePitch: 312 },
+    }],
+    dop: {
+      pageBorderIncludes: { header: false, footer: false },
+      dogrid: { dxaGrid: 180, dyaGrid: 156, dxGridDisplay: 0, dyGridDisplay: 2 },
+      grfFmtFilter: 0x5024,
+      typography: { fKerningPunct: true, iJustification: 0 },
+      compatibility: { ulTrailSpace: true },
+      xmlValidation: { fValidateXML: true, fShowXMLErrors: true },
+    },
+  }, { title: "complex-script-bold" });
+  const xml = readDocxDocumentXml(docx);
+
+  assert.match(xml, /<w:b\/><w:bCs\/>/);
+});
+
+test("parses MS-DOC revision author string table", () => {
+  assert.deepEqual(
+    parseSttbfRMark(buildUnicodeSttbNoExtra(["Unknown", "Alice", "Bob"])),
+    ["Unknown", "Alice", "Bob"],
+  );
+  assert.throws(
+    () => parseSttbfRMark(buildUnicodeSttbNoExtra(["Alice"])),
+    /Out-of-spec SttbfRMark: first author must be Unknown/,
+  );
+  const withExtra = Buffer.from(buildUnicodeSttbNoExtra(["Unknown"]));
+  withExtra.writeUInt16LE(2, 4);
+  assert.throws(
+    () => parseSttbfRMark(withExtra),
+    /Out-of-spec SttbfRMark: expected no extra data, got 2 bytes/,
+  );
+});
+
+test("parses revision authors from the MS-DOC FibRgFcLcb97 SttbfRMark slot", async () => {
+  const sample10 = readWps(await readFile(SAMPLE10_WPS));
+  assert.deepEqual(sample10.revisionAuthors, ["Unknown", "登记财产小组收发员", "戚玉霞"]);
+});
+
+test("emits MS-DOC revision authors and DTTM metadata", () => {
+  const revisionDate = 8 | (9 << 6) | (17 << 11) | (5 << 16) | ((2024 - 1900) << 20);
+  const deletionDate = 30 | (14 << 6) | (18 << 11) | (5 << 16) | ((2024 - 1900) << 20);
+  const docx = wpsToDocxBuffer({
+    bodyText: "AB\r",
+    defaultTabStop: 720,
+    revisionAuthors: ["Unknown", "Alice & Bob", "Carol"],
+    characterProperties: [
+      { revisionMarkIns: true, revisionAuthorIndex: 1, revisionDate },
+      { revisionMarkDel: true, revisionDelAuthorIndex: 2, revisionDelDate: deletionDate },
+    ],
+    dop: {
+      pageBorderIncludes: { header: false, footer: false },
+      dogrid: { dxaGrid: 180, dyaGrid: 156, dxGridDisplay: 0, dyGridDisplay: 2 },
+      compatibility: { ulTrailSpace: true },
+    },
+  }, { title: "revision-authors" });
+  const xml = readDocxDocumentXml(docx);
+
+  assert.match(xml, /<w:ins w:id="0" w:author="Alice &amp; Bob" w:date="2024-05-17T09:08:00Z">/);
+  assert.match(xml, /<w:del w:id="1" w:author="Carol" w:date="2024-05-18T14:30:00Z">/);
+  const ignoredDateDocx = wpsToDocxBuffer({
+    bodyText: "A\r",
+    defaultTabStop: 720,
+    revisionAuthors: ["Unknown", "Alice"],
+    characterProperties: [{ revisionMarkIns: true, revisionAuthorIndex: 1, revisionDate: ((2024 - 1900) << 20) }],
+    dop: {
+      pageBorderIncludes: { header: false, footer: false },
+      dogrid: { dxaGrid: 180, dyaGrid: 156, dxGridDisplay: 0, dyGridDisplay: 2 },
+      compatibility: { ulTrailSpace: true },
+    },
+  }, { title: "ignored-revision-date" });
+  assert.doesNotMatch(readDocxDocumentXml(ignoredDateDocx), /w:date=/);
+  assert.throws(
+    () => wpsToDocxBuffer({
+      bodyText: "A\r",
+      defaultTabStop: 720,
+      revisionAuthors: ["Unknown"],
+      characterProperties: [{ revisionMarkIns: true, revisionAuthorIndex: 1 }],
+      dop: {
+        pageBorderIncludes: { header: false, footer: false },
+        dogrid: { dxaGrid: 180, dyaGrid: 156, dxGridDisplay: 0, dyGridDisplay: 2 },
+        compatibility: { ulTrailSpace: true },
+      },
+    }, { title: "invalid-revision-author" }),
+    /revision author index 1 is outside SttbfRMark/,
+  );
+  assert.throws(
+    () => wpsToDocxBuffer({
+      bodyText: "A\r",
+      defaultTabStop: 720,
+      revisionAuthors: ["Unknown"],
+      characterProperties: [{ revisionMarkIns: true, revisionDate: 60 }],
+      dop: {
+        pageBorderIncludes: { header: false, footer: false },
+        dogrid: { dxaGrid: 180, dyaGrid: 156, dxGridDisplay: 0, dyGridDisplay: 2 },
+        compatibility: { ulTrailSpace: true },
+      },
+    }, { title: "invalid-revision-date" }),
+    /Out-of-spec DTTM minute 60/,
+  );
 });
 
 test("parses MS-DOC character and paragraph border operands", () => {
@@ -819,6 +1338,14 @@ test("parses MS-DOC character and paragraph border operands", () => {
     color: "010203",
     sz: "8",
     space: "4",
+  });
+  assert.deepEqual(parseSprms(Buffer.from([
+    0x25, 0x64, 0x00, 0x00, 0x00, 0x00, // sprmPBrcLeft80: explicit none border
+  ])).paragraphBorders.left, {
+    val: "none",
+    color: "auto",
+    sz: "0",
+    space: "0",
   });
   assert.deepEqual(props.background, {
     val: "pct50",
@@ -868,6 +1395,27 @@ test("emits parsed paragraph frame properties to DOCX framePr", () => {
   assert.match(xml, /<w:pPr><w:framePr w:w="1440" w:h="720" w:hRule="exact" w:wrap="around" w:vAnchor="page" w:hAnchor="margin" w:hSpace="120" w:vSpace="240" w:dropCap="drop" w:lines="4" w:anchorLock="1"\/><w:suppressOverlap\/><\/w:pPr>/);
 });
 
+test("emits parsed MS-DOC paragraph borders as direct pBdr", () => {
+  const docx = wpsToDocxBuffer({
+    bodyText: "A\r",
+    defaultTabStop: 720,
+    paragraphProperties: [{
+      paragraphBorders: {
+        left: { val: "none", color: "auto", sz: "0", space: "0" },
+        bottom: { val: "single", color: "auto", sz: "4", space: "1" },
+      },
+    }],
+    dop: {
+      pageBorderIncludes: { header: false, footer: false },
+      dogrid: { dxaGrid: 180, dyaGrid: 156, dxGridDisplay: 0, dyGridDisplay: 2 },
+      compatibility: { ulTrailSpace: true },
+    },
+  }, { title: "paragraph-borders" });
+  const xml = readDocxDocumentXml(docx);
+
+  assert.match(xml, /<w:pBdr><w:left w:val="none" w:color="auto" w:sz="0" w:space="0"\/><w:bottom w:val="single" w:color="auto" w:sz="4" w:space="1"\/><\/w:pBdr>/);
+});
+
 test("sprmPNest80 adds to parsed left indent without leaking parser internals", () => {
   const props = parseSprms(Buffer.from([
     0x10, 0x46, 0x32, 0x00, // sprmPNest80: +50
@@ -883,6 +1431,149 @@ test("sprmPNest80 adds to parsed left indent without leaking parser internals", 
     0x5e, 0x84, 0xe8, 0x03, // sprmPDxaLeft: 1000
   ]));
   assert.equal(logicalProps.leftIndent, 1020);
+});
+
+test("parses MS-DOC paragraph table-depth and nested table marker SPRMs", () => {
+  const props = parseSprms(Buffer.from([
+    0x49, 0x66, 0x02, 0x00, 0x00, 0x00, // sprmPItap: depth 2
+    0x4a, 0x66, 0xff, 0xff, 0xff, 0xff, // sprmPDtap: -1
+    0x4b, 0x24, 0x01, // sprmPFInnerTableCell
+    0x4c, 0x24, 0x01, // sprmPFInnerTtp
+    0x5a, 0x24, 0x01, // sprmPFOpenTch
+  ]));
+
+  assert.equal(props.tableDepth, 1);
+  assert.equal(props.innerTableCell, true);
+  assert.equal(props.innerTtp, true);
+  assert.equal(props.openTch, true);
+  assert.throws(
+    () => parseSprms(Buffer.from([0x4a, 0x66, 0xff, 0xff, 0xff, 0xff])),
+    /Out-of-spec paragraph table depth -1/,
+  );
+});
+
+test("parses MS-DOC character fitText operand", () => {
+  const props = parseSprms(Buffer.from([
+    0x76, 0xca, 0x08, 0xa0, 0x05, 0x00, 0x00, 0x63, 0x00, 0x00, 0x00, // sprmCFitText: width 1440, id 99
+  ]));
+
+  assert.deepEqual(props.fitText, { width: 1440, id: 99 });
+  assert.equal(parseSprms(Buffer.from([
+    0x76, 0xca, 0x08, 0x00, 0x00, 0x00, 0x00, 0x63, 0x00, 0x00, 0x00, // dxaFitText zero: ignored
+  ])).fitText, null);
+  assert.throws(
+    () => parseSprms(Buffer.from([0x76, 0xca, 0x07, 0xa0, 0x05, 0x00, 0x00, 0x63, 0x00, 0x00])),
+    /Out-of-spec character fitText CFitTextOperand length/,
+  );
+  assert.throws(
+    () => parseSprms(Buffer.from([0x76, 0xca, 0x08, 0xff, 0xff, 0xff, 0xff, 0x63, 0x00, 0x00, 0x00])),
+    /Unsupported MS-DOC character fitText minimum-width variant -1/,
+  );
+});
+
+test("parses MS-DOC line-break clear operand", () => {
+  assert.equal(parseSprms(Buffer.from([0x79, 0x28, 0x00])).lineBreakClear, "none");
+  assert.equal(parseSprms(Buffer.from([0x79, 0x28, 0x01])).lineBreakClear, "left");
+  assert.equal(parseSprms(Buffer.from([0x79, 0x28, 0x02])).lineBreakClear, "right");
+  assert.equal(parseSprms(Buffer.from([0x79, 0x28, 0x03])).lineBreakClear, "all");
+  assert.throws(
+    () => parseSprms(Buffer.from([0x79, 0x28, 0x04])),
+    /Out-of-spec MS-DOC LBCOperand value 4/,
+  );
+});
+
+test("parses MS-DOC Far East character layout operand", () => {
+  assert.deepEqual(parseSprms(Buffer.from([
+    0x78, 0xca, 0x06, 0x01, 0x10, 0x05, 0x00, 0x00, 0x00, // fTNY + fTNYCompress, id 5
+  ])).eastAsianLayout, {
+    id: 5,
+    vert: true,
+    vertCompress: true,
+  });
+
+  assert.deepEqual(parseSprms(Buffer.from([
+    0x78, 0xca, 0x06, 0x02, 0x02, 0x07, 0x00, 0x00, 0x00, // fWarichu + square brackets, id 7
+  ])).eastAsianLayout, {
+    id: 7,
+    combine: true,
+    combineBrackets: "square",
+  });
+
+  assert.equal(parseSprms(Buffer.from([
+    0x78, 0xca, 0x06, 0x00, 0x00, 0x07, 0x00, 0x00, 0x00, // no active layout bits
+  ])).eastAsianLayout, null);
+  assert.throws(
+    () => parseSprms(Buffer.from([0x78, 0xca, 0x05, 0x01, 0x00, 0x05, 0x00, 0x00])),
+    /Out-of-spec character FarEastLayoutOperand length/,
+  );
+  assert.throws(
+    () => parseSprms(Buffer.from([0x78, 0xca, 0x06, 0x04, 0x00, 0x05, 0x00, 0x00, 0x00])),
+    /Out-of-spec character UFEL MUST-zero bits 0x4/,
+  );
+  assert.throws(
+    () => parseSprms(Buffer.from([0x78, 0xca, 0x06, 0x02, 0x05, 0x05, 0x00, 0x00, 0x00])),
+    /Out-of-spec character UFEL iWarichuBracket value 5/,
+  );
+});
+
+test("emits MS-DOC Far East character layout as OOXML eastAsianLayout", () => {
+  const docx = wpsToDocxBuffer({
+    bodyText: "A\r",
+    defaultTabStop: 720,
+    characterProperties: [{
+      eastAsianLayout: {
+        id: 5,
+        combine: true,
+        combineBrackets: "square",
+        vert: true,
+        vertCompress: true,
+      },
+    }],
+    dop: {
+      pageBorderIncludes: { header: false, footer: false },
+      dogrid: { dxaGrid: 180, dyaGrid: 156, dxGridDisplay: 0, dyGridDisplay: 2 },
+      compatibility: { ulTrailSpace: true },
+    },
+  }, { title: "east-asian-layout" });
+  const xml = readDocxDocumentXml(docx);
+
+  assert.match(xml, /<w:eastAsianLayout w:id="5" w:combine="true" w:combineBrackets="square" w:vert="true" w:vertCompress="true"\/>/);
+});
+
+test("emits MS-DOC line-break clear only on manual line breaks", () => {
+  const docx = wpsToDocxBuffer({
+    bodyText: "A\x0bB\r",
+    defaultTabStop: 720,
+    characterProperties: [
+      {},
+      { lineBreakClear: "all" },
+      {},
+    ],
+    dop: {
+      pageBorderIncludes: { header: false, footer: false },
+      dogrid: { dxaGrid: 180, dyaGrid: 156, dxGridDisplay: 0, dyGridDisplay: 2 },
+      compatibility: { ulTrailSpace: true },
+    },
+  }, { title: "line-break-clear" });
+  const xml = readDocxDocumentXml(docx);
+
+  assert.match(xml, /<w:br w:type="textWrapping" w:clear="all"\/>/);
+  assert.throws(
+    () => wpsToDocxBuffer({
+      bodyText: "AB\r",
+      defaultTabStop: 720,
+      characterProperties: [
+        {},
+        { lineBreakClear: "all" },
+      ],
+      dop: {
+        pageBorderIncludes: { header: false, footer: false },
+        dogrid: { dxaGrid: 180, dyaGrid: 156, dxGridDisplay: 0, dyGridDisplay: 2 },
+        compatibility: { ulTrailSpace: true },
+      },
+    }, { title: "invalid-line-break-clear" }),
+    /Out-of-spec sprmCLbcCRJ applied to a non-line-break character/,
+  );
 });
 
 test("emits parsed MS-DOC character effect toggles to DOCX run properties", () => {
@@ -911,11 +1602,16 @@ test("emits parsed MS-DOC character effect toggles to DOCX run properties", () =
       noProof: true,
       webHidden: true,
       specVanish: true,
+      rtl: true,
+      complexScript: true,
       verticalAlign: "superscript",
+      emphasisMark: "underDot",
+      textEffect: "sparkle",
       textColor: "123456",
       underline: true,
       underlineStyle: "single",
       underlineColor: "9ABCDE",
+      fitText: { width: 1440, id: 99 },
       border: {
         val: "single",
         color: "123456",
@@ -935,10 +1631,35 @@ test("emits parsed MS-DOC character effect toggles to DOCX run properties", () =
   assert.match(run, /<w:webHidden\/>/);
   assert.match(run, /<w:specVanish\/>/);
   assert.match(run, /<w:vertAlign w:val="superscript"\/>/);
+  assert.match(run, /<w:rtl\/>/);
+  assert.match(run, /<w:cs\/>/);
+  assert.match(run, /<w:em w:val="underDot"\/>/);
   assert.match(run, /<w:color w:val="123456"\/>/);
   assert.match(run, /<w:u w:val="single" w:color="9ABCDE"\/>/);
+  assert.match(run, /<w:effect w:val="sparkle"\/>/);
   assert.match(run, /<w:bdr w:val="single" w:color="123456" w:sz="6" w:space="0"\/>/);
+  assert.match(run, /<w:fitText w:id="99" w:val="1440"\/>/);
+  assert.ok(run.indexOf("<w:u ") < run.indexOf("<w:effect "));
+  assert.ok(run.indexOf("<w:effect ") < run.indexOf("<w:bdr "));
+  assert.ok(run.indexOf("<w:bdr ") < run.indexOf("<w:fitText "));
+  assert.ok(run.indexOf("<w:fitText ") < run.indexOf("<w:vertAlign "));
   assert.match(xml, /<w:pPr><w:suppressAutoHyphens\/><w:shd w:val="solid" w:color="AABBCC" w:fill="123456"\/><w:mirrorIndents\/><\/w:pPr>/);
+});
+
+test("emits explicit MS-DOC sprmCIss normal as OOXML baseline", () => {
+  const docx = wpsToDocxBuffer({
+    bodyText: "A\r",
+    defaultTabStop: 720,
+    dop: {
+      pageBorderIncludes: { header: false, footer: false },
+      dogrid: { dxaGrid: 180, dyaGrid: 156, dxGridDisplay: 0, dyGridDisplay: 2 },
+      compatibility: { ulTrailSpace: true },
+    },
+    characterProperties: [parseSprms(Buffer.from([0x48, 0x2a, 0x00]))],
+  }, { title: "baseline-iss" });
+  const xml = readDocxDocumentXml(docx);
+
+  assert.match(xml, /<w:vertAlign w:val="baseline"\/>/);
 });
 
 test("emits section breaks and tab stops in converted DOCX", async () => {
@@ -982,6 +1703,12 @@ test("extracts style sheet from STSH with names and types", async () => {
   assert.equal(heading1.type, "paragraph");
   assert.equal(heading1.basedOn, 0);
   assert.equal(heading1.runProperties.fontSize, 44);
+  assert.equal(heading1.runProperties.bold, undefined);
+
+  const sample9 = readWps(await readFile(SAMPLE9_WPS));
+  const sample9Heading1 = sample9.styles.find((s) => s?.name === "标题 1");
+  assert.ok(sample9Heading1);
+  assert.equal(sample9Heading1.runProperties.bold, true);
 
   const bodyText = styles.find((s) => s.name === "正文文本");
   assert.ok(bodyText);
@@ -1017,6 +1744,10 @@ test("emits styles.xml with style definitions from STSH", async () => {
   assert.match(stylesXml, /<w:name w:val="(标题 1|heading 1)"/);
   assert.match(stylesXml, /<w:sz w:val="44"\/><w:szCs w:val="44"\/>/);
   assert.match(stylesXml, /<w:basedOn w:val="1"\/>/);
+  const headingStyleXml = stylesXml.match(/<w:style w:type="paragraph"[^>]*w:styleId="2"[\s\S]*?<\/w:style>/)?.[0];
+  assert.ok(headingStyleXml, "Heading 1 style should be emitted");
+  assert.doesNotMatch(headingStyleXml, /<w:b\/>/);
+  assert.doesNotMatch(headingStyleXml, /<w:bCs\/>/);
   assert.match(stylesXml, /<w:latentStyles w:count="260"/);
 });
 
@@ -1095,6 +1826,56 @@ test("table6 emits hanging indents for the basic living-expense list item", asyn
 
   assert.match(xml, /w:hanging="360"/);
   assert.equal((xml.match(/w:firstLine="-/g) || []).length, 0);
+});
+
+test("table rows emit trHeight only from parsed MS-DOC row-height SPRMs", () => {
+  const noBorder = { style: "none", width: 0, color: "auto", space: 0 };
+  const docx = wpsToDocxBuffer({
+    bodyText: "A\rB\r",
+    defaultTabStop: 720,
+    paragraphProperties: [{}, {}],
+    characterProperties: [{}, {}, {}, {}],
+    tableRows: [{
+      cpStart: 0,
+      cpEnd: 4,
+      gridCols: [1440],
+      tableWidth: 1440,
+      tableWidthType: "dxa",
+      tableBordersExplicit: false,
+      tableBorders: {
+        top: noBorder,
+        left: noBorder,
+        bottom: noBorder,
+        right: noBorder,
+        insideH: noBorder,
+        insideV: noBorder,
+      },
+      rows: [{
+        rowHeight: 480,
+        rowHeightRule: 0,
+        cells: [{
+          cpStart: 0,
+          cpEnd: 2,
+          width: 1440,
+        }],
+      }, {
+        cells: [{
+          cpStart: 2,
+          cpEnd: 4,
+          width: 1440,
+        }],
+      }],
+    }],
+    dop: {
+      pageBorderIncludes: { header: false, footer: false },
+      dogrid: { dxaGrid: 180, dyaGrid: 156, dxGridDisplay: 0, dyGridDisplay: 2 },
+      compatibility: { ulTrailSpace: true },
+    },
+  }, { title: "parsed-row-height-only" });
+  const xml = readDocxDocumentXml(docx);
+
+  assert.equal((xml.match(/<w:trHeight\b/g) ?? []).length, 1);
+  assert.match(xml, /<w:trHeight w:val="480" w:hRule="atLeast"\/>/);
 });
 
 test("table6 signature line keeps its tab stop inside the table cell", async () => {

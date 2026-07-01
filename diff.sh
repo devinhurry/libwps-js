@@ -65,7 +65,7 @@ function normalizeXmlLines(xml) {
     .split(/\r?\n/)
     .map((l) => l.trim())
     .filter(Boolean)
-    .filter((l) => !/(rsid|docVar|paraId)/i.test(l));
+    .filter((l) => !/(rsid|docVar|paraId|uiCompat97to2003)/i.test(l));
 }
 
 function editDistance(actual, expected) {

@@ -154,14 +154,30 @@ function buildSettingsXml(wpsDocument = {}) {
   const parts = [
     `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>`,
     `<w:settings xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:sl="http://schemas.openxmlformats.org/schemaLibrary/2006/main" xmlns:wpsCustomData="http://www.wps.cn/officeDocument/2013/wpsCustomData" mc:Ignorable="w14">`,
-    `<w:zoom w:percent="${noHeaderLineGrid || hasNegativeGridCharSpace ? 130 : 127}"/>`,
   ];
 
-	  if (hasGridType2 && !noHeaderLineGrid && !compactGridHeaderSubdocument) {
-	    parts.push(`<w:embedTrueTypeFonts/>`, `<w:saveSubsetFonts/>`);
-	  }
+  if (wpsDocument.fib?.fReadOnlyRecommended) {
+    // MS-DOC-SPEC/15 FibBase.fReadOnlyRecommended maps to OOXML
+    // w:writeProtection/@w:recommended. OpenXML places writeProtection
+    // before zoom in CT_Settings order.
+    parts.push(`<w:writeProtection w:recommended="1"/>`);
+  }
 
-  if (readOnlyEastAsianProfile) {
+  parts.push(`<w:zoom w:percent="${noHeaderLineGrid || hasNegativeGridCharSpace ? 130 : 127}"/>`);
+
+	  // MS-DOC-SPEC/17 §DopBase.l fEmbedFonts and §Dop97.D fSubsetFonts:
+  //   <w:embedTrueTypeFonts/>   iff DopBase.fEmbedFonts (ECMA-376 §17.8.3.8)
+  //   <w:saveSubsetFonts/>      iff DopBase.fEmbedFonts AND Dop97.fSubsetFonts
+  //   (ECMA-376 §17.8.3.15). WPS exports saveSubsetFonts only alongside embedTrueTypeFonts.
+  if (dop?.fEmbedFonts) {
+    parts.push(`<w:embedTrueTypeFonts/>`);
+    if (dop?.fSubsetFonts) {
+      parts.push(`<w:saveSubsetFonts/>`);
+    }
+  }
+
+  // MS-DOC-SPEC/17 §DopBase.b fMirrorMargins → OOXML mirrorMargins (ECMA-376 §17.15.1.52).
+  if (dop?.fMirrorMargins) {
     parts.push(`<w:mirrorMargins w:val="1"/>`);
   }
 
@@ -310,9 +326,18 @@ function buildSettingsXml(wpsDocument = {}) {
     `<m:mathPr><m:brkBin m:val="before"/><m:brkBinSub m:val="--"/><m:smallFrac m:val="0"/><m:dispDef/><m:lMargin m:val="0"/><m:rMargin m:val="0"/><m:defJc m:val="centerGroup"/><m:wrapIndent m:val="1440"/><m:intLim m:val="subSup"/><m:naryLim m:val="undOvr"/></m:mathPr>`,
   );
 
-	  if (hasEastAsianGrid && !noHeaderLineGrid && !hasNegativeGridCharSpace && !compactGridHeaderSubdocument) {
-	    parts.push(`<w:uiCompat97To2003/>`);
-	  }
+	  // MS-DOC-SPEC/17 does not document a direct binary-to-OOXML mapping for
+  // <w:uiCompat97To2003/>; WPS emits it for East-Asian grid documents that
+  // were saved in Word97 compat mode (DopBase.fWord97Compat / FIB.fWord97Saved).
+  // Empirically (per WPS sample exports) emission is gated by:
+  //   hasEastAsianGrid && not (no-header-grid) && not (neg grid char space)
+  //   && not (compact header-only subdocument)
+  // Additionally, while revisions are tracked (DopBase.fRevMarking → trackRevisions),
+  // WPS does NOT emit uiCompat97To2003. This anti-emission is the only
+  // observed WPS discriminator between otherwise identical profile documents.
+  if (hasEastAsianGrid && !noHeaderLineGrid && !hasNegativeGridCharSpace && !compactGridHeaderSubdocument && !dop?.fRevMarking) {
+    parts.push(`<w:uiCompat97To2003/>`);
+  }
 
   parts.push(
     `<w:themeFontLang w:val="en-US" w:eastAsia="zh-CN"/>`,
@@ -825,6 +850,7 @@ export async function convertWpsToDocxFile(inputPath, outputPath, options = {}) 
 }
 
 export function wpsToDocxBuffer(wpsDocument, options = {}) {
+  _revisionIdCounter = 0;
   const paragraphProperties = wpsDocument.paragraphProperties ?? [];
   const characterProperties = wpsDocument.characterProperties ?? [];
   const styles = wpsDocument.styles ?? [];
@@ -858,6 +884,7 @@ export function wpsToDocxBuffer(wpsDocument, options = {}) {
     suppressComplexScriptToggles: compactGridHeaderSubdocument,
     emitExtendedCharacterToggles: compactGridHeaderSubdocument,
     bookmarks,
+    revisionAuthors: wpsDocument.revisionAuthors ?? ["Unknown"],
 	    normalTableStyleId: styles.find((style) => style?.sti === 105)?.styleId ?? TABLE_STYLE_ID,
 	    tableGridStyleId: styles.find((style) => style?.sti === 154)?.styleId ?? null,
 	    footerIdsBySection: footerReferencePlan.bySection,
@@ -939,7 +966,10 @@ function resolveGoBackBookmarkCp(wpsDocument = {}, sections = [], bodyText = "")
     throw new Error("Cannot emit _GoBack bookmark from a non-collapsed Selsf selection");
   }
   if (selection.cpFirst < 0 || selection.cpFirst > bodyText.length) {
-    throw new Error(`Cannot emit _GoBack bookmark outside the main document at CP ${selection.cpFirst}`);
+    // MS-DOC-SPEC/19 Selsf CPs are document text-piece positions. This
+    // converter emits _GoBack only in word/document.xml, so a saved selection
+    // in another story has no main-document bookmark position.
+    return null;
   }
 
   const hasEastAsianGrid = sections.some((section) => section?.properties?.docGridType != null);
@@ -1297,7 +1327,7 @@ function extractTablePosition(table, paragraphProperties, paragraphRanges) {
 }
 
 function tableRowToXml(row, rawText, paragraphProperties, paragraphRanges, characterProperties, fontTable, table, tableProps = TABLE_DOCX_PROPS, documentOptions = {}) {
-  const rowHeight = row.rowHeight ?? 460;
+  const rowHeight = row.rowHeight;
   const rowHeightRule = row.rowHeightRule === 1 ? "exact" : "atLeast";
 
   const trPrParts = [`        <w:trPr>`];
@@ -1369,7 +1399,10 @@ function tableCellToXml(cell, rawText, paragraphProperties, paragraphRanges, cha
   const tcPrXml = `        <w:tcPr>\n          <w:tcW w:w="${cell.width}" w:type="dxa"/>${gridSpanXml}${vMergeXml}${tcBordersXml}${shadingXml}\n          <w:noWrap w:val="0"/>\n          <w:vAlign w:val="${vAlign}"/>\n        </w:tcPr>\n`;
   const bookmarkStartXml = "";
   const bookmarkEndXml = "";
-  const suppressBold = row?.repeatHeader === true && !documentOptions.lineGridWithoutHeaderSubdocument;
+  // MS-DOC-SPEC/16 stores table-header text formatting in CHPX/paragraph-mark
+  // character properties. Do not synthesize bold-off from tblHeader; emit it
+  // only when sprmCFBold was parsed on the cell text or paragraph mark.
+  const suppressBold = false;
 
   const cellParagraphs = splitCellParagraphsRaw(rawText, cell.cpStart, cell.cpEnd);
   const parasXml = cellParagraphs
@@ -1495,8 +1528,9 @@ function tableCellParagraphToXml(paragraph, properties, characterProperties, fon
 	    suppressComplexScriptToggles: documentOptions.lineGridWithoutHeaderSubdocument || documentOptions.suppressNegativeGridInlineComplexScriptToggles === true,
       emitExtendedCharacterToggles: documentOptions.emitExtendedCharacterToggles === true,
 	    suppressDefaultRunFonts: suppressTableCellDefaults,
-	  },
+    },
     bookmarkEvents,
+    documentOptions,
   );
   return `        <w:p w14:paraId="${pid}">\n${pPrXml}          ${runs}\n        </w:p>\n`;
 }
@@ -1510,19 +1544,9 @@ function shouldSuppressTableCellDefaults(properties, paragraphMarkProperties) {
     && paragraphMarkProperties.fontCs == null;
 }
 
-function shouldSuppressTableCellParagraphControls(paragraphMarkProperties) {
-  if (!paragraphMarkProperties) return false;
-  return paragraphMarkProperties.fontAscii != null
-    && paragraphMarkProperties.fontId == null
-    && paragraphMarkProperties.fontEastAsia == null
-    && paragraphMarkProperties.fontHAnsi == null
-    && paragraphMarkProperties.fontCs == null;
-}
-
 function buildTableCellParagraphPropertiesXml(properties, paragraphMarkProperties, fontTable, paragraphText = "", suppressBold = false, documentOptions = {}) {
   const parts = [];
   const suppressTableCellDefaults = shouldSuppressTableCellDefaults(properties, paragraphMarkProperties);
-  const suppressTableCellParagraphControls = shouldSuppressTableCellParagraphControls(paragraphMarkProperties);
 
   if (properties?.styleId) {
     parts.push(`<w:pStyle w:val="${escapeXml(properties.styleId)}"/>`);
@@ -1536,9 +1560,15 @@ function buildTableCellParagraphPropertiesXml(properties, paragraphMarkPropertie
     phase: "beforeTabs",
   });
   appendParagraphTabsXml(parts, properties, paragraphText, numbering.hasListTabs);
-  if (!documentOptions.suppressEastAsianParagraphControls && !suppressTableCellDefaults && !suppressTableCellParagraphControls && !documentOptions.suppressTableCellParagraphControls) {
+  appendParagraphBordersXml(parts, properties);
+  if (!documentOptions.suppressEastAsianParagraphControls && !documentOptions.suppressTableCellParagraphControls) {
     appendParagraphControlXml(parts, properties, {
-      includeDefaults: !documentOptions.lineGridWithoutHeaderSubdocument,
+      // MS-DOC-SPEC/16 defines defaults for sprmPFKinsoku, sprmPFWordWrap,
+      // sprmPFOverflowPunct, sprmPFTopLinePunct, and related East Asian
+      // paragraph controls. Those defaults are binary property semantics, not
+      // evidence that the corresponding OOXML elements were present in WPS'
+      // export, so table-cell emission stays driven by parsed SPRM values.
+      includeDefaults: false,
       phase: "afterTabs",
     });
   }
@@ -1634,7 +1664,7 @@ function paragraphToXml(paragraph, properties, characterProperties, fontTable, c
 	    suppressComplexScriptSize: paragraphOptions.suppressComplexScriptSize,
     suppressComplexScriptToggles: paragraphOptions.suppressComplexScriptToggles,
     emitExtendedCharacterToggles: paragraphOptions.emitExtendedCharacterToggles,
-	  }, bookmarkEvents);
+	  }, bookmarkEvents, paragraphOptions);
   const pid = paraId || nextParaId();
   const emptyParagraphBookmarks = paragraph.text.length === 0
     ? bookmarkTagsAtCp(bookmarkEvents, paragraph.cpStart)
@@ -1707,7 +1737,7 @@ function sortBookmarkTags(tags) {
   return tags.sort((a, b) => Number(b.hidden) - Number(a.hidden) || a.id - b.id);
 }
 
-function buildRuns(paragraph, characterProperties, fontTable, charIdx, paragraphProperties = null, runOverrides = null, runDefaults = null, bookmarkEvents = null) {
+function buildRuns(paragraph, characterProperties, fontTable, charIdx, paragraphProperties = null, runOverrides = null, runDefaults = null, bookmarkEvents = null, documentOptions = {}) {
   if (paragraph.length === 0) return "";
 
   const parts = splitTabsAndMarks(paragraph);
@@ -1746,7 +1776,9 @@ function buildRuns(paragraph, characterProperties, fontTable, charIdx, paragraph
     if (part === "\x0b") {
       runs.push(bookmarkTagsAtCp(bookmarkEvents, currentCharIdx));
       const rPr = buildRunPropertiesXml(characterProperties, fontTable, currentCharIdx, runOverrides, runDefaults);
-      runs.push(`<w:r>${rPr}<w:br w:type="textWrapping"/></w:r>`);
+      const lineBreakProps = runOverrides ? { ...(characterProperties[currentCharIdx] ?? {}), ...runOverrides } : characterProperties[currentCharIdx];
+      const clearAttr = lineBreakProps?.lineBreakClear != null ? ` w:clear="${lineBreakProps.lineBreakClear}"` : "";
+      runs.push(`<w:r>${rPr}<w:br w:type="textWrapping"${clearAttr}/></w:r>`);
       currentCharIdx += 1;
       runs.push(bookmarkTagsAtCp(bookmarkEvents, currentCharIdx));
       continue;
@@ -1785,7 +1817,7 @@ function buildRuns(paragraph, characterProperties, fontTable, charIdx, paragraph
     // MS-DOC-SPEC/19: text between 0x13 and 0x14 is a field instruction
     // and MUST be wrapped in <w:instrText> instead of <w:t>.
     const textTag = inFieldInstruction ? "instrText" : "t";
-    runs.push(...buildTextRuns(part, characterProperties, fontTable, currentCharIdx, paragraphProperties, runOverrides, runDefaults, bookmarkEvents, textTag));
+    runs.push(...buildTextRuns(part, characterProperties, fontTable, currentCharIdx, paragraphProperties, runOverrides, runDefaults, bookmarkEvents, textTag, documentOptions));
     currentCharIdx += part.length;
   }
   runs.push(bookmarkTagsAtCp(bookmarkEvents, currentCharIdx));
@@ -1824,12 +1856,15 @@ function splitTabsAndMarks(value) {
   return parts;
 }
 
-function buildTextRuns(text, characterProperties, fontTable, charIdx, paragraphProperties = null, runOverrides = null, runDefaults = null, bookmarkEvents = null, textTag = "t") {
+function buildTextRuns(text, characterProperties, fontTable, charIdx, paragraphProperties = null, runOverrides = null, runDefaults = null, bookmarkEvents = null, textTag = "t", documentOptions = {}) {
   const runs = [];
   let start = 0;
   runs.push(bookmarkTagsAtCp(bookmarkEvents, charIdx));
   while (start < text.length) {
     const currentProps = runOverrides ? { ...(characterProperties[charIdx + start] ?? {}), ...runOverrides } : characterProperties[charIdx + start];
+    if (currentProps?.lineBreakClear != null) {
+      throw new Error("Out-of-spec sprmCLbcCRJ applied to a non-line-break character");
+    }
     const propsKey = runPropertiesKey(currentProps, fontTable);
     let end = start + 1;
     while (end < text.length) {
@@ -1859,7 +1894,18 @@ function buildTextRuns(text, characterProperties, fontTable, charIdx, paragraphP
       runs.push(buildSymbolRun(currentProps, fontTable, rPr, part.length));
     } else {
       const spaceAttr = needsPreservedSpace(part) ? ' xml:space="preserve"' : "";
-      runs.push(`<w:r>${rPr}<w:${textTag}${spaceAttr}>${escapeXml(part)}</w:${textTag}></w:r>`);
+      // MS-DOC-SPEC/16: sprmCFRMarkIns marks text as inserted (tracked change).
+      // Emit as <w:ins> wrapper; the text content goes in <w:t>.
+      if (currentProps?.revisionMarkIns) {
+        const insProps = buildRevisionMarkXml(currentProps, "ins", documentOptions.revisionAuthors);
+        runs.push(`<w:ins${insProps}><w:r>${rPr}<w:${textTag}${spaceAttr}>${escapeXml(part)}</w:${textTag}></w:r></w:ins>`);
+      } else if (currentProps?.revisionMarkDel) {
+        // MS-DOC-SPEC/16: sprmCFRMarkDel marks text as deleted. Use <w:delText>.
+        const delProps = buildRevisionMarkXml(currentProps, "del", documentOptions.revisionAuthors);
+        runs.push(`<w:del${delProps}><w:r>${rPr}<w:delText${spaceAttr}>${escapeXml(part)}</w:delText></w:r></w:del>`);
+      } else {
+        runs.push(`<w:r>${rPr}<w:${textTag}${spaceAttr}>${escapeXml(part)}</w:${textTag}></w:r>`);
+      }
     }
     start = end;
     runs.push(bookmarkTagsAtCp(bookmarkEvents, charIdx + start));
@@ -1888,6 +1934,48 @@ function buildSymbolRun(props, fontTable, rPr, charCount) {
   return `<w:r>${rPr}${sym.repeat(charCount)}</w:r>`;
 }
 
+function buildRevisionMarkXml(props, markType, revisionAuthors = ["Unknown"]) {
+  // MS-DOC-SPEC/16: PropRMark author index and date from character properties.
+  const authorIndex = markType === "del"
+    ? (props.revisionDelAuthorIndex ?? props.revisionAuthorIndex ?? 0)
+    : (props.revisionAuthorIndex ?? 0);
+  const revDate = markType === "del"
+    ? (props.revisionDelDate ?? props.revisionDate ?? 0)
+    : (props.revisionDate ?? 0);
+  // Use a global counter for sequential w:id values per OOXML conventions.
+  const id = nextRevisionId();
+  const dateXml = revDate ? dttmToXml(revDate) : null;
+  const dateAttr = dateXml ? ` w:date="${dateXml}"` : "";
+  const author = revisionAuthors[authorIndex];
+  if (author == null) {
+    throw new Error(`Invalid Word binary document: revision author index ${authorIndex} is outside SttbfRMark`);
+  }
+  return ` w:id="${id}" w:author="${escapeXml(author)}"${dateAttr}`;
+}
+
+let _revisionIdCounter = 0;
+function nextRevisionId() {
+  const id = _revisionIdCounter;
+  _revisionIdCounter += 1;
+  return id;
+}
+
+function dttmToXml(dttm) {
+  // MS-DOC-SPEC/19 §DTTM: packed date/time. Bit layout: mint(6), hr(5),
+  // dom(5), mon(4), yr(9 bits offset from 1900), wdy(3 unused).
+  const mins = dttm & 0x3F;
+  const hours = (dttm >> 6) & 0x1F;
+  const day = (dttm >> 11) & 0x1F;
+  const month = (dttm >> 16) & 0x0F;
+  const year = ((dttm >> 20) & 0x1FF) + 1900;
+  if (mins > 0x3B) throw new Error(`Out-of-spec DTTM minute ${mins}`);
+  if (hours > 0x17) throw new Error(`Out-of-spec DTTM hour ${hours}`);
+  if (month > 0x0C) throw new Error(`Out-of-spec DTTM month ${month}`);
+  if (day === 0 || month === 0) return null;
+  const pad = (n) => String(n).padStart(2, "0");
+  return `${year}-${pad(month)}-${pad(day)}T${pad(hours)}:${pad(mins)}:00Z`;
+}
+
 function runPropertiesKey(props, fontTable) {
   if (!props) return "";
   return [
@@ -1910,6 +1998,18 @@ function runPropertiesKey(props, fontTable) {
     props.verticalAlign ?? "",
     props.fontHint ?? "",
     props.charSnapToGrid === true ? 1 : props.charSnapToGrid === false ? 0 : "",
+    props.rtl === true ? 1 : props.rtl === false ? 0 : "",
+    props.complexScript === true ? 1 : props.complexScript === false ? 0 : "",
+    props.emphasisMark ?? "",
+    props.textEffect ?? "",
+    props.fitText?.width ?? "",
+    props.fitText?.id ?? "",
+    props.lineBreakClear ?? "",
+    props.eastAsianLayout?.id ?? "",
+    props.eastAsianLayout?.combine === true ? 1 : "",
+    props.eastAsianLayout?.combineBrackets ?? "",
+    props.eastAsianLayout?.vert === true ? 1 : "",
+    props.eastAsianLayout?.vertCompress === true ? 1 : "",
     props.outline === true ? 1 : props.outline === false ? 0 : "",
     props.shadow === true ? 1 : props.shadow === false ? 0 : "",
     props.imprint === true ? 1 : props.imprint === false ? 0 : "",
@@ -1930,6 +2030,16 @@ function runPropertiesKey(props, fontTable) {
     props.langId ?? "",
     props.langIdEastAsia ?? "",
     props.langIdBidi ?? "",
+    // MS-DOC-SPEC/16: revision tracking properties must be part of the run
+    // identity key so adjacent runs with different revision status are not
+    // merged into a single text element.
+    props.revisionMarkIns === true ? "ins" : props.revisionMarkDel === true ? "del" : "",
+    props.revisionAuthorIndex ?? "",
+    props.revisionDelAuthorIndex ?? "",
+    props.revisionDate ?? "",
+    props.revisionDelDate ?? "",
+    props.revisionReason ?? "",
+    props.revisionDelReason ?? "",
     props.fontSizeCs ?? "",
   ].join("|");
 }
@@ -1977,28 +2087,26 @@ function buildRunPropertiesXmlFromProps(props, fontTable, { includeDefaults, emi
 
 	  if (props.bold === true) {
 	    parts.push(`<w:b/>`);
-	    if (!suppressComplexScriptToggles && (hasComplexScriptFont || forceComplexScriptBoldToggle)) parts.push(`<w:bCs/>`);
+	    if (props.boldCs == null && !suppressComplexScriptToggles && (hasComplexScriptFont || forceComplexScriptBoldToggle)) parts.push(`<w:bCs/>`);
 	  } else if (props.bold === false || suppressBold) {
 	    parts.push(`<w:b w:val="0"/>`);
-	    if (!suppressComplexScriptToggles && (hasComplexScriptFont || forceComplexScriptBoldToggle)) {
+	    if (props.boldCs == null && !suppressComplexScriptToggles && (hasComplexScriptFont || forceComplexScriptBoldToggle)) {
 	      parts.push((suppressComplexScriptSize || forceComplexScriptBoldToggle) ? `<w:bCs w:val="0"/>` : `<w:bCs/>`);
 	    }
 	  }
-  if (emitExtendedCharacterToggles) {
-    if (props.boldCs === true) parts.push(`<w:bCs/>`);
-    else if (props.boldCs === false) parts.push(`<w:bCs w:val="0"/>`);
-  }
+  if (props.boldCs === true) parts.push(`<w:bCs/>`);
+  else if (props.boldCs === false) parts.push(`<w:bCs w:val="0"/>`);
 	  if (props.italic === true) {
 	    parts.push(`<w:i/>`);
 	  } else if (props.italic === false) {
 	    parts.push(`<w:i w:val="0"/>`);
-	    if (!suppressComplexScriptToggles && (hasComplexScriptFont || emitComplexScriptSize)) {
+	    if (props.italicCs == null && !suppressComplexScriptToggles && (hasComplexScriptFont || emitComplexScriptSize)) {
 	      parts.push(`<w:iCs w:val="0"/>`);
 	    }
 	  }
+  if (props.italicCs === true) parts.push(`<w:iCs/>`);
+  else if (props.italicCs === false) parts.push(`<w:iCs w:val="0"/>`);
   if (emitExtendedCharacterToggles) {
-    if (props.italicCs === true) parts.push(`<w:iCs/>`);
-    else if (props.italicCs === false) parts.push(`<w:iCs w:val="0"/>`);
     appendToggleRunProperty(parts, "caps", props.caps);
     appendToggleRunProperty(parts, "smallCaps", props.smallCaps);
     appendToggleRunProperty(parts, "strike", props.strike);
@@ -2042,21 +2150,11 @@ function buildRunPropertiesXmlFromProps(props, fontTable, { includeDefaults, emi
     parts.push(`<w:szCs w:val="${props.fontSize}"/>`);
   }
 
-  if (props.textPosition == null && emitBaselineVertAlign) {
-    // MS-DOC-SPEC/16 sprmCHpsPos defaults to 0, the baseline position.
-    parts.push(`<w:vertAlign w:val="baseline"/>`);
-  }
-  if (props.verticalAlign != null) {
-    parts.push(`<w:vertAlign w:val="${props.verticalAlign}"/>`);
-  }
-
-  if (props.background != null) {
-    parts.push(`<w:shd w:val="${props.background.val}" w:color="${props.background.color}" w:fill="${props.background.fill}"/>`);
-  } else if (props.highlight != null) {
+  if (props.background == null && props.highlight != null) {
     // MS-DOC-SPEC/16 sprmCHighlight stores an ICO highlight color. WPS maps
     // ICO auto (0) to OOXML's explicit no-highlight value.
     parts.push(`<w:highlight w:val="${props.highlight === "auto" ? "none" : props.highlight}"/>`);
-  } else if (emitDefaultHighlight || (emitUnderlineHighlight && props.underline === false && props.fontSizeCs != null && props.fontSizeCs === props.fontSize)) {
+  } else if (props.background == null && (emitDefaultHighlight || (emitUnderlineHighlight && props.underline === false && props.fontSizeCs != null && props.fontSizeCs === props.fontSize))) {
     parts.push(`<w:highlight w:val="none"/>`);
   }
 
@@ -2069,8 +2167,42 @@ function buildRunPropertiesXmlFromProps(props, fontTable, { includeDefaults, emi
     parts.push(`<w:u w:val="none"/>`);
   }
 
+  if (props.textEffect != null) {
+    // MS-DOC-SPEC/16 sprmCSfxText maps to OOXML w:effect legacy animated
+    // text values.
+    parts.push(`<w:effect w:val="${escapeXml(props.textEffect)}"/>`);
+  }
+
   if (props.border != null) {
     parts.push(`<w:bdr w:val="${props.border.val}" w:color="${props.border.color}" w:sz="${props.border.sz}" w:space="${props.border.space}"/>`);
+  }
+
+  if (props.background != null) {
+    parts.push(`<w:shd w:val="${props.background.val}" w:color="${props.background.color}" w:fill="${props.background.fill}"/>`);
+  }
+
+  if (props.fitText != null) {
+    // MS-DOC-SPEC/19 CFitTextOperand maps positive dxaFitText twips and
+    // FitTextID directly to OOXML w:fitText/@w:val and @w:id.
+    parts.push(`<w:fitText w:id="${props.fitText.id}" w:val="${props.fitText.width}"/>`);
+  }
+
+  const hasExplicitVerticalAlign = Object.prototype.hasOwnProperty.call(props, "verticalAlign");
+  if (props.textPosition == null && (emitBaselineVertAlign || (hasExplicitVerticalAlign && props.verticalAlign == null))) {
+    // MS-DOC-SPEC/16 sprmCHpsPos defaults to 0, the baseline position.
+    // MS-DOC-SPEC/16 sprmCIss value 0 explicitly specifies normal baseline
+    // text; parseSprms preserves that as verticalAlign: null so it remains
+    // distinguishable from an absent sprmCIss.
+    parts.push(`<w:vertAlign w:val="baseline"/>`);
+  }
+  if (props.verticalAlign != null) {
+    parts.push(`<w:vertAlign w:val="${props.verticalAlign}"/>`);
+  }
+  appendToggleRunProperty(parts, "rtl", props.rtl);
+  appendToggleRunProperty(parts, "cs", props.complexScript);
+  if (props.emphasisMark != null) {
+    // MS-DOC-SPEC/16 sprmCKcd maps the KCD emphasis enum to OOXML ST_Em.
+    parts.push(`<w:em w:val="${escapeXml(props.emphasisMark)}"/>`);
   }
 
   if (props.langId != null || props.langIdEastAsia != null || props.langIdBidi != null) {
@@ -2085,6 +2217,15 @@ function buildRunPropertiesXmlFromProps(props, fontTable, { includeDefaults, emi
       langAttrs.push(`w:bidi="${langIdToBcp47(props.langIdBidi)}"`);
     }
     parts.push(`<w:lang ${langAttrs.join(" ")}/>`);
+  }
+
+  if (props.eastAsianLayout != null) {
+    const attrs = [`w:id="${props.eastAsianLayout.id}"`];
+    if (props.eastAsianLayout.combine) attrs.push(`w:combine="true"`);
+    if (props.eastAsianLayout.combineBrackets) attrs.push(`w:combineBrackets="${props.eastAsianLayout.combineBrackets}"`);
+    if (props.eastAsianLayout.vert) attrs.push(`w:vert="true"`);
+    if (props.eastAsianLayout.vertCompress) attrs.push(`w:vertCompress="true"`);
+    parts.push(`<w:eastAsianLayout ${attrs.join(" ")}/>`);
   }
 
   return parts.length > 0 ? `<w:rPr>${parts.join("")}</w:rPr>` : "";
@@ -2160,6 +2301,7 @@ function buildParagraphPropertiesXml(properties, paragraphMarkProperties = null,
     });
   }
   appendParagraphTabsXml(parts, properties, paragraphText, numbering.hasListTabs);
+  appendParagraphBordersXml(parts, properties);
   if (!documentOptions.suppressEastAsianParagraphControls) {
     appendParagraphControlXml(parts, properties, {
       includeDefaults: false,
@@ -2224,6 +2366,19 @@ function appendParagraphTabsXml(parts, properties, paragraphText, hasListTabs = 
     .map((tab) => `<w:tab w:val="${tab.alignment}"${tab.leader ? ` w:leader="${tab.leader}"` : ""} w:pos="${tab.position}"/>`)
     .join("");
   parts.push(`<w:tabs>${tabsXml}</w:tabs>`);
+}
+
+function appendParagraphBordersXml(parts, properties) {
+  if (!properties?.paragraphBorders) return;
+  const borderParts = [];
+  for (const side of ["top", "left", "bottom", "right", "between", "bar"]) {
+    const brc = properties.paragraphBorders[side];
+    if (!brc) continue;
+    borderParts.push(`<w:${side} w:val="${escapeXml(brc.val)}" w:color="${escapeXml(brc.color)}" w:sz="${escapeXml(brc.sz)}" w:space="${escapeXml(brc.space)}"/>`);
+  }
+  if (borderParts.length) {
+    parts.push(`<w:pBdr>${borderParts.join("")}</w:pBdr>`);
+  }
 }
 
 function hasParagraphFrameProperties(properties) {
@@ -2403,7 +2558,17 @@ function buildSectionPropertiesXml(properties = {}, { defaultFooterId, evenFoote
   const marginLeft = section.marginLeft ?? 1440;
   const headerMargin = section.headerMargin ?? 720;
   const footerMargin = section.footerMargin ?? 720;
-  const isLandscape = pageWidth > pageHeight;
+  const gutterMargin = section.gutterMargin ?? 0;
+  // MS-DOC-SPEC/16 sprmSBOrientation: prefer explicit orientation flag when
+  // it is unambiguous (set and agrees with the dimension heuristic). When the
+  // flag disagrees with dimensions, use the dimension heuristic to match WPS
+  // export behavior, which determines orientation from the page dimensions.
+  const orientation = section.orientation;
+  const isLandscape = orientation != null
+    ? (orientation === "landscape") === (pageWidth > pageHeight)
+      ? orientation === "landscape"
+      : pageWidth > pageHeight
+    : pageWidth > pageHeight;
   const parts = [];
 
   if (firstHeaderId) parts.push(`<w:headerReference r:id="${firstHeaderId}" w:type="first"/>`);
@@ -2412,6 +2577,10 @@ function buildSectionPropertiesXml(properties = {}, { defaultFooterId, evenFoote
   if (firstFooterId) parts.push(`<w:footerReference r:id="${firstFooterId}" w:type="first"/>`);
   if (defaultFooterId) parts.push(`<w:footerReference r:id="${defaultFooterId}" w:type="default"/>`);
   if (evenFooterId) parts.push(`<w:footerReference r:id="${evenFooterId}" w:type="even"/>`);
+  const footnotePrXml = buildSectionFootnotePropertiesXml(section);
+  if (footnotePrXml) parts.push(footnotePrXml);
+  const endnotePrXml = buildSectionEndnotePropertiesXml(section);
+  if (endnotePrXml) parts.push(endnotePrXml);
   // Section break type is parsed from the binary sprmSBkc (0x3009):
   //   0=continuous, 2=newPage(default), 3=evenPage, 4=oddPage
   // OOXML w:type values: continuous, nextColumn, nextPage, evenPage, oddPage
@@ -2424,11 +2593,10 @@ function buildSectionPropertiesXml(properties = {}, { defaultFooterId, evenFoote
     }
   }
   parts.push(`<w:pgSz w:w="${pageWidth}" w:h="${pageHeight}"${isLandscape ? ' w:orient="landscape"' : ''}/>` );
-  parts.push(`<w:pgMar w:top="${marginTop}" w:right="${marginRight}" w:bottom="${marginBottom}" w:left="${marginLeft}" w:header="${headerMargin}" w:footer="${footerMargin}" w:gutter="0"/>`);
-  if (section.pageNumberStart != null && section.pageNumberStart > 0) {
-    parts.push(`<w:pgNumType w:fmt="${sectionPageNumberFormatToXml(section.pageNumberFormat)}" w:start="${section.pageNumberStart}"/>`);
-  } else if (section.docGridType !== 2 && !(section.docGridType != null && section.docGridCharSpace == null)) {
-    parts.push(`<w:pgNumType w:fmt="${sectionPageNumberFormatToXml(section.pageNumberFormat)}"/>`);
+  parts.push(`<w:pgMar w:top="${marginTop}" w:right="${marginRight}" w:bottom="${marginBottom}" w:left="${marginLeft}" w:header="${headerMargin}" w:footer="${footerMargin}" w:gutter="${gutterMargin}"/>`);
+  const paperSourceXml = buildSectionPaperSourceXml(section);
+  if (paperSourceXml) {
+    parts.push(paperSourceXml);
   }
   if (section.pageBorders) {
     const sides = ["top", "left", "bottom", "right"];
@@ -2437,8 +2605,17 @@ function buildSectionPropertiesXml(properties = {}, { defaultFooterId, evenFoote
     }
     parts.push(`<w:pgBorders>${sides.map((side) => `<w:${side} w:val="none" w:sz="0" w:space="0"/>`).join("")}</w:pgBorders>`);
   }
+  const lineNumberXml = buildSectionLineNumberXml(section);
+  if (lineNumberXml) {
+    parts.push(lineNumberXml);
+  }
+  const pageNumberXml = buildSectionPageNumberXml(section);
+  if (pageNumberXml) {
+    parts.push(pageNumberXml);
+  }
   if (section.columnCount != null && section.columnCount > 1) {
     const spacing = section.columnSpacing ?? 720;
+    const separatorAttr = section.columnsLineBetween ? ` w:sep="1"` : "";
     if (section.columnsEvenlySpaced === false && section.columnWidths?.length) {
       const cols = [];
       for (let i = 0; i < section.columnCount; i += 1) {
@@ -2449,17 +2626,32 @@ function buildSectionPropertiesXml(properties = {}, { defaultFooterId, evenFoote
         const colSpacing = section.columnSpacings?.[i];
         cols.push(`<w:col w:w="${width}"${colSpacing != null ? ` w:space="${colSpacing}"` : ""}/>`);
       }
-      parts.push(`<w:cols w:equalWidth="0" w:num="${section.columnCount}">${cols.join("")}</w:cols>`);
+      parts.push(`<w:cols w:equalWidth="0" w:num="${section.columnCount}"${separatorAttr}>${cols.join("")}</w:cols>`);
     } else {
-      parts.push(`<w:cols w:space="${spacing}" w:num="${section.columnCount}"/>`);
+      parts.push(`<w:cols w:space="${spacing}" w:num="${section.columnCount}"${separatorAttr}/>`);
     }
   } else {
     // MS-DOC-SPEC/16 sprmSCcolumns: default value 0 means a single-column section.
     // MS-DOC-SPEC/16 sprmSDxaColumns lists 720 twips for LCID 2052.
     parts.push(`<w:cols w:space="720" w:num="1"/>`);
   }
+  if (section.formProtection) {
+    parts.push(`<w:formProt/>`);
+  }
+  if (section.verticalAlign != null && section.verticalAlign !== "top") {
+    parts.push(`<w:vAlign w:val="${section.verticalAlign}"/>`);
+  }
+  if (section.endnotesSuppressed) {
+    parts.push(`<w:noEndnote/>`);
+  }
   if (section.titlePg) {
     parts.push(`<w:titlePg/>`);
+  }
+  if (section.sectionBidi) {
+    parts.push(`<w:bidi/>`);
+  }
+  if (section.rtlGutter) {
+    parts.push(`<w:rtlGutter/>`);
   }
   if (section.docGridType != null) {
     const docGridType = sectionDocGridTypeToXml(section.docGridType);
@@ -2475,6 +2667,96 @@ function buildSectionPropertiesXml(properties = {}, { defaultFooterId, evenFoote
     parts.push(`<w:docGrid w:type="${docGridType}" w:linePitch="${section.docGridLinePitch}" w:charSpace="${charSpace}"/>`);
   }
   return `<w:sectPr>${parts.join("")}</w:sectPr>`;
+}
+
+function buildSectionFootnotePropertiesXml(section) {
+  const children = [];
+  if (section.footnotePosition != null) {
+    children.push(`<w:pos w:val="${escapeXml(section.footnotePosition)}"/>`);
+  }
+  appendSectionNoteNumberingXml(children, {
+    numberFormat: section.footnoteNumberFormat,
+    numberStart: section.footnoteNumberStart,
+    numberRestart: section.footnoteNumberRestart,
+  });
+  return children.length ? `<w:footnotePr>${children.join("")}</w:footnotePr>` : "";
+}
+
+function buildSectionEndnotePropertiesXml(section) {
+  const children = [];
+  appendSectionNoteNumberingXml(children, {
+    numberFormat: section.endnoteNumberFormat,
+    numberStart: section.endnoteNumberStart,
+    numberRestart: section.endnoteNumberRestart,
+  });
+  return children.length ? `<w:endnotePr>${children.join("")}</w:endnotePr>` : "";
+}
+
+function appendSectionNoteNumberingXml(children, { numberFormat, numberStart, numberRestart }) {
+  if (numberFormat != null) {
+    children.push(`<w:numFmt w:val="${sectionPageNumberFormatToXml(numberFormat)}"/>`);
+  }
+  if (numberStart != null && (numberRestart == null || numberRestart === "continuous")) {
+    // MS-DOC-SPEC/16 sprmSNFtn/sprmSNEdn: the start offset applies only
+    // when note numbering is continuous; otherwise the operand MUST be ignored.
+    children.push(`<w:numStart w:val="${numberStart}"/>`);
+  }
+  if (numberRestart != null && numberRestart !== "continuous") {
+    children.push(`<w:numRestart w:val="${escapeXml(numberRestart)}"/>`);
+  }
+}
+
+function buildSectionPaperSourceXml(section) {
+  const first = section.paperSourceFirst;
+  const other = section.paperSourceOther;
+  if (first == null && other == null) return "";
+  const attrs = [];
+  if (first != null) {
+    attrs.push(`w:first="${first}"`);
+  }
+  if (other != null) {
+    attrs.push(`w:other="${other}"`);
+  }
+  return `<w:paperSrc ${attrs.join(" ")}/>`;
+}
+
+function buildSectionPageNumberXml(section) {
+  const hasChapterNumbering = section.pageNumberChapterStyle != null && section.pageNumberChapterStyle > 0;
+  const shouldEmit = section.pageNumberRestart
+    || hasChapterNumbering
+    || (section.docGridType !== 2 && !(section.docGridType != null && section.docGridCharSpace == null));
+  if (!shouldEmit) return "";
+
+  const attrs = [`w:fmt="${sectionPageNumberFormatToXml(section.pageNumberFormat)}"`];
+  if (section.pageNumberRestart) {
+    // MS-DOC-SPEC/16 sprmSFPgnRestart enables sprmSPgnStart97/sprmSPgnStart;
+    // without this flag, the start value MUST be ignored.
+    attrs.push(`w:start="${section.pageNumberStart ?? 0}"`);
+  }
+  if (hasChapterNumbering) {
+    const separator = section.pageNumberChapterSeparator ?? "hyphen";
+    attrs.push(`w:chapStyle="${section.pageNumberChapterStyle}"`, `w:chapSep="${escapeXml(separator)}"`);
+  }
+  return `<w:pgNumType ${attrs.join(" ")}/>`;
+}
+
+function buildSectionLineNumberXml(section) {
+  const countBy = section.lineNumberCountBy;
+  if (countBy == null || countBy === 0) return "";
+  if (!Number.isInteger(countBy) || countBy < 0 || countBy > 100) {
+    throw new Error(`Out-of-spec section line-number countBy ${countBy}`);
+  }
+  const attrs = [`w:countBy="${countBy}"`];
+  if (section.lineNumberStart != null) {
+    attrs.push(`w:start="${section.lineNumberStart}"`);
+  }
+  if (section.lineNumberDistance != null) {
+    attrs.push(`w:distance="${section.lineNumberDistance}"`);
+  }
+  if (section.lineNumberRestart != null) {
+    attrs.push(`w:restart="${escapeXml(section.lineNumberRestart)}"`);
+  }
+  return `<w:lnNumType ${attrs.join(" ")}/>`;
 }
 
 function sectionDocGridTypeToXml(docGridType) {
@@ -2747,9 +3029,12 @@ function hasDuplicateStyleIds(styles = []) {
 function styleExportRank(style) {
   // Default styles come first: Normal(sti=0) → DPF(sti=65) → Normal Table(sti=105)
   if (style?.sti === 0) return 0;
-  if (style?.index === 1) return 1;
-  if (style?.sti === 65) return 2;
-  if (style?.sti === 105) return 3;
+  // MS-DOC-SPEC/19 StdfBase.sti identifies built-in Heading 1..9. WPS emits
+  // the contiguous built-in heading block before the default character/table
+  // styles when those heading STDs are present.
+  if (style?.sti >= 1 && style.sti <= 9) return style.sti;
+  if (style?.sti === 65) return 20;
+  if (style?.sti === 105) return 21;
   // All other styles follow by numeric styleId
   const numeric = Number(style?.styleId);
   if (Number.isInteger(numeric)) return numeric + 100;
@@ -2925,15 +3210,13 @@ function buildStyleRunPropertiesXml(style, fontTable) {
   // and automatic complex-script toggles (bCs). Only emit szCs when it is
   // explicitly set (emitExplicitComplexScriptSize=true handles that path).
   // This matches WPS Office expected output: style rPr omits redundant Cs props.
-  // MS-DOC StdfBase.sti identifies built-in Heading 1..9. MS-OI29500's
-  // built-in style mapping defines those heading styles with bold run defaults:
-  // https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/716e4d7c-3b23-4210-9617-2b8324486a3b
-  const isBuiltInHeading = style.sti >= 1 && style.sti <= 9;
-  const runProperties = style.runProperties && isBuiltInHeading && style.runProperties.bold == null
-    ? { ...style.runProperties, bold: true }
-    : style.runProperties;
+  // MS-DOC-SPEC/19 StkParaGRLPUPX stores paragraph-style run properties in
+  // UpxChpx. Emit the parsed UPX properties as stored; built-in heading bold
+  // appears when sprmCFBold is present in that UPX, not from a synthesized
+  // formatter default.
+  const runProperties = style.runProperties;
   const runPropertiesXml = runProperties
-    ? buildRunPropertiesXmlFromProps(runProperties, fontTable, { includeDefaults: false, emitExplicitComplexScriptSize: true, emitUnderlineHighlight: false, suppressComplexScriptSize: true, suppressComplexScriptToggles: !isBuiltInHeading })
+    ? buildRunPropertiesXmlFromProps(runProperties, fontTable, { includeDefaults: false, emitExplicitComplexScriptSize: true, emitUnderlineHighlight: false, suppressComplexScriptSize: true, suppressComplexScriptToggles: true })
     : "";
   return runPropertiesXml;
 }

@@ -1,4 +1,5 @@
 const SPRM_SIZES = {
+  0x0800: 1, 0x0801: 1, 0x0802: 1,
   0x2400: 4, 0x2401: 4, 0x2402: 2, 0x2403: 1, 0x2404: 1,
   0x2405: 1, 0x2406: 1, 0x2407: 1, 0x2408: 1, 0x2409: 1,
   0x240A: 4, 0x240B: 1, 0x240C: 4, 0x240D: 4, 0x240E: 4,
@@ -16,9 +17,9 @@ const SPRM_SIZES = {
   0x242F: 1, 0x2430: 1, 0x2432: 1,
   0x2440: 1, 0x2441: 1, 0x2443: 1, 0x2444: 1, 0x2445: 4,
   0x2446: 4, 0x2447: 1, 0x2448: 1, 0x2449: 4, 0x244A: 4,
-  0x244B: 4, 0x244C: 4, 0x244D: 4, 0x244E: 4, 0x244F: 4,
+  0x244B: 1, 0x244C: 1, 0x244D: 4, 0x244E: 4, 0x244F: 4,
   0x2450: 4, 0x2451: 4, 0x2452: 4, 0x2453: 4, 0x2454: 4,
-  0x245B: 1, 0x245C: 1, 0x246D: 1,
+  0x245A: 1, 0x245B: 1, 0x245C: 1, 0x246D: 1,
   0x260A: 1, 0x460B: 2,
   0x261B: 1, 0x2423: 1, 0x2430: 1,
   0x8418: 2, 0x8419: 2, 0x841A: 2, 0x442B: 2,
@@ -51,6 +52,7 @@ const SPRM_SIZES = {
   0x2A4D: 1, 0x2A4E: 1, 0x2A4F: 1, 0x2A50: 1, 0x2A51: 1,
   0x2A52: 1, 0x2A53: 1, 0x2A54: 1, 0x2A55: 1, 0x2A56: 1,
   0x0868: 1,
+  0x2879: 1,
   0x286F: 1,
   0x4A30: 2, 0x4A31: 2, 0x4A32: 2, 0x4A33: 2, 0x4A34: 2,
   0x4A35: 2, 0x4A36: 2, 0x4A37: 2, 0x4A38: 2, 0x4A39: 2,
@@ -69,7 +71,7 @@ const SPRM_SIZES = {
   0x484B: 2, 0x4857: 2, 0x4858: 2, 0x4859: 2, 0x485A: 2, 0x485B: 2,
   0x8840: 2, 0x8841: 2, 0x8842: 2, 0x8843: 2, 0x8844: 2,
   0x8845: 2, 0x8846: 2, 0x8847: 2, 0x8848: 2, 0x8849: 2,
-  0xC60D: -1,
+  0xC60D: -1, 0xCA76: -1, 0xCA78: -1,
 };
 
 const SPRM_CATEGORIES = {
@@ -108,6 +110,9 @@ const SPRM_CATEGORIES = {
   0x2A03: "italic",
   0x2A0E: "underline",
   0x2A3E: "underline",
+  0x2879: "lineBreakClear",
+  0xCA76: "fitText",
+  0xCA78: "eastAsianLayout",
   0x0868: "charSnapToGrid",
   0x286F: "fontHint",
   0x486D: "langId",
@@ -150,6 +155,25 @@ const ALIGNMENT_MAP = { 0: "left", 1: "right", 2: "center", 3: "both", 4: "distr
 const WORD_ALIGNMENT_MAP = { 0: "left", 1: "center", 2: "right", 3: "both", 4: "distribute", 5: "numTab" };
 
 const SPRM_OPERAND_SIZE_BY_SPRA = [1, 1, 2, 4, 2, 2, -1, 3];
+
+// Known SPRM codes that can have a 0x00 low byte (to prevent the padding-
+// byte skipper from consuming their first byte). Every SPRM in SPRM_SIZES
+// is implicitly known; this extra set covers SPRMs handled only by switch
+// cases in applySprm.
+const KNOWN_ZEROBYTE_SPRMS = new Set([
+  0x0800, 0x0801, 0x0802,  // character revision marks
+  0x4804, 0x4807, 0x4863, 0x4867,  // revision author/reason
+  0x6805, 0x6864,  // revision date
+  0xCA57, 0xCA89,  // PropRMark operands
+  0xC66F,  // paragraph PropRMark
+  0x3000, 0x3001, 0x3005, 0x3006, 0x3009, 0x300A, 0x300E,  // section (0x30xx)
+  0x5400, 0x548A,  // table justification
+  0x2417, 0x2416,  // table paragraph flags
+]);
+
+function isKnownSprm(sprm) {
+  return sprm in SPRM_SIZES || KNOWN_ZEROBYTE_SPRMS.has(sprm);
+}
 // MS-DOC-SPEC/19 Ico: value MUST be less than 0x11. Use RGB hex for
 // OOXML w:color; 0 is automatic color.
 const WW8_TEXT_COLOR_INDEXES = [
@@ -237,6 +261,16 @@ const WW8_SHADING_STRENGTHS = [
   975,
 ];
 
+function isLowByteOfKnownSprm(grpprl, off) {
+  // Check if the two-byte little-endian value at (off, off+1) is a SPRM
+  // code that this parser knows about and that has 0x00 as its low byte.
+  // This prevents the padding-byte skipper from consuming the first byte
+  // of valid SPRMs like 0x0800 (sprmCFRMarkDel).
+  if (off + 2 > grpprl.length) return false;
+  const candidate = grpprl.readUInt16LE(off);
+  return (candidate & 0xFF) === 0 && isKnownSprm(candidate);
+}
+
 export function parseSprms(grpprl, skipIstd = false, cupx = 0) {
   const props = {};
   let off = skipIstd ? 2 : 0;
@@ -250,7 +284,9 @@ export function parseSprms(grpprl, skipIstd = false, cupx = 0) {
     off += 1;
   }
   while (off + 2 <= grpprl.length) {
-    if (grpprl[off] === 0) {
+    // Style GRPPRLs can contain zero padding that is ambiguous with
+    // low-byte-zero character SPRMs; only recover those SPRMs in normal GRPPRLs.
+    if (grpprl[off] === 0 && (skipIstd || !isLowByteOfKnownSprm(grpprl, off))) {
       off += 1;
       continue;
     }
@@ -369,6 +405,12 @@ function applySprm(props, sprm, val, size) {
     case 0x2A48:
       props.verticalAlign = verticalAlignFromIss(val[0]);
       break;
+    case 0x2A34:
+      props.emphasisMark = emphasisMarkFromKcd(val[0]);
+      break;
+    case 0x2859:
+      props.textEffect = textEffectFromSfxText(val[0]);
+      break;
     case 0x4A61:
       props.fontSizeCs = val.readUInt16LE(0);
       break;
@@ -424,8 +466,44 @@ function applySprm(props, sprm, val, size) {
     case 0x0837:
       props.strike = val[0] !== 0;
       break;
+    case 0x0800:
+      // MS-DOC-SPEC/16 sprmCFRMarkDel: deleted revision mark text
+      props.revisionMarkDel = val[0] !== 0;
+      break;
+    case 0x0801:
+      // MS-DOC-SPEC/16 sprmCFRMarkIns: inserted revision mark text
+      props.revisionMarkIns = val[0] !== 0;
+      break;
+    case 0x0802:
+      // MS-DOC-SPEC/16 sprmCFFldVanish: hide field text
+      props.fldVanish = val[0] !== 0;
+      break;
     case 0x0838:
       props.outline = val[0] !== 0;
+      break;
+    case 0x4804:
+      // MS-DOC-SPEC/16 sprmCIbstRMark: author index into SttbfRMark for insertion
+      props.revisionAuthorIndex = val.readUInt16LE(0);
+      break;
+    case 0x6805:
+      // MS-DOC-SPEC/16 sprmCDttmRMark: date/time of insertion (DTTM)
+      props.revisionDate = val.readUInt32LE(0);
+      break;
+    case 0x4807:
+      // MS-DOC-SPEC/16 sprmCIdslRMark: reason for the revision mark
+      props.revisionReason = val.readUInt16LE(0);
+      break;
+    case 0x4863:
+      // MS-DOC-SPEC/16 sprmCIbstRMarkDel: author index for deletion
+      props.revisionDelAuthorIndex = val.readUInt16LE(0);
+      break;
+    case 0x6864:
+      // MS-DOC-SPEC/16 sprmCDttmRMarkDel: date/time of deletion (DTTM)
+      props.revisionDelDate = val.readUInt32LE(0);
+      break;
+    case 0x4867:
+      // MS-DOC-SPEC/16 sprmCIdslRMarkDel: reason for deletion
+      props.revisionDelReason = val.readUInt16LE(0);
       break;
     case 0x0839:
       props.shadow = val[0] !== 0;
@@ -448,6 +526,12 @@ function applySprm(props, sprm, val, size) {
     case 0x0818:
       props.specVanish = val[0] !== 0;
       break;
+    case 0x085A:
+      props.rtl = val[0] !== 0;
+      break;
+    case 0x0882:
+      props.complexScript = val[0] !== 0;
+      break;
     case 0x0854:
       props.imprint = val[0] !== 0;
       break;
@@ -456,6 +540,15 @@ function applySprm(props, sprm, val, size) {
       break;
     case 0x0875:
       props.noProof = val[0] !== 0;
+      break;
+    case 0x2879:
+      props.lineBreakClear = lineBreakClearFromLbcOperand(val[0]);
+      break;
+    case 0xCA76:
+      props.fitText = parseCFitTextOperand(val);
+      break;
+    case 0xCA78:
+      props.eastAsianLayout = parseFarEastLayoutOperand(val);
       break;
     case 0x2A0E:
     case 0x2A3E:
@@ -509,6 +602,18 @@ function applySprm(props, sprm, val, size) {
     case 0x4874:
       props.langIdEastAsia = val.readUInt16LE(0);
       break;
+    case 0xCA57:
+    case 0xCA89:
+      // MS-DOC-SPEC/16 sprmCPropRMark90 / sprmCPropRMark: character property
+      // revision mark. Operand is PropRMarkOperand: cb(1) + PropRMark(7).
+      if (val.length >= 8) {
+        props.charPropRMark = {
+          fPropRMark: val[1] !== 0,
+          authorIndex: val.readUInt16LE(2),
+          date: val.readUInt32LE(4),
+        };
+      }
+      break;
     case 0xC60D:
       props.tabs = parseTabsOperand(val);
       break;
@@ -545,6 +650,35 @@ function applySprm(props, sprm, val, size) {
       break;
     case 0x2416:
       props.inTable = val[0] !== 0;
+      break;
+    case 0x2417:
+      // MS-DOC-SPEC/16 sprmPFTtp: Table Terminating Paragraph mark
+      props.isTtp = val[0] !== 0;
+      break;
+    case 0x6649:
+      // MS-DOC-SPEC/16 sprmPItap: table depth (integer)
+      props.tableDepth = val.readUInt32LE(0);
+      break;
+    case 0x664A: {
+      // MS-DOC-SPEC/16 sprmPDtap: signed adjustment to the existing table depth.
+      const tableDepth = (props.tableDepth ?? 0) + val.readInt32LE(0);
+      if (tableDepth < 0) {
+        throw new Error(`Out-of-spec paragraph table depth ${tableDepth}`);
+      }
+      props.tableDepth = tableDepth;
+      break;
+    }
+    case 0x244B:
+      // MS-DOC-SPEC/16 sprmPFInnerTableCell
+      props.innerTableCell = val[0] !== 0;
+      break;
+    case 0x244C:
+      // MS-DOC-SPEC/16 sprmPFInnerTtp
+      props.innerTtp = val[0] !== 0;
+      break;
+    case 0x245A:
+      // MS-DOC-SPEC/16 sprmPFOpenTch: table cell mark display state after a nested table.
+      props.openTch = val[0] !== 0;
       break;
     case 0x240C:
       // LibreOffice WW8 maps pap.fNoLnn to RES_LINENUMBER and writes
@@ -690,27 +824,27 @@ function applySprm(props, sprm, val, size) {
     // Paragraph borders (Brc80 format: 4 bytes — dptLineWidth, brcType, ico, dptSpace|flags)
     case 0x6424: // sprmPBrcTop80
       props.paragraphBorders ??= {};
-      props.paragraphBorders.top = parseBrc80(val);
+      props.paragraphBorders.top = parseBrc80(val, { preserveNone: true });
       break;
     case 0x6425: // sprmPBrcLeft80
       props.paragraphBorders ??= {};
-      props.paragraphBorders.left = parseBrc80(val);
+      props.paragraphBorders.left = parseBrc80(val, { preserveNone: true });
       break;
     case 0x6426: // sprmPBrcBottom80
       props.paragraphBorders ??= {};
-      props.paragraphBorders.bottom = parseBrc80(val);
+      props.paragraphBorders.bottom = parseBrc80(val, { preserveNone: true });
       break;
     case 0x6427: // sprmPBrcRight80
       props.paragraphBorders ??= {};
-      props.paragraphBorders.right = parseBrc80(val);
+      props.paragraphBorders.right = parseBrc80(val, { preserveNone: true });
       break;
     case 0x6428: // sprmPBrcBetween80
       props.paragraphBorders ??= {};
-      props.paragraphBorders.between = parseBrc80(val);
+      props.paragraphBorders.between = parseBrc80(val, { preserveNone: true });
       break;
     case 0x6629: // sprmPBrcBar80
       props.paragraphBorders ??= {};
-      props.paragraphBorders.bar = parseBrc80(val);
+      props.paragraphBorders.bar = parseBrc80(val, { preserveNone: true });
       break;
     case 0xC64E: // sprmPBrcTop
       props.paragraphBorders ??= {};
@@ -759,15 +893,15 @@ const FRAME_V_ANCHOR = ["margin", "page", "text", "margin"];
 // Frame horizontal anchor per MS-DOC-SPEC sprmPPc pcHorz
 const FRAME_H_ANCHOR = ["text", "margin", "page", "margin"];
 
-function parseBrc80(val, { ignoreSpace = false } = {}) {
+function parseBrc80(val, { ignoreSpace = false, preserveNone = false } = {}) {
   if (val.length < 4) return null;
   const dptLineWidth = val[0];
   const brcType = val[1];
   const ico = val[2];
   const dptSpace = ignoreSpace ? 0 : (val[3] & 0x1F);
-  if (brcType === 0) return null; // no border
+  if (brcType === 0 && !preserveNone) return null; // no border
   return {
-    val: brcTypeToBorderName(brcType, "paragraph border"),
+    val: brcType === 0 ? "none" : brcTypeToBorderName(brcType, "paragraph border"),
     color: brcColorFromIco(ico),
     sz: String(dptLineWidth),
     space: String(dptSpace),
@@ -828,6 +962,75 @@ function parseBrcOperand(val, context, { ignoreSpace = false } = {}) {
     sz: String(brc[4]),
     space: String(ignoreSpace ? 0 : (brc[6] & 0x1f)),
   };
+}
+
+function parseCFitTextOperand(val) {
+  if (!val || val.length < 9 || val[0] !== 8) {
+    throw new Error(`Out-of-spec character fitText CFitTextOperand length ${val?.length ?? 0}`);
+  }
+  const width = val.readInt32LE(1);
+  if (width === 0) return null;
+  if (width < 0) {
+    // MS-DOC-SPEC/19 CFitTextOperand defines negative dxaFitText as the
+    // minimum-width variant. OOXML w:fitText/@w:val is an unsigned
+    // ST_TwipsMeasure, so do not guess a lossy mapping.
+    throw new Error(`Unsupported MS-DOC character fitText minimum-width variant ${width}`);
+  }
+  return {
+    width,
+    id: val.readInt32LE(5),
+  };
+}
+
+function parseFarEastLayoutOperand(val) {
+  if (!val || val.length !== 7 || val[0] !== 6) {
+    throw new Error(`Out-of-spec character FarEastLayoutOperand length ${val?.length ?? 0}`);
+  }
+  const ufel = val.readUInt16LE(1);
+  const mustBeZero = 0x683c;
+  if ((ufel & mustBeZero) !== 0) {
+    throw new Error(`Out-of-spec character UFEL MUST-zero bits 0x${(ufel & mustBeZero).toString(16)}`);
+  }
+
+  const fTny = (ufel & 0x0001) !== 0;
+  const fWarichu = (ufel & 0x0002) !== 0;
+  const bracketCode = (ufel >> 8) & 0x7;
+  const fTnyCompress = (ufel & 0x1000) !== 0;
+  if (fWarichu && bracketCode > 4) {
+    throw new Error(`Out-of-spec character UFEL iWarichuBracket value ${bracketCode}`);
+  }
+  if (!fTny && !fWarichu) return null;
+
+  const layout = {
+    id: val.readInt32LE(3),
+  };
+  if (fTny) {
+    layout.vert = true;
+    if (fTnyCompress) layout.vertCompress = true;
+  }
+  if (fWarichu) {
+    layout.combine = true;
+    const combineBrackets = eastAsianLayoutBracketFromCode(bracketCode);
+    if (combineBrackets) layout.combineBrackets = combineBrackets;
+  }
+  return layout;
+}
+
+function eastAsianLayoutBracketFromCode(code) {
+  switch (code) {
+    case 0:
+      return null;
+    case 1:
+      return "round";
+    case 2:
+      return "square";
+    case 3:
+      return "angle";
+    case 4:
+      return "curly";
+    default:
+      throw new Error(`Out-of-spec character UFEL iWarichuBracket value ${code}`);
+  }
 }
 
 // MS-DOC-SPEC/19 BrcType values and their ST_Border references.
@@ -1106,6 +1309,67 @@ function verticalAlignFromIss(code) {
       return "subscript";
     default:
       throw new Error(`Out-of-spec MS-DOC Iss superscript/subscript value ${code}`);
+  }
+}
+
+function emphasisMarkFromKcd(code) {
+  // MS-DOC-SPEC/16 sprmCKcd: KCD values 0-4 map directly to OOXML
+  // ST_Em values for emphasis marks.
+  switch (code) {
+    case 0:
+      return "none";
+    case 1:
+      return "dot";
+    case 2:
+      return "comma";
+    case 3:
+      return "circle";
+    case 4:
+      return "underDot";
+    default:
+      throw new Error(`Out-of-spec MS-DOC Kcd emphasis value ${code}`);
+  }
+}
+
+function textEffectFromSfxText(code) {
+  // MS-DOC-SPEC/16 sprmCSfxText and LibreOffice WW8 import document Word's
+  // legacy animation enum: 0 none, 1 Las Vegas lights, 2 blinking
+  // background, 3 sparkle, 4 black ants, 5 red ants, 6 shimmer. OOXML
+  // w:effect uses the same semantic values:
+  // https://learn.microsoft.com/en-us/dotnet/api/documentformat.openxml.wordprocessing.texteffect
+  switch (code) {
+    case 0:
+      return "none";
+    case 1:
+      return "lights";
+    case 2:
+      return "blinkBackground";
+    case 3:
+      return "sparkle";
+    case 4:
+      return "antsBlack";
+    case 5:
+      return "antsRed";
+    case 6:
+      return "shimmer";
+    default:
+      throw new Error(`Out-of-spec MS-DOC SfxText text effect value ${code}`);
+  }
+}
+
+function lineBreakClearFromLbcOperand(code) {
+  // MS-DOC-SPEC/19 LBCOperand values map directly to OOXML w:br clear.
+  switch (code) {
+    case 0:
+      return "none";
+    case 1:
+      return "left";
+    case 2:
+      return "right";
+    case 3:
+      return "all";
+    default:
+      throw new Error(`Out-of-spec MS-DOC LBCOperand value ${code}`);
   }
 }
 

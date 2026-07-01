@@ -105,7 +105,7 @@
 | fcSttbfGlsy / ... | ❌ | AutoText glossary not parsed |
 | fcPlcfGlsy / ... | ❌ | AutoText not parsed |
 | fcSttbGlsyStyle / ... | ❌ | AutoText styles not parsed |
-| fcSttbfRMark / ... | ❌ | Revision mark authors not parsed |
+| fcSttbfRMark / ... | ✅ | Revision mark author STTB parsed and used for inserted/deleted revision authors |
 | fcPlcffldMom / ... | ❌ | Fields (main) not parsed |
 | fcPlcffldHdd / ... | ❌ | Fields (header) not parsed |
 | fcPlcffldFtn / ... | ❌ | Fields (footnote) not parsed |
@@ -153,14 +153,14 @@
 
 | SPRM | Name | Status | Notes |
 |------|------|--------|-------|
-| 0x0800 | sprmCFRMarkDel | ❌ | |
-| 0x0801 | sprmCFRMarkIns | ❌ | |
+| 0x0800 | sprmCFRMarkDel | ✅ | Parsed and emitted as deleted revision text |
+| 0x0801 | sprmCFRMarkIns | ✅ | Parsed and emitted as inserted revision text |
 | 0x0802 | sprmCFFldVanish | ❌ | |
 | 0x6A03 | sprmCPicLocation | ❌ | |
-| 0x4804 | sprmCIbstRMark | ❌ | |
-| 0x6805 | sprmCDttmRMark | ❌ | |
+| 0x4804 | sprmCIbstRMark | ✅ | Parsed and resolved through SttbfRMark for inserted revisions |
+| 0x6805 | sprmCDttmRMark | ✅ | Parsed as DTTM and emitted as inserted revision date |
 | 0x0806 | sprmCFData | ❌ | |
-| 0x4807 | sprmCIdslRMark | ❌ | |
+| 0x4807 | sprmCIdslRMark | ⚠️ | Parsed into revision reason id; no OOXML emission yet |
 | 0x6A09 | sprmCSymbol | ✅ | Parsed and emitted as DOCX symbol runs |
 | 0x080A | sprmCFOle2 | ❌ | |
 | 0x2A0C | sprmCHighlight | ✅ | Parsed via Chpx, emitted in DOCX |
@@ -171,7 +171,7 @@
 | 0x4A30 | sprmCIstd | ✅ | Character style index |
 | 0xCA31 | sprmCIstdPermute | ❌ | |
 | 0x2A33 | sprmCPlain | ❌ | |
-| 0x2A34 | sprmCKcd | ❌ | Emphasis mark |
+| 0x2A34 | sprmCKcd | ✅ | Parsed and emitted as OOXML emphasis mark |
 | 0x0835 | sprmCFBold | ✅ | Bold |
 | 0x0836 | sprmCFItalic | ✅ | Italic |
 | 0x0837 | sprmCFStrike | ✅ | Strikethrough |
@@ -199,8 +199,8 @@
 | 0x0856 | sprmCFObj | ❌ | |
 | 0xCA57 | sprmCPropRMark90 | ❌ | |
 | 0x0858 | sprmCFEmboss | ✅ | Parsed and emitted as w:emboss |
-| 0x2859 | sprmCSfxText | ❌ | |
-| 0x085A | sprmCFBiDi | ❌ | |
+| 0x2859 | sprmCSfxText | ✅ | Parsed and emitted as OOXML w:effect legacy animated text |
+| 0x085A | sprmCFBiDi | ✅ | Parsed and emitted as run rtl |
 | 0x085C | sprmCFBoldBi | ✅ | Bold (complex script) |
 | 0x085D | sprmCFItalicBi | ✅ | Italic (complex script) |
 | 0x4A5E | sprmCFtcBi | ✅ | Font complex script |
@@ -208,11 +208,11 @@
 | 0x4A60 | sprmCIcoBi | ✅ | Bidi text color parsed and emitted as run color |
 | 0x4A61 | sprmCHpsBi | ✅ | Font size (complex script) |
 | 0xCA62 | sprmCDispFldRMark | ❌ | |
-| 0x4863 | sprmCIbstRMarkDel | ❌ | |
-| 0x6864 | sprmCDttmRMarkDel | ❌ | |
+| 0x4863 | sprmCIbstRMarkDel | ✅ | Parsed and resolved through SttbfRMark for deleted revisions |
+| 0x6864 | sprmCDttmRMarkDel | ✅ | Parsed as DTTM and emitted as deleted revision date |
 | 0x6865 | sprmCBrc80 | ✅ | Character border |
 | 0x4866 | sprmCShd80 | ✅ | Character shading (Shd80) |
-| 0x4867 | sprmCIdslRMarkDel | ❌ | |
+| 0x4867 | sprmCIdslRMarkDel | ⚠️ | Parsed into deletion revision reason id; no OOXML emission yet |
 | 0x0868 | sprmCFUsePgsuSettings | ✅ | Char snap to grid |
 | 0x486D | sprmCRgLid0_80 | ✅ | Language (non-East Asian) |
 | 0x486E | sprmCRgLid1_80 | ✅ | Language (East Asian) |
@@ -223,11 +223,11 @@
 | 0x4873 | sprmCRgLid0 | ✅ | Language (non-East Asian, new) |
 | 0x4874 | sprmCRgLid1 | ✅ | Language (East Asian, new) |
 | 0x0875 | sprmCFNoProof | ✅ | Parsed and emitted as w:noProof |
-| 0xCA76 | sprmCFitText | ❌ | |
+| 0xCA76 | sprmCFitText | ⚠️ | Positive CFitTextOperand widths parsed/emitted as w:fitText; zero ignored per spec; negative minimum-width variant fails fast as unsupported |
 | 0x6877 | sprmCCvUl | ✅ | COLORREF underline color |
-| 0xCA78 | sprmCFELayout | ❌ | |
-| 0x2879 | sprmCLbcCRJ | ❌ | |
-| 0x0882 | sprmCFComplexScripts | ❌ | |
+| 0xCA78 | sprmCFELayout | ✅ | FarEastLayoutOperand parsed and emitted as w:eastAsianLayout |
+| 0x2879 | sprmCLbcCRJ | ✅ | LBCOperand parsed and emitted as w:br clear on U+000B only |
+| 0x0882 | sprmCFComplexScripts | ✅ | Parsed and emitted as run cs |
 | 0x2A83 | sprmCWall | ❌ | |
 | 0xCA85 | sprmCCnf | ❌ | |
 | 0x2A86 | sprmCNeedFontFixup | ❌ | |
@@ -295,15 +295,15 @@
 | 0x6646 | sprmPHugePapx | ❌ | |
 | 0x2447 | sprmPFUsePgsuSettings | ✅ | Snap to grid |
 | 0x2448 | sprmPFAdjustRight | ✅ | Adjust right indent |
-| 0x6649 | sprmPItap | ❌ | |
-| 0x664A | sprmPDtap | ❌ | |
-| 0x244B | sprmPFInnerTableCell | ❌ | |
-| 0x244C | sprmPFInnerTtp | ❌ | |
+| 0x6649 | sprmPItap | ✅ | Parsed as 4-byte table depth |
+| 0x664A | sprmPDtap | ✅ | Parsed as signed 4-byte table depth adjustment with non-negative validation |
+| 0x244B | sprmPFInnerTableCell | ✅ | Parsed as nested table cell marker |
+| 0x244C | sprmPFInnerTtp | ✅ | Parsed as nested table row marker |
 | 0xC64D | sprmPShd | ✅ | Full SHDOperand |
 | 0xC64E-0xC653 | sprmPBrcTop-...BrcBar | ✅ | Full BrcOperand paragraph borders |
 | 0x4455-0x4457 | sprmPDxcRight/Left/Left1 | ✅ | Indent in char units |
 | 0x4458-0x4459 | sprmPDylBefore/After | ✅ | Spacing in line units |
-| 0x245A | sprmPFOpenTch | ❌ | |
+| 0x245A | sprmPFOpenTch | ✅ | Parsed as nested table cell mark display state |
 | 0x245B-0x245C | sprmPFDyaBefore/AfterAuto | ✅ | Auto spacing |
 | 0x845D-0x8460 | sprmPDxaRight/Left/Nest/Left1 | ✅ | Logical indents |
 | 0x2461 | sprmPJc | ✅ | Logical justification |
@@ -365,40 +365,40 @@
 
 | SPRM | Name | Status | Notes |
 |------|------|--------|-------|
-| 0x3000 | sprmScnsPgn | ❌ | |
-| 0x3001 | sprmSiHeadingPgn | ❌ | |
+| 0x3000 | sprmScnsPgn | ✅ | Parsed and emitted as pgNumType chapter separator |
+| 0x3001 | sprmSiHeadingPgn | ✅ | Parsed and emitted as pgNumType chapter style |
 | 0xF203 | sprmSDxaColWidth | ✅ | Column width |
 | 0xF204 | sprmSDxaColSpacing | ✅ | Column spacing |
 | 0x3005 | sprmSFEvenlySpaced | ✅ | Even spacing flag |
-| 0x3006 | sprmSFProtected | ❌ | |
-| 0x5007-0x5008 | sprmSDmBinFirst/Other | ❌ | |
+| 0x3006 | sprmSFProtected | ✅ | Parsed and emitted as section formProt, accounting for MS-DOC inverted flag |
+| 0x5007-0x5008 | sprmSDmBinFirst/Other | ✅ | Parsed and emitted as paperSrc first/other |
 | 0x3009 | sprmSBkc | ✅ | Section break type |
 | 0x300A | sprmSFTitlePage | ✅ | Title page flag |
 | 0x500B | sprmSCcolumns | ✅ | Column count |
 | 0x900C | sprmSDxaColumns | ✅ | Column spacing (even) |
 | 0x300E | sprmSNfcPgn | ✅ | Page number format |
-| 0x3011 | sprmSFPgnRestart | ❌ | |
-| 0x3012 | sprmSFEndnote | ❌ | |
-| 0x3013 | sprmSLnc | ❌ | Line numbering mode |
-| 0x5015 | sprmSNLnnMod | ❌ | |
-| 0x9016 | sprmSDxaLnn | ❌ | |
+| 0x3011 | sprmSFPgnRestart | ✅ | Parsed and used to gate pgNumType start |
+| 0x3012 | sprmSFEndnote | ✅ | Parsed and emitted as noEndnote when suppressed |
+| 0x3013 | sprmSLnc | ✅ | Parsed and emitted as lnNumType restart |
+| 0x5015 | sprmSNLnnMod | ✅ | Parsed and emitted as lnNumType countBy |
+| 0x9016 | sprmSDxaLnn | ✅ | Parsed and emitted as lnNumType distance |
 | 0xB017 | sprmSDyaHdrTop | ✅ | Header margin |
 | 0xB018 | sprmSDyaHdrBottom | ✅ | Footer margin |
-| 0x3019 | sprmSLBetween | ❌ | |
-| 0x301A | sprmSVjc | ❌ | |
-| 0x501B | sprmSLnnMin | ❌ | |
+| 0x3019 | sprmSLBetween | ✅ | Parsed and emitted as column separator |
+| 0x301A | sprmSVjc | ✅ | Parsed and emitted as section vAlign |
+| 0x501B | sprmSLnnMin | ✅ | Parsed and emitted as lnNumType start |
 | 0x501C | sprmSPgnStart97 | ✅ | Page number start |
-| 0x301D | sprmSBOrientation | ❌ | |
+| 0x301D | sprmSBOrientation | ✅ | Parsed and used for section orientation |
 | 0xB01F | sprmSXaPage | ✅ | Page width |
 | 0xB020 | sprmSYaPage | ✅ | Page height |
 | 0xB021 | sprmSDxaLeft | ✅ | Left margin |
 | 0xB022 | sprmSDxaRight | ✅ | Right margin |
 | 0x9023 | sprmSDyaTop | ✅ | Top margin |
 | 0x9024 | sprmSDyaBottom | ✅ | Bottom margin |
-| 0xB025 | sprmSDzaGutter | ❌ | |
-| 0x5026 | sprmSDmPaperReq | ❌ | |
-| 0x3228 | sprmSFBiDi | ❌ | |
-| 0x322A | sprmSFRTLGutter | ❌ | |
+| 0xB025 | sprmSDzaGutter | ✅ | Parsed and emitted as pgMar gutter |
+| 0x5026 | sprmSDmPaperReq | ✅ | Parsed as implementation-specific paper format tie-breaker; not emitted because MS-DOC permits consumers to ignore it |
+| 0x3228 | sprmSFBiDi | ✅ | Parsed and emitted as section bidi |
+| 0x322A | sprmSFRTLGutter | ✅ | Parsed and emitted as rtlGutter |
 | 0x702B-0x702E | sprmSBrcTop80-...Right80 | ✅ | Page borders (Brc80, none-emit only) |
 | 0x522F | sprmSPgbProp | ❌ | |
 | 0x7030 | sprmSDxtCharSpace | ✅ | Char space for grid |
@@ -408,15 +408,15 @@
 | 0xD234-0xD237 | sprmSBrcTop-...Right | ⚠️ | Full BrcOperand borders (none case only) |
 | 0x3239 | sprmSWall | ❌ | |
 | 0x703A | sprmSRsid | ❌ | |
-| 0x303B | sprmSFpc | ❌ | |
-| 0x303C | sprmSRncFtn | ❌ | |
-| 0x303E | sprmSRncEdn | ❌ | |
-| 0x503F | sprmSNFtn | ❌ | |
-| 0x5040 | sprmSNfcFtnRef | ❌ | |
-| 0x5041 | sprmSNEdn | ❌ | |
-| 0x5042 | sprmSNfcEdnRef | ❌ | |
+| 0x303B | sprmSFpc | ✅ | Parsed and emitted as section footnotePr pos |
+| 0x303C | sprmSRncFtn | ✅ | Parsed and emitted as section footnotePr numRestart |
+| 0x303E | sprmSRncEdn | ✅ | Parsed and emitted as section endnotePr numRestart |
+| 0x503F | sprmSNFtn | ✅ | Parsed and emitted as section footnotePr numStart when continuous |
+| 0x5040 | sprmSNfcFtnRef | ✅ | Parsed and emitted as section footnotePr numFmt |
+| 0x5041 | sprmSNEdn | ✅ | Parsed and emitted as section endnotePr numStart when continuous |
+| 0x5042 | sprmSNfcEdnRef | ✅ | Parsed and emitted as section endnotePr numFmt |
 | 0xD243 | sprmSPropRMark | ❌ | |
-| 0x7044 | sprmSPgnStart | ❌ | |
+| 0x7044 | sprmSPgnStart | ✅ | 32-bit page number start |
 
 ### 5.5 Picture SPRMs (8 spec, 0 handled)
 
@@ -458,7 +458,7 @@
 | xmlValidation | ✅ | fValidateXML, fShowXMLErrors |
 | grfFmtFilter | ✅ | Parsed |
 | fDocView | ❌ | |
-| fReadOnlyRecommended | ❌ | |
+| fReadOnlyRecommended | ✅ | Read from FibBase and emitted as OOXML writeProtection recommended |
 | fEnvelopeVisible | ❌ | |
 | fPrintMet | ❌ | |
 | fNoColumnBalance | ✅ | Parsed from Copts60 compatibility flags |
@@ -468,7 +468,7 @@
 | fShowPageBorders | ❌ | |
 | fAllowFieldCodes | ❌ | |
 | fBookFoldPrintFilter | ❌ | |
-| fDontEmbedTrueTypeFonts | ❌ | |
+| fDontEmbedTrueTypeFonts | ✅ | Implemented via MS-DOC DopBase.fEmbedFonts: absence suppresses embedTrueTypeFonts; fSubsetFonts gates saveSubsetFonts |
 
 ---
 
@@ -512,7 +512,7 @@
 | Clx / Pcdt / PlcPcd | ✅ | Piece table |
 | FcCompressed | ✅ | Compressed FC |
 | DOP (DopBase, Dop97, Dogrid, Copts, etc.) | ⚠️ | Partial |
-| DTTM | ❌ | Not parsed |
+| DTTM | ⚠️ | Parsed/emitted for revision mark timestamps with MS-DOC MUST validation; other DTTM-bearing structures remain incomplete |
 | DCS | ✅ | Drop cap fdct/cl parsed and emitted |
 | FFN | ✅ | Font file name |
 | Fib / FibBase / FibRgFcLcb97 | ✅ | FIB |

@@ -36,6 +36,7 @@ const FIB_FC_PLCFBKF_INDEX = 22;
 const FIB_FC_PLCFBKL_INDEX = 23;
 const FIB_FC_WSS_INDEX = 30;
 const FIB_FC_DOP_INDEX = 31; // 0x1F per FibRgFcLcb97
+const FIB_FC_STTBFRMARK_INDEX = 51; // MS-DOC-SPEC/15 FibRgFcLcb97 fcSttbfRMark at offset 0x232
 const SELSF_SIZE = 36;
 
 const STSH_NIL_BASE = 0xfff0;
@@ -71,7 +72,8 @@ export function extractWordBinaryDocument({ wordDocument, table0, table1 = null,
   const defaultTabStop = dop.dxaTab;
   const plcfHdd = parsePlcfHdd(tableStream, fib);
   const bookmarks = parseStandardBookmarks(tableStream, fib);
-  const lastSelection = parseLastSelection(tableStream, fib, bodyText.length);
+  const revisionAuthors = parseRevisionAuthors(tableStream, fib);
+  const lastSelection = parseLastSelection(tableStream, fib, rawText.length);
   const paragraphProperties = extractParagraphProperties(wordDocument, tableStream, fib, bodyText, styles, pieces);
   const characterRuns = extractCharacterRuns(wordDocument, tableStream, fib, bodyText, pieces, styles);
   const characterProperties = expandCharacterRuns(characterRuns, bodyText.length);
@@ -98,6 +100,7 @@ export function extractWordBinaryDocument({ wordDocument, table0, table1 = null,
     tableRows,
     plcfHdd,
     bookmarks,
+    revisionAuthors,
     lastSelection,
     dop,
   };
@@ -136,6 +139,7 @@ function readFib(wordDocument) {
   const plcfBklOffset = FIB_FC_LCB_START + FIB_FC_PLCFBKL_INDEX * 8;
   const wssOffset = FIB_FC_LCB_START + FIB_FC_WSS_INDEX * 8;
   const dopOffset = FIB_FC_LCB_START + FIB_FC_DOP_INDEX * 8;
+  const sttbfRMarkOffset = FIB_FC_LCB_START + FIB_FC_STTBFRMARK_INDEX * 8;
   if (tableStreamOffset + 8 > FIB_FC_LCB_START + fcLcbCount * 4) {
     throw new Error("Unimplemented Word binary document variant: FIB does not contain fcClx/lcbClx");
   }
@@ -194,6 +198,8 @@ function readFib(wordDocument) {
     lcbWss: wssOffset + 8 <= FIB_FC_LCB_START + fcLcbCount * 4 ? wordDocument.readUInt32LE(wssOffset + 4) : 0,
     fcDop: dopOffset + 8 <= FIB_FC_LCB_START + fcLcbCount * 4 ? wordDocument.readUInt32LE(dopOffset) : 0,
     lcbDop: dopOffset + 8 <= FIB_FC_LCB_START + fcLcbCount * 4 ? wordDocument.readUInt32LE(dopOffset + 4) : 0,
+    fcSttbfRMark: sttbfRMarkOffset + 8 <= FIB_FC_LCB_START + fcLcbCount * 4 ? wordDocument.readUInt32LE(sttbfRMarkOffset) : 0,
+    lcbSttbfRMark: sttbfRMarkOffset + 8 <= FIB_FC_LCB_START + fcLcbCount * 4 ? wordDocument.readUInt32LE(sttbfRMarkOffset + 4) : 0,
     characterCounts: {
       body: wordDocument.readUInt32LE(FIB_CCP_TEXT_OFFSET),
       footnotes: wordDocument.readUInt32LE(FIB_CCP_FTN_OFFSET),
@@ -367,16 +373,31 @@ function parseDop(tableStream, fib) {
     };
   }
 
-  // ── Dop97 page border include flags at offset 410 ─────────────────
-  // MS-DOC-SPEC/17 §Dop97: fIncludeHeader/fIncludeFooter control whether
-  // page borders include header/footer. OOXML bordersDoNotSurround* have opposite sense.
+  // ── Dop97 shared flags at offset 410 ──────────────────────────────
+  // MS-DOC-SPEC/17 §Dop97 row 11 (bytes 410-411):
+  //   bit 4-7 : lvlDop           (4-bit outline-level view saved state)
+  //   bit 5   : fGramAllDone     (B)
+  //   bit 6   : fGramAllClean    (C)
+  //   bit 7   : fSubsetFonts     (D)
+  //   bit 9   : fHtmlDoc         (F)
+  //   bit 11  : fSnapBorder       (G)
+  //   bit 12  : fIncludeHeader   (H)
+  //   bit 13  : fIncludeFooter   (I)
+  //   bit 14  : fForcePageSizePag (J)
+  //   bit 15  : fMinFontSizePag   (K)
+  // Per MS-DOC-SPEC/17 §17.8.3.15 saveSubsetFonts emission depends on
+  // DopBase.fEmbedFonts (true) AND Dop97.fSubsetFonts (true):
+  //   <w:embedTrueTypeFonts/>   iff DopBase.fEmbedFonts
+  //   <w:saveSubsetFonts/>      iff DopBase.fEmbedFonts AND Dop97.fSubsetFonts
   let pageBorderIncludes = null;
+  let fSubsetFonts = false;
   if (dop.length >= 412) {
     const dop97Flags = dop.readUInt16LE(410);
     pageBorderIncludes = {
       header: ((dop97Flags >> 12) & 1) !== 0,
       footer: ((dop97Flags >> 13) & 1) !== 0,
     };
+    fSubsetFonts = ((dop97Flags >> 7) & 1) !== 0;
   }
 
   // ── Dop2002 XML validation at offset 542 ──────────────────────────
@@ -438,6 +459,7 @@ function parseDop(tableStream, fib) {
     typography,
     dogrid,
     pageBorderIncludes,
+    fSubsetFonts,
     xmlValidation,
     grfFmtFilter,
   };
@@ -632,6 +654,14 @@ function parseStandardBookmarks(tableStream, fib) {
   });
 }
 
+function parseRevisionAuthors(tableStream, fib) {
+  if (!fib.lcbSttbfRMark) {
+    return ["Unknown"];
+  }
+  assertTableRange(tableStream, fib.fcSttbfRMark, fib.lcbSttbfRMark, "SttbfRMark");
+  return parseSttbfRMark(tableStream.subarray(fib.fcSttbfRMark, fib.fcSttbfRMark + fib.lcbSttbfRMark));
+}
+
 function parseLastSelection(tableStream, fib, bodyTextLength) {
   if (!fib.lcbWss) return null;
   if (fib.lcbWss !== SELSF_SIZE) {
@@ -640,7 +670,8 @@ function parseLastSelection(tableStream, fib, bodyTextLength) {
   assertTableRange(tableStream, fib.fcWss, fib.lcbWss, "Selsf");
 
   // MS-DOC-SPEC/15 fcWss/lcbWss points to Selsf, and MS-DOC-SPEC/19
-  // defines Selsf as the last selection made in the Main Document.
+  // defines Selsf CPs relative to the document text piece, not just the
+  // main-story body text that this converter emits to word/document.xml.
   const selsf = tableStream.subarray(fib.fcWss, fib.fcWss + SELSF_SIZE);
   const flags = selsf.readUInt32LE(0);
   const cpFirst = selsf.readInt32LE(4);
@@ -659,7 +690,7 @@ function parseLastSelection(tableStream, fib, bodyTextLength) {
   };
 
   if (selection.cpFirst < 0 || selection.cpLim < selection.cpFirst || selection.cpLim > bodyTextLength) {
-    throw new Error(`Invalid Word binary document: Selsf selection range ${selection.cpFirst}-${selection.cpLim} is outside the main document`);
+    throw new Error(`Invalid Word binary document: Selsf selection range ${selection.cpFirst}-${selection.cpLim} is outside the document text`);
   }
   if (selection.fIns && selection.cpFirst !== selection.cpLim) {
     throw new Error("Invalid Word binary document: Selsf insertion point has mismatched cpFirst/cpLim");
@@ -673,36 +704,56 @@ function assertTableRange(tableStream, fc, lcb, label) {
   }
 }
 
+export function parseSttbfRMark(sttbf) {
+  // MS-DOC-SPEC/19 SttbfRMark: extended Unicode STTB, no extra data, first
+  // entry MUST be "Unknown".
+  const authors = parseUnicodeSttbNoExtra(sttbf, "SttbfRMark");
+  if (authors[0] !== "Unknown") {
+    throw new Error(`Out-of-spec SttbfRMark: first author must be Unknown, got ${JSON.stringify(authors[0] ?? "")}`);
+  }
+  return authors;
+}
+
 function parseSttbfBkmk(sttbf) {
+  const names = parseUnicodeSttbNoExtra(sttbf, "SttbfBkmk");
+  for (const name of names) {
+    if (name.length === 0 || name.length >= 40) {
+      throw new Error(`Invalid Word bookmark name length ${name.length}`);
+    }
+  }
+  return names;
+}
+
+function parseUnicodeSttbNoExtra(sttbf, label) {
   if (sttbf.length < 6) {
-    throw new Error("Invalid Word binary document: truncated SttbfBkmk");
+    throw new Error(`Invalid Word binary document: truncated ${label}`);
   }
   const fExtend = sttbf.readUInt16LE(0);
   if (fExtend !== 0xffff) {
-    throw new Error(`Out-of-spec SttbfBkmk: expected extended strings, got 0x${fExtend.toString(16)}`);
+    throw new Error(`Out-of-spec ${label}: expected extended strings, got 0x${fExtend.toString(16)}`);
   }
   const count = sttbf.readUInt16LE(2);
   const cbExtra = sttbf.readUInt16LE(4);
   if (cbExtra !== 0) {
-    throw new Error(`Out-of-spec SttbfBkmk: expected no extra data, got ${cbExtra} bytes`);
+    throw new Error(`Out-of-spec ${label}: expected no extra data, got ${cbExtra} bytes`);
   }
 
-  const names = [];
+  const strings = [];
   let off = 6;
   for (let i = 0; i < count; i += 1) {
     if (off + 2 > sttbf.length) {
-      throw new Error("Invalid Word binary document: truncated SttbfBkmk string length");
+      throw new Error(`Invalid Word binary document: truncated ${label} string length`);
     }
     const cch = sttbf.readUInt16LE(off);
     off += 2;
     const byteLength = cch * 2;
-    if (cch === 0 || cch >= 40 || off + byteLength > sttbf.length) {
-      throw new Error(`Invalid Word bookmark name length ${cch}`);
+    if (off + byteLength > sttbf.length) {
+      throw new Error(`Invalid Word binary document: truncated ${label} string data`);
     }
-    names.push(sttbf.subarray(off, off + byteLength).toString("utf16le"));
+    strings.push(sttbf.subarray(off, off + byteLength).toString("utf16le"));
     off += byteLength;
   }
-  return names;
+  return strings;
 }
 
 function extractParagraphProperties(wordDocument, tableStream, fib, bodyText, styles, pieces) {
@@ -876,6 +927,7 @@ function parseParagraphGrpprl(data) {
     autoSpaceDN: parsed.autoSpaceDN ?? null,
     adjustRightInd: parsed.adjustRightInd ?? null,
     lineNumberCount: parsed.lineNumberCount ?? null,
+    paragraphBorders: parsed.paragraphBorders ?? null,
     paragraphShading: parsed.paragraphShading ?? null,
     tablePosition: parsed.tablePosition ?? null,
     tableNoAllowOverlap: parsed.tableNoAllowOverlap ?? null,
@@ -1166,7 +1218,7 @@ function parseStd(std, index, cbSTDBaseInFile) {
     if (fbBorders) parsed.paragraphBorders = fbBorders;
   }
 
-  const runProperties = extractCharacterPropertiesFromGrpprl(grpprl);
+  let runProperties = extractCharacterPropertiesFromGrpprl(grpprl);
   // extractCharacterPropertiesFromGrpprl scans from offset 0 (including istd+cupx),
   // which may miss or misread character SPRMs. For character styles, merge the
   // correctly-parsed character properties from parseSprms.
@@ -1373,6 +1425,9 @@ function extractCharacterPropertiesFromGrpprl(grpprl) {
   scanKnownSprm(grpprl, 0x4852, 2, (value) => { props.charWidth = value.readUInt16LE(0); });
   scanKnownSprm(grpprl, 0x8840, 2, (value) => { props.charSpacing = value.readInt16LE(0); });
   scanKnownSprm(grpprl, 0x484b, 2, (value) => { props.kern = value.readUInt16LE(0); });
+  scanKnownSprm(grpprl, 0x0835, 1, (value) => { props.bold = value[0] !== 0; });
+  scanKnownSprm(grpprl, 0x2a02, 1, (value) => { props.bold = value[0] !== 0; });
+  scanKnownSprm(grpprl, 0x085c, 1, (value) => { props.boldCs = value[0] !== 0; });
   scanKnownSprm(grpprl, 0x0838, 1, (value) => { props.outline = value[0] !== 0; });
   scanKnownSprm(grpprl, 0x0839, 1, (value) => { props.shadow = value[0] !== 0; });
   scanKnownSprm(grpprl, 0x0854, 1, (value) => { props.imprint = value[0] !== 0; });
@@ -1528,6 +1583,12 @@ function sectionSprmOperandSize(sprm) {
 
 function applySectionSprm(props, sprm, val) {
   switch (sprm) {
+    case 0x3000:
+      props.pageNumberChapterSeparator = sectionChapterSeparatorFromCns(val[0]);
+      break;
+    case 0x3001:
+      props.pageNumberChapterStyle = sectionChapterStyleFromHeadingLevel(val[0]);
+      break;
     case 0x3009:
       // sprmSBkc — section break code (MS-DOC §2.6.3)
       // 0=continuous, 1=newColumn, 2=newPage, 3=evenPage, 4=oddPage
@@ -1540,6 +1601,19 @@ function applySectionSprm(props, sprm, val) {
       // MS-DOC-SPEC/16 sprmSFEvenlySpaced: whether section columns are evenly spaced.
       props.columnsEvenlySpaced = val[0] !== 0;
       break;
+    case 0x3006:
+      // MS-DOC-SPEC/16 sprmSFProtected is inverted: 1 means this section is
+      // unprotected when document form protection is enabled.
+      props.formProtection = val[0] === 0;
+      break;
+    case 0x5007:
+      // MS-DOC-SPEC/16 sprmSDmBinFirst: paper source for the first page.
+      props.paperSourceFirst = val.readUInt16LE(0);
+      break;
+    case 0x5008:
+      // MS-DOC-SPEC/16 sprmSDmBinOther: paper source for non-first pages.
+      props.paperSourceOther = val.readUInt16LE(0);
+      break;
     case 0x500b:
       // MS-DOC-SPEC/16 sprmSCcolumns stores one less than the section column count.
       props.columnCount = val.readUInt16LE(0) + 1;
@@ -1547,6 +1621,80 @@ function applySectionSprm(props, sprm, val) {
     case 0x900c:
       // MS-DOC-SPEC/16 sprmSDxaColumns: spacing between evenly spaced columns.
       props.columnSpacing = val.readUInt16LE(0);
+      break;
+    case 0x3019:
+      // MS-DOC-SPEC/16 sprmSLBetween: draw lines between section columns.
+      props.columnsLineBetween = val[0] !== 0;
+      break;
+    case 0x301a:
+      props.verticalAlign = sectionVerticalAlignFromVjc(val[0]);
+      break;
+    case 0x3013:
+      props.lineNumberRestart = sectionLineNumberRestartFromSlnc(val[0]);
+      break;
+    case 0x5015: {
+      const countBy = val.readUInt16LE(0);
+      if (countBy > 100) {
+        throw new Error(`Out-of-spec section line-number countBy ${countBy}`);
+      }
+      props.lineNumberCountBy = countBy;
+      break;
+    }
+    case 0x9016:
+      props.lineNumberDistance = val.readUInt16LE(0);
+      break;
+    case 0x501b: {
+      const startMinusOne = val.readUInt16LE(0);
+      if (startMinusOne > 32766) {
+        throw new Error(`Out-of-spec section line-number start ${startMinusOne + 1}`);
+      }
+      props.lineNumberStart = startMinusOne + 1;
+      break;
+    }
+    case 0x3228:
+      props.sectionBidi = val[0] !== 0;
+      break;
+    case 0x322a:
+      props.rtlGutter = val[0] !== 0;
+      break;
+    case 0x3011:
+      // MS-DOC-SPEC/16 sprmSFPgnRestart gates sprmSPgnStart97/sprmSPgnStart.
+      props.pageNumberRestart = val[0] !== 0;
+      break;
+    case 0x3012:
+      // MS-DOC-SPEC/16 sprmSFEndnote: 0 suppresses endnotes for this section.
+      props.endnotesSuppressed = val[0] === 0;
+      break;
+    case 0x303b:
+      props.footnotePosition = sectionFootnotePositionFromFpc(val[0]);
+      break;
+    case 0x303c:
+      props.footnoteNumberRestart = sectionNoteNumberRestartFromRnc(val[0], "footnote");
+      break;
+    case 0x303e:
+      props.endnoteNumberRestart = sectionNoteNumberRestartFromRnc(val[0], "endnote");
+      break;
+    case 0x503f: {
+      const start = val.readUInt16LE(0);
+      if (start > 16383) {
+        throw new Error(`Out-of-spec footnote number start ${start}`);
+      }
+      props.footnoteNumberStart = start;
+      break;
+    }
+    case 0x5040:
+      props.footnoteNumberFormat = val.readUInt16LE(0);
+      break;
+    case 0x5041: {
+      const start = val.readUInt16LE(0);
+      if (start > 16383) {
+        throw new Error(`Out-of-spec endnote number start ${start}`);
+      }
+      props.endnoteNumberStart = start;
+      break;
+    }
+    case 0x5042:
+      props.endnoteNumberFormat = val.readUInt16LE(0);
       break;
     case 0xf203: {
       // MS-DOC-SPEC/19 SDxaColWidthOperand: iCol, dxaCol width.
@@ -1572,6 +1720,14 @@ function applySectionSprm(props, sprm, val) {
       break;
     case 0x501c:
       props.pageNumberStart = val.readUInt16LE(0);
+      break;
+    case 0x7044:
+      // MS-DOC-SPEC/16 sprmSPgnStart: 32-bit page number start
+      props.pageNumberStart = val.readUInt32LE(0);
+      break;
+    case 0x301d:
+      // MS-DOC-SPEC/16 sprmSBOrientation: 0=portrait, 1=landscape
+      props.orientation = val[0] !== 0 ? "landscape" : "portrait";
       break;
     case 0x300e:
       // MS-DOC-SPEC/16 sprmSNfcPgn: MSONFC page-numbering format.
@@ -1611,6 +1767,16 @@ function applySectionSprm(props, sprm, val) {
     case 0x9024:
       props.marginBottom = val.readUInt16LE(0);
       break;
+    case 0xb025:
+      // MS-DOC-SPEC/16 sprmSDzaGutter: gutter margin in twips.
+      props.gutterMargin = val.readUInt16LE(0);
+      break;
+    case 0x5026:
+      // MS-DOC-SPEC/16 sprmSDmPaperReq is an implementation-specific paper
+      // format tie-breaker that consumers MAY ignore; preserve it for callers
+      // but do not map it to OOXML section markup.
+      props.paperFormatTieBreaker = val.readUInt16LE(0);
+      break;
     case 0xb017:
       props.headerMargin = val.readUInt16LE(0);
       break;
@@ -1629,6 +1795,59 @@ function applySectionSprm(props, sprm, val) {
     default:
       break;
   }
+}
+
+function sectionVerticalAlignFromVjc(value) {
+  const map = ["top", "center", "both", "bottom"];
+  const align = map[value];
+  if (!align) {
+    throw new Error(`Out-of-spec section Vjc value ${value}`);
+  }
+  return align;
+}
+
+function sectionChapterSeparatorFromCns(value) {
+  // MS-DOC-SPEC/19 CNS: chapter/page number separator enum.
+  const map = ["hyphen", "period", "colon", "emDash", "enDash"];
+  const separator = map[value];
+  if (!separator) {
+    throw new Error(`Out-of-spec section chapter separator CNS value ${value}`);
+  }
+  return separator;
+}
+
+function sectionChapterStyleFromHeadingLevel(value) {
+  // MS-DOC-SPEC/16 sprmSiHeadingPgn: 0 disables chapter numbers; 1-9 map
+  // to Heading 1 through Heading 9.
+  if (value > 9) {
+    throw new Error(`Out-of-spec section chapter heading level ${value}`);
+  }
+  return value;
+}
+
+function sectionFootnotePositionFromFpc(value) {
+  // MS-DOC-SPEC/19 SFpcOperand: 1=bottom of page, 2=beneath text.
+  if (value === 1) return "pageBottom";
+  if (value === 2) return "beneathText";
+  throw new Error(`Out-of-spec section footnote position Fpc value ${value}`);
+}
+
+function sectionNoteNumberRestartFromRnc(value, noteType) {
+  // MS-DOC-SPEC/19 Rnc: 0=continuous, 1=restart each section,
+  // 2=restart each page. Endnotes explicitly disallow rncRstPage.
+  if (value === 0) return "continuous";
+  if (value === 1) return "eachSect";
+  if (value === 2 && noteType === "footnote") return "eachPage";
+  throw new Error(`Out-of-spec ${noteType} numbering restart Rnc value ${value}`);
+}
+
+function sectionLineNumberRestartFromSlnc(value) {
+  const map = ["newPage", "newSection", "continuous"];
+  const restart = map[value];
+  if (!restart) {
+    throw new Error(`Out-of-spec section line-number restart mode ${value}`);
+  }
+  return restart;
 }
 
 function applyPageBorderSprm(props, side, val) {
@@ -1690,6 +1909,10 @@ function extractCharacterRuns(wordDocument, tableStream, fib, bodyText, pieces, 
       if (cb === 0 || cb > 200 || off + 1 + cb > page.length) continue;
       const grpprl = page.subarray(off + 1, off + 1 + cb);
       const props = parseSprms(grpprl, false);
+      // MS-DOC-SPEC/16: parseSprms skips 0x00 padding bytes, which breaks
+      // SPRMs whose low byte is 0x00 (e.g. 0x0800 sprmCFRMarkDel). Scan
+      // the GRPPRL for these known zero-byte SPRMs as a supplement.
+      scanZeroByteSprms(grpprl, props);
       if (props.characterStyleIndex != null) {
         props.styleId = resolveCharacterStyleId(props.characterStyleIndex, styles);
       }
@@ -1702,6 +1925,38 @@ function extractCharacterRuns(wordDocument, tableStream, fib, bodyText, pieces, 
   }
 
   return runs;
+}
+
+// MS-DOC-SPEC/16: parseSprms skips 0x00 bytes as padding, preventing
+// detection of SPRMs with 0x00 low byte (e.g. 0x0800 sprmCFRMarkDel).
+const ZERO_BYTE_SPRM_PATTERNS = [
+  { low: 0, high: 0x08, size: 1, name: "revisionMarkDel" },
+  { low: 1, high: 0x08, size: 1, name: "revisionMarkIns" },
+  { low: 2, high: 0x08, size: 1, name: "fldVanish" },
+  { low: 4, high: 0x48, size: 2, name: "revisionAuthorIndex" },
+  { low: 5, high: 0x68, size: 4, name: "revisionDate" },
+  { low: 7, high: 0x48, size: 2, name: "revisionReason" },
+  { low: 0x63, high: 0x48, size: 2, name: "revisionDelAuthorIndex" },
+  { low: 0x64, high: 0x68, size: 4, name: "revisionDelDate" },
+  { low: 0x67, high: 0x48, size: 2, name: "revisionDelReason" },
+];
+function scanZeroByteSprms(grpprl, props) {
+  if (!grpprl || grpprl.length < 3) return;
+  for (let i = 0; i + 2 < grpprl.length; i++) {
+    if (grpprl[i] !== 0) continue;
+    const low = grpprl[i];
+    const high = grpprl[i + 1];
+    for (const p of ZERO_BYTE_SPRM_PATTERNS) {
+      if (p.low === low && p.high === high) {
+        if (i + 2 + p.size > grpprl.length) continue;
+        const val = grpprl.subarray(i + 2, i + 2 + p.size);
+        if (p.size === 1) props[p.name] = val[0] !== 0;
+        else if (p.size === 2) props[p.name] = val.readUInt16LE(0);
+        else if (p.size === 4) props[p.name] = val.readUInt32LE(0);
+        break;
+      }
+    }
+  }
 }
 
 function expandCharacterRuns(characterRuns, bodyCharacterCount) {
@@ -1795,7 +2050,6 @@ function buildTablesFromInTableParagraphBlocks(bodyText, paragraphProperties, pa
       const gridPositions = buildTableGridPositions(tableRows);
       const gridCols = positionsToWidths(gridPositions);
       applyRowGeometry(tableRows, gridPositions, sections);
-      inferMissingRowHeights(tableRows);
       const { tableWidth, tableWidthType } = inferTableWidth(tableRows);
       const tableIndent = inferTableIndent(tableRows, gridPositions);
       const tableAutofit = inferTableAutofit(tableRows);
@@ -1839,7 +2093,6 @@ function buildTablesFromInTableParagraphBlocks(bodyText, paragraphProperties, pa
       const gridPositions = buildTableGridPositions(tableRows);
       const gridCols = positionsToWidths(gridPositions);
       applyRowGeometry(tableRows, gridPositions, sections);
-      inferMissingRowHeights(tableRows);
       const { tableWidth, tableWidthType } = inferTableWidth(tableRows);
       const tableIndent = inferTableIndent(tableRows, gridPositions);
       const tableAutofit = inferTableAutofit(tableRows);
@@ -2210,35 +2463,6 @@ function parseCellBorderSideArrayOperand(sprm, payload) {
     borders.push(parseBorderRecord(payload.subarray(off, off + 4), sprm));
   }
   return { side, borders };
-}
-
-function inferMissingRowHeights(rows) {
-  const heightCounts = new Map();
-  for (const row of rows) {
-    if (row.rowHeight == null) continue;
-    const key = `${row.rowHeight}:${row.rowHeightRule}`;
-    heightCounts.set(key, (heightCounts.get(key) ?? 0) + 1);
-  }
-
-  let dominantKey = null;
-  let dominantCount = 0;
-  for (const [key, count] of heightCounts.entries()) {
-    if (count > dominantCount) {
-      dominantKey = key;
-      dominantCount = count;
-    }
-  }
-
-  if (!dominantKey) return;
-  const [heightText, ruleText] = dominantKey.split(":");
-  const dominantHeight = Number(heightText);
-  const dominantRule = Number(ruleText);
-
-  for (const row of rows) {
-    if (row.rowHeight != null) continue;
-    row.rowHeight = dominantHeight;
-    row.rowHeightRule = dominantRule;
-  }
 }
 
 function inferRowColumnsFromGrid(gridPositions, row) {
